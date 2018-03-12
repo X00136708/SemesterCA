@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SemesterCa/conf/routes
-// @DATE:Mon Mar 12 20:14:47 GMT 2018
+// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
+// @DATE:Mon Mar 12 20:58:33 GMT 2018
 
 package router
 
@@ -63,7 +63,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addOne/""" + "$" + """itemId<[^/]+>""", """controllers.ShoppingCtrl.addOne(itemId:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """removeOne/""" + "$" + """itemId<[^/]+>""", """controllers.ShoppingCtrl.removeOne(itemId:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """emptyBasket""", """controllers.ShoppingCtrl.emptyBasket()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """placeOrder""", """controllers.ShoppingCtrl.placeOrder()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """placeOrder/""" + "$" + """id<[^/]+>""", """controllers.ShoppingCtrl.placeOrder(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """viewOrder/""" + "$" + """id<[^/]+>""", """controllers.ShoppingCtrl.viewOrder(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin""", """controllers.AdminProductCtrl.index()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/listProducts""", """controllers.AdminProductCtrl.listProducts(cat:Long ?= 0L)"""),
@@ -281,17 +281,17 @@ class Routes(
 
   // @LINE:24
   private[this] lazy val controllers_ShoppingCtrl_placeOrder11_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("placeOrder")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("placeOrder/"), DynamicPart("id", """[^/]+""",true)))
   )
   private[this] lazy val controllers_ShoppingCtrl_placeOrder11_invoker = createInvoker(
-    ShoppingCtrl_1.placeOrder(),
+    ShoppingCtrl_1.placeOrder(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ShoppingCtrl",
       "placeOrder",
-      Nil,
+      Seq(classOf[Long]),
       "GET",
-      this.prefix + """placeOrder""",
+      this.prefix + """placeOrder/""" + "$" + """id<[^/]+>""",
       """""",
       Seq()
     )
@@ -548,8 +548,8 @@ class Routes(
   
     // @LINE:24
     case controllers_ShoppingCtrl_placeOrder11_route(params@_) =>
-      call { 
-        controllers_ShoppingCtrl_placeOrder11_invoker.call(ShoppingCtrl_1.placeOrder())
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_ShoppingCtrl_placeOrder11_invoker.call(ShoppingCtrl_1.placeOrder(id))
       }
   
     // @LINE:25

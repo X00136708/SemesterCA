@@ -1,4 +1,5 @@
 @(registeredUser: models.users.RegisteredUser)
+@(products: models.products.Product)
 
 
 @import play.api.Play.current
@@ -65,12 +66,14 @@
                     <span class="glyphicon glyphicon-trash"></span> Empty Basket</a>
                 </p>
             </div>  
+            @for(p <- products) {
             <div class="col-md-6">
                 <p class="text-right">
-                    <a href="@routes.ShoppingCtrl.placeOrder()" class="btn btn-success btn-sm">
+                    <a href="@routes.ShoppingCtrl.placeOrder(p.getStock)" class="btn btn-success btn-sm">
                     <span class="glyphicon glyphicon-euro"></span> Place Order</a>
                 </p>
             </div>  
+        }
         </div>
     </div>
 </div>

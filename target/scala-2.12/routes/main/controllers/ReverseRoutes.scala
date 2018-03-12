@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SemesterCa/conf/routes
-// @DATE:Mon Mar 12 20:14:47 GMT 2018
+// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
+// @DATE:Mon Mar 12 20:58:33 GMT 2018
 
 import play.api.mvc.Call
 
@@ -25,6 +25,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "addOne/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("itemId", itemId)))
     }
   
+    // @LINE:24
+    def placeOrder(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "placeOrder/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
+  
     // @LINE:20
     def addToBasket(id:Long): Call = {
       
@@ -35,12 +41,6 @@ package controllers {
     def viewOrder(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "viewOrder/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
-    }
-  
-    // @LINE:24
-    def placeOrder(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "placeOrder")
     }
   
     // @LINE:22
