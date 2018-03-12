@@ -54,14 +54,14 @@ public class AdminProductCtrl extends Controller {
 		return u;
 	}
     public Result index() {
-        return redirect(controllers.routes.AdminProductCtrl.shop(0));
+        return redirect(controllers.routes.AdminProductCtrl.listProducts(0));
     }
     // Get a list of products
     // If cat parameter is 0 then return all products
     // Otherwise return products for a category (by id)
     // In both cases products will be searched using the fiter value
     @Transactional
-    public Result shop(Long cat) {
+    public Result listProducts(Long cat) {
         // Get list of all categories in ascending order
         List<Category> categories = Category.findAll();
         // Instantiate products, an Array list of products			
@@ -79,7 +79,7 @@ public class AdminProductCtrl extends Controller {
         // category id - used for filtering
         // the filter string - this will be displayed in the filter text input
         // current user - if one is logged in
-        return ok(shop.render(products, categories, getCurrentUser(),e));
+        return ok(listProducts.render(products, categories, getCurrentUser(),e));
     }
 
     @Transactional

@@ -11,10 +11,10 @@ import models.shopping.*;
 
 @Entity
 
-// This is a user of type registeredUser
+// This is a user of type RegisteredUser
 @DiscriminatorValue("registeredUser")
 
-// registeredUser inherits from the User class
+// RegisteredUser inherits from the User class
 public class RegisteredUser extends User{
 	
 	private String street1;
@@ -23,15 +23,15 @@ public class RegisteredUser extends User{
     private String postCode;
     private String creditCard;
 
-    // registeredUser has one basket.
-    // registeredUser is the owner (foreign key will be added to Basket
-    // table). All changes to registeredUser are cascaded.
+    // RegisteredUser has one basket.
+    // RegisteredUser is the owner (foreign key will be added to Basket
+    // table). All changes to RegisteredUser are cascaded.
     @OneToOne(mappedBy="registeredUser", cascade = CascadeType.ALL)
     private Basket basket;
 
-    // registeredUser can habe many ShopOrders.
-    // registeredUser is the owner (forieng key will be added to Basket
-    // table). All changes to registeredUser are cascaded
+    // RegisteredUser can habe many ShopOrders.
+    // RegisteredUser is the owner (forieng key will be added to Basket
+    // table). All changes to RegisteredUser are cascaded
     @OneToMany(mappedBy="registeredUser", cascade = CascadeType.ALL)
     private List<ShopOrder> orders;
 	

@@ -22,9 +22,10 @@ public class Product extends Model {
         @Constraints.Required
         private int stock; 
         @Constraints.Required
-        private double price; 
+        private double price;
         @Constraints.Required
         private String pegi;
+       
 
         public static final Finder<Long, Product> find = new Finder<>(Product.class);
         // List of category ids - this will be bound to checkboxes in the view form
@@ -77,6 +78,12 @@ public class Product extends Model {
         public void setId(Long id) {
             this.id = id;
         }
+        public String getPegi() {
+            return this.pegi;
+        }
+        public void setPegi(String pegi) {
+            this.pegi=pegi;
+        }
         public String getName() {
             return name;
         }
@@ -107,12 +114,6 @@ public class Product extends Model {
         }
         public void setCatSelect(List<Long> catSelect){
             this.catSelect = catSelect;
-        }
-        public void setPegi(String pegi){
-            this.pegi=pegi;
-        }
-        public String getPegi(){
-            return this.pegi;
         }
     }
     

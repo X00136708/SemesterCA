@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
-// @DATE:Mon Mar 12 14:08:20 GMT 2018
+// @SOURCE:/home/wdd/SemesterCa/conf/routes
+// @DATE:Mon Mar 12 20:14:47 GMT 2018
 
 import play.api.routing.JavaScriptReverseRoute
 

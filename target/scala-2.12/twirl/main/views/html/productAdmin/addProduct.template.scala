@@ -55,19 +55,18 @@ Seq[Any](format.raw/*4.42*/("""
         """),_display_(/*23.10*/inputText(productForm("description"), '_label -> "Description", 'class -> "form-control")),format.raw/*23.99*/("""
         """),_display_(/*24.10*/inputText(productForm("stock"), '_label -> "Stock", 'class -> "form-control")),format.raw/*24.87*/("""
         """),_display_(/*25.10*/inputText(productForm("price"), '_label -> "Price", 'class -> "form-control")),format.raw/*25.87*/("""
+        """),_display_(/*26.10*/inputText(productForm("pegi"), '_label -> "PEGI Rating", 'class -> "form-control")),format.raw/*26.92*/("""
 
-        """),_display_(/*27.10*/inputText(productForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*27.74*/("""
-
-        """),format.raw/*29.9*/("""<label>Image Upload</label>
+        """),format.raw/*28.9*/("""<label>Image Upload</label>
         <input class="btn-sm btn-default" type="file" name="upload">
         <br><br>
         <div class="actions">
             <input type="submit" value="Add Product" class="btn btn-primary">
-            <a href=""""),_display_(/*34.23*/routes/*34.29*/.ProductCtrl.shop(0)),format.raw/*34.49*/("""">
+            <a href=""""),_display_(/*33.23*/routes/*33.29*/.ProductCtrl.listProducts(0)),format.raw/*33.57*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*38.6*/("""
+    """)))}),format.raw/*37.6*/("""
 """)))}))
       }
     }
@@ -84,11 +83,11 @@ Seq[Any](format.raw/*4.42*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Mar 12 14:08:21 GMT 2018
-                  SOURCE: /home/wdd/webapps/semesterca/app/views/productAdmin/addProduct.scala.html
-                  HASH: 29d53ca0639f8e0cbec5a607d09bedc50b4ac55e
-                  MATRIX: 664->1|703->34|741->66|1087->92|1200->134|1245->132|1272->150|1299->152|1331->176|1370->178|1401->183|1469->226|1613->361|1653->363|1690->400|1727->410|1740->414|1771->424|1808->434|1904->509|1940->518|2351->902|2405->940|2445->942|2486->955|2563->1005|2589->1010|2646->1040|2671->1044|2724->1066|2761->1076|2871->1165|2908->1175|3006->1252|3043->1262|3141->1339|3179->1350|3264->1414|3301->1424|3572->1668|3587->1674|3628->1694|3776->1812
-                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|41->9|41->9|41->9|42->10|43->11|43->11|43->11|44->12|44->12|45->13|50->18|50->18|50->18|51->19|51->19|51->19|53->21|53->21|54->22|55->23|55->23|56->24|56->24|57->25|57->25|59->27|59->27|61->29|66->34|66->34|66->34|70->38
+                  DATE: Mon Mar 12 20:14:47 GMT 2018
+                  SOURCE: /home/wdd/SemesterCa/app/views/productAdmin/addProduct.scala.html
+                  HASH: 22d89f9989d6a9d918e8d95ec4b7512c42336750
+                  MATRIX: 664->1|703->34|741->66|1087->92|1200->134|1245->132|1272->150|1299->152|1331->176|1370->178|1401->183|1469->226|1613->361|1653->363|1690->400|1727->410|1740->414|1771->424|1808->434|1904->509|1940->518|2351->902|2405->940|2445->942|2486->955|2563->1005|2589->1010|2646->1040|2671->1044|2724->1066|2761->1076|2871->1165|2908->1175|3006->1252|3043->1262|3141->1339|3178->1349|3281->1431|3318->1441|3589->1685|3604->1691|3653->1719|3801->1837
+                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|41->9|41->9|41->9|42->10|43->11|43->11|43->11|44->12|44->12|45->13|50->18|50->18|50->18|51->19|51->19|51->19|53->21|53->21|54->22|55->23|55->23|56->24|56->24|57->25|57->25|58->26|58->26|60->28|65->33|65->33|65->33|69->37
                   -- GENERATED --
               */
           

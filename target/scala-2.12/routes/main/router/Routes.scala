@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
-// @DATE:Mon Mar 12 14:08:20 GMT 2018
+// @SOURCE:/home/wdd/SemesterCa/conf/routes
+// @DATE:Mon Mar 12 20:14:47 GMT 2018
 
 package router
 
@@ -53,7 +53,7 @@ class Routes(
 
   def documentation = List(
     ("""GET""", this.prefix, """controllers.ProductCtrl.index()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """shop""", """controllers.ProductCtrl.shop(cat:Long ?= 0, filter:String ?= "")"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """listProducts""", """controllers.ProductCtrl.listProducts(cat:Long ?= 0, filter:String ?= "")"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """productDetails/""" + "$" + """id<[^/]+>""", """controllers.ProductCtrl.productDetails(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.security.LoginCtrl.login()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.security.LoginCtrl.loginSubmit()"""),
@@ -66,8 +66,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """placeOrder""", """controllers.ShoppingCtrl.placeOrder()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """viewOrder/""" + "$" + """id<[^/]+>""", """controllers.ShoppingCtrl.viewOrder(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin""", """controllers.AdminProductCtrl.index()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/shop""", """controllers.AdminProductCtrl.shop(cat:Long ?= 0L)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/shop/""" + "$" + """cat<[^/]+>""", """controllers.AdminProductCtrl.shop(cat:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/listProducts""", """controllers.AdminProductCtrl.listProducts(cat:Long ?= 0L)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/listProducts/""" + "$" + """cat<[^/]+>""", """controllers.AdminProductCtrl.listProducts(cat:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/addProduct""", """controllers.AdminProductCtrl.addProduct()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/addProductSubmit""", """controllers.AdminProductCtrl.addProductSubmit()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/updateProduct/""" + "$" + """id<[^/]+>""", """controllers.AdminProductCtrl.updateProduct(id:Long)"""),
@@ -100,18 +100,18 @@ class Routes(
   )
 
   // @LINE:10
-  private[this] lazy val controllers_ProductCtrl_shop1_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("shop")))
+  private[this] lazy val controllers_ProductCtrl_listProducts1_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("listProducts")))
   )
-  private[this] lazy val controllers_ProductCtrl_shop1_invoker = createInvoker(
-    ProductCtrl_0.shop(fakeValue[Long], fakeValue[String]),
+  private[this] lazy val controllers_ProductCtrl_listProducts1_invoker = createInvoker(
+    ProductCtrl_0.listProducts(fakeValue[Long], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ProductCtrl",
-      "shop",
+      "listProducts",
       Seq(classOf[Long], classOf[String]),
       "GET",
-      this.prefix + """shop""",
+      this.prefix + """listProducts""",
       """""",
       Seq()
     )
@@ -334,36 +334,36 @@ class Routes(
   )
 
   // @LINE:30
-  private[this] lazy val controllers_AdminProductCtrl_shop14_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/shop")))
+  private[this] lazy val controllers_AdminProductCtrl_listProducts14_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/listProducts")))
   )
-  private[this] lazy val controllers_AdminProductCtrl_shop14_invoker = createInvoker(
-    AdminProductCtrl_2.shop(fakeValue[Long]),
+  private[this] lazy val controllers_AdminProductCtrl_listProducts14_invoker = createInvoker(
+    AdminProductCtrl_2.listProducts(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.AdminProductCtrl",
-      "shop",
+      "listProducts",
       Seq(classOf[Long]),
       "GET",
-      this.prefix + """Admin/shop""",
+      this.prefix + """Admin/listProducts""",
       """""",
       Seq()
     )
   )
 
   // @LINE:31
-  private[this] lazy val controllers_AdminProductCtrl_shop15_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/shop/"), DynamicPart("cat", """[^/]+""",true)))
+  private[this] lazy val controllers_AdminProductCtrl_listProducts15_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/listProducts/"), DynamicPart("cat", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_AdminProductCtrl_shop15_invoker = createInvoker(
-    AdminProductCtrl_2.shop(fakeValue[Long]),
+  private[this] lazy val controllers_AdminProductCtrl_listProducts15_invoker = createInvoker(
+    AdminProductCtrl_2.listProducts(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.AdminProductCtrl",
-      "shop",
+      "listProducts",
       Seq(classOf[Long]),
       "GET",
-      this.prefix + """Admin/shop/""" + "$" + """cat<[^/]+>""",
+      this.prefix + """Admin/listProducts/""" + "$" + """cat<[^/]+>""",
       """""",
       Seq()
     )
@@ -487,9 +487,9 @@ class Routes(
       }
   
     // @LINE:10
-    case controllers_ProductCtrl_shop1_route(params@_) =>
+    case controllers_ProductCtrl_listProducts1_route(params@_) =>
       call(params.fromQuery[Long]("cat", Some(0)), params.fromQuery[String]("filter", Some(""))) { (cat, filter) =>
-        controllers_ProductCtrl_shop1_invoker.call(ProductCtrl_0.shop(cat, filter))
+        controllers_ProductCtrl_listProducts1_invoker.call(ProductCtrl_0.listProducts(cat, filter))
       }
   
     // @LINE:11
@@ -565,15 +565,15 @@ class Routes(
       }
   
     // @LINE:30
-    case controllers_AdminProductCtrl_shop14_route(params@_) =>
+    case controllers_AdminProductCtrl_listProducts14_route(params@_) =>
       call(params.fromQuery[Long]("cat", Some(0L))) { (cat) =>
-        controllers_AdminProductCtrl_shop14_invoker.call(AdminProductCtrl_2.shop(cat))
+        controllers_AdminProductCtrl_listProducts14_invoker.call(AdminProductCtrl_2.listProducts(cat))
       }
   
     // @LINE:31
-    case controllers_AdminProductCtrl_shop15_route(params@_) =>
+    case controllers_AdminProductCtrl_listProducts15_route(params@_) =>
       call(params.fromPath[Long]("cat", None)) { (cat) =>
-        controllers_AdminProductCtrl_shop15_invoker.call(AdminProductCtrl_2.shop(cat))
+        controllers_AdminProductCtrl_listProducts15_invoker.call(AdminProductCtrl_2.listProducts(cat))
       }
   
     // @LINE:33

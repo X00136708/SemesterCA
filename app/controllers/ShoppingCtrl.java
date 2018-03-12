@@ -17,9 +17,9 @@ import models.shopping.*;
 import controllers.security.*;
 
 // Authenticate user
-//@Security.Authenticated(Secured.class)
+@Security.Authenticated(Secured.class)
 // Authorise user (check if user is a registeredUser)
-//@With(CheckIfRegisteredUser.class)
+@With(CheckIfRegisteredUser.class)
 
 public class ShoppingCtrl extends Controller {
 

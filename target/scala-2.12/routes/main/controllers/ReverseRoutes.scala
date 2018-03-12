@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
-// @DATE:Mon Mar 12 14:08:20 GMT 2018
+// @SOURCE:/home/wdd/SemesterCa/conf/routes
+// @DATE:Mon Mar 12 20:14:47 GMT 2018
 
 import play.api.mvc.Call
 
@@ -76,24 +76,24 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "Admin/addProductSubmit")
     }
   
-    // @LINE:39
-    def deleteProduct(id:Long): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "Admin/deleteProduct/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
-    }
-  
     // @LINE:30
-    def shop(cat:Long): Call = {
+    def listProducts(cat:Long): Call = {
     
       (cat: @unchecked) match {
       
         // @LINE:30
         case (cat)  =>
           
-          Call("GET", _prefix + { _defaultPrefix } + "Admin/shop" + play.core.routing.queryString(List(if(cat == 0L) None else Some(implicitly[play.api.mvc.QueryStringBindable[Long]].unbind("cat", cat)))))
+          Call("GET", _prefix + { _defaultPrefix } + "Admin/listProducts" + play.core.routing.queryString(List(if(cat == 0L) None else Some(implicitly[play.api.mvc.QueryStringBindable[Long]].unbind("cat", cat)))))
       
       }
     
+    }
+  
+    // @LINE:39
+    def deleteProduct(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/deleteProduct/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
     // @LINE:36
@@ -150,16 +150,16 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "productDetails/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:10
-    def shop(cat:Long = 0, filter:String = ""): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "shop" + play.core.routing.queryString(List(if(cat == 0) None else Some(implicitly[play.api.mvc.QueryStringBindable[Long]].unbind("cat", cat)), if(filter == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("filter", filter)))))
-    }
-  
     // @LINE:6
     def index(): Call = {
       
       Call("GET", _prefix)
+    }
+  
+    // @LINE:10
+    def listProducts(cat:Long = 0, filter:String = ""): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "listProducts" + play.core.routing.queryString(List(if(cat == 0) None else Some(implicitly[play.api.mvc.QueryStringBindable[Long]].unbind("cat", cat)), if(filter == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("filter", filter)))))
     }
   
   }

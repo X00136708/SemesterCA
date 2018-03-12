@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
-// @DATE:Mon Mar 12 14:08:20 GMT 2018
+// @SOURCE:/home/wdd/SemesterCa/conf/routes
+// @DATE:Mon Mar 12 20:14:47 GMT 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -110,26 +110,26 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:30
+    def listProducts: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.listProducts",
+      """
+        function(cat0) {
+        
+          if (true) {
+            return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/listProducts" + _qS([(cat0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[Long]].javascriptUnbind + """)("cat", cat0))])})
+          }
+        
+        }
+      """
+    )
+  
     // @LINE:39
     def deleteProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AdminProductCtrl.deleteProduct",
       """
         function(id0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/deleteProduct/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
-        }
-      """
-    )
-  
-    // @LINE:30
-    def shop: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AdminProductCtrl.shop",
-      """
-        function(cat0) {
-        
-          if (true) {
-            return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/shop" + _qS([(cat0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[Long]].javascriptUnbind + """)("cat", cat0))])})
-          }
-        
         }
       """
     )
@@ -214,22 +214,22 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:10
-    def shop: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.ProductCtrl.shop",
-      """
-        function(cat0,filter1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "shop" + _qS([(cat0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[Long]].javascriptUnbind + """)("cat", cat0)), (filter1 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("filter", filter1))])})
-        }
-      """
-    )
-  
     // @LINE:6
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ProductCtrl.index",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
+        }
+      """
+    )
+  
+    // @LINE:10
+    def listProducts: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ProductCtrl.listProducts",
+      """
+        function(cat0,filter1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "listProducts" + _qS([(cat0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[Long]].javascriptUnbind + """)("cat", cat0)), (filter1 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("filter", filter1))])})
         }
       """
     )
