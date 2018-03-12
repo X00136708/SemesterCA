@@ -1,0 +1,3 @@
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/webapps/PlayLab5-master/app/controllers/ShoppingCtrl.java:22:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol: class CheckIfRegisteredUser[0m
+[0m[[0m[31merror[0m] [0m[0m@With(CheckIfRegisteredUser.class)[0m
