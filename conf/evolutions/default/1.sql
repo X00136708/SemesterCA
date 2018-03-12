@@ -38,6 +38,7 @@ create table product (
   description                   varchar(255),
   stock                         integer not null,
   price                         double not null,
+  pegi                          varchar(255),
   constraint pk_product primary key (id)
 );
 

@@ -2,7 +2,7 @@
 @import models.products.Product
 @import models.users.User
 @(products: List[Product], categories: List[Category], catId: Long, filter: String,user: User,env: play.api.Environment)
-
+<link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
 
 @main("Products",user) {
 
@@ -34,37 +34,36 @@
          <input type="submit" id="searchsubmit" value="Filter by name" class="btn-md btn-primary">
         </form>
        </div>
-    <table class="table table-bordered table-hover table-condensed">   
-      <thead>
-        <tr>
-          <th></th>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Stock</th>
-          <th>Price</th>   
-        </tr>
-      </thead>
+    
+   
 
       <tbody>
+          
         @for(p<-products) {
-          <tr>
+          <div class="list-group">
+            <div class="games">
+         
               @if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {
-                <td><img src="/assets/images/productImages/thumbnails/@(p.getId + ".jpg")"/></td>
+                <img src="/assets/images/productImages/thumbnails/@(p.getId + ".jpg")"/>
             } else {
-                <td><img src="/assets/images/productImages/thumbnails/noImage.jpg"/></td>
+                <img src="/assets/images/productImages/thumbnails/noImage.jpg"/>
             }
-            <td class="numeric">@p.getId</td>
+            
+            <td></td>
             <td><a href="@routes.ProductCtrl.productDetails(p.getId)">
                 @p.getName</td>
-               </a>     
+            </a>
+              @p.getPegi
+                <br>
+                   
             <td>@p.getDescription</td>
             <td  class="numeric">@p.getStock</td>
             <td  class="numeric">€ @("%.2f".format(p.getPrice))</td>
             <td><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
-
-          </tr>
+          </div>
+          </div>
         }
+      
       </tbody>
 
     </table>

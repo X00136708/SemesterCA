@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/PlayLab5-master/conf/routes
-// @DATE:Mon Mar 12 11:23:25 GMT 2018
+// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
+// @DATE:Mon Mar 12 14:08:20 GMT 2018
 
 package controllers;
 
