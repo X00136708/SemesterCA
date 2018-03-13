@@ -11,7 +11,7 @@ import models.products.*;
 import models.users.*;
 
 
-// Product entity managed by Ebean
+
 @Entity
 public class Basket extends Model {
 
@@ -24,18 +24,14 @@ public class Basket extends Model {
     @OneToOne
     private RegisteredUser registeredUser;
 
-    // Default constructor
+   
     public  Basket() {
     }
-    // Add product to basket
-    // Either update existing order item or ad a new one.
+  
     public void addProduct(Product p) {
         
         boolean itemFound = false;
-        // Check if product already in this basket
-        // Check if item in basket
-        // Find orderitem with this product
-        // if found increment quantity
+      
         for (OrderItem i : basketItems) {
             if (i.getProduct().getId() == p.getId()) {
                 i.increaseQty();
@@ -44,32 +40,28 @@ public class Basket extends Model {
             }
         }
         if (itemFound == false) {
-            // Add orderItem to list
+            
             OrderItem newItem = new OrderItem(p);
-            // Add to items
+           
             basketItems.add(newItem);
         }
     }
     public void removeItem(OrderItem item) {
 
-        // Using an iterator ensures 'safe' removal of list objects
-        // Removal of list items is unreliable as index can change if an item is 
-        // added or removed elsewhere
-        // iterator works with an object reference which does not change
         for (Iterator<OrderItem> iter = basketItems.iterator(); iter.hasNext();) {
             OrderItem i = iter.next();
             if (i.getId().equals(item.getId()))
             {
-                // If more than one of these items in the basket then decrement
+               
                 if (i.getQuantity() > 1 ) {
                     i.decreaseQty();
                 }
-                // If only one left, remove this item from the basket (via the 
-                // iterator)
+              
+             
                 else {
-                    // delete object from db
+                  
                     i.delete();
-                    // remove object from list
+                 
                     iter.remove();
                     break;
                 }             
@@ -96,10 +88,10 @@ public class Basket extends Model {
         return total;
     }
 	
-	//Generic query helper
+	
     public static Finder<Long,Basket> find = new Finder<Long,Basket>(Basket.class);
 
-    //Find all Products in the database
+     /Find all Products in the database
     public static List<Basket> findAll() {
         return Basket.find.all();
     }
