@@ -1,7 +1,66 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/webapps/semesterca/app/views/basket.scala.html:2:3: package models.products is not a value[0m
-[0m[[0m[31merror[0m] [0m[0m@(products: models.products.Product)[0m
-[0m[[0m[31merror[0m] [0m[0m  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/webapps/semesterca/app/views/basket.scala.html:69:23: object map is not a member of package models.products[0m
-[0m[[0m[31merror[0m] [0m[0m            @for(p <- products) {[0m
-[0m[[0m[31merror[0m] [0m[0m                      ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:134:1: illegal start of type[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(basket.render(c));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:134:1: ';' expected[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(basket.render(c));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:134:1: illegal start of type[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(basket.render(c));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:134:1: ';' expected[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(basket.render(c));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:134:1: invalid method declaration; return type required[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(basket.render(c));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:134:1: <identifier> expected[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(basket.render(c));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:134:1: ';' expected[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(basket.render(c));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:139:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m    public Result emptyBasket() {[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:142:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        c.getBasket().removeAllItems();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:143:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        c.getBasket().update();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:145:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(basket.render(c));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:146:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m    }[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:149:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m    public Result placeOrder() {[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:151:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        Product p = new Product();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:152:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        RegisteredUser registeredUser = (RegisteredUser)User.getLoggedIn(session().get("email"));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:155:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        ShopOrder order = new ShopOrder();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:158:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        order.setRegisteredUser(c);[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:161:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        order.setItems(c.getBasket().getBasketItems());[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:162:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        for(OrderItem i: order.getItems()){[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:166:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m                p.update();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:167:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m                registeredUser.update();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:168:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m            } else {[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:170:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m            }[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:176:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        for (OrderItem i: order.getItems()) {[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:180:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m            i.setBasket(null);[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:182:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m            i.update();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:188:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        }[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:196:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        emptyBasket();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:199:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(orderConfirmed.render(c, order));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:200:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m    }[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:204:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m    public Result viewOrder(long id) {[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:206:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(orderConfirmed.render(getCurrentUser(), order));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/semesterca/app/controllers/ShoppingCtrl.java:207:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m    }[0m

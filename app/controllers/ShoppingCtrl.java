@@ -97,7 +97,7 @@ public class ShoppingCtrl extends Controller {
         if(item.getProduct().getStock() >= 1){
             //item.getProduct().setStock(item.getProduct().getStock()-1);
             item.increaseQty();
-            item.getProduct().update();
+            //item.getProduct().update();
         } else {
             flash("failure", "Product " + item.getProduct().getName() + " is out of stock!");
         }
@@ -117,7 +117,7 @@ public class ShoppingCtrl extends Controller {
         // Call basket remove item method
         c.getBasket().removeItem(item);
 
-            item.getProduct().setStock(item.getProduct().getStock()+1);
+            //item.getProduct().setStock(item.getProduct().getStock()+1);
             item.getProduct().update();
 
         c.getBasket().update();
@@ -137,18 +137,11 @@ public class ShoppingCtrl extends Controller {
     }
 
     @Transactional
-    public Result placeOrder(Long id) {
+    public Result placeOrder() {
         RegisteredUser c = getCurrentUser();
-        Product p = Product.find.byId(id);
+        Product p = new Product();
         RegisteredUser registeredUser = (RegisteredUser)User.getLoggedIn(session().get("email"));
-        if(p.getStock() >= 1){
-            p.setStock(p.getStock()-1);
-            registeredUser.getBasket().addProduct(p);
-            p.update();
-            registeredUser.update();
-        } else {
-            flash("failure", "Product " + p.getName() + " is out of stock!");
-        }
+        
         // Create an order instance
         ShopOrder order = new ShopOrder();
         
@@ -157,26 +150,41 @@ public class ShoppingCtrl extends Controller {
         
         // Copy basket to order
         order.setItems(c.getBasket().getBasketItems());
-        
+        for(OrderItem i: order.getItems()){
+            if(p.getStock() >= 1){
+                p.setStock(p.getStock()-1);
+                
+                p.update();
+                registeredUser.update();
+            } else {
+                flash("failure", "Product " + p.getName() + " is out of stock!");
+            }
+        }
         // Save the order now to generate a new id for this order
         order.save();
-     
+       
        // Move items from basket to order
         for (OrderItem i: order.getItems()) {
-            // Associate with order
+            // Asso0ciate with order
             i.setOrder(order);
             // Remove from basket
             i.setBasket(null);
             // update item
             i.update();
+
+           
+
+            
+
         }
         
+     
+      
         // Update the order
         order.update();
         
         // Clear and update the shopping basket
-        c.getBasket().setBasketItems(null);
-        c.getBasket().update();
+        emptyBasket();
         
         // Show order confirmed view
         return ok(orderConfirmed.render(c, order));

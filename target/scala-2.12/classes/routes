@@ -21,7 +21,7 @@ GET     /addToBasket/:id                    controllers.ShoppingCtrl.addToBasket
 GET     /addOne/:itemId                     controllers.ShoppingCtrl.addOne(itemId: Long)
 GET     /removeOne/:itemId                  controllers.ShoppingCtrl.removeOne(itemId: Long)
 GET     /emptyBasket                        controllers.ShoppingCtrl.emptyBasket()
-GET     /placeOrder/:id                       controllers.ShoppingCtrl.placeOrder(id: Long)
+GET     /placeOrder                         controllers.ShoppingCtrl.placeOrder()    
 GET     /viewOrder/:id                      controllers.ShoppingCtrl.viewOrder(id: Long)
 
 # Product Administration

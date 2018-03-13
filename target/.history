@@ -289,3 +289,8 @@ clean
 compile
 run
 exit
+clean
+run
+clean
+run
+exit
