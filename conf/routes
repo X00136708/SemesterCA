@@ -15,6 +15,10 @@ GET		/login						        controllers.security.LoginCtrl.login()
 POST	/login						        controllers.security.LoginCtrl.loginSubmit()
 GET     /logout                             controllers.security.LoginCtrl.logout()
 
+# Registration
+GET     /addUser                        controllers.security.RegisterUser.register()
+POST    /addUserSubmit                  controllers.security.RegisterUser.registrationSubmit()
+
 # Shopping
 GET     /showBasket                         controllers.ShoppingCtrl.showBasket()
 GET     /addToBasket/:id                    controllers.ShoppingCtrl.addToBasket(id: Long)

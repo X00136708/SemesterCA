@@ -91,6 +91,14 @@ public class User extends Model {
             return find.byId(id);
         }
     }
+    public static User getUserById(String id) {
+        if (id == null) {
+            return null;
+        }
+        else {
+            return find.byId(id);
+        }
+    }
 
     
 
