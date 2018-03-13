@@ -36,7 +36,12 @@ public class OrderItem extends Model {
     }
     
     public OrderItem(Product p) {
-            product = p;
+        product=p;
+        quantity = 1;
+        price = p.getPrice();
+}
+    public OrderItem(Long id, String name, String description , int stock ,double price, String pegi) {
+            Product p = new Product(id,name,description,stock,price,pegi);
             quantity = 1;
             price = p.getPrice();
     }

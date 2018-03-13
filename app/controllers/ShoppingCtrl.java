@@ -117,7 +117,7 @@ public class ShoppingCtrl extends Controller {
         // Call basket remove item method
         c.getBasket().removeItem(item);
 
-            //item.getProduct().setStock(item.getProduct().getStock()+1);
+            item.getProduct().setStock(item.getProduct().getStock()+1);
             item.getProduct().update();
 
         c.getBasket().update();
@@ -153,7 +153,7 @@ public class ShoppingCtrl extends Controller {
         for(OrderItem i: order.getItems()){
             if(p.getStock() >= 1){
                 p.setStock(p.getStock()-1);
-                
+                OrderItem product = new OrderItem(p.getId(), p.getName(), p.getDescription(), p.getStock(), p.getPrice(), p.getPegi());
                 p.update();
                 registeredUser.update();
             } else {

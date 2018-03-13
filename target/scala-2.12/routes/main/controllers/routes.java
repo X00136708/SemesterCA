@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/semesterca/conf/routes
-// @DATE:Tue Mar 13 12:25:57 GMT 2018
+// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
+// @DATE:Tue Mar 13 15:50:02 GMT 2018
 
 package controllers;
 
