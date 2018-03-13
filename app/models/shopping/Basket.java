@@ -78,7 +78,9 @@ public class Basket extends Model {
     }
     public void removeAllItems() {
         for(OrderItem i: this.basketItems) {
-            i.getProduct().setStock(i.getProduct().getStock()+i.getQuantity());
+            // Qty problem was here.
+            i.getProduct().setStock(i.getProduct().getStock()-i.getQuantity());
+            // -----------
             i.getProduct().update();
             i.delete();
         }

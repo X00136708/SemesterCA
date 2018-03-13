@@ -1,6 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/webapps/semesterca/app/models/shopping/Basket.java:48:1: no suitable constructor found for OrderItem(models.products.Product)[0m
-[0m[[0m[31merror[0m] [0m[0m    constructor models.shopping.OrderItem.OrderItem() is not applicable[0m
-[0m[[0m[31merror[0m] [0m[0m      (actual and formal argument lists differ in length)[0m
-[0m[[0m[31merror[0m] [0m[0m    constructor models.shopping.OrderItem.OrderItem(java.lang.Long,java.lang.String,java.lang.String,int,double,java.lang.String) is not applicable[0m
-[0m[[0m[31merror[0m] [0m[0m      (actual and formal argument lists differ in length)[0m
-[0m[[0m[31merror[0m] [0m[0mnew OrderItem(p)[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/wdd/webapps/semesterca/app/views/login.scala.html:12:28: method globalError in class Form is deprecated: see corresponding Javadoc for more information.[0m
+[0m[[0m[33mwarn[0m] [0m[0m                @loginForm.globalError.message;[0m
+[0m[[0m[33mwarn[0m] [0m[0m                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/wdd/webapps/semesterca/app/controllers/AdminProductCtrl.java: Some input files use unchecked or unsafe operations.[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/wdd/webapps/semesterca/app/controllers/AdminProductCtrl.java: Recompile with -Xlint:unchecked for details.[0m
