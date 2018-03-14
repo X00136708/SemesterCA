@@ -198,3 +198,12 @@ public class ShoppingCtrl extends Controller {
      }
 
 }
+// @for(p<-products) {
+//     <div class="col-md-6">
+//         <p class="text-right">
+//             <a href="@routes.ShoppingCtrl.viewOrder(p.getId)" class="btn btn-cancel btn-sm">
+//             <span class="glyphicons-shopping-cart"></span> Back to cart</a>
+            
+//         </p>
+//     </div>
+// }
