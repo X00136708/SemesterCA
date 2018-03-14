@@ -91,7 +91,7 @@ public class Basket extends Model {
 	
     public static Finder<Long,Basket> find = new Finder<Long,Basket>(Basket.class);
 
-     /Find all Products in the database
+     
     public static List<Basket> findAll() {
         return Basket.find.all();
     }

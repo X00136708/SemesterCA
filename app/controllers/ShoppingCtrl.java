@@ -8,31 +8,29 @@ import views.html.*;
 import play.db.ebean.Transactional;
 import play.api.Environment;
 
-// Import models
+
 import models.users.*;
 import models.products.*;
 import models.shopping.*;
 
-// Import security controllers
+
 import controllers.security.*;
 
-// Authenticate user
+
 @Security.Authenticated(Secured.class)
-// Authorise user (check if user is a registeredUser)
+
 @With(CheckIfRegisteredUser.class)
 
 public class ShoppingCtrl extends Controller {
 
 
-    /** Dependency Injection **/
 
-    /** http://stackoverflow.com/questions/15600186/play-framework-dependency-injection **/
     private FormFactory formFactory;
 
-    /** http://stackoverflow.com/a/37024198 **/
+   
     private Environment env;
 
-    /** http://stackoverflow.com/a/10159220/6322856 **/
+    
     @Inject
     public ShoppingCtrl(Environment e, FormFactory f) {
         this.env = e;
@@ -41,7 +39,7 @@ public class ShoppingCtrl extends Controller {
 
 
     
-    // Get a user - if logged in email will be set in the session
+   
 	private RegisteredUser getCurrentUser() {
 		return (RegisteredUser)User.getLoggedIn(session().get("email"));
 	}
@@ -51,24 +49,24 @@ public class ShoppingCtrl extends Controller {
         return ok(basket.render(getCurrentUser()));
     }
     
-    // Add item to registeredUser basket
+    
     @Transactional
     public Result addToBasket(Long id) {
         
-        // Find the product
+       
         Product p = Product.find.byId(id);
         
-        // Get basket for logged in registeredUser
+       
         RegisteredUser registeredUser = (RegisteredUser)User.getLoggedIn(session().get("email"));
         
-        // Check if item in basket
+        
         if (registeredUser.getBasket() == null) {
-            // If no basket, create one
+            
             registeredUser.setBasket(new Basket());
             registeredUser.getBasket().setRegisteredUser(registeredUser);
             registeredUser.update();
         }
-        // Add product to the basket and save
+        
         
         
         
@@ -81,18 +79,17 @@ public class ShoppingCtrl extends Controller {
             flash("failure", "Product " + p.getName() + " is out of stock!");
         }
 
-        // Show the basket contents     
+             
         return ok(basket.render(registeredUser));
     }
     
-    // Add an item to the basket
+   
     @Transactional
     public Result addOne(Long itemId) {
         
-        // Get the order item
+        
         OrderItem item = OrderItem.find.byId(itemId);
-        // Increment quantity
-        // Save
+      
 
         if(item.getProduct().getStock() >= 1){
             //item.getProduct().setStock(item.getProduct().getStock()-1);
@@ -103,29 +100,28 @@ public class ShoppingCtrl extends Controller {
         }
 
         item.update();
-        // Show updated basket
+        
         return redirect(routes.ShoppingCtrl.showBasket());
     }
 
     @Transactional
     public Result removeOne(Long itemId) {
         
-        // Get the order item
+       
         OrderItem item = OrderItem.find.byId(itemId);
-        // Get user
+        
         RegisteredUser c = getCurrentUser();
-        // Call basket remove item method
+        
         c.getBasket().removeItem(item);
 
             item.getProduct().setStock(item.getProduct().getStock()+1);
             item.getProduct().update();
 
         c.getBasket().update();
-        // back to basket
+        
         return ok(basket.render(c));
     }
 
-    // Empty Basket
     @Transactional
     public Result emptyBasket() {
         
@@ -142,13 +138,13 @@ public class ShoppingCtrl extends Controller {
         Product p = new Product();
         RegisteredUser registeredUser = (RegisteredUser)User.getLoggedIn(session().get("email"));
         
-        // Create an order instance
+        
         ShopOrder order = new ShopOrder();
         
-        // Associate order with registeredUser
+       
         order.setRegisteredUser(c);
         
-        // Copy basket to order
+        
         order.setItems(c.getBasket().getBasketItems());
         for(OrderItem i: order.getItems()){
             if(p.getStock() >= 1){
@@ -160,16 +156,16 @@ public class ShoppingCtrl extends Controller {
                 flash("failure", "Product " + p.getName() + " is out of stock!");
             }
         }
-        // Save the order now to generate a new id for this order
+        
         order.save();
        
-       // Move items from basket to order
+       
         for (OrderItem i: order.getItems()) {
-            // Asso0ciate with order
+            
             i.setOrder(order);
-            // Remove from basket
+            
             i.setBasket(null);
-            // update item
+            
             i.update();
 
            
@@ -180,17 +176,17 @@ public class ShoppingCtrl extends Controller {
         
      
       
-        // Update the order
+        
         order.update();
         
-        // Clear and update the shopping basket
+        
         emptyBasket();
         
-        // Show order confirmed view
+        
         return ok(orderConfirmed.render(c, order));
     }
     
-    // View an individual order
+   
     @Transactional
     public Result viewOrder(long id) {
         ShopOrder order = ShopOrder.find.byId(id);
