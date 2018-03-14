@@ -43,7 +43,7 @@ public class Product extends Model {
         return Product.find.query().where()
                         // name like filter value (surrounded by wildcards)
                         .ilike("name", "%" + filter + "%")
-                        .orderBy("name asc")
+                        .orderBy("id asc")
                         .findList();
     }
     
@@ -56,7 +56,7 @@ public class Product extends Model {
                         .eq("categories.id", catID)
                         // name like filter value (surrounded by wildcards)
                         .ilike("name", "%" + filter + "%")
-                        .orderBy("name asc")
+                        .orderBy("id asc")
                         .findList();
     }
         // Default Constructor

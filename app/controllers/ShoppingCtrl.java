@@ -92,9 +92,8 @@ public class ShoppingCtrl extends Controller {
       
 
         if(item.getProduct().getStock() >= 1){
-            //item.getProduct().setStock(item.getProduct().getStock()-1);
             item.increaseQty();
-            //item.getProduct().update();
+            
         } else {
             flash("failure", "Product " + item.getProduct().getName() + " is out of stock!");
         }
@@ -114,8 +113,8 @@ public class ShoppingCtrl extends Controller {
         
         c.getBasket().removeItem(item);
 
-            item.getProduct().setStock(item.getProduct().getStock()+1);
-            item.getProduct().update();
+            //item.getProduct().setStock(item.getProduct().getStock()+1);
+            //item.getProduct().update();
 
         c.getBasket().update();
         
