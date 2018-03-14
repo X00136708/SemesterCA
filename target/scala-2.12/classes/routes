@@ -23,6 +23,7 @@ GET     /removeOne/:itemId                  controllers.ShoppingCtrl.removeOne(i
 GET     /emptyBasket                        controllers.ShoppingCtrl.emptyBasket()
 GET     /placeOrder                         controllers.ShoppingCtrl.placeOrder()    
 GET     /viewOrder/:id                      controllers.ShoppingCtrl.viewOrder(id: Long)
+ GET     /checkOut                           controllers.ShoppingCtrl.confirmPurchase()
 
 # Product Administration
 GET		/Admin						        controllers.AdminProductCtrl.index()

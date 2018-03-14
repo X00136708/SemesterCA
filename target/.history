@@ -310,3 +310,12 @@ exit
 clean
 run
 exit
+clean
+compile
+run
+exit
+clea
+clean
+compile
+run
+exit

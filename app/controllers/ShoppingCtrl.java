@@ -113,8 +113,7 @@ public class ShoppingCtrl extends Controller {
         
         c.getBasket().removeItem(item);
 
-            //item.getProduct().setStock(item.getProduct().getStock()+1);
-            //item.getProduct().update();
+            
 
         c.getBasket().update();
         
@@ -191,5 +190,11 @@ public class ShoppingCtrl extends Controller {
         ShopOrder order = ShopOrder.find.byId(id);
         return ok(orderConfirmed.render(getCurrentUser(), order));
     }
+     @Transactional 
+     public Result confirmPurchase(){
+        RegisteredUser registeredUser = (RegisteredUser)User.getLoggedIn(session().get("email"));
+        return ok(checkout.render(registeredUser));
+        
+     }
 
 }
