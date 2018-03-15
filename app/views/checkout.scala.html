@@ -74,18 +74,20 @@
                           
                               }
                               
-                              function PayPalForm() {
+                              function PayPalForm(){
                                   
-                               var paypalEmail = prompt("1) Please enter your email address...", "")
-                               var paypalPassword = prompt("2) Please enter your password...", "")
-                               document.getElementById("demo").innerHTML = "Hey " +paypalEmail
-                                   
+                               var paypalEmail = prompt("1) Please enter your email address and password as provided...", "")
+                               var paypalPassword = prompt("2) Please enter your paypal password...", "") 
                               }
+                             
                               function CreditCardForm(){
                                    alert("Please enter your Credit card details...");
                               }
                             </script>
                         </head>
+                       
+
+
                         <body>
                                 
                          <input type="radio" name="paymentType" id="PayPal" value="PayPal" />
@@ -110,10 +112,5 @@
     </div>
 </div>
 
-<script>
-	// JavaScript function returns true if user clicks yes, otherwise, false
-	function confirmDel() {
-		return confirm('Are you sure?');
-	}
-</script>
+
 }
