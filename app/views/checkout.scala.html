@@ -58,27 +58,36 @@
             </div>  
         </div>
         <div class="row">
-                
+               
                         <head>
-                         <script type="text/javascript">
-                           window.onload = function() {
-                       
-                               var PayPal = document.getElementById('PayPal');
-                               var CreditCard = document.getElementById('CreditCard');
-                               
-                       
-                               PayPal.onclick = handler;
-                               CreditCard.onclick = handler;
+                            <p id="demo"></p>
+                            <script type="text/javascript">
+                              window.onload = function() {
+                          
+                                  var PayPal = document.getElementById('PayPal');
+                                  var CreditCard = document.getElementById('CreditCard');
+                                  
+                          
+                                  PayPal.onclick = PayPalForm;
+                                  CreditCard.onclick = CreditCardForm;
+                                 
+                          
+                              }
                               
-                       
-                           }
-                       
-                           function handler() {
-                               alert('clicked');
-                           }
-                         </script>
+                              function PayPalForm() {
+                                  
+                               var paypalEmail = prompt("1) Please enter your email address...", "")
+                               var paypalPassword = prompt("2) Please enter your password...", "")
+                               document.getElementById("demo").innerHTML = "Hey " +paypalEmail
+                                   
+                              }
+                              function CreditCardForm(){
+                                   alert("Please enter your Credit card details...");
+                              }
+                            </script>
                         </head>
                         <body>
+                                
                          <input type="radio" name="paymentType" id="PayPal" value="PayPal" />
                          <label for="PayPal">PayPal</label>
                          <input type="radio" name="paymentType" id="CreditCard" value="CreditCard" />
