@@ -1,7 +1,7 @@
 # --- Sample dataset
  
 # --- !Ups
- 
+
 delete from product;
 delete from category;
 

@@ -1,0 +1,27 @@
+@import models.community.ForumPost
+@import models.products.Product
+@import models.users.User
+@(postForm: Form[ForumPost], user: User)
+@import helper._
+
+@main("Create a Post",user) {
+    <p class="lead">Create a Post</p>
+    @form(action=routes.CommunityCtrl.createPostSubmit(), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data") {
+        @* CSRF attack prevention *@
+        @CSRF.formField
+        @inputText(postForm("title"), '_label -> "Title", 'class -> "form-control")
+        @select(
+            postForm("product.id"), 
+            options(Product.options), '_label -> "Product", '_default -> "-- Choose a department --", 
+            '_showConstraints -> false, 'class -> "form-control"
+            )
+        @inputText(postForm("content"), '_label -> "Content", 'class -> "form-control")
+
+        <div class="actions">
+            <input type="submit" value="Add Product" class="btn btn-primary">
+            <a href="@routes.CommunityCtrl.forumPage(0)">
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+    }
+}

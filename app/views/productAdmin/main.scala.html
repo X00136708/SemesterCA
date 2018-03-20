@@ -1,5 +1,4 @@
-@import models.users.User
-@(title: String, user: User )(content: Html)
+@(title: String, user: models.users.User )(content: Html)
 
 <!DOCTYPE html>
 
@@ -7,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Online Shop - @title</title>
+    <title>Nu-Wave Games - @title</title>
     <!-- Bootstrap Core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet" />
     <!-- Custom CSS -->
@@ -19,23 +18,21 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Online Shop</a>
+                <a class="navbar-brand" href="@routes.ProductCtrl.listProducts(0)">Online Shop</a>
             </div>
 
             <ul class="nav navbar-nav">
 
-                <li @if(title =="Products" ){class="active"}>
-                    <a href="@routes.AdminProductCtrl.listProducts(0)">Products</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
+                <li @if(title=="Products" ){class="active"}>
+                    <a href="#">Shop</a>
                 </li>
 
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="@routes.CommunityCtrl.forumPage(0)">Forums</a>
+                </li>
+
+                <li>
+                    <a href="#">Contact us</a>
                 </li>
                 <li @if(title=="Login"){class="active"}>
                     @if(user != null) {

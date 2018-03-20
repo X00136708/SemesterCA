@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
-// @DATE:Thu Mar 15 15:34:14 GMT 2018
+// @SOURCE:/home/brandon/Documents/SemesterCA/conf/routes
+// @DATE:Tue Mar 20 01:00:15 GMT 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -11,6 +11,150 @@ import _root_.play.libs.F
 
 // @LINE:6
 package controllers.javascript {
+
+  // @LINE:52
+  class ReverseAssets(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:52
+    def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Assets.versioned",
+      """
+        function(file1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[play.api.mvc.PathBindable[Asset]].javascriptUnbind + """)("file", file1)})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:6
+  class ReverseProductCtrl(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:11
+    def productDetails: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ProductCtrl.productDetails",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "productDetails/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:6
+    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ProductCtrl.index",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + """"})
+        }
+      """
+    )
+  
+    // @LINE:10
+    def listProducts: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ProductCtrl.listProducts",
+      """
+        function(cat0,filter1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "listProducts" + _qS([(cat0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[Long]].javascriptUnbind + """)("cat", cat0)), (filter1 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("filter", filter1))])})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:29
+  class ReverseAdminProductCtrl(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:35
+    def addProductSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.addProductSubmit",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/addProductSubmit"})
+        }
+      """
+    )
+  
+    // @LINE:31
+    def listProducts: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.listProducts",
+      """
+        function(cat0) {
+        
+          if (true) {
+            return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/listProducts" + _qS([(cat0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[Long]].javascriptUnbind + """)("cat", cat0))])})
+          }
+        
+        }
+      """
+    )
+  
+    // @LINE:40
+    def deleteProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.deleteProduct",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/deleteProduct/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:37
+    def updateProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.updateProduct",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/updateProduct/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:34
+    def addProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.addProduct",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/addProduct"})
+        }
+      """
+    )
+  
+    // @LINE:38
+    def updateProductSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.updateProductSubmit",
+      """
+        function(id0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/updateProductSubmit/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:29
+    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.index",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin"})
+        }
+      """
+    )
+  
+  }
 
   // @LINE:19
   class ReverseShoppingCtrl(_prefix: => String) {
@@ -102,144 +246,70 @@ package controllers.javascript {
   
   }
 
-  // @LINE:29
-  class ReverseAdminProductCtrl(_prefix: => String) {
+  // @LINE:43
+  class ReverseCommunityCtrl(_prefix: => String) {
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:35
-    def addProductSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AdminProductCtrl.addProductSubmit",
+    // @LINE:49
+    def createReplySubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommunityCtrl.createReplySubmit",
+      """
+        function(postId0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "createReplySubmit/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("postId", postId0))})
+        }
+      """
+    )
+  
+    // @LINE:47
+    def createReply: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommunityCtrl.createReply",
+      """
+        function(postId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "createReply/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("postId", postId0))})
+        }
+      """
+    )
+  
+    // @LINE:48
+    def createPostSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommunityCtrl.createPostSubmit",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/addProductSubmit"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "createPostSubmit"})
         }
       """
     )
   
-    // @LINE:31
-    def listProducts: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AdminProductCtrl.listProducts",
+    // @LINE:43
+    def forumPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommunityCtrl.forumPage",
       """
-        function(cat0) {
-        
-          if (true) {
-            return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/listProducts" + _qS([(cat0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[Long]].javascriptUnbind + """)("cat", cat0))])})
-          }
-        
+        function(prod0,filter1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "forumPage" + _qS([(prod0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[Long]].javascriptUnbind + """)("prod", prod0)), (filter1 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("filter", filter1))])})
         }
       """
     )
   
-    // @LINE:40
-    def deleteProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AdminProductCtrl.deleteProduct",
-      """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/deleteProduct/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
-        }
-      """
-    )
-  
-    // @LINE:37
-    def updateProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AdminProductCtrl.updateProduct",
-      """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/updateProduct/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
-        }
-      """
-    )
-  
-    // @LINE:34
-    def addProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AdminProductCtrl.addProduct",
+    // @LINE:46
+    def createPost: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommunityCtrl.createPost",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/addProduct"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "createPost"})
         }
       """
     )
   
-    // @LINE:38
-    def updateProductSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AdminProductCtrl.updateProductSubmit",
+    // @LINE:44
+    def viewPost: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommunityCtrl.viewPost",
       """
-        function(id0) {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/updateProductSubmit/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
-        }
-      """
-    )
-  
-    // @LINE:29
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AdminProductCtrl.index",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin"})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:42
-  class ReverseAssets(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:42
-    def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Assets.versioned",
-      """
-        function(file1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[play.api.mvc.PathBindable[Asset]].javascriptUnbind + """)("file", file1)})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:6
-  class ReverseProductCtrl(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:11
-    def productDetails: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.ProductCtrl.productDetails",
-      """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "productDetails/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
-        }
-      """
-    )
-  
-    // @LINE:6
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.ProductCtrl.index",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
-        }
-      """
-    )
-  
-    // @LINE:10
-    def listProducts: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.ProductCtrl.listProducts",
-      """
-        function(cat0,filter1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "listProducts" + _qS([(cat0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[Long]].javascriptUnbind + """)("cat", cat0)), (filter1 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("filter", filter1))])})
+        function(postId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "viewPost/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("postId", postId0))})
         }
       """
     )

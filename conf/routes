@@ -38,5 +38,15 @@ GET		/Admin/updateProduct/:id			controllers.AdminProductCtrl.updateProduct(id:Lo
 POST	/Admin/updateProductSubmit/:id		controllers.AdminProductCtrl.updateProductSubmit(id:Long)
 
 GET     /Admin/deleteProduct/:id               controllers.AdminProductCtrl.deleteProduct(id:Long)
+
+# Community
+GET     /forumPage                          controllers.CommunityCtrl.forumPage(prod:Long ?= 0, filter?="")
+GET     /viewPost/:postId                       controllers.CommunityCtrl.viewPost(postId:Long)
+
+GET     /createPost                         controllers.CommunityCtrl.createPost()
+GET     /createReply/:postId                   controllers.CommunityCtrl.createReply(postId:Long)
+POST    /createPostSubmit                   controllers.CommunityCtrl.createPostSubmit()
+POST    /createReplySubmit/:postId              controllers.CommunityCtrl.createReplySubmit(postId:Long)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

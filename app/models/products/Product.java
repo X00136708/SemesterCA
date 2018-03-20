@@ -117,5 +117,15 @@ public class Product extends Model {
         public void setCatSelect(List<Long> catSelect){
             this.catSelect = catSelect;
         }
+
+        public static Map<String, String> options() {
+            LinkedHashMap<String, String> options = new LinkedHashMap();
+    
+            for (Product p: Product.findAll()) {
+                options.put(p.getId().toString(), p.getName());
+            }
+            
+            return options;
+        }
     }
     

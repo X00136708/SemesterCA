@@ -1,0 +1,71 @@
+@import models.community.ForumPost
+@import models.products.Product
+@import models.users.User
+@(posts: List[ForumPost], products: List[Product], prodId: Long, filter: String,user: User,env: play.api.Environment)
+
+
+@main("Forums",user) {
+
+<p class="lead">Product Catalogue</p>
+<br>
+<div class="row">
+  <div class="col-sm-2">
+    <h4>Categories</h4>
+    <div class="list-group">
+      <a href="@routes.CommunityCtrl.forumPage(0, filter)" class="list-group-item">All Categories</a>
+      @for(p <- products) {
+        <a href="@routes.CommunityCtrl.forumPage(p.getId, filter)" class="list-group-item">@p.getName
+        </a>
+      }
+    </div>
+  </div>
+  <div class="col-sm-8">
+      @if(flash.containsKey("success")) {
+        <div class="alert alert-success">
+          @flash.get("success")
+        </div>
+      }
+
+      			<!-- Search Form -->
+			<div id="actions">
+        <form action="@routes.CommunityCtrl.forumPage(prodId)" method="GET">
+         <input type="search" id="searchbox" name="filter" value="@filter" placeholder="Filter by post title...">
+         <input type="submit" id="searchsubmit" value="Filter by name" class="btn-md btn-primary">
+        </form>
+       </div>
+    <table class="table table-bordered table-hover table-condensed">   
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Product</th>
+          <th>Replies</th>   
+        </tr>
+      </thead>
+
+      <tbody>
+        @for(fp<-posts) {
+          <tr>
+            <td><a href="@routes.CommunityCtrl.viewPost(fp.getId)">
+                @fp.getTitle</td>
+               </a>     
+               @if(fp.getAuthor != null){
+                <td>@fp.getAuthor.getName</td>
+               }else{
+                <td>N/A</td>
+               }
+               <td>@fp.getProduct.getName</td>
+            <td  class="numeric">@fp.getReplies.size</td>
+          </tr>
+        }
+      </tbody>
+
+    </table>
+    <p>
+        <a href="@routes.CommunityCtrl.createPost()">
+          <button class="btn btn-primary">Add a Post</button>
+        </a>
+      </p>
+  </div>
+</div>
+}

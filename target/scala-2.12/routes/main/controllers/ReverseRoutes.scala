@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
-// @DATE:Thu Mar 15 15:34:14 GMT 2018
+// @SOURCE:/home/brandon/Documents/SemesterCA/conf/routes
+// @DATE:Tue Mar 20 01:00:15 GMT 2018
 
 import play.api.mvc.Call
 
@@ -12,59 +12,44 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:19
-  class ReverseShoppingCtrl(_prefix: => String) {
+  // @LINE:52
+  class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:21
-    def addOne(itemId:Long): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "addOne/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("itemId", itemId)))
+    // @LINE:52
+    def versioned(file:Asset): Call = {
+      implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
+      Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
     }
   
-    // @LINE:26
-    def confirmPurchase(): Call = {
+  }
+
+  // @LINE:6
+  class ReverseProductCtrl(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:11
+    def productDetails(id:Long): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "checkOut")
+      Call("GET", _prefix + { _defaultPrefix } + "productDetails/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:20
-    def addToBasket(id:Long): Call = {
+    // @LINE:6
+    def index(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "addToBasket/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+      Call("GET", _prefix)
     }
   
-    // @LINE:25
-    def viewOrder(id:Long): Call = {
+    // @LINE:10
+    def listProducts(cat:Long = 0, filter:String = ""): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "viewOrder/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
-    }
-  
-    // @LINE:24
-    def placeOrder(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "placeOrder")
-    }
-  
-    // @LINE:22
-    def removeOne(itemId:Long): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "removeOne/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("itemId", itemId)))
-    }
-  
-    // @LINE:19
-    def showBasket(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "showBasket")
-    }
-  
-    // @LINE:23
-    def emptyBasket(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "emptyBasket")
+      Call("GET", _prefix + { _defaultPrefix } + "listProducts" + play.core.routing.queryString(List(if(cat == 0) None else Some(implicitly[play.api.mvc.QueryStringBindable[Long]].unbind("cat", cat)), if(filter == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("filter", filter)))))
     }
   
   }
@@ -128,44 +113,104 @@ package controllers {
   
   }
 
-  // @LINE:42
-  class ReverseAssets(_prefix: => String) {
+  // @LINE:19
+  class ReverseShoppingCtrl(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:42
-    def versioned(file:Asset): Call = {
-      implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
-      Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
+    // @LINE:21
+    def addOne(itemId:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "addOne/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("itemId", itemId)))
+    }
+  
+    // @LINE:26
+    def confirmPurchase(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "checkOut")
+    }
+  
+    // @LINE:20
+    def addToBasket(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "addToBasket/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
+  
+    // @LINE:25
+    def viewOrder(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "viewOrder/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
+  
+    // @LINE:24
+    def placeOrder(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "placeOrder")
+    }
+  
+    // @LINE:22
+    def removeOne(itemId:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "removeOne/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("itemId", itemId)))
+    }
+  
+    // @LINE:19
+    def showBasket(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "showBasket")
+    }
+  
+    // @LINE:23
+    def emptyBasket(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "emptyBasket")
     }
   
   }
 
-  // @LINE:6
-  class ReverseProductCtrl(_prefix: => String) {
+  // @LINE:43
+  class ReverseCommunityCtrl(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:11
-    def productDetails(id:Long): Call = {
+    // @LINE:49
+    def createReplySubmit(postId:Long): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "productDetails/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+      Call("POST", _prefix + { _defaultPrefix } + "createReplySubmit/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("postId", postId)))
     }
   
-    // @LINE:6
-    def index(): Call = {
+    // @LINE:47
+    def createReply(postId:Long): Call = {
       
-      Call("GET", _prefix)
+      Call("GET", _prefix + { _defaultPrefix } + "createReply/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("postId", postId)))
     }
   
-    // @LINE:10
-    def listProducts(cat:Long = 0, filter:String = ""): Call = {
+    // @LINE:48
+    def createPostSubmit(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "listProducts" + play.core.routing.queryString(List(if(cat == 0) None else Some(implicitly[play.api.mvc.QueryStringBindable[Long]].unbind("cat", cat)), if(filter == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("filter", filter)))))
+      Call("POST", _prefix + { _defaultPrefix } + "createPostSubmit")
+    }
+  
+    // @LINE:43
+    def forumPage(prod:Long = 0, filter:String = ""): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "forumPage" + play.core.routing.queryString(List(if(prod == 0) None else Some(implicitly[play.api.mvc.QueryStringBindable[Long]].unbind("prod", prod)), if(filter == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("filter", filter)))))
+    }
+  
+    // @LINE:46
+    def createPost(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "createPost")
+    }
+  
+    // @LINE:44
+    def viewPost(postId:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "viewPost/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("postId", postId)))
     }
   
   }

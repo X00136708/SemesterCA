@@ -22,6 +22,23 @@ create table category_product (
   constraint pk_category_product primary key (category_id,product_id)
 );
 
+create table forum_post (
+  id                            bigint auto_increment not null,
+  title                         varchar(255),
+  content                       varchar(255),
+  author_email                  varchar(255),
+  product_id                    bigint,
+  constraint pk_forum_post primary key (id)
+);
+
+create table forum_reply (
+  id                            bigint auto_increment not null,
+  content                       varchar(255),
+  author_email                  varchar(255),
+  forum_post_id                 bigint,
+  constraint pk_forum_reply primary key (id)
+);
+
 create table order_item (
   id                            bigint auto_increment not null,
   order_id                      bigint,
@@ -54,12 +71,12 @@ create table user (
   email                         varchar(255) not null,
   name                          varchar(255),
   password                      varchar(255),
+  department                    varchar(255),
   street1                       varchar(255),
   street2                       varchar(255),
   town                          varchar(255),
   post_code                     varchar(255),
   credit_card                   varchar(255),
-  department                    varchar(255),
   constraint pk_user primary key (email)
 );
 
@@ -70,6 +87,18 @@ create index ix_category_product_category on category_product (category_id);
 
 alter table category_product add constraint fk_category_product_product foreign key (product_id) references product (id) on delete restrict on update restrict;
 create index ix_category_product_product on category_product (product_id);
+
+alter table forum_post add constraint fk_forum_post_author_email foreign key (author_email) references user (email) on delete restrict on update restrict;
+create index ix_forum_post_author_email on forum_post (author_email);
+
+alter table forum_post add constraint fk_forum_post_product_id foreign key (product_id) references product (id) on delete restrict on update restrict;
+create index ix_forum_post_product_id on forum_post (product_id);
+
+alter table forum_reply add constraint fk_forum_reply_author_email foreign key (author_email) references user (email) on delete restrict on update restrict;
+create index ix_forum_reply_author_email on forum_reply (author_email);
+
+alter table forum_reply add constraint fk_forum_reply_forum_post_id foreign key (forum_post_id) references forum_post (id) on delete restrict on update restrict;
+create index ix_forum_reply_forum_post_id on forum_reply (forum_post_id);
 
 alter table order_item add constraint fk_order_item_order_id foreign key (order_id) references shop_order (id) on delete restrict on update restrict;
 create index ix_order_item_order_id on order_item (order_id);
@@ -94,6 +123,18 @@ drop index if exists ix_category_product_category;
 alter table category_product drop constraint if exists fk_category_product_product;
 drop index if exists ix_category_product_product;
 
+alter table forum_post drop constraint if exists fk_forum_post_author_email;
+drop index if exists ix_forum_post_author_email;
+
+alter table forum_post drop constraint if exists fk_forum_post_product_id;
+drop index if exists ix_forum_post_product_id;
+
+alter table forum_reply drop constraint if exists fk_forum_reply_author_email;
+drop index if exists ix_forum_reply_author_email;
+
+alter table forum_reply drop constraint if exists fk_forum_reply_forum_post_id;
+drop index if exists ix_forum_reply_forum_post_id;
+
 alter table order_item drop constraint if exists fk_order_item_order_id;
 drop index if exists ix_order_item_order_id;
 
@@ -111,6 +152,10 @@ drop table if exists basket;
 drop table if exists category;
 
 drop table if exists category_product;
+
+drop table if exists forum_post;
+
+drop table if exists forum_reply;
 
 drop table if exists order_item;
 
