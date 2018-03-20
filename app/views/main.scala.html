@@ -40,6 +40,11 @@
                     } else {
                         <a href="@controllers.security.routes.LoginCtrl.login()">Login</a>
                     }
+                    @if(user.getRole=="registeredUser"){
+                <li>
+                    <a href="#">Wallet</a>
+                </li>
+            }
 
                 </li>
             </ul>

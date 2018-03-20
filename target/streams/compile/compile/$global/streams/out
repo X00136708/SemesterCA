@@ -1,7 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/webapps/semesterca/app/controllers/AdminProductCtrl.java:82:1: method render in class views.html.productAdmin.listProducts cannot be applied to given types;[0m
-[0m[[0m[31merror[0m] [0m[0m  required: no arguments[0m
-[0m[[0m[31merror[0m] [0m[0m  found: java.util.List<models.products.Product>,java.util.List<models.products.Category>,models.users.User,play.api.Environment[0m
-[0m[[0m[31merror[0m] [0m[0m  reason: actual and formal argument lists differ in length[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(listProducts.render(products, categories, getCurrentUser(),e));[0m
-[0m[[0m[0minfo[0m] [0m[0m/home/wdd/webapps/semesterca/app/controllers/AdminProductCtrl.java: /home/wdd/webapps/semesterca/app/controllers/AdminProductCtrl.java uses unchecked or unsafe operations.[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/wdd/webapps/semesterca/app/views/login.scala.html:12:28: method globalError in class Form is deprecated: see corresponding Javadoc for more information.[0m
+[0m[[0m[33mwarn[0m] [0m[0m                @loginForm.globalError.message;[0m
+[0m[[0m[33mwarn[0m] [0m[0m                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/wdd/webapps/semesterca/app/controllers/AdminProductCtrl.java: Some input files use unchecked or unsafe operations.[0m
 [0m[[0m[0minfo[0m] [0m[0m/home/wdd/webapps/semesterca/app/controllers/AdminProductCtrl.java: Recompile with -Xlint:unchecked for details.[0m

@@ -61,32 +61,9 @@
             <td  class="numeric">@p.getStock</td>
             <td  class="numeric">€ @("%.2f".format(p.getPrice))</td>
             <td><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
-            @if(user.getRole =="admin"){
-    <td>
-              <a href="@routes.AdminProductCtrl.updateProduct(p.getId)" class="button xs btn-danger">
-                <span class="glyphicon glyphicon-pencil"></span>
-              </a>
-            </td>        <td>
-              <a href="@routes.AdminProductCtrl.deleteProduct(p.getId)" class="button xs btn-danger" onclick="return confirmDel();">
-                <span class="glyphicon glyphicon-trash"></span>
-              </a>
-            </td>
-          </tr>
-        
-      </tbody>
-    
-    
-  }
-}
+              }
 </table>
-  @if(user.getRole=="admin"){
-    <p>
-      <a href="@routes.AdminProductCtrl.addProduct()">
-        <button class="btn btn-primary">Add a product</button>
-      </a>
-    </p>
-          </tr>
-        } 
+
    
  
 </div>
