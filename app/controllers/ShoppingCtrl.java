@@ -196,6 +196,19 @@ public class ShoppingCtrl extends Controller {
         return ok(checkout.render(registeredUser));
         
      }
+     @Transactional
+     public Result addToWallet(Float amount){
+        RegisteredUser ru = getCurrentUser();
+        User u = new User();
+        return ok(addToWallet.render(ru,u));
+     }
+     @Transactional
+     public Result addToWalletSubmit(Float amount){
+        RegisteredUser ru = getCurrentUser();
+        User u = new User();
+        ru.addWalletAmount(amount);
+        return ok(addToWallet.render(ru,u));
+     }
 
 }
 // @for(p<-products) {

@@ -22,6 +22,7 @@ public class RegisteredUser extends User{
     private String town;
     private String postCode;
     private String creditCard;
+    private Float walletAmount=0f;
 
     // RegisteredUser has one basket.
     // RegisteredUser is the owner (foreign key will be added to Basket
@@ -34,15 +35,24 @@ public class RegisteredUser extends User{
     // table). All changes to RegisteredUser are cascaded
     @OneToMany(mappedBy="registeredUser", cascade = CascadeType.ALL)
     private List<ShopOrder> orders;
-	
-	public RegisteredUser(String email, String role, String name, String password, String street1, String street2, String town, String postCode, String creditCard)
+	public RegisteredUser(String email,String role, String name, String password){
+        super(email,role,name,password);
+        this.street1="";
+        this.street2="";
+        this.town="";
+        this.postCode="";
+        this.creditCard="";
+        this.walletAmount=0f;
+    }
+	public RegisteredUser(String email, String role, String name, String password, String street1, String street2, String town, String postCode, String creditCard, Float walletAmount)
 	{
 		super(email, role, name, password);
         this.street1 = street1;
         this.street2 = street2;
         this.town = town;
         this.postCode = postCode;
-		this.creditCard = creditCard;
+        this.creditCard = creditCard;
+        this.walletAmount=walletAmount;
 	}
 
     public String getStreet1() {
@@ -76,6 +86,16 @@ public class RegisteredUser extends User{
     public void setPostCode(String postCode) {
         this.postCode = postCode;
     }
+    public Float getWalletAmount(){
+        return this.walletAmount;
+    }
+    public void setWalletAmount(Float amount){
+        this.walletAmount=amount;
+    }
+    public void addWalletAmount(Float amount){
+        this.walletAmount+=amount;
+    }
+
 
     public String getCreditCard() {
         return creditCard;

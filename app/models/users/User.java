@@ -29,10 +29,15 @@ public class User extends Model {
     @Constraints.Required
     private String password;
 
+    
     public User() {
+        this.email="";
+        this.role="";
+        this.name="";
+        this.password="";
     }
         // Constructor to initialise object
-        public  User(String email, String role, String name, String password) {
+    public  User(String email, String role, String name, String password) {
             this.email = email;
             this.role = role;
             this.name = name;
@@ -72,6 +77,7 @@ public class User extends Model {
     public void setPassword(String password) {
         this.password = password;
     }
+  
 
     public static Finder<String, User> find = new Finder<String, User>(User.class);
 

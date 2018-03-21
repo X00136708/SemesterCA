@@ -7,7 +7,7 @@ insert into user (email,name,password,role) values ( 'admin@nuwavegames.com', 'A
 
 insert into user (email,name,password,role) values ( 'moderator@nuwavegames.com', 'Bob: Moderator', 'password', 'moderator' );
 
-insert into user (email,name,password,role) values ( 'registereduser@nuwavegames.com', 'Charlie: Registered User', 'password', 'registeredUser' );
+insert into user (email,name,password,role,wallet_amount) values ( 'registereduser@nuwavegames.com', 'Charlie: Registered User', 'password', 'registeredUser', 0 );
 
 insert into forum_post (id, title, content, author_email, product_id) values (1, 'Test Post', 'Just a test post', 'registereduser@nuwavegames.com', 1);
 
