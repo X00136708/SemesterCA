@@ -27,16 +27,16 @@ import play.core.j.PlayFormsMagicForJava._
 /*8.2*/import models.products._
 /*9.2*/import models.users._
 
-object addToWallet extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template5[Double,models.users.RegisteredUser,models.shopping.Wallet,models.users.User,Form[Wallet],play.twirl.api.HtmlFormat.Appendable] {
+object addToWallet extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template5[Float,models.users.RegisteredUser,models.shopping.Wallet,models.users.User,Form[Wallet],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*10.2*/(amount: Double, registeredUser: models.users.RegisteredUser, wallet: models.shopping.Wallet, user: models.users.User, walletForm: Form[Wallet]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*10.2*/(amount: Float, registeredUser: models.users.RegisteredUser, wallet: models.shopping.Wallet, user: models.users.User, walletForm: Form[Wallet]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*11.2*/import helper._
 
 
-Seq[Any](format.raw/*10.146*/("""
+Seq[Any](format.raw/*10.145*/("""
 """),format.raw/*12.1*/("""
 """),format.raw/*13.1*/("""<!-- Pass page title and user on to main -->
 """),_display_(/*14.2*/main("Wallet", registeredUser)/*14.32*/ {_display_(Seq[Any](format.raw/*14.34*/("""
@@ -101,9 +101,9 @@ Seq[Any](format.raw/*10.146*/("""
     }
   }
 
-  def render(amount:Double,registeredUser:models.users.RegisteredUser,wallet:models.shopping.Wallet,user:models.users.User,walletForm:Form[Wallet]): play.twirl.api.HtmlFormat.Appendable = apply(amount,registeredUser,wallet,user,walletForm)
+  def render(amount:Float,registeredUser:models.users.RegisteredUser,wallet:models.shopping.Wallet,user:models.users.User,walletForm:Form[Wallet]): play.twirl.api.HtmlFormat.Appendable = apply(amount,registeredUser,wallet,user,walletForm)
 
-  def f:((Double,models.users.RegisteredUser,models.shopping.Wallet,models.users.User,Form[Wallet]) => play.twirl.api.HtmlFormat.Appendable) = (amount,registeredUser,wallet,user,walletForm) => apply(amount,registeredUser,wallet,user,walletForm)
+  def f:((Float,models.users.RegisteredUser,models.shopping.Wallet,models.users.User,Form[Wallet]) => play.twirl.api.HtmlFormat.Appendable) = (amount,registeredUser,wallet,user,walletForm) => apply(amount,registeredUser,wallet,user,walletForm)
 
   def ref: this.type = this
 
@@ -112,10 +112,10 @@ Seq[Any](format.raw/*10.146*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Mar 22 13:45:20 GMT 2018
-                  SOURCE: /home/wdd/webapps/semesterca/app/views/addToWallet.scala.html
-                  HASH: 18ead442282783fc3a73bc629ab38312ca277d56
-                  MATRIX: 651->5|687->35|724->66|756->92|788->118|1203->141|1421->287|1468->285|1496->303|1524->304|1596->350|1635->380|1675->382|1705->385|1778->432|1819->464|1859->466|1892->472|1963->516|1977->521|2013->536|2046->542|2093->558|2130->568|2171->600|2211->602|2252->615|2330->666|2344->671|2380->686|2421->699|2468->715|2507->727|2649->859|2690->861|2723->894|2755->900|2768->904|2799->914|2835->923|2900->961|3061->1101|3102->1115|3117->1121|3156->1139|3354->1310|3399->1346|3439->1348|3507->1388|3807->1661|3822->1667|3855->1679|4236->2033|4251->2039|4300->2067
+                  DATE: Thu Mar 22 17:51:19 GMT 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/addToWallet.scala.html
+                  HASH: d03bc0a26c1faadf6a60ffc4259bcafda2a3f341
+                  MATRIX: 651->9|687->40|724->72|756->99|788->126|1202->150|1419->296|1466->293|1495->313|1524->315|1597->362|1636->392|1676->394|1709->400|1785->450|1826->482|1866->484|1900->491|1972->536|1986->541|2022->556|2056->563|2104->580|2142->591|2183->623|2223->625|2265->639|2344->691|2358->696|2394->711|2436->725|2484->742|2524->755|2666->887|2707->889|2741->923|2774->930|2787->934|2818->944|2855->954|2921->993|3083->1134|3125->1149|3140->1155|3179->1173|3382->1349|3427->1385|3467->1387|3537->1429|3847->1712|3862->1718|3895->1730|4289->2097|4304->2103|4353->2131
                   LINES: 24->5|25->6|26->7|27->8|28->9|33->10|36->11|39->10|40->12|41->13|42->14|42->14|42->14|45->17|48->20|48->20|48->20|49->21|50->22|50->22|50->22|51->23|52->24|53->25|53->25|53->25|54->26|55->27|55->27|55->27|56->28|57->29|58->30|58->30|58->30|59->31|60->32|60->32|60->32|61->33|62->34|63->35|64->36|64->36|64->36|69->41|69->41|69->41|71->43|81->53|81->53|81->53|94->66|94->66|94->66
                   -- GENERATED --
               */

@@ -25,7 +25,7 @@ GET     /placeOrder                         controllers.ShoppingCtrl.placeOrder(
 GET     /viewOrder/:id                      controllers.ShoppingCtrl.viewOrder(id: Long)
 GET     /checkOut                           controllers.ShoppingCtrl.confirmPurchase()
 GET     /addToWallet                        controllers.ShoppingCtrl.addToWallet(amount: Float)
-GET     /addToWalletSubmit                  controllers.ShoppingCtrl.addToWalletSubmit(amount: Float)
+POST     /addToWalletSubmit                  controllers.ShoppingCtrl.addToWalletSubmit(amount: Float)
 
 # Product Administration
 GET		/Admin						        controllers.AdminProductCtrl.index()

@@ -15,7 +15,7 @@ public class Wallet extends Model{
     @Id
     Long id;
     
-    Double amount;
+    Float amount;
 
     public static Finder<Long,Wallet> find = new Finder<Long,Wallet>(Wallet.class);
 
@@ -25,16 +25,16 @@ public class Wallet extends Model{
     public Wallet(){
         this.amount=0f;
     }
-    public Wallet(Double amount){
+    public Wallet(Float amount){
         this.amount=amount;
     }
-    public void setWallet(Double amount){
+    public void setWallet(Float amount){
         this.amount=amount;
     }
-    public Double getWallet(){
+    public Float getWallet(){
         return this.amount;
     }
-    public void addWallet(Double amount){
+    public void addWallet(Float amount){
         this.amount+=amount;
     }
     public RegisteredUser getRegisteredUser() {
