@@ -197,7 +197,7 @@ public class ShoppingCtrl extends Controller {
         
      }
      @Transactional
-     public Result addToWallet(Float amount){
+     public Result addToWallet(Double amount){
          Wallet w = new Wallet();
          RegisteredUser ru = getCurrentUser();
         User u = new User();
@@ -205,11 +205,12 @@ public class ShoppingCtrl extends Controller {
         return ok(addToWallet.render(amount,ru,w,u,addWalletForm));
      }
      @Transactional
-     public Result addToWalletSubmit(Float amount){
+     public Result addToWalletSubmit(Double amount){
         RegisteredUser ru = getCurrentUser();
         Wallet w = new Wallet();
         User u = new User();
         Form<Wallet> addWalletForm = formFactory.form(Wallet.class);
+        
         return ok(addToWallet.render(amount,ru,w,u,addWalletForm));
      }
 

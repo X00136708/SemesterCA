@@ -7,7 +7,7 @@
 @import models.shopping._
 @import models.products._
 @import models.users._
-@(amount: Float, registeredUser: models.users.RegisteredUser, wallet: models.shopping.Wallet, user: models.users.User, walletForm: Form[Wallet])
+@(amount: Double, registeredUser: models.users.RegisteredUser, wallet: models.shopping.Wallet, user: models.users.User, walletForm: Form[Wallet])
 @import helper._
 
 <!-- Pass page title and user on to main -->
@@ -27,18 +27,19 @@
                 @flash.get("failure")
             </div>
         }  
-        @form(action=routes.ShoppingCtrl.addToWalletSubmit(amount), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data") {
+        @form(action=routes.ShoppingCtrl.addToWallet(amount), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data") {
     @* CSRF attack prevention *@
     @CSRF.formField
         <div class="form-group">
             @inputText(walletForm("amount"), '_label -> "Add amount", 
             'class -> "form-control input-xs", 'placeholder -> "Amount to add...")
-            @wallet.addWallet(amount)
+            @wallet.addWallet(amount);
         </div>
           <div class="col-md-12">
           <table class="table table-bordered table-hover table-condensed">
                 <thead>
                     @if(registeredUser.getWallet != null) {
+                      
                 <tr>
                     <th>Wallet amount</th>
                    
@@ -62,7 +63,7 @@
         <div class="col-md-6">
             <p class="text-right">
                     
-                <a href="@routes.ShoppingCtrl.addToWallet(0)" id="amount" onclick="promptAmt()" label class="btn btn-success btn-sm">
+                <a href="@routes.ShoppingCtrl.addToWallet(0)" label class="btn btn-success btn-sm">
                     
                 <span class="glyphicon glyphicon-euro"></span><label for ="amount"> Add to wallet</a></label>
             </p>

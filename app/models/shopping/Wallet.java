@@ -15,24 +15,26 @@ public class Wallet extends Model{
     @Id
     Long id;
     
-    Float amount;
+    Double amount;
 
-    @OneToOne
+    public static Finder<Long,Wallet> find = new Finder<Long,Wallet>(Wallet.class);
+
+    @OneToOne(cascade = CascadeType.PERSIST)
     private RegisteredUser registeredUser;
 
     public Wallet(){
         this.amount=0f;
     }
-    public Wallet(Float amount){
+    public Wallet(Double amount){
         this.amount=amount;
     }
-    public void setWallet(Float amount){
+    public void setWallet(Double amount){
         this.amount=amount;
     }
-    public Float getWallet(){
+    public Double getWallet(){
         return this.amount;
     }
-    public void addWallet(Float amount){
+    public void addWallet(Double amount){
         this.amount+=amount;
     }
     public RegisteredUser getRegisteredUser() {
@@ -42,7 +44,5 @@ public class Wallet extends Model{
     public void setRegisteredUser(RegisteredUser registeredUser) {
         this.registeredUser = registeredUser;
     }
-    public void setAmount(Float amount) {
-        this.amount=amount;
-    }
+   
 }

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/webapps/semesterca/conf/routes
-// @DATE:Thu Mar 22 12:31:56 GMT 2018
+// @DATE:Thu Mar 22 13:47:18 GMT 2018
 
 import play.api.mvc.Call
 
@@ -141,7 +141,7 @@ package controllers {
     // @LINE:27
     def addToWallet(amount:Float): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "addToWallet" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Float]].unbind("amount", amount)))))
+      Call("POST", _prefix + { _defaultPrefix } + "addToWallet" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Float]].unbind("amount", amount)))))
     }
   
     // @LINE:25
@@ -159,7 +159,7 @@ package controllers {
     // @LINE:28
     def addToWalletSubmit(amount:Float): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "addToWalletSubmit" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Float]].unbind("amount", amount)))))
+      Call("POST", _prefix + { _defaultPrefix } + "addToWalletSubmit" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Float]].unbind("amount", amount)))))
     }
   
     // @LINE:22

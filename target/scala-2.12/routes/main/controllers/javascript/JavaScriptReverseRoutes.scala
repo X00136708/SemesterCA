@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/webapps/semesterca/conf/routes
-// @DATE:Thu Mar 22 12:31:56 GMT 2018
+// @DATE:Thu Mar 22 13:47:18 GMT 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -199,7 +199,7 @@ package controllers.javascript {
       "controllers.ShoppingCtrl.addToWallet",
       """
         function(amount0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addToWallet" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Float]].javascriptUnbind + """)("amount", amount0)])})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addToWallet" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Float]].javascriptUnbind + """)("amount", amount0)])})
         }
       """
     )
@@ -229,7 +229,7 @@ package controllers.javascript {
       "controllers.ShoppingCtrl.addToWalletSubmit",
       """
         function(amount0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addToWalletSubmit" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Float]].javascriptUnbind + """)("amount", amount0)])})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addToWalletSubmit" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Float]].javascriptUnbind + """)("amount", amount0)])})
         }
       """
     )
