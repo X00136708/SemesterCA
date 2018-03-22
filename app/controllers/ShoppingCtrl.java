@@ -198,16 +198,19 @@ public class ShoppingCtrl extends Controller {
      }
      @Transactional
      public Result addToWallet(Float amount){
-        RegisteredUser ru = getCurrentUser();
+         Wallet w = new Wallet();
+         RegisteredUser ru = getCurrentUser();
         User u = new User();
-        return ok(addToWallet.render(ru,u));
+        Form<Wallet> addWalletForm = formFactory.form(Wallet.class);
+        return ok(addToWallet.render(amount,ru,w,u,addWalletForm));
      }
      @Transactional
      public Result addToWalletSubmit(Float amount){
         RegisteredUser ru = getCurrentUser();
+        Wallet w = new Wallet();
         User u = new User();
-        ru.addWalletAmount(amount);
-        return ok(addToWallet.render(ru,u));
+        Form<Wallet> addWalletForm = formFactory.form(Wallet.class);
+        return ok(addToWallet.render(amount,ru,w,u,addWalletForm));
      }
 
 }

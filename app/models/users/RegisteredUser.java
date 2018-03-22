@@ -22,7 +22,7 @@ public class RegisteredUser extends User{
     private String town;
     private String postCode;
     private String creditCard;
-    private Float walletAmount=0f;
+    private Float amount=0f;
 
     // RegisteredUser has one basket.
     // RegisteredUser is the owner (foreign key will be added to Basket
@@ -42,9 +42,9 @@ public class RegisteredUser extends User{
         this.town="";
         this.postCode="";
         this.creditCard="";
-        this.walletAmount=0f;
+        this.amount=0f;
     }
-	public RegisteredUser(String email, String role, String name, String password, String street1, String street2, String town, String postCode, String creditCard, Float walletAmount)
+	public RegisteredUser(String email, String role, String name, String password, String street1, String street2, String town, String postCode, String creditCard, Float amount)
 	{
 		super(email, role, name, password);
         this.street1 = street1;
@@ -52,7 +52,7 @@ public class RegisteredUser extends User{
         this.town = town;
         this.postCode = postCode;
         this.creditCard = creditCard;
-        this.walletAmount=walletAmount;
+        this.amount=amount;
 	}
 
     public String getStreet1() {
@@ -86,14 +86,14 @@ public class RegisteredUser extends User{
     public void setPostCode(String postCode) {
         this.postCode = postCode;
     }
-    public Float getWalletAmount(){
-        return this.walletAmount;
+    public Float getWallet(){
+        return this.amount;
     }
-    public void setWalletAmount(Float amount){
-        this.walletAmount=amount;
+    public void setWallet(Float amount){
+        this.amount=amount;
     }
-    public void addWalletAmount(Float amount){
-        this.walletAmount+=amount;
+    public void addWallet(Float amount){
+        this.amount+=amount;
     }
 
 

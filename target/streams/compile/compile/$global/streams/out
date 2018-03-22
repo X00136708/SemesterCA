@@ -1,4 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/webapps/semesterca/app/views/addToWallet.scala.html:83:80: value getAmount is not a member of models.users.RegisteredUser[0m
-[0m[[0m[31merror[0m] [0m[0m                <a href="@routes.ShoppingCtrl.addToWalletSubmit(registeredUser.getAmount)" id="amount" value="amount" label class="btn btn-success btn-sm">[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                               ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/webapps/semesterca/app/models/shopping/Wallet.java:21:1: not a statement[0m
+[0m[[0m[31merror[0m] [0m[0m        this.amount;[0m

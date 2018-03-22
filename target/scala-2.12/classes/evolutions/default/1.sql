@@ -77,8 +77,16 @@ create table user (
   town                          varchar(255),
   post_code                     varchar(255),
   credit_card                   varchar(255),
-  wallet_amount                 float,
+  amount                        float,
   constraint pk_user primary key (email)
+);
+
+create table wallet (
+  id                            bigint auto_increment not null,
+  amount                        float,
+  registered_user_email         varchar(255),
+  constraint uq_wallet_registered_user_email unique (registered_user_email),
+  constraint pk_wallet primary key (id)
 );
 
 alter table basket add constraint fk_basket_registered_user_email foreign key (registered_user_email) references user (email) on delete restrict on update restrict;
@@ -112,6 +120,8 @@ create index ix_order_item_product_id on order_item (product_id);
 
 alter table shop_order add constraint fk_shop_order_registered_user_email foreign key (registered_user_email) references user (email) on delete restrict on update restrict;
 create index ix_shop_order_registered_user_email on shop_order (registered_user_email);
+
+alter table wallet add constraint fk_wallet_registered_user_email foreign key (registered_user_email) references user (email) on delete restrict on update restrict;
 
 
 # --- !Downs
@@ -148,6 +158,8 @@ drop index if exists ix_order_item_product_id;
 alter table shop_order drop constraint if exists fk_shop_order_registered_user_email;
 drop index if exists ix_shop_order_registered_user_email;
 
+alter table wallet drop constraint if exists fk_wallet_registered_user_email;
+
 drop table if exists basket;
 
 drop table if exists category;
@@ -165,4 +177,6 @@ drop table if exists product;
 drop table if exists shop_order;
 
 drop table if exists user;
+
+drop table if exists wallet;
 
