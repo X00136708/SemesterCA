@@ -114,5 +114,8 @@ public class OrderItem extends Model {
     public void setPrice(double price) {
         this.price = price;
     }
+     public Double getTotal() {
+        return this.price*this.quantity;
+    }
 
 }

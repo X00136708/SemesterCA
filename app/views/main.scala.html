@@ -44,6 +44,11 @@
                 <li>
                     <a href="@routes.ShoppingCtrl.addToWallet(0)">Wallet</a>
                 </li>
+                @if(user != null){
+                    <li>
+                            <a href="@controllers.routes.ShoppingCtrl.viewOrders(user.getEmail())">View Orders</a>
+                        </li>
+                }
             
 
                 </li>

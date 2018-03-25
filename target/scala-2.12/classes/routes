@@ -23,9 +23,11 @@ GET     /removeOne/:itemId                  controllers.ShoppingCtrl.removeOne(i
 GET     /emptyBasket                        controllers.ShoppingCtrl.emptyBasket()
 GET     /placeOrder                         controllers.ShoppingCtrl.placeOrder()    
 GET     /viewOrder/:id                      controllers.ShoppingCtrl.viewOrder(id: Long)
+GET     /viewOrders/:id                     controllers.ShoppingCtrl.viewOrders(id: String)
+GET     /cancelOrder/:id                    controllers.ShoppingCtrl.cancelOrder(id:Long)
 GET     /checkOut                           controllers.ShoppingCtrl.confirmPurchase()
 GET     /addToWallet                        controllers.ShoppingCtrl.addToWallet(amount: Float)
-POST     /addToWalletSubmit                  controllers.ShoppingCtrl.addToWalletSubmit(amount: Float)
+POST    /addToWalletSubmit                  controllers.ShoppingCtrl.addToWalletSubmit(amount: Float)
 
 # Product Administration
 GET		/Admin						        controllers.AdminProductCtrl.index()

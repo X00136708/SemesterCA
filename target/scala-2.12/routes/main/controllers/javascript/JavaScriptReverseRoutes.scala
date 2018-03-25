@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/doran/Documents/2ndYearProject/semesterca/conf/routes
-// @DATE:Thu Mar 22 17:51:18 GMT 2018
+// @DATE:Sun Mar 25 23:33:01 BST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -12,7 +12,7 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
 
-  // @LINE:54
+  // @LINE:56
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +20,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:54
+    // @LINE:56
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -72,7 +72,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:31
+  // @LINE:33
   class ReverseAdminProductCtrl(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -80,7 +80,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:37
+    // @LINE:39
     def addProductSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AdminProductCtrl.addProductSubmit",
       """
@@ -90,7 +90,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:33
+    // @LINE:35
     def listProducts: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AdminProductCtrl.listProducts",
       """
@@ -104,7 +104,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:42
+    // @LINE:44
     def deleteProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AdminProductCtrl.deleteProduct",
       """
@@ -114,7 +114,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:39
+    // @LINE:41
     def updateProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AdminProductCtrl.updateProduct",
       """
@@ -124,7 +124,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:36
+    // @LINE:38
     def addProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AdminProductCtrl.addProduct",
       """
@@ -134,7 +134,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:40
+    // @LINE:42
     def updateProductSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AdminProductCtrl.updateProductSubmit",
       """
@@ -144,7 +144,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:31
+    // @LINE:33
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AdminProductCtrl.index",
       """
@@ -174,7 +174,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:26
+    // @LINE:28
     def confirmPurchase: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingCtrl.confirmPurchase",
       """
@@ -194,12 +194,22 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
+    // @LINE:29
     def addToWallet: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingCtrl.addToWallet",
       """
         function(amount0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addToWallet" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Float]].javascriptUnbind + """)("amount", amount0)])})
+        }
+      """
+    )
+  
+    // @LINE:27
+    def cancelOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ShoppingCtrl.cancelOrder",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "cancelOrder/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
@@ -224,7 +234,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:28
+    // @LINE:26
+    def viewOrders: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ShoppingCtrl.viewOrders",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "viewOrders/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:30
     def addToWalletSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingCtrl.addToWalletSubmit",
       """
@@ -266,7 +286,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:45
+  // @LINE:47
   class ReverseCommunityCtrl(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -274,7 +294,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:51
+    // @LINE:53
     def createReplySubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CommunityCtrl.createReplySubmit",
       """
@@ -284,7 +304,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:49
+    // @LINE:51
     def createReply: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CommunityCtrl.createReply",
       """
@@ -294,7 +314,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:50
+    // @LINE:52
     def createPostSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CommunityCtrl.createPostSubmit",
       """
@@ -304,7 +324,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:45
+    // @LINE:47
     def forumPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CommunityCtrl.forumPage",
       """
@@ -314,7 +334,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:48
+    // @LINE:50
     def createPost: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CommunityCtrl.createPost",
       """
@@ -324,7 +344,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:46
+    // @LINE:48
     def viewPost: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CommunityCtrl.viewPost",
       """

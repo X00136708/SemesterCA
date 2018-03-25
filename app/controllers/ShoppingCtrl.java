@@ -1,5 +1,5 @@
 package controllers;
-
+import java.util.*;
 import play.mvc.*;
 import play.data.*;
 import javax.inject.Inject;
@@ -213,6 +213,27 @@ public class ShoppingCtrl extends Controller {
         
         return ok(addToWallet.render(amount,ru,w,u,addWalletForm));
      }
+      @Transactional
+    public Result viewOrders(String id) {
+        List<ShopOrder> orderList = ShopOrder.findOrders(id);
+        return ok(viewOrders.render(getCurrentUser(), orderList));
+    }
+
+    @Transactional
+    public Result cancelOrder(Long id) {
+        
+        ShopOrder shopping = ShopOrder.find.ref(id);
+        for(OrderItem o : shopping.getItems()){
+            o.getProduct().setStock(o.getProduct().getStock() + o.getQuantity());
+            o.getProduct().update();
+        }
+        ShopOrder.find.ref(id).delete();
+        flash("success","Your order has been cancelled");
+
+        return redirect(routes.ShoppingCtrl.viewOrders(getCurrentUser().getEmail()));
+    }
+    
+
 
 }
 // @for(p<-products) {

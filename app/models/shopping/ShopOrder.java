@@ -7,7 +7,8 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
-import java.util.Date;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 import models.products.*;
 import models.users.*;
@@ -19,7 +20,7 @@ public class ShopOrder extends Model {
     @Id
     private Long id;
     
-    private Date OrderDate;
+    private Calendar OrderDate;
     
     // Order contains may items.
     // mappedBy makes this side of the mapping the owner
@@ -32,8 +33,8 @@ public class ShopOrder extends Model {
     private RegisteredUser registeredUser;
 
     // Default constructor
-    public  ShopOrder() {
-        OrderDate = new Date();
+      public  ShopOrder() {
+        OrderDate = Calendar.getInstance();
     }
     public double getOrderTotal() {
         
@@ -61,11 +62,11 @@ public class ShopOrder extends Model {
         this.id = id;
     }
 
-    public Date getOrderDate() {
+    public Calendar getOrderDate() {
         return OrderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(Calendar orderDate) {
         OrderDate = orderDate;
     }
 
@@ -84,5 +85,27 @@ public class ShopOrder extends Model {
     public void setRegisteredUser(RegisteredUser registeredUser) {
         this.registeredUser = registeredUser;
     } 
+    public static List<ShopOrder> findOrders(String userID) {
+        return ShopOrder.find.query().where()
+                        // Only include ShopOrder from the matching cat ID
+                        // In this case search the ManyToMany relation
+                        .eq("registeredUser.email", userID)
+                        // name like filter value (surrounded by wildcards)
+                        .orderBy("name asc")
+                        .findList();
+    }
+    public String getDateString() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
+        OrderDate = Calendar.getInstance();
+        return(dateFormat.format(OrderDate.getTime()));
+    }
+
+    public Double getTotal() {
+        double totalPrice = 0;
+        for(OrderItem o : items){
+            totalPrice += o.getTotal();
+        }
+        return totalPrice;
+    }
 
 }
