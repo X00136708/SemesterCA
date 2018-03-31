@@ -18,6 +18,7 @@
 	<label>Order Number: @o.getId</label>
 	<br>
 	<label>Order Date: @o.getDateString</label>
+	
 
 		
 
@@ -25,22 +26,23 @@
 			<thead>
 			<!-- The header row-->
 			<tr>
-				<th>Id</th>
+				
 				<th>Name</th>
+				<th>Price</th>
                 <th>Quantity</th>
-                <th>Price</th>
 				<th>Total</th>
 			</tr>
 			</thead>
 			<tbody>
                 @if(registeredUser.getBasket() != null) {
+					
                     <!-- Start of For loop - For each p in products add a row -->
-                    @for(i <- o.getItems()) {
-                    <tr>
-                        <td>@i.getProduct.getId</td>
-                        <td>@i.getProduct.getName</td>
+					@for(i <- o.getItems()) {
+                   
+						
+						<td>@i.getProduct.getName</td>
+						<td>&euro; @("%.2f".format(i.getPrice))</td>
                         <td>@i.getQuantity()</td>
-                        <td>&euro; @("%.2f".format(i.getPrice))</td>
                         <td>&euro; @("%.2f".format(i.getItemTotal))</td>                        
                     </tr>
                     }<!-- End of For loop -->

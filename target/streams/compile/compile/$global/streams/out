@@ -1,7 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\doran\Documents\2ndYearProject\semesterca\app\models\shopping\ShopOrder.java:92:1:  error: method eq in interface ExpressionList<T> cannot be applied to given types;[0m
-[0m[[0m[31merror[0m] [0m[0m                        .eq("registeredUser.email")[0m
-[0m[[0m[31merror[0m] [0m[0m                        ^^  required: String,Object[0m
-[0m[[0m[31merror[0m] [0m[0m  found: String[0m
-[0m[[0m[31merror[0m] [0m[0m  reason: actual and formal argument lists differ in length[0m
-[0m[[0m[31merror[0m] [0m[0m  where T is a type-variable:[0m
-[0m[[0m[31merror[0m] [0m[0m    T extends Object declared in interface ExpressionList[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\doran\Documents\2ndYearProject\semesterca\app\controllers\ShoppingCtrl.java:117:1:  error: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m        c.getBasket().update();[0m
+[0m[[0m[31merror[0m] [0m[0m        ^^  symbol:   variable c[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class ShoppingCtrl[0m

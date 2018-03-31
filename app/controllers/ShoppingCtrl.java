@@ -71,7 +71,6 @@ public class ShoppingCtrl extends Controller {
         
         
         if(p.getStock() >= 1){
-            //p.setStock(p.getStock()-1);
             registeredUser.getBasket().addProduct(p);
             p.update();
             registeredUser.update();
@@ -109,87 +108,66 @@ public class ShoppingCtrl extends Controller {
        
         OrderItem item = OrderItem.find.byId(itemId);
         
-        RegisteredUser c = getCurrentUser();
+        RegisteredUser ru = getCurrentUser();
         
-        c.getBasket().removeItem(item);
+        ru.getBasket().removeItem(item);
 
             
 
-        c.getBasket().update();
+        ru.getBasket().update();
         
-        return ok(basket.render(c));
+        return ok(basket.render(ru));
     }
 
     @Transactional
     public Result emptyBasket() {
         
-        RegisteredUser c = getCurrentUser();
-        c.getBasket().removeAllItems();
-        c.getBasket().update();
+        RegisteredUser ru = getCurrentUser();
+        ru.getBasket().removeAllItems();
+        ru.getBasket().update();
         
-        return ok(basket.render(c));
+        return ok(basket.render(ru));
     }
 
-    @Transactional
+   @Transactional
     public Result placeOrder() {
-        RegisteredUser c = getCurrentUser();
-        Product p = new Product();
-        RegisteredUser registeredUser = (RegisteredUser)User.getLoggedIn(session().get("email"));
+        RegisteredUser ru = getCurrentUser();
         
-        
+        // Create an order instance
         ShopOrder order = new ShopOrder();
         
-       
-        order.setRegisteredUser(c);
+        // Associate order with registeredUser
+        order.setRegisteredUser(ru);
         
+        // Copy basket to order
+        order.setItems(ru.getBasket().getBasketItems());
         
-        order.setItems(c.getBasket().getBasketItems());
-        for(OrderItem i: order.getItems()){
-            if(p.getStock() >= 1){
-                p.setStock(p.getStock()-1);
-                OrderItem product = new OrderItem(p.getId(), p.getName(), p.getDescription(), p.getStock(), p.getPrice(), p.getPegi());
-                p.update();
-                registeredUser.update();
-            } else {
-                flash("failure", "Product " + p.getName() + " is out of stock!");
-            }
-        }
-        
+        // Save the order now to generate a new id for this order
         order.save();
        
-       
+       // Move items from basket to order
         for (OrderItem i: order.getItems()) {
-            
+            // Associate with order
             i.setOrder(order);
-            
+            // Remove from basket
             i.setBasket(null);
-            
+            // update item
             i.update();
-
-           
-
-            
-
         }
         
-     
-      
-        
+        // Update the order
         order.update();
         
+        // Clear and update the shopping basket
+        ru.getBasket().setBasketItems(null);
+        ru.getBasket().update();
         
-        emptyBasket();
-        
-        
-        return ok(orderConfirmed.render(c, order));
+        // Show order confirmed view
+        return ok(orderConfirmed.render(ru, order));
     }
     
    
-    @Transactional
-    public Result viewOrder(long id) {
-        ShopOrder order = ShopOrder.find.byId(id);
-        return ok(orderConfirmed.render(getCurrentUser(), order));
-    }
+ 
      @Transactional 
      public Result confirmPurchase(){
         RegisteredUser registeredUser = (RegisteredUser)User.getLoggedIn(session().get("email"));
@@ -213,7 +191,14 @@ public class ShoppingCtrl extends Controller {
         
         return ok(addToWallet.render(amount,ru,w,u,addWalletForm));
      }
-      @Transactional
+
+    @Transactional
+    public Result viewOrder(long id) {
+        ShopOrder order = ShopOrder.find.byId(id);
+        return ok(orderConfirmed.render(getCurrentUser(), order));
+    }
+
+    @Transactional
     public Result viewOrders(String id) {
         List<ShopOrder> orderList = ShopOrder.findOrders(id);
         return ok(viewOrders.render(getCurrentUser(), orderList));
