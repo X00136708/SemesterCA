@@ -1,18 +1,18 @@
 @import models.products.Category
 @import models.products.Product
 @import models.users.User
-@(products: List[Product], categories: List[Category], catId: Long, filter: String,user: User,env: play.api.Environment)
+@(products: List[Product], categories: List[Category], platformId: Long, filter: String,user: User,env: play.api.Environment)
 
 
 @main("Products",user) {
 
-<p class="lead">Product Catalogue</p>
+<p class="lead">Games</p>
 <br>
 <div class="row">
   <div class="col-sm-2">
-    <h4>Categories</h4>
+   
     <div class="list-group">
-      <a href="@routes.ProductCtrl.listProducts(0, filter)" class="list-group-item">All Categories</a>
+      <a href="@routes.ProductCtrl.listProducts(0, filter)" class="list-group-item">Platforms</a>
       @for(c <- categories) {
         <a href="@routes.ProductCtrl.listProducts(c.getId, filter)" class="list-group-item">@c.getName
           <span class="badge">@c.getProducts.size()</span>
@@ -29,9 +29,9 @@
 
       			<!-- Search Form -->
 			<div id="actions">
-        <form action="@routes.ProductCtrl.listProducts(catId)" method="GET">
-         <input type="search" id="searchbox" name="filter" value="@filter" placeholder="Filter by product name...">
-         <input type="submit" id="searchsubmit" value="Filter by name" class="btn-md btn-primary">
+        <form action="@routes.ProductCtrl.listProducts(platformId)" method="GET">
+         <input type="search" id="searchbox" name="filter" value="@filter" placeholder="Search for game...">
+         <input type="submit" id="searchsubmit" value="Search" class="btn-md btn-primary">
         </form>
        </div>
     <table class="table table-bordered table-hover table-condensed">   
