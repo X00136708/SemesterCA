@@ -47,22 +47,30 @@ Seq[Any](format.raw/*3.51*/("""
       """)))}),format.raw/*15.8*/("""
       """),format.raw/*16.7*/("""<thead>
         <tr>
-          <th>Image</th> 
-          <th>ID</th> 
+          <th>"""),_display_(/*18.16*/p/*18.17*/.getName),format.raw/*18.25*/(""" """),format.raw/*18.26*/("""("""),_display_(/*18.28*/p/*18.29*/.getPegi),format.raw/*18.37*/(""")</th> 
+          <th>Price</th> 
         </tr>
       </thead>
 
       <tbody>
 
           <tr>
-              """),_display_(/*26.16*/if(env.resource("public/images/productImages/" + p.getId + ".jpg").isDefined)/*26.93*/ {_display_(Seq[Any](format.raw/*26.95*/("""
-                """),format.raw/*27.17*/("""<td><img src="/assets/images/productImages/"""),_display_(/*27.61*/(p.getId + ".jpg")),format.raw/*27.79*/(""""/></td>
+              """),_display_(/*26.16*/if(env.resource("public/images/" + p.getId + ".png").isDefined)/*26.79*/ {_display_(Seq[Any](format.raw/*26.81*/("""
+                """),format.raw/*27.17*/("""<td><img src="/assets/images/"""),_display_(/*27.47*/(p.getId + ".png")),format.raw/*27.65*/(""""/></td>
             """)))}/*28.15*/else/*28.20*/{_display_(Seq[Any](format.raw/*28.21*/("""
-                """),format.raw/*29.17*/("""<td><img src="/assets/images/productImages/noImage.jpg"/></td>
+                """),format.raw/*29.17*/("""<td><img src="/assets/images/noImage.jpg"/></td>
             """)))}),format.raw/*30.14*/("""
-            """),format.raw/*31.13*/("""<td class="numeric">"""),_display_(/*31.34*/p/*31.35*/.getId),format.raw/*31.41*/("""</td>
+            """),format.raw/*31.13*/("""<td class="numeric">"""),_display_(/*31.34*/p/*31.35*/.getPrice),format.raw/*31.44*/("""</td>
             
           </tr>
+          <tr>
+            """),_display_(/*35.14*/if(p.getId==1)/*35.28*/{_display_(Seq[Any](format.raw/*35.29*/("""
+            """),format.raw/*36.13*/("""<td>
+              
+              """),_display_(/*38.16*/p/*38.17*/.getDescription),format.raw/*38.32*/(""" """),format.raw/*38.33*/("""errifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other.
+            </td>
+          """)))}),format.raw/*40.12*/("""
+          """),format.raw/*41.11*/("""</tr>
         
       </tbody>
 
@@ -87,11 +95,11 @@ Seq[Any](format.raw/*3.51*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Apr 01 14:24:29 BST 2018
+                  DATE: Mon Apr 02 01:40:20 BST 2018
                   SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/productDetails.scala.html
-                  HASH: e64467cb9e5a99190219e7da3471ad491d2b8d66
-                  MATRIX: 651->1|689->34|1054->61|1198->110|1230->117|1262->141|1301->143|1335->151|1463->253|1504->285|1544->287|1581->297|1654->343|1668->348|1704->363|1741->373|1786->388|1821->396|2003->551|2089->628|2129->630|2175->648|2246->692|2285->710|2327->734|2340->739|2379->740|2425->758|2533->835|2575->849|2623->870|2633->871|2660->877
-                  LINES: 24->1|25->2|30->3|35->3|38->6|38->6|38->6|41->9|43->11|43->11|43->11|44->12|45->13|45->13|45->13|46->14|47->15|48->16|58->26|58->26|58->26|59->27|59->27|59->27|60->28|60->28|60->28|61->29|62->30|63->31|63->31|63->31|63->31
+                  HASH: 427d2e36b143b64d6629bec79fa8029a9516ea22
+                  MATRIX: 651->1|689->34|1054->61|1198->110|1230->117|1262->141|1301->143|1335->151|1463->253|1504->285|1544->287|1581->297|1654->343|1668->348|1704->363|1741->373|1786->388|1821->396|1886->434|1896->435|1925->443|1954->444|1983->446|1993->447|2022->455|2166->572|2238->635|2278->637|2324->655|2381->685|2420->703|2462->727|2475->732|2514->733|2560->751|2654->814|2696->828|2744->849|2754->850|2784->859|2878->926|2901->940|2940->941|2982->955|3046->992|3056->993|3092->1008|3121->1009|3501->1358|3541->1370
+                  LINES: 24->1|25->2|30->3|35->3|38->6|38->6|38->6|41->9|43->11|43->11|43->11|44->12|45->13|45->13|45->13|46->14|47->15|48->16|50->18|50->18|50->18|50->18|50->18|50->18|50->18|58->26|58->26|58->26|59->27|59->27|59->27|60->28|60->28|60->28|61->29|62->30|63->31|63->31|63->31|63->31|67->35|67->35|67->35|68->36|70->38|70->38|70->38|70->38|72->40|73->41
                   -- GENERATED --
               */
           

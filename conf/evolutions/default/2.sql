@@ -19,4 +19,3 @@ insert into category_product (category_id,product_id) values (1,1);
 insert into category_product (category_id,product_id) values (1,2);
 insert into category_product (category_id,product_id) values (2,1);
 insert into category_product (category_id,product_id) values (3,1);
-

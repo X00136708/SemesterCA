@@ -192,7 +192,7 @@ public class AdminProductCtrl extends Controller {
             // make sure that the content is indeed an image
             String mimeType = uploaded.getContentType(); 
             if (mimeType.startsWith("image/")) {
-                // get the file name
+                // get the filze name
                 String fileName = uploaded.getFilename();                
                 // save the file object (created without a path, File saves
                 // the content to a default location, usually the temp or tmp
@@ -204,17 +204,17 @@ public class AdminProductCtrl extends Controller {
                 // add the uploaded image to the operationop.addImage(file.getAbsolutePath());
                 op.addImage(file.getAbsolutePath());
                 // resize the image using height and width saveFileOld(Long id, FilePart<File> uploaded) {
-                op.resize(300, 200);
+                op.resize(30, 20);
                 // save the image as jpg 
-                op.addImage("public/images/productImages/" + id + ".jpg");
+                op.addImage("public/images/" + id + ".png");
                 // create another Image Magick operation and repeat the process above to
                 // specify how a thumbnail image should be processed - size 60px
                 IMOperation thumb = new IMOperation();
                 thumb.addImage(file.getAbsolutePath());
-                thumb.resize(60);
-                thumb.addImage("public/images/productImages/thumbnails/" + id + ".jpg");
+                thumb.resize(6);
+                thumb.addImage("public/images/" + id + ".png");
                 // we must make sure that the directories exist before running the operations
-                File dir = new File("public/images/productImages/thumbnails/");
+                File dir = new File("public/images/");
                 if (!dir.exists()) {
                     dir.mkdirs();
                 }
@@ -249,14 +249,14 @@ public class AdminProductCtrl extends Controller {
                 // directory)
                 File file = uploaded.getFile();
                 // we must make sure that the directory for the images exists before we save it
-                File dir = new File("public/images/productImages");
+                File dir = new File("public/images/");
                 if (!dir.exists()) {
                     dir.mkdirs();
                 }
                 // move the file to the required location (in a real application 
                 // the path to where images are stored would be configurable, but 
                 // for the lab we just hard-code it)
-                if(file.renameTo(new File("public/images/productImages/", id + "." + extension))) {
+                if(file.renameTo(new File("public/images/", id + "." + extension))) {
                     return "/ file uploaded";
                 } else {
                     return "/ file upload failed";

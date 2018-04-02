@@ -5,7 +5,7 @@
 
 
 @main("Products",user) {
-
+<link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
 <p class="lead">Games</p>
 <br>
 <div class="row">
@@ -34,7 +34,9 @@
          <input type="submit" id="searchsubmit" value="Search" class="btn-md btn-primary">
         </form>
        </div>
-    <table class="table table-bordered table-hover table-condensed">   
+       <div id="tab"></div>
+    <table class="table table-bordered table-hover table-condensed">
+        
       <thead>
         <tr>
           <th></th>
@@ -43,26 +45,31 @@
           <th>Stock</th>
           <th>Price</th>   
         </tr>
+        <br>
       </thead>
+    </div>
+      
 
       <tbody>
         @for(p<-products) {
           <tr>
-              @if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {
-                <td><img src="/assets/images/productImages/thumbnails/@(p.getId + ".jpg")"/></td>
+              @if(env.resource("public/images/" + p.getId + ".png").isDefined) {
+                <td><img src="/assets/images/@(p.getId + ".png")"/></td>
             } else {
-                <td><img src="/assets/images/productImages/thumbnails/noImage.jpg"/></td>
+                <td><img src="/assets/images/noImage.jpg"/></td>
             }
             
-            <td>
-                @p.getName</td>
+            
+                <td><a href="@routes.ProductCtrl.productDetails(p.getId)">@p.getName</a>
                </a>     
             <td>@p.getDescription</td>
             <td  class="numeric">@p.getStock</td>
             <td  class="numeric">€ @("%.2f".format(p.getPrice))</td>
             <td><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+            
               }
-</table>
+            </table>
+
 
    
  

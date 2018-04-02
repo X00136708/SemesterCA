@@ -12,4 +12,3 @@ insert into user (email,name,password,role,amount) values ( 'registereduser@nuwa
 insert into forum_post (id, title, content, author_email, product_id) values (1, 'Test Post', 'Just a test post', 'registereduser@nuwavegames.com', 1);
 
 insert into forum_reply (id, content, author_email, forum_post_id) values (1, 'Just a test reply', 'moderator@nuwavegames.com', 1);
-

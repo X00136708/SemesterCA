@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="col-sm-9">
-    <table class="table table-bordered table-hover table-condensed">
+    
       @if(flash.containsKey("success")) {
         <div class="alert alert-success">
           @flash.get("success")
@@ -31,7 +31,7 @@
         <tr>
         
           <th></th>
-          <th>Name</th>
+          <th>Nae</th>
           <th>Description</th>
           <th>Stock</th>
           <th>Price</th>
@@ -43,9 +43,9 @@
         @for(p<-products) {
           <tr>
               @if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {
-                <td><img src="/assets/images/productImages/thumbnails/@(p.getId + ".jpg")"/></td>
+                <td><img src="/assets/images/@(p.getId + ".png")"/></td>
             } else {
-                <td><img src="/assets/images/productImages/thumbnails/noImage.jpg"/></td>
+                <td><img src="/assets/images/noImage.png"/></td>
             }
             
             <td>
@@ -65,10 +65,12 @@
               </a>
             </td>
           </tr>
+        
         }
       </tbody>
 
-    </table>
+   
+      
 
     <p>
       <a href="@routes.AdminProductCtrl.addProduct()">
