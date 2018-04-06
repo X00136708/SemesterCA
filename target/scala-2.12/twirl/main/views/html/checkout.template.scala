@@ -55,8 +55,9 @@ Seq[Any](format.raw/*1.47*/("""
                 """),_display_(/*23.18*/flash/*23.23*/.get("failure")),format.raw/*23.38*/("""
             """),format.raw/*24.13*/("""</div>
         """)))}),format.raw/*25.10*/("""  
+        
 
-		"""),format.raw/*27.3*/("""<table class="table table-bordered table-hover table-condensed">
+		"""),format.raw/*28.3*/("""<table class="table table-bordered table-hover table-condensed">
 			<thead>
 			<!-- The header row-->
 			<tr>
@@ -69,24 +70,24 @@ Seq[Any](format.raw/*1.47*/("""
 			</tr>
 			</thead>
 			<tbody>
-                """),_display_(/*40.18*/if(registeredUser.getBasket() != null)/*40.56*/ {_display_(Seq[Any](format.raw/*40.58*/("""
-                    """),format.raw/*41.21*/("""<!-- Start of For loop - For each p in products add a row -->
-                    """),_display_(/*42.22*/for(i <- registeredUser.getBasket().getBasketItems()) yield /*42.75*/ {_display_(Seq[Any](format.raw/*42.77*/("""
-                    """),format.raw/*43.21*/("""<tr>
-                        <td>"""),_display_(/*44.30*/i/*44.31*/.getProduct.getName),format.raw/*44.50*/("""</td>
-                        <td>"""),_display_(/*45.30*/i/*45.31*/.getProduct.getDescription()),format.raw/*45.59*/("""</td>
-                        <td>&euro; """),_display_(/*46.37*/("%.2f".format(i.getPrice))),format.raw/*46.64*/("""</td>
-                        <td>&euro; """),_display_(/*47.37*/("%.2f".format(i.getItemTotal))),format.raw/*47.68*/("""</td>
-                        <td>"""),_display_(/*48.30*/i/*48.31*/.getQuantity()),format.raw/*48.45*/("""</td>
+                """),_display_(/*41.18*/if(registeredUser.getBasket() != null)/*41.56*/ {_display_(Seq[Any](format.raw/*41.58*/("""
+                    """),format.raw/*42.21*/("""<!-- Start of For loop - For each p in products add a row -->
+                    """),_display_(/*43.22*/for(i <- registeredUser.getBasket().getBasketItems()) yield /*43.75*/ {_display_(Seq[Any](format.raw/*43.77*/("""
+                    """),format.raw/*44.21*/("""<tr>
+                        <td>"""),_display_(/*45.30*/i/*45.31*/.getProduct.getName),format.raw/*45.50*/("""</td>
+                        <td>"""),_display_(/*46.30*/i/*46.31*/.getProduct.getDescription()),format.raw/*46.59*/("""</td>
+                        <td>&euro; """),_display_(/*47.37*/("%.2f".format(i.getPrice))),format.raw/*47.64*/("""</td>
+                        <td>&euro; """),_display_(/*48.37*/("%.2f".format(i.getItemTotal))),format.raw/*48.68*/("""</td>
+                        <td>"""),_display_(/*49.30*/i/*49.31*/.getQuantity()),format.raw/*49.45*/("""</td>
                        
                     </tr>
-                    """)))}),format.raw/*51.22*/("""<!-- End of For loop -->
-              """)))}),format.raw/*52.16*/("""
-			"""),format.raw/*53.4*/("""</tbody>
+                    """)))}),format.raw/*52.22*/("""<!-- End of For loop -->
+              """)))}),format.raw/*53.16*/("""
+			"""),format.raw/*54.4*/("""</tbody>
 		</table>
         <div class="row">
             <div class="col-md-12">
-                <p class="text-right"><strong>Basket Total: &euro; """),_display_(/*57.69*/("%.2f".format(registeredUser.getBasket.getBasketTotal))),format.raw/*57.125*/("""</strong></p>
+                <p class="text-right"><strong>Basket Total: &euro; """),_display_(/*58.69*/("%.2f".format(registeredUser.getBasket.getBasketTotal))),format.raw/*58.125*/("""</strong></p>
             </div>  
         </div>
         <div class="row">
@@ -94,9 +95,9 @@ Seq[Any](format.raw/*1.47*/("""
                         <head>
                             <p id="demo"></p>
                             <script type="text/javascript">
-                              window.onload = function() """),format.raw/*65.58*/("""{"""),format.raw/*65.59*/("""
+                              window.onload = function() """),format.raw/*66.58*/("""{"""),format.raw/*66.59*/("""
                           
-                                  """),format.raw/*67.35*/("""var PayPal = document.getElementById('PayPal');
+                                  """),format.raw/*68.35*/("""var PayPal = document.getElementById('PayPal');
                                   var CreditCard = document.getElementById('CreditCard');
                                   
                           
@@ -104,36 +105,39 @@ Seq[Any](format.raw/*1.47*/("""
                                   CreditCard.onclick = CreditCardForm;
                                  
                           
-                              """),format.raw/*75.31*/("""}"""),format.raw/*75.32*/("""
+                              """),format.raw/*76.31*/("""}"""),format.raw/*76.32*/("""
                               
-                              """),format.raw/*77.31*/("""function PayPalForm()"""),format.raw/*77.52*/("""{"""),format.raw/*77.53*/("""
+                              """),format.raw/*78.31*/("""function PayPalForm()"""),format.raw/*78.52*/("""{"""),format.raw/*78.53*/("""
                                   
-                               """),format.raw/*79.32*/("""var paypalEmail = prompt("1) Please enter your email address and password as provided...", "")
+                               """),format.raw/*80.32*/("""var paypalEmail = prompt("1) Please enter your email address and password as provided...", "")
                                var paypalPassword = prompt("2) Please enter your paypal password...", "") 
-                              """),format.raw/*81.31*/("""}"""),format.raw/*81.32*/("""
+                              """),format.raw/*82.31*/("""}"""),format.raw/*82.32*/("""
                              
-                              """),format.raw/*83.31*/("""function CreditCardForm()"""),format.raw/*83.56*/("""{"""),format.raw/*83.57*/("""
-                                   """),format.raw/*84.36*/("""alert("Please enter your Credit card details...");
-                              """),format.raw/*85.31*/("""}"""),format.raw/*85.32*/("""
-                            """),format.raw/*86.29*/("""</script>
+                              """),format.raw/*84.31*/("""function CreditCardForm()"""),format.raw/*84.56*/("""{"""),format.raw/*84.57*/("""
+                                   """),format.raw/*85.36*/("""alert("Please enter your Credit card details...");
+                              """),format.raw/*86.31*/("""}"""),format.raw/*86.32*/("""
+                            """),format.raw/*87.29*/("""</script>
                         </head>
                        
 
 
-                        <body>
-                                
-                         <input type="radio" name="paymentType" id="PayPal" value="PayPal" />
-                         <label for="PayPal">PayPal</label>
-                         <input type="radio" name="paymentType" id="CreditCard" value="CreditCard" />
-                         <label for="CreditCard">Credit Card</label>
-                        
-                        </body>
                       <br>
-                    
+                      <form action="form-control payment" method="POST">
+                        <script
+                          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                          data-key="pk_test_LABia2wLCoS6B9wndhZqcLA4"
+                          data-amount="999"
+                          data-name="Demo Site"
+                          data-description="Example charge"
+                          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                          data-locale="auto"
+                          data-currency="eur">
+                        </script>
+                      </form>
 
             <div class="col-md-6">
                 <p class="text-right">
-                    <a href=""""),_display_(/*104.31*/routes/*104.37*/.ShoppingCtrl.placeOrder()),format.raw/*104.63*/("""" class="btn btn-success btn-sm">
+                    <a href=""""),_display_(/*108.31*/routes/*108.37*/.ShoppingCtrl.placeOrder()),format.raw/*108.63*/("""" class="btn btn-success btn-sm">
                     <span class="glyphicon glyphicon-euro"></span> Confirm purchase</a>
                 </p>
             </div>
@@ -161,11 +165,11 @@ Seq[Any](format.raw/*1.47*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Apr 06 22:18:12 IST 2018
-                  SOURCE: /home/brandon/Documents/SemesterCA/app/views/checkout.scala.html
-                  HASH: 0f36d8d44fc47be628ea63688b950a2cb7071e01
-                  MATRIX: 972->1|1090->51|1126->81|1158->107|1212->46|1242->132|1269->133|1341->179|1382->211|1422->213|1452->216|1525->263|1566->295|1606->297|1639->303|1710->347|1724->352|1760->367|1793->373|1840->389|1877->399|1918->431|1958->433|1999->446|2077->497|2091->502|2127->517|2168->530|2215->546|2248->552|2556->833|2603->871|2643->873|2692->894|2802->977|2871->1030|2911->1032|2960->1053|3021->1087|3031->1088|3071->1107|3133->1142|3143->1143|3192->1171|3261->1213|3309->1240|3378->1282|3430->1313|3492->1348|3502->1349|3537->1363|3645->1440|3716->1480|3747->1484|3924->1634|4002->1690|4316->1976|4345->1977|4435->2039|4888->2464|4917->2465|5007->2527|5056->2548|5085->2549|5180->2616|5440->2848|5469->2849|5558->2910|5611->2935|5640->2936|5704->2972|5813->3053|5842->3054|5899->3083|6594->3750|6610->3756|6658->3782
-                  LINES: 28->1|31->5|32->6|33->7|36->1|40->8|41->9|42->10|42->10|42->10|45->13|48->16|48->16|48->16|49->17|50->18|50->18|50->18|51->19|52->20|53->21|53->21|53->21|54->22|55->23|55->23|55->23|56->24|57->25|59->27|72->40|72->40|72->40|73->41|74->42|74->42|74->42|75->43|76->44|76->44|76->44|77->45|77->45|77->45|78->46|78->46|79->47|79->47|80->48|80->48|80->48|83->51|84->52|85->53|89->57|89->57|97->65|97->65|99->67|107->75|107->75|109->77|109->77|109->77|111->79|113->81|113->81|115->83|115->83|115->83|116->84|117->85|117->85|118->86|136->104|136->104|136->104
+                  DATE: Sat Apr 07 00:04:11 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/checkout.scala.html
+                  HASH: 16ba0a49b2ed96cf7c438a22245a6541e7c78831
+                  MATRIX: 972->1|1090->55|1126->86|1158->113|1212->46|1246->139|1274->141|1347->188|1388->220|1428->222|1461->228|1537->278|1578->310|1618->312|1652->319|1724->364|1738->369|1774->384|1808->391|1856->408|1894->419|1935->451|1975->453|2017->467|2096->519|2110->524|2146->539|2188->553|2236->570|2281->588|2602->882|2649->920|2689->922|2739->944|2850->1028|2919->1081|2959->1083|3009->1105|3071->1140|3081->1141|3121->1160|3184->1196|3194->1197|3243->1225|3313->1268|3361->1295|3431->1338|3483->1369|3546->1405|3556->1406|3591->1420|3702->1500|3774->1541|3806->1546|3987->1700|4065->1756|4387->2050|4416->2051|4508->2115|4969->2548|4998->2549|5090->2613|5139->2634|5168->2635|5265->2704|5527->2938|5556->2939|5647->3002|5700->3027|5729->3028|5794->3065|5904->3147|5933->3148|5991->3178|6918->4077|6934->4083|6982->4109
+                  LINES: 28->1|31->5|32->6|33->7|36->1|40->8|41->9|42->10|42->10|42->10|45->13|48->16|48->16|48->16|49->17|50->18|50->18|50->18|51->19|52->20|53->21|53->21|53->21|54->22|55->23|55->23|55->23|56->24|57->25|60->28|73->41|73->41|73->41|74->42|75->43|75->43|75->43|76->44|77->45|77->45|77->45|78->46|78->46|78->46|79->47|79->47|80->48|80->48|81->49|81->49|81->49|84->52|85->53|86->54|90->58|90->58|98->66|98->66|100->68|108->76|108->76|110->78|110->78|110->78|112->80|114->82|114->82|116->84|116->84|116->84|117->85|118->86|118->86|119->87|140->108|140->108|140->108
                   -- GENERATED --
               */
           

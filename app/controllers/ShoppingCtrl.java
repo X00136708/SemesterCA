@@ -132,7 +132,8 @@ public class ShoppingCtrl extends Controller {
        @Transactional
     public Result placeOrder() {
         RegisteredUser c = getCurrentUser();
-        
+        RegisteredUser ru = getCurrentUser();
+        ru.getBasket().decStock();
         RegisteredUser registeredUser = (RegisteredUser)User.getLoggedIn(session().get("email"));
         
         
@@ -152,7 +153,7 @@ public class ShoppingCtrl extends Controller {
         for(OrderItem i: order.getItems()){
             Product p = i.getProduct();
             if(p.getStock() >= p.getStock()-i.getQuantity()){
-                p.setStock(p.getStock()-i.getQuantity());
+                
                 p.update();
                 registeredUser.update();
             } else {

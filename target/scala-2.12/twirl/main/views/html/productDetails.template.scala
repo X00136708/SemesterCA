@@ -35,7 +35,7 @@ object productDetails extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl
 Seq[Any](format.raw/*3.51*/("""
 
 
-"""),_display_(/*6.2*/main("Full Image", user)/*6.26*/ {_display_(Seq[Any](format.raw/*6.28*/("""
+"""),_display_(/*6.2*/main("Game", user)/*6.20*/ {_display_(Seq[Any](format.raw/*6.22*/("""
 
 
   """),format.raw/*9.3*/("""<div class="col-sm-10">
@@ -49,33 +49,30 @@ Seq[Any](format.raw/*3.51*/("""
         <tr>
           <th>"""),_display_(/*18.16*/p/*18.17*/.getName),format.raw/*18.25*/(""" """),format.raw/*18.26*/("""("""),_display_(/*18.28*/p/*18.29*/.getPegi),format.raw/*18.37*/(""")</th> 
           <th>Price</th> 
+          <th>Description</th>
         </tr>
       </thead>
 
       <tbody>
 
           <tr>
-              """),_display_(/*26.16*/if(env.resource("public/images/" + p.getId + ".png").isDefined)/*26.79*/ {_display_(Seq[Any](format.raw/*26.81*/("""
-                """),format.raw/*27.17*/("""<td><img src="/assets/images/"""),_display_(/*27.47*/(p.getId + ".png")),format.raw/*27.65*/(""""/></td>
-            """)))}/*28.15*/else/*28.20*/{_display_(Seq[Any](format.raw/*28.21*/("""
-                """),format.raw/*29.17*/("""<td><img src="/assets/images/noImage.jpg"/></td>
-            """)))}),format.raw/*30.14*/("""
-            """),format.raw/*31.13*/("""<td class="numeric">"""),_display_(/*31.34*/p/*31.35*/.getPrice),format.raw/*31.44*/("""</td>
-            
+              """),_display_(/*27.16*/if(env.resource("public/images/" + p.getId + ".png").isDefined)/*27.79*/ {_display_(Seq[Any](format.raw/*27.81*/("""
+                """),format.raw/*28.17*/("""<td><img src="/assets/images/"""),_display_(/*28.47*/(p.getId + ".png")),format.raw/*28.65*/(""""/></td>
+            """)))}/*29.15*/else/*29.20*/{_display_(Seq[Any](format.raw/*29.21*/("""
+                """),format.raw/*30.17*/("""<td><img src="/assets/images/noImage.jpg"/></td>
+            """)))}),format.raw/*31.14*/("""
+            """),format.raw/*32.13*/("""<td class="numeric">€"""),_display_(/*32.35*/p/*32.36*/.getPrice),format.raw/*32.45*/("""</td>
+            <td>
+            """),_display_(/*34.14*/p/*34.15*/.getDescription),format.raw/*34.30*/(""" 
+            """),format.raw/*35.13*/("""</td>
+            <td><a href=""""),_display_(/*36.27*/routes/*36.33*/.ShoppingCtrl.addToBasket(p.getId)),format.raw/*36.67*/(""""  class="btn btn-default btn-xs">Add To Card  <span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+          
           </tr>
-          <tr>
-            """),_display_(/*35.14*/if(p.getId==1)/*35.28*/{_display_(Seq[Any](format.raw/*35.29*/("""
-            """),format.raw/*36.13*/("""<td>
-              
-              """),_display_(/*38.16*/p/*38.17*/.getDescription),format.raw/*38.32*/(""" """),format.raw/*38.33*/("""terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other.
-            </td>
-          """)))}),format.raw/*40.12*/("""
-          """),format.raw/*41.11*/("""</tr>
         
       </tbody>
 
     </table>
-
+   
     
   </div>
 </div>
@@ -95,11 +92,11 @@ Seq[Any](format.raw/*3.51*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Apr 06 22:18:12 IST 2018
-                  SOURCE: /home/brandon/Documents/SemesterCA/app/views/productDetails.scala.html
-                  HASH: 10e82ffb9f04a09e39cfcc37cebc05498d46bda7
-                  MATRIX: 651->1|689->33|1054->59|1198->108|1227->112|1259->136|1298->138|1329->143|1455->243|1496->275|1536->277|1572->286|1644->331|1658->336|1694->351|1730->360|1774->374|1808->381|1871->417|1881->418|1910->426|1939->427|1968->429|1978->430|2007->438|2143->547|2215->610|2255->612|2300->629|2357->659|2396->677|2437->700|2450->705|2489->706|2534->723|2627->785|2668->798|2716->819|2726->820|2756->829|2846->892|2869->906|2908->907|2949->920|3011->955|3021->956|3057->971|3086->972|3465->1320|3504->1331
-                  LINES: 24->1|25->2|30->3|35->3|38->6|38->6|38->6|41->9|43->11|43->11|43->11|44->12|45->13|45->13|45->13|46->14|47->15|48->16|50->18|50->18|50->18|50->18|50->18|50->18|50->18|58->26|58->26|58->26|59->27|59->27|59->27|60->28|60->28|60->28|61->29|62->30|63->31|63->31|63->31|63->31|67->35|67->35|67->35|68->36|70->38|70->38|70->38|70->38|72->40|73->41
+                  DATE: Sat Apr 07 00:08:11 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/productDetails.scala.html
+                  HASH: 139798dbbab2cf98c018df4a174c684ab247956f
+                  MATRIX: 651->1|689->34|1054->61|1198->110|1230->117|1256->135|1295->137|1329->145|1457->247|1498->279|1538->281|1575->291|1648->337|1662->342|1698->357|1735->367|1780->382|1815->390|1880->428|1890->429|1919->437|1948->438|1977->440|1987->441|2016->449|2192->598|2264->661|2304->663|2350->681|2407->711|2446->729|2488->753|2501->758|2540->759|2586->777|2680->840|2722->854|2771->876|2781->877|2811->886|2876->924|2886->925|2922->940|2965->955|3025->988|3040->994|3095->1028
+                  LINES: 24->1|25->2|30->3|35->3|38->6|38->6|38->6|41->9|43->11|43->11|43->11|44->12|45->13|45->13|45->13|46->14|47->15|48->16|50->18|50->18|50->18|50->18|50->18|50->18|50->18|59->27|59->27|59->27|60->28|60->28|60->28|61->29|61->29|61->29|62->30|63->31|64->32|64->32|64->32|64->32|66->34|66->34|66->34|67->35|68->36|68->36|68->36
                   -- GENERATED --
               */
           

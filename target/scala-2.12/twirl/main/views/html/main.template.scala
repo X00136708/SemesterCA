@@ -50,7 +50,7 @@ Seq[Any](format.raw/*1.58*/("""
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href=""""),_display_(/*21.48*/routes/*21.54*/.ProductCtrl.listProducts(0)),format.raw/*21.82*/("""">Online Shop</a>
+                <a class="navbar-brand" href=""""),_display_(/*21.48*/routes/*21.54*/.ProductCtrl.listProducts(0)),format.raw/*21.82*/("""">Nu-Wave Games</a>
             </div>
 
             <ul class="nav navbar-nav">
@@ -66,24 +66,30 @@ Seq[Any](format.raw/*1.58*/("""
                 <li>
                     <a href="#">Contact us</a>
                 </li>
-                <li """),_display_(/*37.22*/if(title=="Login")/*37.40*/{_display_(Seq[Any](format.raw/*37.41*/("""class="active"""")))}),format.raw/*37.56*/(""">
-                    """),_display_(/*38.22*/if(user != null)/*38.38*/ {_display_(Seq[Any](format.raw/*38.40*/("""
-                        """),format.raw/*39.25*/("""<a href=""""),_display_(/*39.35*/controllers/*39.46*/.security.routes.LoginCtrl.logout()),format.raw/*39.81*/("""">Logout """),_display_(/*39.91*/user/*39.95*/.getName()),format.raw/*39.105*/("""</a>
-                    """)))}/*40.23*/else/*40.28*/{_display_(Seq[Any](format.raw/*40.29*/("""
-                        """),format.raw/*41.25*/("""<a href=""""),_display_(/*41.35*/controllers/*41.46*/.security.routes.LoginCtrl.login()),format.raw/*41.80*/("""">Login</a>
-                    """)))}),format.raw/*42.22*/("""
-                    
-                """),format.raw/*44.17*/("""<li>
-                    <a href=""""),_display_(/*45.31*/routes/*45.37*/.ShoppingCtrl.addToWallet(0)),format.raw/*45.65*/("""">Wallet</a>
+         
+                    """),_display_(/*38.22*/if(user != null)/*38.38*/{_display_(Seq[Any](format.raw/*38.39*/("""
+                        """),_display_(/*39.26*/if(user.getRole == "registeredUser")/*39.62*/{_display_(Seq[Any](format.raw/*39.63*/("""
+                """),format.raw/*40.17*/("""<li>
+                    <a href=""""),_display_(/*41.31*/routes/*41.37*/.ShoppingCtrl.addToWallet(0)),format.raw/*41.65*/("""">Wallet</a>
                 </li>
-                """),_display_(/*47.18*/if(user != null)/*47.34*/{_display_(Seq[Any](format.raw/*47.35*/("""
-                    """),format.raw/*48.21*/("""<li>
-                            <a href=""""),_display_(/*49.39*/controllers/*49.50*/.routes.ShoppingCtrl.viewOrders(user.getEmail())),format.raw/*49.98*/("""">View Orders</a>
+                <li>
+                    <a href=""""),_display_(/*44.31*/routes/*44.37*/.ShoppingCtrl.showBasket()),format.raw/*44.63*/("""">Basket</a>
+                </li>
+                
+                    <li>
+                            <a href=""""),_display_(/*48.39*/controllers/*48.50*/.routes.ShoppingCtrl.viewOrders(user.getEmail())),format.raw/*48.98*/("""">View Orders</a>
                         </li>
-                """)))}),format.raw/*51.18*/("""
+                """)))})))}),format.raw/*50.19*/("""
+                """),format.raw/*51.17*/("""<li """),_display_(/*51.22*/if(title=="Login")/*51.40*/{_display_(Seq[Any](format.raw/*51.41*/("""class="active"""")))}),format.raw/*51.56*/(""">
+                        """),_display_(/*52.26*/if(user != null)/*52.42*/ {_display_(Seq[Any](format.raw/*52.44*/("""
+                            """),format.raw/*53.29*/("""<a href=""""),_display_(/*53.39*/controllers/*53.50*/.security.routes.LoginCtrl.logout()),format.raw/*53.85*/("""">Logout """),_display_(/*53.95*/user/*53.99*/.getName()),format.raw/*53.109*/("""</a>
+                        """)))}/*54.27*/else/*54.32*/{_display_(Seq[Any](format.raw/*54.33*/("""
+                            """),format.raw/*55.29*/("""<a href=""""),_display_(/*55.39*/controllers/*55.50*/.security.routes.LoginCtrl.login()),format.raw/*55.84*/("""">Login</a>
+                        """)))}),format.raw/*56.26*/("""
+                    """),format.raw/*57.21*/("""</li>
             
 
-                """),format.raw/*54.17*/("""</li>
+                </li>
             </ul>
 
         </div>
@@ -93,8 +99,8 @@ Seq[Any](format.raw/*1.58*/("""
     <container>
         <row>
             <div class="col-md-12">
-                """),_display_(/*64.18*/content),format.raw/*64.25*/("""
-            """),format.raw/*65.13*/("""</div>
+                """),_display_(/*70.18*/content),format.raw/*70.25*/("""
+            """),format.raw/*71.13*/("""</div>
         </row>
     </container>
 <br>
@@ -103,12 +109,12 @@ Seq[Any](format.raw/*1.58*/("""
         <row>
             <div class="col-md-12">
                 Copyright
-                <strong>Online Shop</strong>
+                <strong>Nu-Wave Games</strong>
             </div>
         </row>
     </footer>
     </container>
-    <script src=""""),_display_(/*79.19*/routes/*79.25*/.Assets.versioned("javascripts/main.js")),format.raw/*79.65*/(""""></script>
+    <script src=""""),_display_(/*85.19*/routes/*85.25*/.Assets.versioned("javascripts/main.js")),format.raw/*85.65*/(""""></script>
 </body>
 
 </html>"""))
@@ -127,11 +133,11 @@ Seq[Any](format.raw/*1.58*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Apr 06 22:18:12 IST 2018
-                  SOURCE: /home/brandon/Documents/SemesterCA/app/views/main.scala.html
-                  HASH: 3c1d2e52bed8a9ed81dcd6e8fefd10a3781cc8be
-                  MATRIX: 970->1|1121->57|1149->59|1272->156|1297->161|1509->346|1524->352|1586->393|1817->597|1832->603|1881->631|2008->731|2039->753|2078->754|2124->769|2268->886|2283->892|2331->919|2505->1066|2532->1084|2571->1085|2617->1100|2667->1123|2692->1139|2732->1141|2785->1166|2822->1176|2842->1187|2898->1222|2935->1232|2948->1236|2980->1246|3025->1273|3038->1278|3077->1279|3130->1304|3167->1314|3187->1325|3242->1359|3306->1392|3372->1430|3434->1465|3449->1471|3498->1499|3577->1551|3602->1567|3641->1568|3690->1589|3760->1632|3780->1643|3849->1691|3945->1756|4004->1787|4167->1923|4195->1930|4236->1943|4544->2224|4559->2230|4620->2270
-                  LINES: 28->1|33->1|35->3|41->9|41->9|45->13|45->13|45->13|53->21|53->21|53->21|58->26|58->26|58->26|58->26|63->31|63->31|63->31|69->37|69->37|69->37|69->37|70->38|70->38|70->38|71->39|71->39|71->39|71->39|71->39|71->39|71->39|72->40|72->40|72->40|73->41|73->41|73->41|73->41|74->42|76->44|77->45|77->45|77->45|79->47|79->47|79->47|80->48|81->49|81->49|81->49|83->51|86->54|96->64|96->64|97->65|111->79|111->79|111->79
+                  DATE: Sat Apr 07 00:06:15 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/main.scala.html
+                  HASH: f867388d6b6bbfc9630455657539b3c18dd9dfac
+                  MATRIX: 970->1|1121->57|1151->61|1280->164|1305->169|1521->358|1536->364|1598->405|1837->617|1852->623|1901->651|2035->758|2066->780|2105->781|2151->796|2300->918|2315->924|2363->951|2554->1115|2579->1131|2618->1132|2672->1159|2717->1195|2756->1196|2802->1214|2865->1250|2880->1256|2929->1284|3045->1373|3060->1379|3107->1405|3253->1524|3273->1535|3342->1583|3444->1651|3490->1669|3522->1674|3549->1692|3588->1693|3634->1708|3689->1736|3714->1752|3754->1754|3812->1784|3849->1794|3869->1805|3925->1840|3962->1850|3975->1854|4007->1864|4057->1896|4070->1901|4109->1902|4167->1932|4204->1942|4224->1953|4279->1987|4348->2025|4398->2047|4610->2232|4638->2239|4680->2253|5004->2550|5019->2556|5080->2596
+                  LINES: 28->1|33->1|35->3|41->9|41->9|45->13|45->13|45->13|53->21|53->21|53->21|58->26|58->26|58->26|58->26|63->31|63->31|63->31|70->38|70->38|70->38|71->39|71->39|71->39|72->40|73->41|73->41|73->41|76->44|76->44|76->44|80->48|80->48|80->48|82->50|83->51|83->51|83->51|83->51|83->51|84->52|84->52|84->52|85->53|85->53|85->53|85->53|85->53|85->53|85->53|86->54|86->54|86->54|87->55|87->55|87->55|87->55|88->56|89->57|102->70|102->70|103->71|117->85|117->85|117->85
                   -- GENERATED --
               */
           

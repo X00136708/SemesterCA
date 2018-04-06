@@ -3,7 +3,7 @@
 @(p: Product,user: User,env: play.api.Environment)
 
 
-@main("Full Image", user) {
+@main("Game", user) {
 
 
   <div class="col-sm-10">
@@ -17,6 +17,7 @@
         <tr>
           <th>@p.getName (@p.getPegi)</th> 
           <th>Price</th> 
+          <th>Description</th>
         </tr>
       </thead>
 
@@ -28,22 +29,18 @@
             } else {
                 <td><img src="/assets/images/noImage.jpg"/></td>
             }
-            <td class="numeric">@p.getPrice</td>
-            
-          </tr>
-          <tr>
-            @if(p.getId==1){
+            <td class="numeric">€@p.getPrice</td>
             <td>
-              
-              @p.getDescription terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other.
+            @p.getDescription 
             </td>
-          }
+            <td><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs">Add To Card  <span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+          
           </tr>
         
       </tbody>
 
     </table>
-
+   
     
   </div>
 </div>

@@ -23,6 +23,7 @@
                 @flash.get("failure")
             </div>
         }  
+        
 
 		<table class="table table-bordered table-hover table-condensed">
 			<thead>
@@ -88,16 +89,19 @@
                        
 
 
-                        <body>
-                                
-                         <input type="radio" name="paymentType" id="PayPal" value="PayPal" />
-                         <label for="PayPal">PayPal</label>
-                         <input type="radio" name="paymentType" id="CreditCard" value="CreditCard" />
-                         <label for="CreditCard">Credit Card</label>
-                        
-                        </body>
                       <br>
-                    
+                      <form action="form-control payment" method="POST">
+                        <script
+                          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                          data-key="pk_test_LABia2wLCoS6B9wndhZqcLA4"
+                          data-amount="999"
+                          data-name="Demo Site"
+                          data-description="Example charge"
+                          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                          data-locale="auto"
+                          data-currency="eur">
+                        </script>
+                      </form>
 
             <div class="col-md-6">
                 <p class="text-right">
