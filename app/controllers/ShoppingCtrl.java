@@ -132,7 +132,7 @@ public class ShoppingCtrl extends Controller {
        @Transactional
     public Result placeOrder() {
         RegisteredUser c = getCurrentUser();
-        Product p = new Product();
+        
         RegisteredUser registeredUser = (RegisteredUser)User.getLoggedIn(session().get("email"));
         
         
@@ -142,11 +142,17 @@ public class ShoppingCtrl extends Controller {
         order.setRegisteredUser(c);
         
         
-        order.setItems(c.getBasket().getBasketItems());
+        
+        for(OrderItem i: c.getBasket().getBasketItems()){
+            Product p = i.getProduct();
+            OrderItem product = new OrderItem(p, i.getQuantity());
+            order.getItems().add(product);
+        }
+
         for(OrderItem i: order.getItems()){
-            if(p.getStock() >= 1){
-                p.setStock(p.getStock()-1);
-                OrderItem product = new OrderItem(p.getId(), p.getName(), p.getDescription(), p.getStock(), p.getPrice(), p.getPegi());
+            Product p = i.getProduct();
+            if(p.getStock() >= p.getStock()-i.getQuantity()){
+                p.setStock(p.getStock()-i.getQuantity());
                 p.update();
                 registeredUser.update();
             } else {
@@ -178,9 +184,8 @@ public class ShoppingCtrl extends Controller {
         order.update();
         
         
-      
-        c.getBasket().update();
         emptyBasket();
+        c.getBasket().update();
           
         return ok(orderConfirmed.render(c, order));
     }

@@ -35,16 +35,12 @@ public class OrderItem extends Model {
     public  OrderItem() {
     }
     
-    public OrderItem(Product p) {
+    public OrderItem(Product p, int qty) {
         product=p;
-        quantity = 1;
-        price = p.getPrice();
+        quantity = qty;
+        price = p.getPrice()*qty;
 }
-    public OrderItem(Long id, String name, String description , int stock ,double price, String pegi) {
-            Product p = new Product(id,name,description,stock,price,pegi);
-            quantity = 1;
-            price = p.getPrice();
-    }
+    
         // Increment quantity
         public void increaseQty() {
             quantity += 1;

@@ -41,7 +41,7 @@ public class Basket extends Model {
         }
         if (itemFound == false) {
             
-            OrderItem newItem = new OrderItem(p);
+            OrderItem newItem = new OrderItem(p, 1);
            
             basketItems.add(newItem);
         }
