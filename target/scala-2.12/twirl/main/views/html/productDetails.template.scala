@@ -67,7 +67,7 @@ Seq[Any](format.raw/*3.51*/("""
             """),_display_(/*35.14*/if(p.getId==1)/*35.28*/{_display_(Seq[Any](format.raw/*35.29*/("""
             """),format.raw/*36.13*/("""<td>
               
-              """),_display_(/*38.16*/p/*38.17*/.getDescription),format.raw/*38.32*/(""" """),format.raw/*38.33*/("""errifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other.
+              """),_display_(/*38.16*/p/*38.17*/.getDescription),format.raw/*38.32*/(""" """),format.raw/*38.33*/("""terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other.
             </td>
           """)))}),format.raw/*40.12*/("""
           """),format.raw/*41.11*/("""</tr>
@@ -95,10 +95,10 @@ Seq[Any](format.raw/*3.51*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Apr 02 01:40:20 BST 2018
+                  DATE: Fri Apr 06 18:58:31 BST 2018
                   SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/productDetails.scala.html
-                  HASH: 427d2e36b143b64d6629bec79fa8029a9516ea22
-                  MATRIX: 651->1|689->34|1054->61|1198->110|1230->117|1262->141|1301->143|1335->151|1463->253|1504->285|1544->287|1581->297|1654->343|1668->348|1704->363|1741->373|1786->388|1821->396|1886->434|1896->435|1925->443|1954->444|1983->446|1993->447|2022->455|2166->572|2238->635|2278->637|2324->655|2381->685|2420->703|2462->727|2475->732|2514->733|2560->751|2654->814|2696->828|2744->849|2754->850|2784->859|2878->926|2901->940|2940->941|2982->955|3046->992|3056->993|3092->1008|3121->1009|3501->1358|3541->1370
+                  HASH: a54d5103cf269ca718c6c419a6f8caef6bc48d62
+                  MATRIX: 651->1|689->34|1054->61|1198->110|1230->117|1262->141|1301->143|1335->151|1463->253|1504->285|1544->287|1581->297|1654->343|1668->348|1704->363|1741->373|1786->388|1821->396|1886->434|1896->435|1925->443|1954->444|1983->446|1993->447|2022->455|2166->572|2238->635|2278->637|2324->655|2381->685|2420->703|2462->727|2475->732|2514->733|2560->751|2654->814|2696->828|2744->849|2754->850|2784->859|2878->926|2901->940|2940->941|2982->955|3046->992|3056->993|3092->1008|3121->1009|3502->1359|3542->1371
                   LINES: 24->1|25->2|30->3|35->3|38->6|38->6|38->6|41->9|43->11|43->11|43->11|44->12|45->13|45->13|45->13|46->14|47->15|48->16|50->18|50->18|50->18|50->18|50->18|50->18|50->18|58->26|58->26|58->26|59->27|59->27|59->27|60->28|60->28|60->28|61->29|62->30|63->31|63->31|63->31|63->31|67->35|67->35|67->35|68->36|70->38|70->38|70->38|70->38|72->40|73->41
                   -- GENERATED --
               */

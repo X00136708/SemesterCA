@@ -416,3 +416,7 @@ run
 clean
 run
 exit
+clean
+compile
+run
+exit

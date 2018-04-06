@@ -129,41 +129,60 @@ public class ShoppingCtrl extends Controller {
         return ok(basket.render(ru));
     }
 
-   @Transactional
+       @Transactional
     public Result placeOrder() {
-        RegisteredUser ru = getCurrentUser();
+        RegisteredUser c = getCurrentUser();
+        Product p = new Product();
+        RegisteredUser registeredUser = (RegisteredUser)User.getLoggedIn(session().get("email"));
         
-        // Create an order instance
+        
         ShopOrder order = new ShopOrder();
         
-        // Associate order with registeredUser
-        order.setRegisteredUser(ru);
-        
-        // Copy basket to order
-        order.setItems(ru.getBasket().getBasketItems());
-        
-        // Save the order now to generate a new id for this order
-        order.save();
        
-       // Move items from basket to order
-        for (OrderItem i: order.getItems()) {
-            // Associate with order
-            i.setOrder(order);
-            // Remove from basket
-            i.setBasket(null);
-            // update item
-            i.update();
+        order.setRegisteredUser(c);
+        
+        
+        order.setItems(c.getBasket().getBasketItems());
+        for(OrderItem i: order.getItems()){
+            if(p.getStock() >= 1){
+                p.setStock(p.getStock()-1);
+                OrderItem product = new OrderItem(p.getId(), p.getName(), p.getDescription(), p.getStock(), p.getPrice(), p.getPegi());
+                p.update();
+                registeredUser.update();
+            } else {
+                flash("failure", "Product " + p.getName() + " is out of stock!");
+            }
         }
         
-        // Update the order
+        order.save();
+       
+       
+        for (OrderItem i: order.getItems()) {
+            
+            i.setOrder(order);
+            
+            i.setBasket(null);
+            
+            i.update();
+
+           
+
+            
+
+        }
+        
+     
+      
+        
+        
         order.update();
         
-        // Clear and update the shopping basket
-        ru.getBasket().setBasketItems(null);
-        ru.getBasket().update();
         
-        // Show order confirmed view
-        return ok(orderConfirmed.render(ru, order));
+      
+        c.getBasket().update();
+        emptyBasket();
+          
+        return ok(orderConfirmed.render(c, order));
     }
     
    
