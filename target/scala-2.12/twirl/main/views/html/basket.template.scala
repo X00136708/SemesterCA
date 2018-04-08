@@ -61,36 +61,36 @@ Seq[Any](format.raw/*1.47*/("""
 			<!-- The header row-->
 			<tr>
 				<th>Name</th>
-				<th>Description</th>
-				<th>Item Price</th>
+                <th>Price</th>
+                <th>Quantity</th>
 				<th>Total</th>
-				<th>Quantity</th>
                 <th>dec.</th>
                 <th>inc.</th>
 			</tr>
 			</thead>
 			<tbody>
-                """),_display_(/*41.18*/if(registeredUser.getBasket() != null)/*41.56*/ {_display_(Seq[Any](format.raw/*41.58*/("""
-                    """),format.raw/*42.21*/("""<!-- Start of For loop - For each p in products add a row -->
-                    """),_display_(/*43.22*/for(i <- registeredUser.getBasket().getBasketItems()) yield /*43.75*/ {_display_(Seq[Any](format.raw/*43.77*/("""
-                    """),format.raw/*44.21*/("""<tr>
-                        <td>"""),_display_(/*45.30*/i/*45.31*/.getProduct.getName),format.raw/*45.50*/("""</td>
-                        <td>"""),_display_(/*46.30*/i/*46.31*/.getProduct.getDescription()),format.raw/*46.59*/("""</td>
-                        <td>&euro; """),_display_(/*47.37*/("%.2f".format(i.getPrice))),format.raw/*47.64*/("""</td>
-                        <td>&euro; """),_display_(/*48.37*/("%.2f".format(i.getItemTotal))),format.raw/*48.68*/("""</td>
-                        <td>"""),_display_(/*49.30*/i/*49.31*/.getQuantity()),format.raw/*49.45*/("""</td>
-                        <td><a href=""""),_display_(/*50.39*/routes/*50.45*/.ShoppingCtrl.removeOne(i.getId)),format.raw/*50.77*/(""""><span class="glyphicon glyphicon-minus-sign"></span></a></td>
-                        <td><a href=""""),_display_(/*51.39*/routes/*51.45*/.ShoppingCtrl.addOne(i.getId)),format.raw/*51.74*/(""""><span class="glyphicon glyphicon-plus-sign"></span></a></td>
+                """),_display_(/*40.18*/if(registeredUser.getBasket() != null)/*40.56*/ {_display_(Seq[Any](format.raw/*40.58*/("""
+                    """),format.raw/*41.21*/("""<!-- Start of For loop - For each p in products add a row -->
+                    """),_display_(/*42.22*/for(i <- registeredUser.getBasket().getBasketItems()) yield /*42.75*/ {_display_(Seq[Any](format.raw/*42.77*/("""
+                    """),format.raw/*43.21*/("""<tr>
+                        <td>"""),_display_(/*44.30*/i/*44.31*/.getProduct.getName),format.raw/*44.50*/("""</td>
+                        <td>&euro; """),_display_(/*45.37*/("%.2f".format(i.getPrice))),format.raw/*45.64*/("""</td>
+                        <td>"""),_display_(/*46.30*/i/*46.31*/.getQuantity()),format.raw/*46.45*/("""</td>
+                        <td>&euro; """),_display_(/*47.37*/("%.2f".format(i.getItemTotal))),format.raw/*47.68*/("""</td>
+                        <td><a href=""""),_display_(/*48.39*/routes/*48.45*/.ShoppingCtrl.removeOne(i.getId)),format.raw/*48.77*/(""""><span class="glyphicon glyphicon-minus-sign"></span></a></td>
+                        <td><a href=""""),_display_(/*49.39*/routes/*49.45*/.ShoppingCtrl.addOne(i.getId)),format.raw/*49.74*/(""""><span class="glyphicon glyphicon-plus-sign"></span></a></td>
                     </tr>
-                    """)))}),format.raw/*53.22*/("""<!-- End of For loop -->
-              """)))}),format.raw/*54.16*/("""
-			"""),format.raw/*55.4*/("""</tbody>
+                    """)))}),format.raw/*51.22*/("""<!-- End of For loop -->
+              """)))}),format.raw/*52.16*/("""
+			"""),format.raw/*53.4*/("""</tbody>
 		</table>
         <div class="row">
             <div class="col-md-12">
-                <p class="text-right"><strong>Basket Total: &euro; """),_display_(/*59.69*/("%.2f".format(registeredUser.getBasket.getBasketTotal))),format.raw/*59.125*/("""</strong></p>
+                <p class="text-right"><strong>Basket Total: &euro; """),_display_(/*57.69*/("%.2f".format(registeredUser.getBasket.getBasketTotal))),format.raw/*57.125*/("""</strong></p>
             </div>  
         </div>
+       
+        
         <div class="row">
             <div class="col-md-6">
                 <p class="text-right">
@@ -132,11 +132,11 @@ Seq[Any](format.raw/*1.47*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Apr 06 22:30:33 BST 2018
+                  DATE: Sun Apr 08 21:25:42 BST 2018
                   SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/basket.scala.html
-                  HASH: 3950c770401f252b5b0267bd7cce8248b1cf6531
-                  MATRIX: 970->1|1088->55|1124->86|1156->113|1210->46|1244->139|1272->141|1345->188|1393->227|1433->229|1466->235|1542->285|1583->317|1623->319|1657->326|1729->371|1743->376|1779->391|1813->398|1861->415|1899->426|1940->458|1980->460|2022->474|2101->526|2115->531|2151->546|2193->560|2241->577|2276->585|2644->926|2691->964|2731->966|2781->988|2892->1072|2961->1125|3001->1127|3051->1149|3113->1184|3123->1185|3163->1204|3226->1240|3236->1241|3285->1269|3355->1312|3403->1339|3473->1382|3525->1413|3588->1449|3598->1450|3633->1464|3705->1509|3720->1515|3773->1547|3903->1650|3918->1656|3968->1685|4111->1797|4183->1838|4215->1843|4396->1997|4474->2053|4687->2239|4702->2245|4750->2272|5088->2583|5103->2589|5155->2620|5510->2947|5539->2948|5570->2952|5632->2987|5660->2988|5689->2990
-                  LINES: 28->1|31->5|32->6|33->7|36->1|40->8|41->9|42->10|42->10|42->10|45->13|48->16|48->16|48->16|49->17|50->18|50->18|50->18|51->19|52->20|53->21|53->21|53->21|54->22|55->23|55->23|55->23|56->24|57->25|59->27|73->41|73->41|73->41|74->42|75->43|75->43|75->43|76->44|77->45|77->45|77->45|78->46|78->46|78->46|79->47|79->47|80->48|80->48|81->49|81->49|81->49|82->50|82->50|82->50|83->51|83->51|83->51|85->53|86->54|87->55|91->59|91->59|97->65|97->65|97->65|104->72|104->72|104->72|115->83|115->83|116->84|117->85|117->85|118->86
+                  HASH: d50ee9adb04ef3725c431312de9154e020dadeb9
+                  MATRIX: 970->1|1088->55|1124->86|1156->113|1210->46|1244->139|1272->141|1345->188|1393->227|1433->229|1466->235|1542->285|1583->317|1623->319|1657->326|1729->371|1743->376|1779->391|1813->398|1861->415|1899->426|1940->458|1980->460|2022->474|2101->526|2115->531|2151->546|2193->560|2241->577|2276->585|2637->919|2684->957|2724->959|2774->981|2885->1065|2954->1118|2994->1120|3044->1142|3106->1177|3116->1178|3156->1197|3226->1240|3274->1267|3337->1303|3347->1304|3382->1318|3452->1361|3504->1392|3576->1437|3591->1443|3644->1475|3774->1578|3789->1584|3839->1613|3982->1725|4054->1766|4086->1771|4267->1925|4345->1981|4577->2186|4592->2192|4640->2219|4978->2530|4993->2536|5045->2567|5400->2894|5429->2895|5460->2899|5522->2934|5550->2935|5579->2937
+                  LINES: 28->1|31->5|32->6|33->7|36->1|40->8|41->9|42->10|42->10|42->10|45->13|48->16|48->16|48->16|49->17|50->18|50->18|50->18|51->19|52->20|53->21|53->21|53->21|54->22|55->23|55->23|55->23|56->24|57->25|59->27|72->40|72->40|72->40|73->41|74->42|74->42|74->42|75->43|76->44|76->44|76->44|77->45|77->45|78->46|78->46|78->46|79->47|79->47|80->48|80->48|80->48|81->49|81->49|81->49|83->51|84->52|85->53|89->57|89->57|97->65|97->65|97->65|104->72|104->72|104->72|115->83|115->83|116->84|117->85|117->85|118->86
                   -- GENERATED --
               */
           

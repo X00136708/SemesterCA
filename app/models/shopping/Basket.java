@@ -23,7 +23,7 @@ public class Basket extends Model {
     
     @OneToOne
     private RegisteredUser registeredUser;
-
+    
    
     public  Basket() {
     }
@@ -93,6 +93,11 @@ public class Basket extends Model {
             total += i.getItemTotal();
         }
         return total;
+    }
+    public double getBasketTotalPlus(){
+        double totalPlus =0;
+        totalPlus = getBasketTotal()*100;
+        return totalPlus;
     }
 	
 	

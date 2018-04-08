@@ -1,3 +1,15 @@
-2018-04-06 22:19:11 jdbc[4]: exception
-org.h2.jdbc.JdbcSQLException: Table "PLAY_EVOLUTIONS" not found; SQL statement:
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%' [42102-193]
+2018-04-08 21:17:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "DESCRIPTION VARCHAR(255)": "'When a young street hustler, a retired bank robber and a terrifying psychopath find themselves entangled with some of the most ... (375)"; SQL statement:
+insert into product (name, description, stock, price, pegi) values (?,?,?,?,?) [22001-193]
+2018-04-08 21:18:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "DESCRIPTION VARCHAR(255)": "'When a young street hustler, a retired bank robber and a terrifying psychopath find themselves entangled with some of the most ... (319)"; SQL statement:
+insert into product (name, description, stock, price, pegi) values (?,?,?,?,?) [22001-193]
+2018-04-08 21:22:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "DESCRIPTION VARCHAR(255)": "'The story begins with a TV-style ''previously on'' section that recaps the key events of the first journey. Then the game cuts ... (407)"; SQL statement:
+insert into product (name, description, stock, price, pegi) values (?,?,?,?,?) [22001-193]
+2018-04-08 21:22:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "DESCRIPTION VARCHAR(255)": "'The story begins with a TV-style ''previously on'' section that recaps the key events of the first journey. Then the game cuts ... (302)"; SQL statement:
+insert into product (name, description, stock, price, pegi) values (?,?,?,?,?) [22001-193]
+2018-04-08 21:24:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "DESCRIPTION VARCHAR(255)": "'The story begins with a TV-style ''previously on'' section that recaps the key events of the first journey. Then the game cuts ... (261)"; SQL statement:
+insert into product (name, description, stock, price, pegi) values (?,?,?,?,?) [22001-193]

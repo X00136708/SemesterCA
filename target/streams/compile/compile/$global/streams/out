@@ -1,4 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\doran\Documents\2ndYearProject\semesterca\app\views\productDetails.scala.html:44:40: value addReview is not a member of controllers.ReverseCommunityCtrl[0m
-[0m[[0m[31merror[0m] [0m[0m        <a href="@routes.CommunityCtrl.addReview(p.getId)">[0m
-[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\doran\Documents\2ndYearProject\semesterca\app\views\checkout.scala.html:8:35: illegal start of simple expression[0m
+[0m[[0m[31merror[0m] [0m[0m@helper.form(action = helper.CSRF(@routes.ShoppingCtrl.placeOrder())) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\doran\Documents\2ndYearProject\semesterca\app\views\checkout.scala.html:96:2: ')' expected but '}' found.[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
