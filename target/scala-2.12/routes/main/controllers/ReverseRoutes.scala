@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
-// @DATE:Mon Apr 09 14:14:51 IST 2018
+// @SOURCE:/home/wdd/webapps/SemesterCA/conf/routes
+// @DATE:Mon Apr 09 17:54:22 IST 2018
 
 import play.api.mvc.Call
 
@@ -12,14 +12,14 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:52
+  // @LINE:54
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:52
+    // @LINE:54
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
@@ -199,6 +199,12 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "createPostSubmit")
     }
   
+    // @LINE:50
+    def deletePost(postId:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "deletePost/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("postId", postId)))
+    }
+  
     // @LINE:43
     def forumPage(prod:Long = 0, filter:String = ""): Call = {
       
@@ -215,6 +221,12 @@ package controllers {
     def viewPost(postId:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "viewPost/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("postId", postId)))
+    }
+  
+    // @LINE:51
+    def deleteReply(replyId:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "deleteReply/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("replyId", replyId)))
     }
   
   }

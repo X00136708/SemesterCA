@@ -37,16 +37,18 @@ POST	/Admin/addProductSubmit				controllers.AdminProductCtrl.addProductSubmit()
 GET		/Admin/updateProduct/:id			controllers.AdminProductCtrl.updateProduct(id:Long)
 POST	/Admin/updateProductSubmit/:id		controllers.AdminProductCtrl.updateProductSubmit(id:Long)
 
-GET     /Admin/deleteProduct/:id               controllers.AdminProductCtrl.deleteProduct(id:Long)
+GET     /Admin/deleteProduct/:id            controllers.AdminProductCtrl.deleteProduct(id:Long)
 
 # Community
 GET     /forumPage                          controllers.CommunityCtrl.forumPage(prod:Long ?= 0, filter?="")
-GET     /viewPost/:postId                       controllers.CommunityCtrl.viewPost(postId:Long)
+GET     /viewPost/:postId                   controllers.CommunityCtrl.viewPost(postId:Long)
 
 GET     /createPost                         controllers.CommunityCtrl.createPost()
-GET     /createReply/:postId                   controllers.CommunityCtrl.createReply(postId:Long)
+GET     /createReply/:postId                controllers.CommunityCtrl.createReply(postId:Long)
 POST    /createPostSubmit                   controllers.CommunityCtrl.createPostSubmit()
-POST    /createReplySubmit/:postId              controllers.CommunityCtrl.createReplySubmit(postId:Long)
+POST    /createReplySubmit/:postId          controllers.CommunityCtrl.createReplySubmit(postId:Long)
+GET     /deletePost/:postId                 controllers.CommunityCtrl.deletePost(postId:Long)
+GET     /deleteReply/:replyId               controllers.CommunityCtrl.deleteReply(replyId:Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

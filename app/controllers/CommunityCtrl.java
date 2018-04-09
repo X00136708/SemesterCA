@@ -108,6 +108,16 @@ public class CommunityCtrl extends Controller {
         
         return redirect(controllers.routes.CommunityCtrl.forumPage(0, ""));
     }
+    @Security.Authenticated(Secured.class)
+    @With(CheckIfAdmin.class)
+    @Transactional
+    public Result deleteReply(Long id) {
+        ForumReply.find.ref(id).delete();
+
+        flash("success", "Reply has been deleted");
+        
+        return redirect(controllers.routes.CommunityCtrl.forumPage(0, ""));
+    }
     public Result createReply(Long postId) {
         Form<ForumReply> createReplyForm = formFactory.form(ForumReply.class);
         return ok(createReply.render(createReplyForm, getCurrentUser(), postId));

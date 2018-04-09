@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
-// @DATE:Mon Apr 09 14:14:51 IST 2018
+// @SOURCE:/home/wdd/webapps/SemesterCA/conf/routes
+// @DATE:Mon Apr 09 17:54:22 IST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -12,7 +12,7 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
 
-  // @LINE:52
+  // @LINE:54
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +20,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:52
+    // @LINE:54
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -300,6 +300,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:50
+    def deletePost: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommunityCtrl.deletePost",
+      """
+        function(postId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deletePost/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("postId", postId0))})
+        }
+      """
+    )
+  
     // @LINE:43
     def forumPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CommunityCtrl.forumPage",
@@ -326,6 +336,16 @@ package controllers.javascript {
       """
         function(postId0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "viewPost/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("postId", postId0))})
+        }
+      """
+    )
+  
+    // @LINE:51
+    def deleteReply: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommunityCtrl.deleteReply",
+      """
+        function(replyId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteReply/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("replyId", replyId0))})
         }
       """
     )

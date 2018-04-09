@@ -25,6 +25,13 @@
       <label>@p.getProduct.getName</label><br>
       <br>
       <p>@p.getContent</p><br>
+
+      @if(user != null){
+        @if("admin".equals(user.getRole())){
+          <a href="@routes.CommunityCtrl.deletePost(p.getId)"  class="btn btn-default btn-xs" onclick="return confirmDel();">Delete <span class="glyphicon glyphicon-trash"></span></a>
+        }
+      }
+
     </div>
   </div>
       <label>Replies:</label><br>
@@ -39,6 +46,11 @@
           }
           
           <p>@r.getContent</p>
+          @if(user != null){
+            @if("admin".equals(user.getRole())){
+              <a href="@routes.CommunityCtrl.deleteReply(r.getId)"  class="btn btn-default btn-xs" onclick="return confirmDel();">Delete <span class="glyphicon glyphicon-trash"></span></a>
+            }
+          }
         </div>
 
       }

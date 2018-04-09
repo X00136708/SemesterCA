@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
-// @DATE:Mon Apr 09 14:14:51 IST 2018
+// @SOURCE:/home/wdd/webapps/SemesterCA/conf/routes
+// @DATE:Mon Apr 09 17:54:22 IST 2018
 
 package router
 
@@ -25,7 +25,7 @@ class Routes(
   AdminProductCtrl_3: controllers.AdminProductCtrl,
   // @LINE:43
   CommunityCtrl_0: controllers.CommunityCtrl,
-  // @LINE:52
+  // @LINE:54
   Assets_5: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -42,7 +42,7 @@ class Routes(
     AdminProductCtrl_3: controllers.AdminProductCtrl,
     // @LINE:43
     CommunityCtrl_0: controllers.CommunityCtrl,
-    // @LINE:52
+    // @LINE:54
     Assets_5: controllers.Assets
   ) = this(errorHandler, ProductCtrl_1, LoginCtrl_4, ShoppingCtrl_2, AdminProductCtrl_3, CommunityCtrl_0, Assets_5, "/")
 
@@ -85,6 +85,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createReply/""" + "$" + """postId<[^/]+>""", """controllers.CommunityCtrl.createReply(postId:Long)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createPostSubmit""", """controllers.CommunityCtrl.createPostSubmit()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createReplySubmit/""" + "$" + """postId<[^/]+>""", """controllers.CommunityCtrl.createReplySubmit(postId:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deletePost/""" + "$" + """postId<[^/]+>""", """controllers.CommunityCtrl.deletePost(postId:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteReply/""" + "$" + """replyId<[^/]+>""", """controllers.CommunityCtrl.deleteReply(replyId:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -615,11 +617,47 @@ class Routes(
     )
   )
 
-  // @LINE:52
-  private[this] lazy val controllers_Assets_versioned29_route = Route("GET",
+  // @LINE:50
+  private[this] lazy val controllers_CommunityCtrl_deletePost29_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deletePost/"), DynamicPart("postId", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CommunityCtrl_deletePost29_invoker = createInvoker(
+    CommunityCtrl_0.deletePost(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CommunityCtrl",
+      "deletePost",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """deletePost/""" + "$" + """postId<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:51
+  private[this] lazy val controllers_CommunityCtrl_deleteReply30_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteReply/"), DynamicPart("replyId", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CommunityCtrl_deleteReply30_invoker = createInvoker(
+    CommunityCtrl_0.deleteReply(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CommunityCtrl",
+      "deleteReply",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """deleteReply/""" + "$" + """replyId<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:54
+  private[this] lazy val controllers_Assets_versioned31_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned29_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned31_invoker = createInvoker(
     Assets_5.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -810,10 +848,22 @@ class Routes(
         controllers_CommunityCtrl_createReplySubmit28_invoker.call(CommunityCtrl_0.createReplySubmit(postId))
       }
   
-    // @LINE:52
-    case controllers_Assets_versioned29_route(params@_) =>
+    // @LINE:50
+    case controllers_CommunityCtrl_deletePost29_route(params@_) =>
+      call(params.fromPath[Long]("postId", None)) { (postId) =>
+        controllers_CommunityCtrl_deletePost29_invoker.call(CommunityCtrl_0.deletePost(postId))
+      }
+  
+    // @LINE:51
+    case controllers_CommunityCtrl_deleteReply30_route(params@_) =>
+      call(params.fromPath[Long]("replyId", None)) { (replyId) =>
+        controllers_CommunityCtrl_deleteReply30_invoker.call(CommunityCtrl_0.deleteReply(replyId))
+      }
+  
+    // @LINE:54
+    case controllers_Assets_versioned31_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned29_invoker.call(Assets_5.versioned(path, file))
+        controllers_Assets_versioned31_invoker.call(Assets_5.versioned(path, file))
       }
   }
 }
