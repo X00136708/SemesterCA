@@ -1,6 +1,16 @@
+<<<<<<< HEAD
 [0m[[0m[33mwarn[0m] [0m[0m/home/brandon/Documents/SemesterCA/app/views/login.scala.html:12:28: method globalError in class Form is deprecated: see corresponding Javadoc for more information.[0m
 [0m[[0m[33mwarn[0m] [0m[0m                @loginForm.globalError.message;[0m
 [0m[[0m[33mwarn[0m] [0m[0m                           ^[0m
 [0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
 [0m[[0m[0minfo[0m] [0m[0m/home/brandon/Documents/SemesterCA/app/controllers/AdminProductCtrl.java: Some input files use unchecked or unsafe operations.[0m
 [0m[[0m[0minfo[0m] [0m[0m/home/brandon/Documents/SemesterCA/app/controllers/AdminProductCtrl.java: Recompile with -Xlint:unchecked for details.[0m
+=======
+[0m[[0m[31merror[0m] [0m[0mC:\Users\doran\Documents\2ndYearProject\semesterca\app\views\checkout.scala.html:8:35: illegal start of simple expression[0m
+[0m[[0m[31merror[0m] [0m[0m@helper.form(action = helper.CSRF(@routes.ShoppingCtrl.placeOrder())) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\doran\Documents\2ndYearProject\semesterca\app\views\checkout.scala.html:96:2: ')' expected but '}' found.[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+>>>>>>> aa4120e9331252f7dd028526e355ada7dc39cce8

@@ -29,10 +29,9 @@
 			<!-- The header row-->
 			<tr>
 				<th>Name</th>
-				<th>Description</th>
-				<th>Item Price</th>
+                <th>Price</th>
+                <th>Quantity</th>
 				<th>Total</th>
-				<th>Quantity</th>
                 <th>dec.</th>
                 <th>inc.</th>
 			</tr>
@@ -43,10 +42,9 @@
                     @for(i <- registeredUser.getBasket().getBasketItems()) {
                     <tr>
                         <td>@i.getProduct.getName</td>
-                        <td>@i.getProduct.getDescription()</td>
                         <td>&euro; @("%.2f".format(i.getPrice))</td>
-                        <td>&euro; @("%.2f".format(i.getItemTotal))</td>
                         <td>@i.getQuantity()</td>
+                        <td>&euro; @("%.2f".format(i.getItemTotal))</td>
                         <td><a href="@routes.ShoppingCtrl.removeOne(i.getId)"><span class="glyphicon glyphicon-minus-sign"></span></a></td>
                         <td><a href="@routes.ShoppingCtrl.addOne(i.getId)"><span class="glyphicon glyphicon-plus-sign"></span></a></td>
                     </tr>
@@ -59,6 +57,8 @@
                 <p class="text-right"><strong>Basket Total: &euro; @("%.2f".format(registeredUser.getBasket.getBasketTotal))</strong></p>
             </div>  
         </div>
+       
+        
         <div class="row">
             <div class="col-md-6">
                 <p class="text-right">

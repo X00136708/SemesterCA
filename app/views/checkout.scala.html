@@ -5,6 +5,7 @@
 @import play.api.Play.current
 @import models.shopping._
 @import models.products._
+@helper.form(action = helper.CSRF(routes.ShoppingCtrl.placeOrder())) {
 
 <!-- Pass page title and user on to main -->
 @main("Purchase", registeredUser) {
@@ -30,7 +31,6 @@
 			<!-- The header row-->
 			<tr>
 				<th>Name</th>
-				<th>Description</th>
 				<th>Item Price</th>
 				<th>Total</th>
 				<th>Quantity</th>
@@ -43,14 +43,15 @@
                     @for(i <- registeredUser.getBasket().getBasketItems()) {
                     <tr>
                         <td>@i.getProduct.getName</td>
-                        <td>@i.getProduct.getDescription()</td>
                         <td>&euro; @("%.2f".format(i.getPrice))</td>
-                        <td>&euro; @("%.2f".format(i.getItemTotal))</td>
+                        
                         <td>@i.getQuantity()</td>
+                        <td>&euro; @("%.2f".format(i.getItemTotal))</td>
                        
                     </tr>
                     }<!-- End of For loop -->
               }
+              
 			</tbody>
 		</table>
         <div class="row">
@@ -59,54 +60,29 @@
             </div>  
         </div>
         <div class="row">
-               
-                        <head>
-                            <p id="demo"></p>
-                            <script type="text/javascript">
-                              window.onload = function() {
-                          
-                                  var PayPal = document.getElementById('PayPal');
-                                  var CreditCard = document.getElementById('CreditCard');
-                                  
-                          
-                                  PayPal.onclick = PayPalForm;
-                                  CreditCard.onclick = CreditCardForm;
-                                 
-                          
-                              }
-                              
-                              function PayPalForm(){
-                                  
-                               var paypalEmail = prompt("1) Please enter your email address and password as provided...", "")
-                               var paypalPassword = prompt("2) Please enter your paypal password...", "") 
-                              }
-                             
-                              function CreditCardForm(){
-                                   alert("Please enter your Credit card details...");
-                              }
-                            </script>
-                        </head>
-                       
-
-
+            
                       <br>
-                      <form action="form-control payment" method="POST">
+                     
+                      <form action="@routes.ShoppingCtrl.placeOrder()" method="POST">
+                           
                         <script
                           src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                           data-key="pk_test_LABia2wLCoS6B9wndhZqcLA4"
-                          data-amount="999"
-                          data-name="Demo Site"
-                          data-description="Example charge"
+                          data-amount="@registeredUser.getBasket.getBasketTotalPlus"
+                          data-name="Nu-Wave Games"
+                          data-description="Enter your payment details below"
                           data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                           data-locale="auto"
                           data-currency="eur">
+                          <a href="@routes.ShoppingCtrl.placeOrder()" class="btn btn-success btn-sm"></a>
                         </script>
+                        
+                        
                       </form>
-
-            <div class="col-md-6">
-                <p class="text-right">
-                    <a href="@routes.ShoppingCtrl.placeOrder()" class="btn btn-success btn-sm">
-                    <span class="glyphicon glyphicon-euro"></span> Confirm purchase</a>
+                    
+            
+                    
+                   
                 </p>
             </div>
     
@@ -115,6 +91,6 @@
         </div>
     </div>
 </div>
-
+}
 
 }
