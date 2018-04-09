@@ -19,6 +19,9 @@ td {
     padding-bottom: .2em;
     margin:0px;
 }
+#prodStock{
+    float: right;
+}
 #prodPrice {
     float: right;
 }

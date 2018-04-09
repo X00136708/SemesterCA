@@ -67,12 +67,28 @@
                     <img src="/assets/images/noImage.jpg" id="prodImg"/>
                 }
                   <h4 id="prodName">@p.getName</h4>
+                  
                   <h4 id="prodPrice">€@p.getPrice</h4>
                  <p>
                     @for(c<-p.getCategories){
                       @c.getName&nbsp;
-                    }<br>
-                    @p.getPegi
+                    }
+                    @if(user != null){
+                      @if("admin".equals(user.getRole())){
+                        @if(p.getStock > 0){
+                          <div id="prodStock">Stock: @p.getStock</div>
+                        } else {
+                          <div id="prodStock">Sold Out</div>
+                        }
+                      }
+                    }
+                    @if(user != null){
+                      @if("admin".equals(user.getRole())){
+                      @p.getPegi
+                    }else{
+                      <br>@p.getPegi
+                    }
+                  }
                   </p>
                   
                   </a>

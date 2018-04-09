@@ -31,13 +31,20 @@
               <h5><b>Price: </b> <br> €@p.getPrice</h5>
 
               <p><b>Description</b> <br> @p.getDescription</p>
-
-              <a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs">Add To Cart  <span class="glyphicon glyphicon-shopping-cart"></span></a>
+              
+              
 
               @if(user != null){
                 @if("admin".equals(user.getRole())){
                   <a href="@routes.AdminProductCtrl.updateProduct(p.getId)"  class="btn btn-default btn-xs">Edit  <span class="glyphicon glyphicon-pencil"></span></a>
                   <a href="@routes.AdminProductCtrl.deleteProduct(p.getId)"  class="btn btn-default btn-xs" onclick="return confirmDel();">Delete <span class="glyphicon glyphicon-trash"></span></a>
+                }else{
+                  @if(p.getStock > 0){
+                    <a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-warning btn-xs">Add To Cart  <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                  }else{
+                    <a class="btn btn-warning btn-xs" onclick="return soldOut();">Sold Out  <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                  }
+                  
                 }
               }
               
