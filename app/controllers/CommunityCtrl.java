@@ -1,6 +1,7 @@
 package controllers;
 import controllers.security.*;
 import models.community.*;
+import models.*;
 import play.mvc.*;
 import play.api.Environment;
 import play.data.*;
@@ -158,7 +159,7 @@ public class CommunityCtrl extends Controller {
     public Result addUser() {
             Form<User> userForm = formFactory.form(User.class);
            
-            return ok(addUser.render(userForm, User.getUserById(session().get("email"))));
+            return ok(addUser.render(userForm, User.getLoggedIn(session().get("email"))));
         }
         public Result addUserSubmit() {
             User newUser;
@@ -166,7 +167,7 @@ public class CommunityCtrl extends Controller {
     
             if (newUserForm.hasErrors()){
                 
-                return badRequest(addUser.render(newUserForm, User.getUserById(session().get("email"))));
+                return badRequest(addUser.render(newUserForm, User.getLoggedIn(session().get("email"))));
             }
             else {
                 newUser = newUserForm.get();
@@ -178,6 +179,6 @@ public class CommunityCtrl extends Controller {
         }
          public Result usersPage() {
             List<User> userList = User.findAll();
-            return ok(usersPage.render(userList, User.getUserById(session().get("email"))));
+            return ok(usersPage.render(userList, User.getLoggedIn(session().get("email"))));
         }
 }

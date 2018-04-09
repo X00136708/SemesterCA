@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/doran/Documents/2ndYearProject/semesterca/conf/routes
-// @DATE:Mon Apr 09 19:30:55 BST 2018
+// @SOURCE:/home/brandon/Documents/SemesterCA/conf/routes
+// @DATE:Mon Apr 09 20:13:05 IST 2018
 
 package controllers.security;
 

@@ -18,10 +18,11 @@ import play.data.validation.*;
 @DiscriminatorValue("user")
 public class User extends Model {
     @Id
+    @Constraints.Required
     private String email;
 
     @Constraints.Required
-    private String role;    
+    private String role = "registeredUser";    
 
     @Constraints.Required
     private String name;
@@ -31,15 +32,10 @@ public class User extends Model {
 
     
     public User() {
-        this.email="";
-        this.role="";
-        this.name="";
-        this.password="";
     }
         // Constructor to initialise object
-    public  User(String email, String role, String name, String password) {
+    public  User(String email, String name, String password) {
             this.email = email;
-            this.role = role;
             this.name = name;
             this.password = password;
         }
