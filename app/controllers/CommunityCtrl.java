@@ -14,6 +14,7 @@ import javax.inject.Inject;
 import models.users.*;
 import models.products.*;
 import views.html.*;
+import java.util.*;
 
 
 
@@ -154,4 +155,29 @@ public class CommunityCtrl extends Controller {
 
         return redirect(controllers.routes.CommunityCtrl.viewPost(newReply.getForumPost().getId()));
     }
+    public Result addUser() {
+            Form<User> userForm = formFactory.form(User.class);
+           
+            return ok(addUser.render(userForm, User.getUserById(session().get("email"))));
+        }
+        public Result addUserSubmit() {
+            User newUser;
+            Form<User> newUserForm = formFactory.form(User.class).bindFromRequest();
+    
+            if (newUserForm.hasErrors()){
+                
+                return badRequest(addUser.render(newUserForm, User.getUserById(session().get("email"))));
+            }
+            else {
+                newUser = newUserForm.get();
+                newUser.save();
+            }
+            flash("success", "User " + newUser.getName() + " has been created");
+    
+            return redirect(controllers.routes.CommunityCtrl.usersPage());
+        }
+         public Result usersPage() {
+            List<User> userList = User.findAll();
+            return ok(usersPage.render(userList, User.getUserById(session().get("email"))));
+        }
 }

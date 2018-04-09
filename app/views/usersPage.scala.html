@@ -1,0 +1,46 @@
+@(users: List[models.users.User], user: models.users.User)
+
+@main("users",user) {
+
+<p class="lead">Users Page</p>
+<br>
+<div class="row">
+  <div class="col-sm-2">
+  </div>
+  
+  <div class="col-sm-8">
+    <table class="table table-bordered table-hover table-condensed">
+      @if(flash.containsKey("success")) {
+        <div class="alert alert-success">
+          @flash.get("success")
+        </div>
+      }
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Role</th>
+          @if(user != null){
+            @if(user.getRole() == "admin"){
+            <th colspan="2">Edit</th>
+            }
+          }      
+        </tr>
+      </thead>
+
+      <tbody>
+        @for(u<-users) {
+          <tr>
+            <td>@u.getName</td>
+            <td>@u.getEmail</td>
+            <td>@u.getRole</td>
+           
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  
+ 
+</div>
+}

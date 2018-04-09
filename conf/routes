@@ -11,6 +11,10 @@ GET     /listProducts                       controllers.ProductCtrl.listProducts
 GET     /productDetails/:id                 controllers.ProductCtrl.productDetails(id:Long)
 
 # Login form
+GET     /addUser                            controllers.CommunityCtrl.addUser
+POST    /addUserSubmit                      controllers.CommunityCtrl.addUserSubmit
+GET     /usersPage                      controllers.CommunityCtrl.usersPage
+
 GET		/login						        controllers.security.LoginCtrl.login()
 POST	/login						        controllers.security.LoginCtrl.loginSubmit()
 GET     /logout                             controllers.security.LoginCtrl.logout()
