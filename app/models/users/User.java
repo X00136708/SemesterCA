@@ -22,7 +22,7 @@ public class User extends Model {
     private String email;
 
     @Constraints.Required
-    private String role = "registeredUser";    
+    private String role;    
 
     @Constraints.Required
     private String name;
@@ -34,8 +34,9 @@ public class User extends Model {
     public User() {
     }
         // Constructor to initialise object
-    public  User(String email, String name, String password) {
+    public  User(String email, String role, String name, String password) {
             this.email = email;
+            this.role=role;
             this.name = name;
             this.password = password;
         }
@@ -68,6 +69,7 @@ public class User extends Model {
     public void setName(String name) {
         this.name = name;
     }
+ 
 
 
     public void setPassword(String password) {

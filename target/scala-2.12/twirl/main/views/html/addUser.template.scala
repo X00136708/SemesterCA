@@ -44,17 +44,16 @@ Seq[Any](format.raw/*1.62*/("""
         """),_display_(/*12.10*/CSRF/*12.14*/.formField),format.raw/*12.24*/("""
         """),_display_(/*13.10*/inputText(userForm("name"), '_label -> "Username", 'class -> "form-control")),format.raw/*13.86*/("""
         """),_display_(/*14.10*/inputText(userForm("email"), '_label -> "Email", 'class -> "form-control")),format.raw/*14.84*/("""
-     
-        """),_display_(/*16.10*/inputPassword(userForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*16.94*/("""
-        
-        """),format.raw/*18.9*/("""<div class="actions">
+        """),_display_(/*15.10*/inputPassword(userForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*15.94*/("""
+    """)))}),format.raw/*16.6*/("""
+        """),format.raw/*17.9*/("""<div class="actions">
             <input type="submit" value="Add User" class="btn btn-primary">
-            <a href=""""),_display_(/*20.23*/routes/*20.29*/.CommunityCtrl.usersPage()),format.raw/*20.55*/("""">
+            <a href=""""),_display_(/*19.23*/routes/*19.29*/.ProductCtrl.listProducts(0)),format.raw/*19.57*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*24.6*/("""
-"""),format.raw/*25.1*/("""</div>
+    
+</div>
 """)))}))
       }
     }
@@ -71,11 +70,11 @@ Seq[Any](format.raw/*1.62*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Apr 09 20:13:07 IST 2018
-                  SOURCE: /home/brandon/Documents/SemesterCA/app/views/addUser.scala.html
-                  HASH: 8f7668573457846714266a59b3d4958aa9b01ca3
-                  MATRIX: 985->1|1118->63|1163->61|1190->79|1217->81|1246->102|1285->104|1316->109|1408->176|1561->320|1601->322|1638->359|1675->369|1688->373|1719->383|1756->393|1853->469|1890->479|1985->553|2028->569|2133->653|2178->671|2324->790|2339->796|2386->822|2534->940|2562->941
-                  LINES: 28->1|31->2|34->1|35->3|36->4|36->4|36->4|37->5|39->7|42->10|42->10|43->11|44->12|44->12|44->12|45->13|45->13|46->14|46->14|48->16|48->16|50->18|52->20|52->20|52->20|56->24|57->25
+                  DATE: Mon Apr 09 20:52:28 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/addUser.scala.html
+                  HASH: 261b29c30b343f29cfa1773fac898f0f4057ad8e
+                  MATRIX: 985->1|1118->64|1163->61|1191->81|1219->84|1248->105|1287->107|1319->113|1413->182|1569->329|1609->331|1647->369|1685->380|1698->384|1729->394|1767->405|1864->481|1902->492|1997->566|2035->577|2140->661|2177->668|2214->678|2362->799|2377->805|2426->833
+                  LINES: 28->1|31->2|34->1|35->3|36->4|36->4|36->4|37->5|39->7|42->10|42->10|43->11|44->12|44->12|44->12|45->13|45->13|46->14|46->14|47->15|47->15|48->16|49->17|51->19|51->19|51->19
                   -- GENERATED --
               */
           
