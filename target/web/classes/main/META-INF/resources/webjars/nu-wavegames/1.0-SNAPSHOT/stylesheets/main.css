@@ -7,3 +7,28 @@ td {
     padding-top: .5em;
     padding-bottom: .5em;
 }
+
+#prodImg {
+    float: left;
+    padding-right: .5em;
+    
+}
+#prodItem h4{
+    padding: 0px;
+    padding-top: .25em;
+    padding-bottom: .2em;
+    margin:0px;
+}
+#prodPrice {
+    float: right;
+}
+#prodName {
+    font-style: italic;
+}
+#prodDropdown {
+    float: right;
+}
+#prodDetailsImg {
+    float: right;
+    
+}

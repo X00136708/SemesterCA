@@ -15,6 +15,7 @@ import javax.inject.Inject;
 import models.users.*;
 import models.products.*;
 import views.html.productAdmin.*;
+import views.html.*;
 
 import play.mvc.Http.*;
 import play.mvc.Http.MultipartFormData.FilePart;
@@ -53,34 +54,10 @@ public class AdminProductCtrl extends Controller {
 		User u = User.getLoggedIn(session().get("email"));
 		return u;
 	}
-    public Result index() {
-        return redirect(controllers.routes.AdminProductCtrl.listProducts(0));
-    }
     // Get a list of products
     // If cat parameter is 0 then return all products
     // Otherwise return products for a category (by id)
     // In both cases products will be searched using the fiter value
-    @Transactional
-    public Result listProducts(Long cat) {
-        // Get list of all categories in ascending order
-        List<Category> categories = Category.findAll();
-        // Instantiate products, an Array list of products			
-        List<Product> products = new ArrayList<Product>();
-    
-        if (cat == 0) {
-            // Get the list of ALL products with filter
-            products = Product.findAll();
-        }else {
-            products = Category.find.ref(cat).getProducts();
-        }
-
-        // Render the list products view, passing parameters
-        // categories and products lists
-        // category id - used for filtering
-        // the filter string - this will be displayed in the filter text input
-        // current user - if one is logged in
-        return ok(listProducts.render(products, categories, getCurrentUser(),e));
-    }
 
     @Transactional
     public Result addProduct() {
@@ -106,7 +83,7 @@ public class AdminProductCtrl extends Controller {
                                 // Get category ids (checked boxes from form)
                     // Find category objects and set categories list for this product
                     for (Long cat : newProduct.getCatSelect()) {
-                        newProduct.categories.add(Category.find.byId(cat));
+                        newProduct.getCategories().add(Category.find.byId(cat));
                     }
                 newProduct.update();
         }
@@ -117,7 +94,7 @@ public class AdminProductCtrl extends Controller {
 
         flash("success", "Product " + newProduct.getName() + " has been created/updated " + saveImageMsg);
 
-        return redirect(controllers.routes.AdminProductCtrl.index());
+        return redirect(controllers.routes.ProductCtrl.index());
     }
     
    
@@ -127,7 +104,7 @@ public class AdminProductCtrl extends Controller {
 
         flash("success", "Product has been deleted");
         
-        return redirect(routes.AdminProductCtrl.index());
+        return redirect(routes.ProductCtrl.index());
     }
 
 
@@ -180,7 +157,7 @@ public class AdminProductCtrl extends Controller {
                     flash("success", "Product " + p.getName() + " has been created/updated " + saveImageMsg);
                     
                     // Redirect to the admin home
-                    return redirect(controllers.routes.AdminProductCtrl.index());
+                    return redirect(controllers.routes.ProductCtrl.index());
                 }
             }
 
@@ -204,17 +181,17 @@ public class AdminProductCtrl extends Controller {
                 // add the uploaded image to the operationop.addImage(file.getAbsolutePath());
                 op.addImage(file.getAbsolutePath());
                 // resize the image using height and width saveFileOld(Long id, FilePart<File> uploaded) {
-                op.resize(30, 20);
+                op.resize(256, 256);
                 // save the image as jpg 
                 op.addImage("public/images/" + id + ".png");
                 // create another Image Magick operation and repeat the process above to
                 // specify how a thumbnail image should be processed - size 60px
                 IMOperation thumb = new IMOperation();
                 thumb.addImage(file.getAbsolutePath());
-                thumb.resize(6);
-                thumb.addImage("public/images/" + id + ".png");
+                thumb.resize(75);
+                thumb.addImage("public/images/thumbs/" + id + ".png");
                 // we must make sure that the directories exist before running the operations
-                File dir = new File("public/images/");
+                File dir = new File("public/images/thumbs/");
                 if (!dir.exists()) {
                     dir.mkdirs();
                 }

@@ -1,4 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\doran\Documents\2ndYearProject\semesterca\app\views\productDetails.scala.html:44:40: value addReview is not a member of controllers.ReverseCommunityCtrl[0m
-[0m[[0m[31merror[0m] [0m[0m        <a href="@routes.CommunityCtrl.addReview(p.getId)">[0m
-[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/brandon/Documents/SemesterCA/app/views/login.scala.html:12:28: method globalError in class Form is deprecated: see corresponding Javadoc for more information.[0m
+[0m[[0m[33mwarn[0m] [0m[0m                @loginForm.globalError.message;[0m
+[0m[[0m[33mwarn[0m] [0m[0m                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/brandon/Documents/SemesterCA/app/controllers/AdminProductCtrl.java: Some input files use unchecked or unsafe operations.[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/brandon/Documents/SemesterCA/app/controllers/AdminProductCtrl.java: Recompile with -Xlint:unchecked for details.[0m

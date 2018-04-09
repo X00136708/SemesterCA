@@ -34,7 +34,8 @@ public class CommunityCtrl extends Controller {
 		User u = User.getLoggedIn(session().get("email"));
 		return u;
 	}
-
+    @Security.Authenticated(Secured.class)
+    @With(CheckIfLoggedIn.class)
     @Transactional
     public Result forumPage(Long prod, String filter) {
         // Get list of all categories in ascending order
@@ -100,12 +101,12 @@ public class CommunityCtrl extends Controller {
     @Security.Authenticated(Secured.class)
     @With(CheckIfAdmin.class)
     @Transactional
-    public Result deleteProduct(Long id) {
-        Product.find.ref(id).delete();
+    public Result deletePost(Long id) {
+        ForumPost.find.ref(id).delete();
 
-        flash("success", "Product has been deleted");
+        flash("success", "Post has been deleted");
         
-        return redirect(routes.AdminProductCtrl.index());
+        return redirect(controllers.routes.CommunityCtrl.forumPage(0, ""));
     }
     public Result createReply(Long postId) {
         Form<ForumReply> createReplyForm = formFactory.form(ForumReply.class);

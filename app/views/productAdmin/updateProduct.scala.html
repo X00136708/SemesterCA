@@ -27,7 +27,11 @@
 
     @inputText(updateProductForm("stock"), '_label -> "Stock", 'class -> "form-control")
     @inputText(updateProductForm("price"), '_label -> "Price", 'class -> "form-control")
-    @inputText(updateProductForm("pegi"), '_label -> "PEGI Rating", 'class -> "form-control")
+    @select(
+            updateProductForm("pegi"), 
+            options(Product.PEGIoptions), '_label -> "PEGI Rating", '_default -> "-- Choose a PEGI rating --", 
+            '_showConstraints -> false, 'class -> "form-control"
+            )
     
     <label>Image </label>
     <input class = "btn-sm btn-default" type="file" name="upload">

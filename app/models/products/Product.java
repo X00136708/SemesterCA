@@ -64,13 +64,14 @@ public class Product extends Model {
         }
     
         // Constructor to initialise object
-        public Product(Long id, String name, String description, int stock, double price, String pegi) {
+        public Product(Long id, String name, String description, int stock, double price, String pegi, List<Category> categories) {
             this.id = id;
             this.name = name;
             this.description = description;
             this.stock = stock;
             this.price = price;
             this.pegi=pegi;
+            this.categories = categories;
         }
     
         // Accessor methods
@@ -117,6 +118,12 @@ public class Product extends Model {
         public void setCatSelect(List<Long> catSelect){
             this.catSelect = catSelect;
         }
+        public List<Category> getCategories(){
+            return this.categories;
+        }
+        public void setCategories(List<Category> categories){
+            this.categories = categories;
+        }
 
         public static Map<String, String> options() {
             LinkedHashMap<String, String> options = new LinkedHashMap();
@@ -124,6 +131,18 @@ public class Product extends Model {
             for (Product p: Product.findAll()) {
                 options.put(p.getId().toString(), p.getName());
             }
+            
+            return options;
+        }
+
+        public static List<String> PEGIoptions() {
+            List<String> options = new ArrayList<String>();
+
+                options.add("PEGI 3");
+                options.add("PEGI 7");
+                options.add("PEGI 12");
+                options.add("PEGI 16");
+                options.add("PEGI 18");
             
             return options;
         }

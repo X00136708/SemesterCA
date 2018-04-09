@@ -37,74 +37,101 @@ Seq[Any](format.raw/*4.126*/("""
 
 
 """),_display_(/*7.2*/main("Products",user)/*7.23*/ {_display_(Seq[Any](format.raw/*7.25*/("""
-"""),format.raw/*8.1*/("""<link href=""""),_display_(/*8.14*/routes/*8.20*/.Assets.versioned("stylesheets/main.css")),format.raw/*8.61*/("""" rel="stylesheet" />
-<p class="lead">Games</p>
-<br>
-<div class="row">
-  <div class="col-sm-2">
-   
-    <div class="list-group">
-      <a href=""""),_display_(/*15.17*/routes/*15.23*/.ProductCtrl.listProducts(0, filter)),format.raw/*15.59*/("""" class="list-group-item">Platforms</a>
-      """),_display_(/*16.8*/for(c <- categories) yield /*16.28*/ {_display_(Seq[Any](format.raw/*16.30*/("""
-        """),format.raw/*17.9*/("""<a href=""""),_display_(/*17.19*/routes/*17.25*/.ProductCtrl.listProducts(c.getId, filter)),format.raw/*17.67*/("""" class="list-group-item">"""),_display_(/*17.94*/c/*17.95*/.getName),format.raw/*17.103*/("""
-          """),format.raw/*18.11*/("""<span class="badge">"""),_display_(/*18.32*/c/*18.33*/.getProducts.size()),format.raw/*18.52*/("""</span>
-        </a>
-      """)))}),format.raw/*20.8*/("""
-    """),format.raw/*21.5*/("""</div>
-  </div>
-  <div class="col-sm-10">
-      """),_display_(/*24.8*/if(flash.containsKey("success"))/*24.40*/ {_display_(Seq[Any](format.raw/*24.42*/("""
-        """),format.raw/*25.9*/("""<div class="alert alert-success">
-          """),_display_(/*26.12*/flash/*26.17*/.get("success")),format.raw/*26.32*/("""
-        """),format.raw/*27.9*/("""</div>
-      """)))}),format.raw/*28.8*/("""
+  """),format.raw/*8.3*/("""<link href=""""),_display_(/*8.16*/routes/*8.22*/.Assets.versioned("stylesheets/main.css")),format.raw/*8.63*/("""" rel="stylesheet" />
+  <p class="lead">Games</p>
+  <br>
+  <div class="row">
+    <div class="col-sm-2">
+     
+      <div class="list-group">
+        <b class="list-group-item">Platforms</b>
+        """),_display_(/*16.10*/for(c <- categories) yield /*16.30*/ {_display_(Seq[Any](format.raw/*16.32*/("""
+          """),format.raw/*17.11*/("""<a href=""""),_display_(/*17.21*/routes/*17.27*/.ProductCtrl.listProducts(c.getId)),format.raw/*17.61*/("""" class="list-group-item">"""),_display_(/*17.88*/c/*17.89*/.getName),format.raw/*17.97*/("""
+            """),format.raw/*18.13*/("""<span class="badge">"""),_display_(/*18.34*/c/*18.35*/.getProducts.size()),format.raw/*18.54*/("""</span>
+          </a>
+        """)))}),format.raw/*20.10*/("""
+      """),format.raw/*21.7*/("""</div>
 
-      			"""),format.raw/*30.10*/("""<!-- Search Form -->
-			<div id="actions">
-        <form action=""""),_display_(/*32.24*/routes/*32.30*/.ProductCtrl.listProducts(platformId)),format.raw/*32.67*/("""" method="GET">
-         <input type="search" id="searchbox" name="filter" value=""""),_display_(/*33.68*/filter),format.raw/*33.74*/("""" placeholder="Search for game...">
-         <input type="submit" id="searchsubmit" value="Search" class="btn-md btn-primary">
-        </form>
-       </div>
-       <div id="tab"></div>
-    <table class="table table-bordered table-hover table-condensed">
-        
-      <thead>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Price</th>   
-        </tr>
-        <br>
-      </thead>
-    </div>
+      """),_display_(/*23.8*/if(user != null)/*23.24*/{_display_(Seq[Any](format.raw/*23.25*/("""
+        """),_display_(/*24.10*/if("admin".equals(user.getRole()))/*24.44*/{_display_(Seq[Any](format.raw/*24.45*/("""
+          """),format.raw/*25.11*/("""<div class="list-group">
+              <b class="list-group-item">Admin Controls</b>
+              <p>
+                  <a href=""""),_display_(/*28.29*/routes/*28.35*/.AdminProductCtrl.addProduct()),format.raw/*28.65*/("""" class="list-group-item">Add a product
+                  </a>
+                  <a href="#" class="list-group-item">Add a platform
+                    </a>
+                </p>
+              
+          </div>
+        """)))}),format.raw/*35.10*/("""
+      """)))}),format.raw/*36.8*/("""
       
 
-      <tbody>
-        """),_display_(/*52.10*/for(p<-products) yield /*52.26*/ {_display_(Seq[Any](format.raw/*52.28*/("""
-          """),format.raw/*53.11*/("""<tr>
-              """),_display_(/*54.16*/if(env.resource("public/images/" + p.getId + ".png").isDefined)/*54.79*/ {_display_(Seq[Any](format.raw/*54.81*/("""
-                """),format.raw/*55.17*/("""<td><img src="/assets/images/"""),_display_(/*55.47*/(p.getId + ".png")),format.raw/*55.65*/(""""/></td>
-            """)))}/*56.15*/else/*56.20*/{_display_(Seq[Any](format.raw/*56.21*/("""
-                """),format.raw/*57.17*/("""<td><img src="/assets/images/noImage.jpg"/></td>
-            """)))}),format.raw/*58.14*/("""
-            
-            
-                """),format.raw/*61.17*/("""<td><a href=""""),_display_(/*61.31*/routes/*61.37*/.ProductCtrl.productDetails(p.getId)),format.raw/*61.73*/("""">"""),_display_(/*61.76*/p/*61.77*/.getName),format.raw/*61.85*/("""</a>
-               </a>     
-            
-            
-            <td  class="numeric">€ """),_display_(/*65.37*/("%.2f".format(p.getPrice))),format.raw/*65.64*/("""</td>
-            
-            
-              """)))}),format.raw/*68.16*/("""
-            """),format.raw/*69.13*/("""</table>
+      """),format.raw/*39.7*/("""<div id="actions">
+          <form action=""""),_display_(/*40.26*/routes/*40.32*/.ProductCtrl.listProducts(platformId)),format.raw/*40.69*/("""" method="GET">
+              <input type="search" id="searchbox" name="filter" value=""""),_display_(/*41.73*/filter),format.raw/*41.79*/("""" placeholder="Search for game...">
+              <input type="submit" id="searchsubmit" value="Search" class="btn-md btn-primary">
+             </form>
+      </div>
 
+      
 
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-6">
+        """),_display_(/*51.10*/if(flash.containsKey("success"))/*51.42*/ {_display_(Seq[Any](format.raw/*51.44*/("""
+          """),format.raw/*52.11*/("""<div class="alert alert-success">
+            """),_display_(/*53.14*/flash/*53.19*/.get("success")),format.raw/*53.34*/("""
+          """),format.raw/*54.11*/("""</div>
+        """)))}),format.raw/*55.10*/("""
+       
+        
+      
+        
+  
+      """),format.raw/*61.7*/("""<div class="list-group">
+          """),_display_(/*62.12*/for(p<-products) yield /*62.28*/ {_display_(Seq[Any](format.raw/*62.30*/("""
+              """),format.raw/*63.15*/("""<a href=""""),_display_(/*63.25*/routes/*63.31*/.ProductCtrl.productDetails(p.getId)),format.raw/*63.67*/("""" class="list-group-item"  id="prodItem">
+                  """),_display_(/*64.20*/if(env.resource("public/images/" + p.getId + ".png").isDefined)/*64.83*/ {_display_(Seq[Any](format.raw/*64.85*/("""
+                    """),format.raw/*65.21*/("""<img src="/assets/images/thumbs/"""),_display_(/*65.54*/(p.getId + ".png")),format.raw/*65.72*/("""" id="prodImg"/>
+                """)))}/*66.19*/else/*66.24*/{_display_(Seq[Any](format.raw/*66.25*/("""
+                    """),format.raw/*67.21*/("""<img src="/assets/images/noImage.jpg" id="prodImg"/>
+                """)))}),format.raw/*68.18*/("""
+                  """),format.raw/*69.19*/("""<h4 id="prodName">"""),_display_(/*69.38*/p/*69.39*/.getName),format.raw/*69.47*/("""</h4>
+                  <h4 id="prodPrice">$"""),_display_(/*70.40*/p/*70.41*/.getPrice),format.raw/*70.50*/("""</h4>
+                 <p>
+                    """),_display_(/*72.22*/for(c<-p.getCategories) yield /*72.45*/{_display_(Seq[Any](format.raw/*72.46*/("""
+                      """),_display_(/*73.24*/c/*73.25*/.getName),format.raw/*73.33*/("""&nbsp;
+                    """)))}),format.raw/*74.22*/("""<br>
+                    """),_display_(/*75.22*/p/*75.23*/.getPegi),format.raw/*75.31*/("""
+                  """),format.raw/*76.19*/("""</p>
+                  
+                  </a>
+             
+              <!-- <td  class="numeric">"""),_display_(/*80.42*/p/*80.43*/.getStock),format.raw/*80.52*/("""</td>
+              <td  class="numeric">€ """),_display_(/*81.39*/("%.2f".format(p.getPrice))),format.raw/*81.66*/("""</td>
+              
+              <td><a href=""""),_display_(/*83.29*/routes/*83.35*/.AdminProductCtrl.updateProduct(p.getId)),format.raw/*83.75*/("""" class="button xs btn-danger">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                  </a>
+                </td>        
+              <td><a href=""""),_display_(/*87.29*/routes/*87.35*/.AdminProductCtrl.deleteProduct(p.getId)),format.raw/*87.75*/("""" class="button xs btn-danger" onclick="return confirmDel();">
+                    <span class="glyphicon glyphicon-trash"></span>
+                  </a>
+                </td> -->
+              
+                """)))}),format.raw/*92.18*/("""
+              """),format.raw/*93.15*/("""</div>
+            </div>
+          </div>
+  
+     
    
- 
-</div>
-""")))}))
+  </div>
+  
+  
+  """)))}))
       }
     }
   }
@@ -120,11 +147,11 @@ Seq[Any](format.raw/*4.126*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Apr 07 00:10:06 BST 2018
-                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/listProducts.scala.html
-                  HASH: 8735cd5ad443a752edaae60c511bac64323582b5
-                  MATRIX: 651->1|690->35|728->68|1124->95|1344->219|1376->226|1405->247|1444->249|1472->251|1511->264|1525->270|1586->311|1765->463|1780->469|1837->505|1911->553|1947->573|1987->575|2024->585|2061->595|2076->601|2139->643|2193->670|2203->671|2233->679|2273->691|2321->712|2331->713|2371->732|2431->762|2464->768|2542->820|2583->852|2623->854|2660->864|2733->910|2747->915|2783->930|2820->940|2865->955|2906->968|3001->1036|3016->1042|3074->1079|3185->1163|3212->1169|3704->1634|3736->1650|3776->1652|3816->1664|3864->1685|3936->1748|3976->1750|4022->1768|4079->1798|4118->1816|4160->1840|4173->1845|4212->1846|4258->1864|4352->1927|4426->1973|4467->1987|4482->1993|4539->2029|4569->2032|4579->2033|4608->2041|4731->2137|4779->2164|4860->2214|4902->2228
-                  LINES: 24->1|25->2|26->3|31->4|36->4|39->7|39->7|39->7|40->8|40->8|40->8|40->8|47->15|47->15|47->15|48->16|48->16|48->16|49->17|49->17|49->17|49->17|49->17|49->17|49->17|50->18|50->18|50->18|50->18|52->20|53->21|56->24|56->24|56->24|57->25|58->26|58->26|58->26|59->27|60->28|62->30|64->32|64->32|64->32|65->33|65->33|84->52|84->52|84->52|85->53|86->54|86->54|86->54|87->55|87->55|87->55|88->56|88->56|88->56|89->57|90->58|93->61|93->61|93->61|93->61|93->61|93->61|93->61|97->65|97->65|100->68|101->69
+                  DATE: Mon Apr 09 01:04:49 IST 2018
+                  SOURCE: /home/brandon/Documents/SemesterCA/app/views/listProducts.scala.html
+                  HASH: 0e84c5bacd5597982384d739cdb5163cf0bee1b7
+                  MATRIX: 651->1|690->34|728->66|1124->92|1344->216|1373->220|1402->241|1441->243|1470->246|1509->259|1523->265|1584->306|1810->505|1846->525|1886->527|1925->538|1962->548|1977->554|2032->588|2086->615|2096->616|2125->624|2166->637|2214->658|2224->659|2264->678|2327->710|2361->717|2402->732|2427->748|2466->749|2503->759|2546->793|2585->794|2624->805|2782->936|2797->942|2848->972|3098->1191|3136->1199|3178->1214|3249->1258|3264->1264|3322->1301|3437->1389|3464->1395|3746->1650|3787->1682|3827->1684|3866->1695|3940->1742|3954->1747|3990->1762|4029->1773|4076->1789|4146->1832|4209->1868|4241->1884|4281->1886|4324->1901|4361->1911|4376->1917|4433->1953|4521->2014|4593->2077|4633->2079|4682->2100|4742->2133|4781->2151|4834->2186|4847->2191|4886->2192|4935->2213|5036->2283|5083->2302|5129->2321|5139->2322|5168->2330|5240->2375|5250->2376|5280->2385|5355->2433|5394->2456|5433->2457|5484->2481|5494->2482|5523->2490|5582->2518|5635->2544|5645->2545|5674->2553|5721->2572|5850->2674|5860->2675|5890->2684|5961->2728|6009->2755|6085->2804|6100->2810|6161->2850|6370->3032|6385->3038|6446->3078|6689->3290|6732->3305
+                  LINES: 24->1|25->2|26->3|31->4|36->4|39->7|39->7|39->7|40->8|40->8|40->8|40->8|48->16|48->16|48->16|49->17|49->17|49->17|49->17|49->17|49->17|49->17|50->18|50->18|50->18|50->18|52->20|53->21|55->23|55->23|55->23|56->24|56->24|56->24|57->25|60->28|60->28|60->28|67->35|68->36|71->39|72->40|72->40|72->40|73->41|73->41|83->51|83->51|83->51|84->52|85->53|85->53|85->53|86->54|87->55|93->61|94->62|94->62|94->62|95->63|95->63|95->63|95->63|96->64|96->64|96->64|97->65|97->65|97->65|98->66|98->66|98->66|99->67|100->68|101->69|101->69|101->69|101->69|102->70|102->70|102->70|104->72|104->72|104->72|105->73|105->73|105->73|106->74|107->75|107->75|107->75|108->76|112->80|112->80|112->80|113->81|113->81|115->83|115->83|115->83|119->87|119->87|119->87|124->92|125->93
                   -- GENERATED --
               */
           

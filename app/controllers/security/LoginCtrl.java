@@ -49,7 +49,7 @@ public class LoginCtrl extends Controller {
             User u = User.getLoggedIn(loginForm.get().getEmail());
             // If admin - go to admin section
             if (u != null && "admin".equals(u.getRole())) {
-                return redirect(controllers.routes.AdminProductCtrl.index());
+                return redirect(controllers.routes.ProductCtrl.index());
             }
             
             // Return to home page
