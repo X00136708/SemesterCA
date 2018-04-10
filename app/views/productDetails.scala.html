@@ -46,6 +46,12 @@
                   }
                   
                 }
+              }else{
+                @if(p.getStock > 0){
+                  <a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-warning btn-xs">Add To Cart  <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                }else{
+                  <a class="btn btn-warning btn-xs" onclick="return soldOut();">Sold Out  <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                }
               }
               
         
