@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/SemesterCA/conf/routes
-// @DATE:Tue Apr 10 16:53:29 IST 2018
+// @SOURCE:/home/wdd/webapps/semesterca/conf/routes
+// @DATE:Wed Apr 11 13:37:12 IST 2018
 
 import play.api.mvc.Call
 

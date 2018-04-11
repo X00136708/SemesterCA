@@ -54,7 +54,9 @@ public class OrderItem extends Model {
     public double getItemTotal() {
         return this.price * this.quantity;
     }
-	
+	public double getItemTotala() {
+        return this.price ;
+    }
 	//Generic query helper
     public static Finder<Long,OrderItem> find = new Finder<Long,OrderItem>(OrderItem.class);
 
@@ -111,7 +113,7 @@ public class OrderItem extends Model {
         this.price = price;
     }
      public Double getTotal() {
-        return this.price*this.quantity;
+        return this.price;
     }
 
 }
