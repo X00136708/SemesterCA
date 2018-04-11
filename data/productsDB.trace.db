@@ -155,3 +155,6 @@ insert into user (email, role, role, name, password) values (?,?,?,?,?) [42121-1
 	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2018-04-11 14:00:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "DESCRIPTION VARCHAR(255)": "'When a young street hustler, a retired bank robber and a... When a young street hustler, a retired bank robber and a... When a ... (480)"; SQL statement:
+update product set name=?, description=?, stock=?, price=?, pegi=? where id=? [22001-193]

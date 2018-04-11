@@ -474,3 +474,8 @@ exit
 clean
 run
 exit
+clean
+run
+git add -A
+git 
+exit
