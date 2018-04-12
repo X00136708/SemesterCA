@@ -5,6 +5,7 @@
 
 
 @main("Products",user) {
+  <body>
   <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
   <p class="lead">Games</p>
   <br>
@@ -57,14 +58,14 @@
         
       
         
-  
-      <div class="list-group">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      <div class="products">
           @for(p<-products) {
               <a href="@routes.ProductCtrl.productDetails(p.getId)" class="list-group-item"  id="prodItem">
                   @if(env.resource("public/images/" + p.getId + ".png").isDefined) {
                     <img src="/assets/images/thumbs/@(p.getId + ".png")" id="prodImg"/>
                 } else {
-                    <img src="/assets/images/noImage.jpg" id="prodImg"/>
+                    <img src="/assets/images/thumbs/noImage.png" id="prodImg"/>
                 }
                   <h4 id="prodName">@p.getName</h4>
                   
@@ -115,6 +116,6 @@
      
    
   </div>
-  
+</body>
   
   }

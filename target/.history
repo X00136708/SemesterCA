@@ -479,3 +479,6 @@ run
 git add -A
 git 
 exit
+clean
+run
+exit

@@ -190,6 +190,7 @@ public class AdminProductCtrl extends Controller {
                 thumb.addImage(file.getAbsolutePath());
                 thumb.resize(75);
                 thumb.addImage("public/images/thumbs/" + id + ".png");
+                
                 // we must make sure that the directories exist before running the operations
                 File dir = new File("public/images/thumbs/");
                 if (!dir.exists()) {

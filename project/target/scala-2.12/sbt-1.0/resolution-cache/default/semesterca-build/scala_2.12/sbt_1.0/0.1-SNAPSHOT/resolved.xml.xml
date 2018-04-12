@@ -4,7 +4,7 @@
 		module="semesterca-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20180411133625"
+		publication="20180412182831"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>
