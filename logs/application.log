@@ -1,13 +1,260 @@
-2018-04-13 15:47:39,654 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-6 - Creating Pool for datasource 'default'
-2018-04-13 15:47:39,929 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-6 - Database [default] connected at jdbc:h2:file:./data/productsDB
-2018-04-13 15:47:41,094 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-6 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2018-04-13 15:47:41,317 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-6 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2018-04-13 15:55:18,154 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
+2018-04-13 15:55:18,460 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:h2:file:./data/productsDB
+2018-04-13 15:55:19,735 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-3 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-04-13 15:55:19,956 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2018-04-13 15:47:41,323 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-6 - Application started (Dev)
-2018-04-13 15:50:19,005 [WARN] from application in application-akka.actor.default-dispatcher-6 - The "validate" method in class "models.users.Login" is deprecated since Play 2.6. To migrate to class-level constraints see https://www.playframework.com/documentation/2.6.x/Migration26#java-form-changes and https://www.playframework.com/documentation/2.6.x/JavaForms#Advanced-validation
-2018-04-13 15:52:14,366 [INFO] from play.core.server.AkkaHttpServer in pool-6-thread-6 - Stopping server...
-2018-04-13 15:52:14,533 [INFO] from application in application-akka.actor.default-dispatcher-13 - Shutting down connection pool.
+2018-04-13 15:55:19,960 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev)
+2018-04-13 15:58:03,749 [WARN] from application in application-akka.actor.default-dispatcher-7 - The "validate" method in class "models.users.Login" is deprecated since Play 2.6. To migrate to class-level constraints see https://www.playframework.com/documentation/2.6.x/Migration26#java-form-changes and https://www.playframework.com/documentation/2.6.x/JavaForms#Advanced-validation
+2018-04-13 16:04:23,105 [WARN] from application in application-akka.actor.default-dispatcher-17 - The "validate" method in class "models.users.Login" is deprecated since Play 2.6. To migrate to class-level constraints see https://www.playframework.com/documentation/2.6.x/Migration26#java-form-changes and https://www.playframework.com/documentation/2.6.x/JavaForms#Advanced-validation
+2018-04-13 16:10:32,649 [WARN] from application in application-akka.actor.default-dispatcher-30 - The "validate" method in class "models.users.Login" is deprecated since Play 2.6. To migrate to class-level constraints see https://www.playframework.com/documentation/2.6.x/Migration26#java-form-changes and https://www.playframework.com/documentation/2.6.x/JavaForms#Advanced-validation
+2018-04-13 16:13:22,525 [INFO] from application in application-akka.actor.default-dispatcher-34 - Shutting down connection pool.
+2018-04-13 16:13:22,680 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
+2018-04-13 16:13:22,695 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-4 - Database [default] connected at jdbc:h2:file:./data/productsDB
+2018-04-13 16:13:22,864 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-4 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-04-13 16:13:22,917 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-4 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2018-04-13 16:13:22,917 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-4 - Application started (Dev)
+2018-04-13 16:14:00,938 [WARN] from application in application-akka.actor.default-dispatcher-6 - The "validate" method in class "models.users.Login" is deprecated since Play 2.6. To migrate to class-level constraints see https://www.playframework.com/documentation/2.6.x/Migration26#java-form-changes and https://www.playframework.com/documentation/2.6.x/JavaForms#Advanced-validation
+2018-04-13 16:18:23,969 [WARN] from application in application-akka.actor.default-dispatcher-19 - The "validate" method in class "models.users.Login" is deprecated since Play 2.6. To migrate to class-level constraints see https://www.playframework.com/documentation/2.6.x/Migration26#java-form-changes and https://www.playframework.com/documentation/2.6.x/JavaForms#Advanced-validation
+2018-04-13 16:18:27,497 [ERROR] from application in application-akka.actor.default-dispatcher-19 - 
+
+! @77i51dbie - Internal server error, for (GET) [/Admin/deleteProduct/1] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[DataIntegrityException: Error[Referential integrity constraint violation: "FK_FORUM_POST_PRODUCT_ID: PUBLIC.FORUM_POST FOREIGN KEY(PRODUCT_ID) REFERENCES PUBLIC.PRODUCT(ID) (1)"; SQL statement: delete from product where id=? [23503-193]]]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:255)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:182)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:310)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:308)
+	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:414)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:43)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: io.ebean.DataIntegrityException: Error[Referential integrity constraint violation: "FK_FORUM_POST_PRODUCT_ID: PUBLIC.FORUM_POST FOREIGN KEY(PRODUCT_ID) REFERENCES PUBLIC.PRODUCT(ID) (1)"; SQL statement: delete from product where id=? [23503-193]]
+	at io.ebean.config.dbplatform.SqlCodeTranslator.translate(SqlCodeTranslator.java:44)
+	at io.ebean.config.dbplatform.DatabasePlatform.translate(DatabasePlatform.java:195)
+	at io.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:83)
+	at io.ebeaninternal.server.persist.dml.DmlBeanPersister.delete(DmlBeanPersister.java:41)
+	at io.ebeaninternal.server.core.PersistRequestBean.executeDelete(PersistRequestBean.java:1108)
+	at io.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:678)
+	at io.ebeaninternal.server.persist.BatchControl.executeOrQueue(BatchControl.java:160)
+	at io.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:700)
+	at io.ebeaninternal.server.persist.DefaultPersister.delete(DefaultPersister.java:772)
+	at io.ebeaninternal.server.persist.DefaultPersister.deleteRequest(DefaultPersister.java:550)
+	at io.ebeaninternal.server.persist.DefaultPersister.deleteRequest(DefaultPersister.java:530)
+	at io.ebeaninternal.server.persist.DefaultPersister.delete(DefaultPersister.java:522)
+	at io.ebeaninternal.server.core.DefaultServer.delete(DefaultServer.java:1893)
+	at io.ebeaninternal.server.core.DefaultServer.delete(DefaultServer.java:1885)
+	at io.ebean.Model.delete(Model.java:240)
+	at controllers.AdminProductCtrl.deleteProduct(AdminProductCtrl.java:103)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$52(Routes.scala:887)
+	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:134)
+	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:133)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$8$$anon$2$$anon$1.invocation(HandlerInvoker.scala:108)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:88)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:31)
+	at controllers.security.CheckIfAdmin.call(CheckIfAdmin.java:30)
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:69)
+	at play.db.ebean.TransactionalAction.lambda$call$6(TransactionalAction.java:18)
+	at io.ebeaninternal.server.core.DefaultServer.execute(DefaultServer.java:670)
+	at io.ebeaninternal.server.core.DefaultServer.execute(DefaultServer.java:663)
+	at io.ebean.Ebean.execute(Ebean.java:1270)
+	at play.db.ebean.TransactionalAction.call(TransactionalAction.java:18)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:138)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:655)
+	at scala.util.Success.$anonfun$map$1(Try.scala:251)
+	at scala.util.Success.map(Try.scala:209)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:289)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
+	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete(Promise.scala:368)
+	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete$(Promise.scala:367)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.onComplete(Promise.scala:375)
+	at scala.concurrent.impl.Promise.transform(Promise.scala:29)
+	at scala.concurrent.impl.Promise.transform$(Promise.scala:27)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.transform(Promise.scala:375)
+	at scala.concurrent.Future.map(Future.scala:289)
+	at scala.concurrent.Future.map$(Future.scala:289)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.map(Promise.scala:375)
+	at scala.concurrent.Future$.apply(Future.scala:655)
+	at play.core.j.JavaAction.apply(JavaAction.scala:138)
+	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
+	at scala.util.Try$.apply(Try.scala:209)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
+	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:304)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
+	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
+	... 12 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLException: Referential integrity constraint violation: "FK_FORUM_POST_PRODUCT_ID: PUBLIC.FORUM_POST FOREIGN KEY(PRODUCT_ID) REFERENCES PUBLIC.PRODUCT(ID) (1)"; SQL statement:
+delete from product where id=? [23503-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.constraint.ConstraintReferential.checkRow(ConstraintReferential.java:426)
+	at org.h2.constraint.ConstraintReferential.checkRowRefTable(ConstraintReferential.java:443)
+	at org.h2.constraint.ConstraintReferential.checkRow(ConstraintReferential.java:318)
+	at org.h2.table.Table.fireConstraints(Table.java:967)
+	at org.h2.table.Table.fireAfterRow(Table.java:985)
+	at org.h2.command.dml.Delete.update(Delete.java:101)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:160)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:146)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at io.ebeaninternal.server.type.DataBind.executeUpdate(DataBind.java:82)
+	at io.ebeaninternal.server.persist.dml.DeleteHandler.execute(DeleteHandler.java:47)
+	at io.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:73)
+	... 72 common frames omitted
+2018-04-13 16:18:55,839 [ERROR] from application in application-akka.actor.default-dispatcher-21 - 
+
+! @77i51f1gj - Internal server error, for (GET) [/Admin/deleteProduct/1] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[DataIntegrityException: Error[Referential integrity constraint violation: "FK_FORUM_POST_PRODUCT_ID: PUBLIC.FORUM_POST FOREIGN KEY(PRODUCT_ID) REFERENCES PUBLIC.PRODUCT(ID) (1)"; SQL statement: delete from product where id=? [23503-193]]]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:255)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:182)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:310)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:308)
+	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:414)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:43)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: io.ebean.DataIntegrityException: Error[Referential integrity constraint violation: "FK_FORUM_POST_PRODUCT_ID: PUBLIC.FORUM_POST FOREIGN KEY(PRODUCT_ID) REFERENCES PUBLIC.PRODUCT(ID) (1)"; SQL statement: delete from product where id=? [23503-193]]
+	at io.ebean.config.dbplatform.SqlCodeTranslator.translate(SqlCodeTranslator.java:44)
+	at io.ebean.config.dbplatform.DatabasePlatform.translate(DatabasePlatform.java:195)
+	at io.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:83)
+	at io.ebeaninternal.server.persist.dml.DmlBeanPersister.delete(DmlBeanPersister.java:41)
+	at io.ebeaninternal.server.core.PersistRequestBean.executeDelete(PersistRequestBean.java:1108)
+	at io.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:678)
+	at io.ebeaninternal.server.persist.BatchControl.executeOrQueue(BatchControl.java:160)
+	at io.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:700)
+	at io.ebeaninternal.server.persist.DefaultPersister.delete(DefaultPersister.java:772)
+	at io.ebeaninternal.server.persist.DefaultPersister.deleteRequest(DefaultPersister.java:550)
+	at io.ebeaninternal.server.persist.DefaultPersister.deleteRequest(DefaultPersister.java:530)
+	at io.ebeaninternal.server.persist.DefaultPersister.delete(DefaultPersister.java:522)
+	at io.ebeaninternal.server.core.DefaultServer.delete(DefaultServer.java:1893)
+	at io.ebeaninternal.server.core.DefaultServer.delete(DefaultServer.java:1885)
+	at io.ebean.Model.delete(Model.java:240)
+	at controllers.AdminProductCtrl.deleteProduct(AdminProductCtrl.java:103)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$52(Routes.scala:887)
+	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:134)
+	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:133)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$8$$anon$2$$anon$1.invocation(HandlerInvoker.scala:108)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:88)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:31)
+	at controllers.security.CheckIfAdmin.call(CheckIfAdmin.java:30)
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:69)
+	at play.db.ebean.TransactionalAction.lambda$call$6(TransactionalAction.java:18)
+	at io.ebeaninternal.server.core.DefaultServer.execute(DefaultServer.java:670)
+	at io.ebeaninternal.server.core.DefaultServer.execute(DefaultServer.java:663)
+	at io.ebean.Ebean.execute(Ebean.java:1270)
+	at play.db.ebean.TransactionalAction.call(TransactionalAction.java:18)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:138)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:655)
+	at scala.util.Success.$anonfun$map$1(Try.scala:251)
+	at scala.util.Success.map(Try.scala:209)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:289)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
+	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete(Promise.scala:368)
+	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete$(Promise.scala:367)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.onComplete(Promise.scala:375)
+	at scala.concurrent.impl.Promise.transform(Promise.scala:29)
+	at scala.concurrent.impl.Promise.transform$(Promise.scala:27)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.transform(Promise.scala:375)
+	at scala.concurrent.Future.map(Future.scala:289)
+	at scala.concurrent.Future.map$(Future.scala:289)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.map(Promise.scala:375)
+	at scala.concurrent.Future$.apply(Future.scala:655)
+	at play.core.j.JavaAction.apply(JavaAction.scala:138)
+	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
+	at scala.util.Try$.apply(Try.scala:209)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
+	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:304)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
+	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
+	... 12 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLException: Referential integrity constraint violation: "FK_FORUM_POST_PRODUCT_ID: PUBLIC.FORUM_POST FOREIGN KEY(PRODUCT_ID) REFERENCES PUBLIC.PRODUCT(ID) (1)"; SQL statement:
+delete from product where id=? [23503-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.constraint.ConstraintReferential.checkRow(ConstraintReferential.java:426)
+	at org.h2.constraint.ConstraintReferential.checkRowRefTable(ConstraintReferential.java:443)
+	at org.h2.constraint.ConstraintReferential.checkRow(ConstraintReferential.java:318)
+	at org.h2.table.Table.fireConstraints(Table.java:967)
+	at org.h2.table.Table.fireAfterRow(Table.java:985)
+	at org.h2.command.dml.Delete.update(Delete.java:101)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:160)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:146)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at io.ebeaninternal.server.type.DataBind.executeUpdate(DataBind.java:82)
+	at io.ebeaninternal.server.persist.dml.DeleteHandler.execute(DeleteHandler.java:47)
+	at io.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:73)
+	... 72 common frames omitted
+2018-04-13 16:19:00,381 [WARN] from application in application-akka.actor.default-dispatcher-18 - The "validate" method in class "models.users.Login" is deprecated since Play 2.6. To migrate to class-level constraints see https://www.playframework.com/documentation/2.6.x/Migration26#java-form-changes and https://www.playframework.com/documentation/2.6.x/JavaForms#Advanced-validation
+2018-04-13 16:19:35,507 [WARN] from application in application-akka.actor.default-dispatcher-21 - The "validate" method in class "models.users.Login" is deprecated since Play 2.6. To migrate to class-level constraints see https://www.playframework.com/documentation/2.6.x/Migration26#java-form-changes and https://www.playframework.com/documentation/2.6.x/JavaForms#Advanced-validation
+2018-04-13 16:40:16,719 [INFO] from application in application-akka.actor.default-dispatcher-65 - Shutting down connection pool.
+2018-04-13 16:40:16,861 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-89 - Creating Pool for datasource 'default'
+2018-04-13 16:40:16,881 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-89 - Database [default] connected at jdbc:h2:file:./data/productsDB
+2018-04-13 16:40:17,056 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-89 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-04-13 16:40:17,097 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-89 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2018-04-13 16:40:17,098 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-89 - Application started (Dev)
+2018-04-13 23:10:48,173 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-3 housekeeper - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=6h24m31s197ms304µs338ns).
+2018-04-13 23:11:13,648 [INFO] from play.core.server.AkkaHttpServer in pool-6-thread-4 - Stopping server...
+2018-04-13 23:11:13,668 [INFO] from application in application-akka.actor.default-dispatcher-18 - Shutting down connection pool.
