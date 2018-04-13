@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/doran/Documents/2ndYearProject/semesterca/conf/routes
-// @DATE:Fri Apr 13 14:26:24 BST 2018
+// @DATE:Fri Apr 13 15:47:11 BST 2018
 
 import play.api.mvc.Call
 

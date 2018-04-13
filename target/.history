@@ -24,8 +24,6 @@ clean
 compile
 clean
 compile
-clean
-compile
 run
 clean
 compile
@@ -494,6 +492,9 @@ clean
 run
 clean
 run
+clean
+run
+exit
 clean
 run
 exit
