@@ -23,29 +23,39 @@
 
             <ul class="nav navbar-nav">
 
-                <li @if(title=="Products" ){class="active"}>
+                <li @if(title=="Shop" ){class="active"}>
                     <a href="@routes.ProductCtrl.listProducts(0)">Shop</a>
                 </li>
 
-                <li>
+                <li @if(title=="Forums") {
+                    class="active"
+                }>
                     <a href="@routes.CommunityCtrl.forumPage(0)">Forums</a>
                 </li>
 
-                <li>
+                <li @if(title=="Contact us") {
+                    class="active"
+                }>
                     <a href="#">Contact us</a>
                 </li>
          
                     @if(user != null){
                         @if(user.getRole == "registeredUser"){
-                <li>
+                <li @if(title=="Wallet") {
+                    class="active"
+                     }>
                     <a href="@routes.ShoppingCtrl.addToWallet(0)">Wallet</a>
                 </li>
                 
-                <li>
+                <li @if(title=="Shopping Basket") {
+                    class="active"
+                }>
                     <a href="@routes.ShoppingCtrl.showBasket()">Basket</a>
                 </li>
                 
-                    <li>
+                <li @if(title=="View Orders") {
+                    class="active"
+                }>
                             <a href="@controllers.routes.ShoppingCtrl.viewOrders(user.getEmail())">View Orders</a>
                         </li>
                 }}

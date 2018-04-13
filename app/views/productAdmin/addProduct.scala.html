@@ -5,6 +5,7 @@
 @import helper._
 
 @main("Add Product",user) {
+    <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
     <p class="lead">Add a new product</p>
     @form(action=routes.AdminProductCtrl.addProductSubmit(), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data") {
         @* CSRF attack prevention *@
@@ -16,10 +17,15 @@
         <!-- Checkbox name is catSelect[],  selected values will be stored in -->
         <!-- form object using catSelect defined in Product  -->
         @for((value, name) <- Category.options) {
-            <input type="checkbox" name="catSelect[]" value="@value"
+            <div class="platformSelect">
+            <input type="checkbox" name="catSelect[]" value="@value" 
             
-            />@name<br>        
+            />@name<br>  
+            </div>
+                  
         }
+        <br>
+        <div class="textInputFields">
         @inputText(productForm("description"), '_label -> "Description", 'class -> "form-control")
         @inputText(productForm("stock"), '_label -> "Stock", 'class -> "form-control")
         @inputText(productForm("price"), '_label -> "Price", 'class -> "form-control")
@@ -28,7 +34,7 @@
             options(Product.PEGIoptions), '_label -> "PEGI Rating", '_default -> "-- Choose a PEGI rating --", 
             '_showConstraints -> false, 'class -> "form-control"
             )
-
+        </div>
         <label>Image Upload</label>
         <input class="btn-sm btn-default" type="file" name="upload">
         <br><br>

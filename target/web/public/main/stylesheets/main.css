@@ -58,11 +58,11 @@ b{
     color:red;
 }
 .products {
-    
+    background-color:#011b44;
     padding: 5px;
     font: 15px/20px sans-serif;
     width: 850px;
-    height: 611px;
+    height: auto;
     overflow: scroll;
     }
     .myBtnContainer{
@@ -74,6 +74,7 @@ b{
  
 
 }
+
 body{
    background-image: url("../images/tile.jpg");
 }
@@ -82,8 +83,9 @@ h1 {
 }
 table{
     color:black;
-    background-color:white;
+    background-color:#E8E8E8;
 }
+
 .color{
     color:black;
     background-color:white;
@@ -98,5 +100,60 @@ p{
 html{
     margin-left: 2.9%;
     margin-right: 2.9%;
+}
+.list-categories {
+    margin-left:10.5%;
+    margin-right: 60%;  
+    
+}
+.list-categories .adminProduct a{
+    margin-right:70%;
+}
+.category .btn-sm{
+    color: white;
+    background-color: #011b44;
+    border:.1em solid white;
+}
+.search {
+    padding-top:4px;
+   
+}
+.search .searchbtn-sm{
+    color:black;
+    background-color:white;
+    border-radius: .2em;
+}
+input[type="search"]{
+    background-color:black;
+    border-radius:.2em ;    
+    padding-left:4px;
+}
+
+.adminProduct .btn-sm{
+    color: white;
+    font-size:1em;
+    background-color: black;
+    border:.1em solid white;
+}
+dd{
+    color:#ff3333;
+}
+.platformSelect{
+    color:white;
+}
+.badge{
+    background-color:#2adad1;
+    color:black;
+}
+.list-group-item{
+    background-color:#d7d8be;
+    border:.1em solid black;
+    
+}
+.list-group-item h4{
+    color:black;
+}
+.list-group-item p{
+    color:#011b44;
 }
 

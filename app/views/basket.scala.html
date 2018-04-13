@@ -32,8 +32,8 @@
                 <th>Price</th>
                 <th>Quantity</th>
 				<th>Total</th>
-                <th>dec.</th>
-                <th>inc.</th>
+                <th>Add</th>
+                <th>Remove</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -58,7 +58,7 @@
             </div>  
         </div>
        
-        
+        @if(registeredUser.getBasket() != null){
         <div class="row">
             <div class="col-md-6">
                 <p class="text-right">
@@ -73,7 +73,7 @@
                     <span class="glyphicon glyphicon-euro"></span> Proceed to checkout</a>
                 </p>
             </div>  
-        
+        }
         </div>
     </div>
 </div>

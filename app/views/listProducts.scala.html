@@ -4,45 +4,49 @@
 @(products: List[Product], categories: List[Category], platformId: Long, filter: String,user: User,env: play.api.Environment)
 
 
-@main("Products",user) {
+@main("Shop",user) {
   <body>
   <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
   <h1>Games</h1>
   <br>
   <div class="row">
-    <div class="col-sm-2">
+      
      
-      <div class="list-group">
-        <b class="list-group-item">Platforms</b>
+      <div class="list-categories">
+          @if(user != null){
+            @if("admin".equals(user.getRole())){
+              <div class="adminProduct">
+                 
+                  <p>
+                      <a href="@routes.AdminProductCtrl.addProduct()" class="btn btn-sm">Add a product
+                      </a>
+                      
+                    </p>
+                  
+              </div>
+            }
+          }
+          <div class="category">
         @for(c <- categories) {
-          <a href="@routes.ProductCtrl.listProducts(c.getId)" class="list-group-item">@c.getName
-            <span class="badge">@c.getProducts.size()</span>
+          <a href="@routes.ProductCtrl.listProducts(c.getId)" class="btn btn-sm">@c.getName
+            <span class="badge badge-pill badge-primary">@c.getProducts().size</span>
           </a>
         }
+        <div class="search">
+          <form action="@routes.ProductCtrl.listProducts(platformId)" class="text" method="GET">
+              <input type="search" id="searchbox" name="filter" value="@filter" placeholder="Search for game...">
+              <input type="submit" id="searchsubmit" value="Search" class="searchbtn-sm ">
+          </form>
+            </div>
+      </div>
+    </div>
+        
       </div>
 
-      @if(user != null){
-        @if("admin".equals(user.getRole())){
-          <div class="list-group">
-              <b class="list-group-item">Admin Controls</b>
-              <p>
-                  <a href="@routes.AdminProductCtrl.addProduct()" class="list-group-item">Add a product
-                  </a>
-                  <a href="#" class="list-group-item">Add a platform
-                    </a>
-                </p>
-              
-          </div>
-        }
-      }
+     
       
 
-      <div id="actions">
-          <form action="@routes.ProductCtrl.listProducts(platformId)" method="GET">
-              <input type="search" id="searchbox" name="filter" value="@filter" placeholder="Search for game...">
-              <input type="submit" id="searchsubmit" value="Search" class="btn-md btn-primary">
-             </form>
-      </div>
+    
 
       
 
@@ -96,17 +100,7 @@
                   
                   </a>
              
-              <!-- <td  class="numeric">@p.getStock</td>
-              <td  class="numeric">€ @("%.2f".format(p.getPrice))</td>
-              
-              <td><a href="@routes.AdminProductCtrl.updateProduct(p.getId)" class="button xs btn-danger">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>        
-              <td><a href="@routes.AdminProductCtrl.deleteProduct(p.getId)" class="button xs btn-danger" onclick="return confirmDel();">
-                    <span class="glyphicon glyphicon-trash"></span>
-                  </a>
-                </td> -->
+            
               
                 }
               </div>
