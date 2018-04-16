@@ -90,12 +90,12 @@
                     }
                     @if(user != null){
                       @if("admin".equals(user.getRole())){
-                      @p.getPegi
+                        <div id="prodPegi">@p.getPegi</div>
                     }else{
-                      <br>@p.getPegi
+                      <br><div id="prodPegi">@p.getPegi</div>
                     }
                   }else{
-                    <br>@p.getPegi
+                    <br><div id="prodPegi">@p.getPegi</div>
                   }
                   </p>
                   

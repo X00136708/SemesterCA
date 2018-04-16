@@ -18,25 +18,25 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="@routes.ProductCtrl.listProducts(0)">Nu-Wave Games</a>
+                <a class="navbar-brand" href="@routes.ProductCtrl.listProducts(0)"><div id="navItem"></div>Nu-Wave Games</a>
             </div>
 
             <ul class="nav navbar-nav">
 
                 <li @if(title=="Shop" ){class="active"}>
-                    <a href="@routes.ProductCtrl.listProducts(0)">Shop</a>
+                    <a href="@routes.ProductCtrl.listProducts(0)"><div id="navItem">Shop</div>div></a>
                 </li>
 
                 <li @if(title=="Forums") {
                     class="active"
                 }>
-                    <a href="@routes.CommunityCtrl.forumPage(0)">Forums</a>
+                    <a href="@routes.CommunityCtrl.forumPage(0)"><div id="navItem"></div>Forums</a>
                 </li>
 
                 <li @if(title=="Contact us") {
                     class="active"
                 }>
-                    <a href="#">Contact us</a>
+                    <a href="#"><div id="navItem"></div>Contact us</a>
                 </li>
          
                     @if(user != null){
@@ -44,26 +44,26 @@
                 <li @if(title=="Wallet") {
                     class="active"
                      }>
-                    <a href="@routes.ShoppingCtrl.addToWallet(0)">Wallet</a>
+                    <a href="@routes.ShoppingCtrl.addToWallet(0)"><div id="navItem"></div>Wallet</a>
                 </li>
                 
                 <li @if(title=="Shopping Basket") {
                     class="active"
                 }>
-                    <a href="@routes.ShoppingCtrl.showBasket()">Basket</a>
+                    <a href="@routes.ShoppingCtrl.showBasket()"><div id="navItem"></div>Basket</a>
                 </li>
                 
                 <li @if(title=="View Orders") {
                     class="active"
                 }>
-                            <a href="@controllers.routes.ShoppingCtrl.viewOrders(user.getEmail())">View Orders</a>
+                            <a href="@controllers.routes.ShoppingCtrl.viewOrders(user.getEmail())"><div id="navItem">View Orders</div></a>
                         </li>
                 }}
                 <li @if(title=="Login"){class="active"}>
                         @if(user != null) {
-                            <a href="@controllers.security.routes.LoginCtrl.logout()">Logout @user.getName()</a>
+                            <a href="@controllers.security.routes.LoginCtrl.logout()"><div id="navItem">Logout @user.getName()</div></a>
                         } else {
-                            <a href="@controllers.security.routes.LoginCtrl.login()">Login</a>
+                            <a href="@controllers.security.routes.LoginCtrl.login()"><div id="navItem">Login</div></a>
                         }
                     </li>
             

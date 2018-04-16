@@ -22,15 +22,22 @@ td {
     padding-top: .25em;
     padding-bottom: .2em;
     margin:0px;
+    color: white;
 }
 #prodStock{
     float: right;
+    color: white;
+}
+#prodPegi{
+    color: white;
 }
 #prodPrice {
     float: right;
+    color: white;
 }
 #prodName {
     font-style: italic;
+    color: white;
 }
 #prodDropdown {
     float: right;
@@ -137,8 +144,8 @@ input[type="search"]{
 .adminProduct .btn-sm{
     color: white;
     font-size:1.5em;
-    background-color: black;
-    border:.05em solid white;
+    background-color: #7289DA;
+    border:.05em solid #23272A;
 
 }
 dd{
