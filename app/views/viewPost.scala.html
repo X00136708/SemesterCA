@@ -5,8 +5,8 @@
 
 @main(p.getTitle, user) {
 
-
-  <div class="col-sm-10">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-6">
     <table class="table table-bordered table-hover table-condensed">
       @if(flash.containsKey("success")) {
         <div class="alert alert-success">
@@ -15,30 +15,35 @@
       }
       <div class="list-group">
           <div class="list-group-item">
-            <h3>@p.getTitle</h3>
+              <div id="postProduct">
+                  @if(env.resource("public/images/" + p.getId + ".png").isDefined) {
+                    <a href="@routes.ProductCtrl.productDetails(p.getId)"><img src="/assets/images/thumbs/@(p.getId + ".png")" id="prodImg"/></a>
+                    
+                } else {
+                  <a href="@routes.ProductCtrl.productDetails(p.getId)"><img src="/assets/images/thumbs/noImage.png" id="prodImg"/></a>
+                }
+                </div>
+            <h3 id="postTitle">@p.getTitle</h3>
             @if(p.getAuthor != null){
               <label>@p.getAuthor.getName</label><br>
             }else{
               <label>N/A</label><br>
             }
-      
-      <label>@p.getProduct.getName</label><br>
-      <br>
       <p>@p.getContent</p><br>
 
       @if(user != null){
         @if("admin".equals(user.getRole())){
-          <a href="@routes.CommunityCtrl.deletePost(p.getId)"  class="btn btn-default btn-xs" onclick="return confirmDel();">Delete <span class="glyphicon glyphicon-trash"></span></a>
+          <a href="@routes.CommunityCtrl.deletePost(p.getId)"  class="btn btn-default btn-xs" onclick="return confirmDel();" id="postDelete">Delete <span class="glyphicon glyphicon-trash"></span></a>
         }
       }
 
     </div>
   </div>
       <label>Replies:</label><br>
-      <div class="list-group">
+      <div class="list-group" id="replies">
       @for(r <- p.getReplies){
 
-        <div class="list-group-item">
+        <div class="list-group-item" id="replies">
           @if(r.getAuthor != null){
             <label>@r.getAuthor.getName</label><br>
           }else{
@@ -48,7 +53,7 @@
           <p>@r.getContent</p>
           @if(user != null){
             @if("admin".equals(user.getRole())){
-              <a href="@routes.CommunityCtrl.deleteReply(r.getId)"  class="btn btn-default btn-xs" onclick="return confirmDel();">Delete <span class="glyphicon glyphicon-trash"></span></a>
+              <a href="@routes.CommunityCtrl.deleteReply(r.getId)"  class="btn btn-default btn-xs" onclick="return confirmDel();" id="postDelete">Delete <span class="glyphicon glyphicon-trash"></span></a>
             }
           }
         </div>

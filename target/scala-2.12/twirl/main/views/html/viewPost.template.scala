@@ -37,8 +37,8 @@ Seq[Any](format.raw/*3.53*/("""
 
 """),_display_(/*6.2*/main(p.getTitle, user)/*6.24*/ {_display_(Seq[Any](format.raw/*6.26*/("""
 
-
-  """),format.raw/*9.3*/("""<div class="col-sm-10">
+  """),format.raw/*8.3*/("""<div class="col-sm-1"></div>
+  <div class="col-sm-6">
     <table class="table table-bordered table-hover table-condensed">
       """),_display_(/*11.8*/if(flash.containsKey("success"))/*11.40*/ {_display_(Seq[Any](format.raw/*11.42*/("""
         """),format.raw/*12.9*/("""<div class="alert alert-success">
@@ -47,48 +47,53 @@ Seq[Any](format.raw/*3.53*/("""
       """)))}),format.raw/*15.8*/("""
       """),format.raw/*16.7*/("""<div class="list-group">
           <div class="list-group-item">
-            <h3>"""),_display_(/*18.18*/p/*18.19*/.getTitle),format.raw/*18.28*/("""</h3>
-            """),_display_(/*19.14*/if(p.getAuthor != null)/*19.37*/{_display_(Seq[Any](format.raw/*19.38*/("""
-              """),format.raw/*20.15*/("""<label>"""),_display_(/*20.23*/p/*20.24*/.getAuthor.getName),format.raw/*20.42*/("""</label><br>
-            """)))}/*21.14*/else/*21.18*/{_display_(Seq[Any](format.raw/*21.19*/("""
-              """),format.raw/*22.15*/("""<label>N/A</label><br>
-            """)))}),format.raw/*23.14*/("""
-      
-      """),format.raw/*25.7*/("""<label>"""),_display_(/*25.15*/p/*25.16*/.getProduct.getName),format.raw/*25.35*/("""</label><br>
-      <br>
-      <p>"""),_display_(/*27.11*/p/*27.12*/.getContent),format.raw/*27.23*/("""</p><br>
+              <div id="postProduct">
+                  """),_display_(/*19.20*/if(env.resource("public/images/" + p.getId + ".png").isDefined)/*19.83*/ {_display_(Seq[Any](format.raw/*19.85*/("""
+                    """),format.raw/*20.21*/("""<a href=""""),_display_(/*20.31*/routes/*20.37*/.ProductCtrl.productDetails(p.getId)),format.raw/*20.73*/(""""><img src="/assets/images/thumbs/"""),_display_(/*20.108*/(p.getId + ".png")),format.raw/*20.126*/("""" id="prodImg"/></a>
+                    
+                """)))}/*22.19*/else/*22.24*/{_display_(Seq[Any](format.raw/*22.25*/("""
+                  """),format.raw/*23.19*/("""<a href=""""),_display_(/*23.29*/routes/*23.35*/.ProductCtrl.productDetails(p.getId)),format.raw/*23.71*/(""""><img src="/assets/images/thumbs/noImage.png" id="prodImg"/></a>
+                """)))}),format.raw/*24.18*/("""
+                """),format.raw/*25.17*/("""</div>
+            <h3 id="postTitle">"""),_display_(/*26.33*/p/*26.34*/.getTitle),format.raw/*26.43*/("""</h3>
+            """),_display_(/*27.14*/if(p.getAuthor != null)/*27.37*/{_display_(Seq[Any](format.raw/*27.38*/("""
+              """),format.raw/*28.15*/("""<label>"""),_display_(/*28.23*/p/*28.24*/.getAuthor.getName),format.raw/*28.42*/("""</label><br>
+            """)))}/*29.14*/else/*29.18*/{_display_(Seq[Any](format.raw/*29.19*/("""
+              """),format.raw/*30.15*/("""<label>N/A</label><br>
+            """)))}),format.raw/*31.14*/("""
+      """),format.raw/*32.7*/("""<p>"""),_display_(/*32.11*/p/*32.12*/.getContent),format.raw/*32.23*/("""</p><br>
 
-      """),_display_(/*29.8*/if(user != null)/*29.24*/{_display_(Seq[Any](format.raw/*29.25*/("""
-        """),_display_(/*30.10*/if("admin".equals(user.getRole()))/*30.44*/{_display_(Seq[Any](format.raw/*30.45*/("""
-          """),format.raw/*31.11*/("""<a href=""""),_display_(/*31.21*/routes/*31.27*/.CommunityCtrl.deletePost(p.getId)),format.raw/*31.61*/(""""  class="btn btn-default btn-xs" onclick="return confirmDel();">Delete <span class="glyphicon glyphicon-trash"></span></a>
-        """)))}),format.raw/*32.10*/("""
-      """)))}),format.raw/*33.8*/("""
+      """),_display_(/*34.8*/if(user != null)/*34.24*/{_display_(Seq[Any](format.raw/*34.25*/("""
+        """),_display_(/*35.10*/if("admin".equals(user.getRole()))/*35.44*/{_display_(Seq[Any](format.raw/*35.45*/("""
+          """),format.raw/*36.11*/("""<a href=""""),_display_(/*36.21*/routes/*36.27*/.CommunityCtrl.deletePost(p.getId)),format.raw/*36.61*/(""""  class="btn btn-default btn-xs" onclick="return confirmDel();" id="postDelete">Delete <span class="glyphicon glyphicon-trash"></span></a>
+        """)))}),format.raw/*37.10*/("""
+      """)))}),format.raw/*38.8*/("""
 
-    """),format.raw/*35.5*/("""</div>
+    """),format.raw/*40.5*/("""</div>
   </div>
       <label>Replies:</label><br>
-      <div class="list-group">
-      """),_display_(/*39.8*/for(r <- p.getReplies) yield /*39.30*/{_display_(Seq[Any](format.raw/*39.31*/("""
+      <div class="list-group" id="replies">
+      """),_display_(/*44.8*/for(r <- p.getReplies) yield /*44.30*/{_display_(Seq[Any](format.raw/*44.31*/("""
 
-        """),format.raw/*41.9*/("""<div class="list-group-item">
-          """),_display_(/*42.12*/if(r.getAuthor != null)/*42.35*/{_display_(Seq[Any](format.raw/*42.36*/("""
-            """),format.raw/*43.13*/("""<label>"""),_display_(/*43.21*/r/*43.22*/.getAuthor.getName),format.raw/*43.40*/("""</label><br>
-          """)))}/*44.12*/else/*44.16*/{_display_(Seq[Any](format.raw/*44.17*/("""
-            """),format.raw/*45.13*/("""<label>N/A</label><br>
-          """)))}),format.raw/*46.12*/("""
+        """),format.raw/*46.9*/("""<div class="list-group-item" id="replies">
+          """),_display_(/*47.12*/if(r.getAuthor != null)/*47.35*/{_display_(Seq[Any](format.raw/*47.36*/("""
+            """),format.raw/*48.13*/("""<label>"""),_display_(/*48.21*/r/*48.22*/.getAuthor.getName),format.raw/*48.40*/("""</label><br>
+          """)))}/*49.12*/else/*49.16*/{_display_(Seq[Any](format.raw/*49.17*/("""
+            """),format.raw/*50.13*/("""<label>N/A</label><br>
+          """)))}),format.raw/*51.12*/("""
           
-          """),format.raw/*48.11*/("""<p>"""),_display_(/*48.15*/r/*48.16*/.getContent),format.raw/*48.27*/("""</p>
-          """),_display_(/*49.12*/if(user != null)/*49.28*/{_display_(Seq[Any](format.raw/*49.29*/("""
-            """),_display_(/*50.14*/if("admin".equals(user.getRole()))/*50.48*/{_display_(Seq[Any](format.raw/*50.49*/("""
-              """),format.raw/*51.15*/("""<a href=""""),_display_(/*51.25*/routes/*51.31*/.CommunityCtrl.deleteReply(r.getId)),format.raw/*51.66*/(""""  class="btn btn-default btn-xs" onclick="return confirmDel();">Delete <span class="glyphicon glyphicon-trash"></span></a>
-            """)))}),format.raw/*52.14*/("""
-          """)))}),format.raw/*53.12*/("""
-        """),format.raw/*54.9*/("""</div>
+          """),format.raw/*53.11*/("""<p>"""),_display_(/*53.15*/r/*53.16*/.getContent),format.raw/*53.27*/("""</p>
+          """),_display_(/*54.12*/if(user != null)/*54.28*/{_display_(Seq[Any](format.raw/*54.29*/("""
+            """),_display_(/*55.14*/if("admin".equals(user.getRole()))/*55.48*/{_display_(Seq[Any](format.raw/*55.49*/("""
+              """),format.raw/*56.15*/("""<a href=""""),_display_(/*56.25*/routes/*56.31*/.CommunityCtrl.deleteReply(r.getId)),format.raw/*56.66*/(""""  class="btn btn-default btn-xs" onclick="return confirmDel();" id="postDelete">Delete <span class="glyphicon glyphicon-trash"></span></a>
+            """)))}),format.raw/*57.14*/("""
+          """)))}),format.raw/*58.12*/("""
+        """),format.raw/*59.9*/("""</div>
 
-      """)))}),format.raw/*56.8*/("""
-    """),format.raw/*57.5*/("""</div>
+      """)))}),format.raw/*61.8*/("""
+    """),format.raw/*62.5*/("""</div>
     <p>
-      <a href=""""),_display_(/*59.17*/routes/*59.23*/.CommunityCtrl.createReply(p.getId())),format.raw/*59.60*/("""">
+      <a href=""""),_display_(/*64.17*/routes/*64.23*/.CommunityCtrl.createReply(p.getId())),format.raw/*64.60*/("""">
         <button class="btn btn-primary">Add a Reply</button>
       </a>
     </p>
@@ -111,11 +116,11 @@ Seq[Any](format.raw/*3.53*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Apr 16 11:48:06 IST 2018
-                  SOURCE: /home/wdd/SemesterCA/app/views/viewPost.scala.html
-                  HASH: 27bfd795fd355a07b02882a68368d96df27f61da
-                  MATRIX: 651->1|692->36|1053->62|1199->113|1228->117|1258->139|1297->141|1328->146|1454->246|1495->278|1535->280|1571->289|1643->334|1657->339|1693->354|1729->363|1773->377|1807->384|1916->466|1926->467|1956->476|2002->495|2034->518|2073->519|2116->534|2151->542|2161->543|2200->561|2245->587|2258->591|2297->592|2340->607|2407->643|2448->657|2483->665|2493->666|2533->685|2594->719|2604->720|2636->731|2679->748|2704->764|2743->765|2780->775|2823->809|2862->810|2901->821|2938->831|2953->837|3008->871|3172->1004|3210->1012|3243->1018|3357->1106|3395->1128|3434->1129|3471->1139|3539->1180|3571->1203|3610->1204|3651->1217|3686->1225|3696->1226|3735->1244|3778->1268|3791->1272|3830->1273|3871->1286|3936->1320|3986->1342|4017->1346|4027->1347|4059->1358|4102->1374|4127->1390|4166->1391|4207->1405|4250->1439|4289->1440|4332->1455|4369->1465|4384->1471|4440->1506|4608->1643|4651->1655|4687->1664|4732->1679|4764->1684|4822->1715|4837->1721|4895->1758
-                  LINES: 24->1|25->2|30->3|35->3|38->6|38->6|38->6|41->9|43->11|43->11|43->11|44->12|45->13|45->13|45->13|46->14|47->15|48->16|50->18|50->18|50->18|51->19|51->19|51->19|52->20|52->20|52->20|52->20|53->21|53->21|53->21|54->22|55->23|57->25|57->25|57->25|57->25|59->27|59->27|59->27|61->29|61->29|61->29|62->30|62->30|62->30|63->31|63->31|63->31|63->31|64->32|65->33|67->35|71->39|71->39|71->39|73->41|74->42|74->42|74->42|75->43|75->43|75->43|75->43|76->44|76->44|76->44|77->45|78->46|80->48|80->48|80->48|80->48|81->49|81->49|81->49|82->50|82->50|82->50|83->51|83->51|83->51|83->51|84->52|85->53|86->54|88->56|89->57|91->59|91->59|91->59
+                  DATE: Mon Apr 16 18:32:42 IST 2018
+                  SOURCE: /home/brandon/Documents/SemesterCA/app/views/viewPost.scala.html
+                  HASH: 4735681a8548dc6a22185442a3be6375b166c48b
+                  MATRIX: 651->1|692->36|1053->62|1199->113|1228->117|1258->139|1297->141|1327->145|1483->275|1524->307|1564->309|1600->318|1672->363|1686->368|1722->383|1758->392|1802->406|1836->413|1984->534|2056->597|2096->599|2145->620|2182->630|2197->636|2254->672|2317->707|2357->725|2435->785|2448->790|2487->791|2534->810|2571->820|2586->826|2643->862|2757->945|2802->962|2868->1001|2878->1002|2908->1011|2954->1030|2986->1053|3025->1054|3068->1069|3103->1077|3113->1078|3152->1096|3197->1122|3210->1126|3249->1127|3292->1142|3359->1178|3393->1185|3424->1189|3434->1190|3466->1201|3509->1218|3534->1234|3573->1235|3610->1245|3653->1279|3692->1280|3731->1291|3768->1301|3783->1307|3838->1341|4018->1490|4056->1498|4089->1504|4216->1605|4254->1627|4293->1628|4330->1638|4411->1692|4443->1715|4482->1716|4523->1729|4558->1737|4568->1738|4607->1756|4650->1780|4663->1784|4702->1785|4743->1798|4808->1832|4858->1854|4889->1858|4899->1859|4931->1870|4974->1886|4999->1902|5038->1903|5079->1917|5122->1951|5161->1952|5204->1967|5241->1977|5256->1983|5312->2018|5496->2171|5539->2183|5575->2192|5620->2207|5652->2212|5710->2243|5725->2249|5783->2286
+                  LINES: 24->1|25->2|30->3|35->3|38->6|38->6|38->6|40->8|43->11|43->11|43->11|44->12|45->13|45->13|45->13|46->14|47->15|48->16|51->19|51->19|51->19|52->20|52->20|52->20|52->20|52->20|52->20|54->22|54->22|54->22|55->23|55->23|55->23|55->23|56->24|57->25|58->26|58->26|58->26|59->27|59->27|59->27|60->28|60->28|60->28|60->28|61->29|61->29|61->29|62->30|63->31|64->32|64->32|64->32|64->32|66->34|66->34|66->34|67->35|67->35|67->35|68->36|68->36|68->36|68->36|69->37|70->38|72->40|76->44|76->44|76->44|78->46|79->47|79->47|79->47|80->48|80->48|80->48|80->48|81->49|81->49|81->49|82->50|83->51|85->53|85->53|85->53|85->53|86->54|86->54|86->54|87->55|87->55|87->55|88->56|88->56|88->56|88->56|89->57|90->58|91->59|93->61|94->62|96->64|96->64|96->64
                   -- GENERATED --
               */
           

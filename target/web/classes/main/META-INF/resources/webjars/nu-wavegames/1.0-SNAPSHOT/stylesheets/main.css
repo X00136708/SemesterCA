@@ -1,9 +1,7 @@
-.numeric {
-    text-align: center;
-}
 .navbar {
     color: #FFFFFF;
     background-color: #7289DA;
+    text-align: center;
 }
 
 
@@ -74,8 +72,8 @@ b{
     /* padding: 5px; */
     font: 15px/20px sans-serif;
     width: 850px;
-    height: auto;
-    overflow: scroll;
+    height: 450px;
+    overflow: auto;
     }
     .myBtnContainer{
         position: absolute;
@@ -91,8 +89,9 @@ h1 {
     color:white;
 }
 table{
-    color:black;
-    background-color:#E8E8E8;
+    color:white;
+    background-color:#23272A;
+    border:.1em solid #2C2F33;
 }
 
 .color{
@@ -115,14 +114,12 @@ html{
     margin-right: 60%;  
     
 }
-.list-categories .adminProduct a{
-    margin-right:70%;
-}
 .category .btn-sm{
     color: white;
     background-color: #7289DA;
     border:.1em solid #2C2F33;
     font-size:1em;
+    display: inline-block;
 }
 .search {
     
@@ -140,13 +137,23 @@ input[type="search"]{
     padding-left:4px;
     color:#23272A;
 }
-
+#searchbox {
+    background-color:white;
+    border-radius:.2em ;    
+    padding-left:4px;
+    color:#23272A;
+}
+#searchsubmit {
+    color:white;
+    background-color:#99AAB5;
+    border-radius: .2em;
+}
 .adminProduct .btn-sm{
     color: white;
     font-size:1.5em;
     background-color: #7289DA;
     border:.05em solid #23272A;
-
+    
 }
 dd{
     color:#ff3333;
@@ -161,8 +168,6 @@ dd{
 .list-group-item{
     background-color:#2C2F33;
     border:.2em solid #23272A;
-    
-    
 }
 .list-group-item h4{
     color:white;
@@ -170,4 +175,35 @@ dd{
 .list-group-item p{
     color:white;
 }
-
+#navItem {
+    color: white;
+}
+h1 {
+    color:white;
+}
+h2 {
+    color:white;
+}
+h3 {
+    color:white;
+}
+h4 {
+    color:white;
+}
+h5 {
+    color:white;
+}
+h6 {
+    color:white;
+}
+#productList a{
+    color: white;
+    background-color: #7289DA;
+    border:.1em solid #2C2F33;
+    font-size:1em;
+    display: block;
+}
+#postProduct {
+    float: right;
+    padding: 0;
+}
