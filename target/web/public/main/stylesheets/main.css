@@ -1,6 +1,10 @@
 .numeric {
     text-align: center;
 }
+.navbar {
+    color: #FFFFFF;
+    background-color: #7289DA;
+}
 
 
 td {
@@ -38,6 +42,7 @@ td {
 ::-webkit-scrollbar {
     width: 10px;
     
+    
 }
 
 /* Track */
@@ -58,8 +63,8 @@ b{
     color:red;
 }
 .products {
-    background-color:#011b44;
-    padding: 5px;
+    background-color:#23272A;
+    /* padding: 5px; */
     font: 15px/20px sans-serif;
     width: 850px;
     height: auto;
@@ -68,17 +73,12 @@ b{
     .myBtnContainer{
         position: absolute;
     }
-.navbar{
-
- background-color: #011b44;
- 
-
-}
 
 
 
 body{
    background-image: url("../images/tile.jpg");
+   background-color: #2C2F33;
 }
 h1 {
     color:white;
@@ -113,25 +113,25 @@ html{
 }
 .category .btn-sm{
     color: white;
-    background-color: #011b44;
-    border:.1em solid white;
+    background-color: #7289DA;
+    border:.1em solid #2C2F33;
     font-size:1em;
 }
 .search {
-   
+    
     padding-bottom:5px;
    
 }
 .search .searchbtn-sm{
-    color:black;
-    background-color:white;
+    color:white;
+    background-color:#99AAB5;
     border-radius: .2em;
 }
 input[type="search"]{
-    background-color:black;
+    background-color:white;
     border-radius:.2em ;    
     padding-left:4px;
-    color:white;
+    color:#23272A;
 }
 
 .adminProduct .btn-sm{
@@ -148,18 +148,19 @@ dd{
     color:white;
 }
 .badge{
-    background-color:#2adad1;
-    color:black;
+    background-color:red;
+    color:white;
 }
 .list-group-item{
-    background-color:#d7d8be;
-    border:.1em solid black;
+    background-color:#2C2F33;
+    border:.2em solid #23272A;
+    
     
 }
 .list-group-item h4{
-    color:black;
+    color:white;
 }
 .list-group-item p{
-    color:#011b44;
+    color:white;
 }
 
