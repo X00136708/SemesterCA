@@ -16,9 +16,7 @@
           } 
 
     @form(action=routes.CommunityCtrl.addUserSubmit(), 
-    'class -> "form-horizontal", 
-    'role -> "form",
-    'enctype -> "multipart/form-data") {
+    'class -> "form-horizontal"){
         @* CSRF attack prevention *@
         @CSRF.formField
         @inputText(userForm("name"), '_label -> "Username", 'class -> "form-control")

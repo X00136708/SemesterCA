@@ -164,12 +164,12 @@ public class CommunityCtrl extends Controller {
             return ok(addUser.render(userForm, User.getLoggedIn(session().get("email"))));
         }
         public Result addUserSubmit() {
-            User newUser;
-            Form<User> newUserForm = formFactory.form(User.class).bindFromRequest();
+            RegisteredUser newUser;
+            Form<RegisteredUser> newUserForm = formFactory.form(RegisteredUser.class).bindFromRequest();
     
-            if (newUserForm.hasErrors()){
+            if (newUserForm.hasGlobalErrors()){
                 flash("failure", "Error creating account");
-                return badRequest(addUser.render(newUserForm, User.getLoggedIn(session().get("email"))));
+                return badRequest(addUser.render(formFactory.form(User.class), User.getLoggedIn(session().get("email"))));
             }
             else {
                 newUser = newUserForm.get();

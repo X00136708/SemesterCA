@@ -2,70 +2,70 @@
 
 
 
-    @import play.api.Play.current
-    @import models.shopping.Wallet
-    @import models.shopping._
-    @import models.products._
-    @import models.users._
-    @(amount: Float, registeredUser: models.users.RegisteredUser, wallet: models.shopping.Wallet, user: models.users.User, walletForm: Form[Wallet])
-    @import helper._
+@import play.api.Play.current
+@import models.shopping.Wallet
+@import models.shopping._
+@import models.products._
+@import models.users._
+@(amount: Float, registeredUser: models.users.RegisteredUser, wallet: models.shopping.Wallet, user: models.users.User, walletForm: Form[Wallet])
+@import helper._
 
-    <!-- Pass page title and user on to main -->
-    @main("Wallet", registeredUser) {
+<!-- Pass page title and user on to main -->
+@main("Wallet", registeredUser) {
 
 
-    <div class="row">
-            <div class="col-md-1"></div>
+<div class="row">
+        <div class="col-md-1"></div>
+	<div class="col-md-6">
+		@if(flash.containsKey("success")) {
+			  <div class="alert alert-success">
+			      @flash.get("success")
+			  </div>
+        }
+        @if(flash.containsKey("failure")) {
+            <div class="alert alert-success">
+                @flash.get("failure")
+            </div>
+        }  
+        @form(action=routes.ShoppingCtrl.addToWallet(amount), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data") {
+    @* CSRF attack prevention *@
+    @CSRF.formField
+        <div class="form-group">
+            @inputText(walletForm("amount"), '_label -> "Add amount", 
+            'class -> "form-control input-xs", 'placeholder -> "Amount to add...")
+            @wallet.addWallet(amount)
+        </div>
+          <div class="col-md-12">
+          <table class="table table-bordered table-hover table-condensed">
+                <thead>
+                    @if(registeredUser.getWallet != null) {
+                      
+                <tr><div class="col-md-6"></div>
+                    <th>Wallet amount</th>
+                   
+                </tr>
+                </thead>
+                <tbody>
+                 
+                        
+                        <tr>
+                            
+                            <td>@wallet.getWallet()</td>
+                            <form class="form-control wallet" hidden></form>
+                   
+                        </tr>
+                    
+                        
+                </tbody>
+            </table>
+        </div>
+
         <div class="col-md-6">
-            @if(flash.containsKey("success")) {
-                <div class="alert alert-success">
-                    @flash.get("success")
-                </div>
-            }
-            @if(flash.containsKey("failure")) {
-                <div class="alert alert-success">
-                    @flash.get("failure")
-                </div>
-            }  
-            @form(action=routes.ShoppingCtrl.addToWallet(amount), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data") {
-        @* CSRF attack prevention *@
-        @CSRF.formField
-            <div class="form-group">
-                @inputText(walletForm("amount"), '_label -> "Add amount", 
-                'class -> "form-control input-xs", 'placeholder -> "Amount to add...")
-                @wallet.addWallet(amount)
-            </div>
-            <div class="col-md-12">
-            <table class="table table-bordered table-hover table-condensed">
-                    <thead>
-                        @if(registeredUser.getWallet != null) {
-                        
-                    <tr><div class="col-md-6"></div>
-                        <th>Wallet amount</th>
+            <p class="text-right">
                     
-                    </tr>
-                    </thead>
-                    <tbody>
+                <a href="@routes.ShoppingCtrl.addToWallet(0)" label class="btn btn-success btn-sm">
                     
-                            
-                            <tr>
-                                
-                                <td>@wallet.getWallet()</td>
-                                <form class="form-control wallet" hidden></form>
-                    
-                            </tr>
-                        
-                            
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-md-6">
-                <p class="text-right">
-                        
-                    <a href="@routes.ShoppingCtrl.addToWallet(0)" label class="btn btn-success btn-sm">
-                        
-                    <span class="glyphicon glyphicon-euro"></span><label for ="amount"> Add to wallet</a></label>
-                </p>
-            </div>
-        }}}
+                <span class="glyphicon glyphicon-euro"></span><label for ="amount"> Add to wallet</a></label>
+            </p>
+        </div>
+    }}}

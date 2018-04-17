@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/doran/Documents/2ndYearProject/newSemca/semesterca/conf/routes
-// @DATE:Tue Apr 17 16:48:06 BST 2018
+// @SOURCE:/home/wdd/Downloads/SemesterCA-master/conf/routes
+// @DATE:Tue Apr 17 16:31:40 IST 2018
 
 
 package router {

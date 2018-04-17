@@ -20,9 +20,9 @@ public class Moderator extends User {
 	public Moderator() {
 
 	}
-	public Moderator(String email, String role, String name, String password, String department)
+	public Moderator(String email, String name, String password, String department)
 	{
-		super(email, role, name, password);
+		super(email, name, password);
 		this.department = department;
 	}
 

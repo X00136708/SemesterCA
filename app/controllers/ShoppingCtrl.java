@@ -90,7 +90,7 @@ public class ShoppingCtrl extends Controller {
         OrderItem item = OrderItem.find.byId(itemId);
       
 
-        if(item.getProduct().getStock() >= item.getProduct().getStock() - item.getQuantity()){
+        if(item.getProduct().getStock() <= item.getProduct().getStock() - item.getQuantity()){
             item.increaseQty();
             
         } else {
