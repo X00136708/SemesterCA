@@ -2,3 +2,5 @@
 [0m[[0m[33mwarn[0m] [0m[0m                @loginForm.globalError.message;[0m
 [0m[[0m[33mwarn[0m] [0m[0m                           ^[0m
 [0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[0minfo[0m] [0m[0mNote: Some input files use unchecked or unsafe operations.[0m
+[0m[[0m[0minfo[0m] [0m[0mNote: Recompile with -Xlint:unchecked for details.[0m

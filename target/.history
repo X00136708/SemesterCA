@@ -1,6 +1,3 @@
-compile
-run
-compile 
 clean
 compile
 run
@@ -495,6 +492,9 @@ h2-browser
 h2-brows
 h2-browser
 run
+clean
+run
+exit
 clean
 run
 exit
