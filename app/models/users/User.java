@@ -15,14 +15,10 @@ import play.data.validation.*;
 //Discriminator column used to define user type
 @DiscriminatorColumn(name="role")
 //The user type is user
-@DiscriminatorValue("user")
 public class User extends Model {
     @Id
     @Constraints.Required
     private String email;
-
-    @Constraints.Required
-    private String role;    
 
     @Constraints.Required
     private String name;
@@ -34,19 +30,14 @@ public class User extends Model {
     public User() {
     }
         // Constructor to initialise object
-    public  User(String email, String role, String name, String password) {
+    public  User(String email, String name, String password) {
             this.email = email;
-            this.role=role;
             this.name = name;
             this.password = password;
         }
 
     public String getEmail() {
         return email;
-    }
-
-    public String getRole() {
-        return role;
     }
 
     public String getName() {
@@ -60,11 +51,6 @@ public class User extends Model {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     
     public void setName(String name) {
         this.name = name;

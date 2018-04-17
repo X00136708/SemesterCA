@@ -75,7 +75,7 @@ create table shop_order (
 );
 
 create table user (
-  role                          varchar(255),
+  role                          varchar(31) not null,
   email                         varchar(255) not null,
   name                          varchar(255),
   password                      varchar(255),
