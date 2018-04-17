@@ -7,11 +7,13 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
-import java.util.Calendar;
+
 import java.text.SimpleDateFormat;
 
 import models.products.*;
 import models.users.*;
+import java.sql.Timestamp;
+import play.Logger;
 
 // ShopOrder entity managed by Ebean
 @Entity
@@ -20,7 +22,9 @@ public class ShopOrder extends Model {
     @Id
     private Long id;
     
-    private Calendar OrderDate;
+    
+    private Timestamp OrderDate;
+    
     
     // Order contains may items.
     // mappedBy makes this side of the mapping the owner
@@ -34,7 +38,7 @@ public class ShopOrder extends Model {
 
     // Default constructor
       public  ShopOrder() {
-        OrderDate = Calendar.getInstance();
+        OrderDate = new Timestamp(System.currentTimeMillis());
     }
     public double getOrderTotal() {
         
@@ -62,11 +66,11 @@ public class ShopOrder extends Model {
         this.id = id;
     }
 
-    public Calendar getOrderDate() {
+    public Timestamp getOrderDate() {
         return OrderDate;
     }
 
-    public void setOrderDate(Calendar orderDate) {
+    public void setOrderDate(Timestamp orderDate) {
         OrderDate = orderDate;
     }
 
@@ -96,8 +100,18 @@ public class ShopOrder extends Model {
     }
     public String getDateString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
-        OrderDate = Calendar.getInstance();
+        OrderDate = new Timestamp(System.currentTimeMillis());
         return(dateFormat.format(OrderDate.getTime()));
+    }
+    public boolean isCancellable(){
+        Logger.debug("shit: " + System.currentTimeMillis() + "yea : " + getOrderDate() + "");
+        if((System.currentTimeMillis() - OrderDate.getTime()) > 120000){
+            Logger.debug("Current time: "+ System.currentTimeMillis() + "Order Time: "+OrderDate.getTime());
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     public Double getTotal() {

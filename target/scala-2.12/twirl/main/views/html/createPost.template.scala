@@ -37,25 +37,26 @@ object createPost extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api
 Seq[Any](format.raw/*4.41*/("""
 """),format.raw/*6.1*/("""
 """),_display_(/*7.2*/main("Create a Post",user)/*7.28*/ {_display_(Seq[Any](format.raw/*7.30*/("""
-    """),format.raw/*8.5*/("""<p class="lead">Create a Post</p>
-    """),_display_(/*9.6*/form(action=routes.CommunityCtrl.createPostSubmit(), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data")/*9.138*/ {_display_(Seq[Any](format.raw/*9.140*/("""
-        """),format.raw/*10.37*/("""
-        """),_display_(/*11.10*/CSRF/*11.14*/.formField),format.raw/*11.24*/("""
-        """),_display_(/*12.10*/inputText(postForm("title"), '_label -> "Title", 'class -> "form-control")),format.raw/*12.84*/("""
-        """),_display_(/*13.10*/select(
+    """),format.raw/*8.5*/("""<link href=""""),_display_(/*8.18*/routes/*8.24*/.Assets.versioned("stylesheets/main.css")),format.raw/*8.65*/("""" rel="stylesheet" />
+    <p class="lead">Create a Post</p>
+    """),_display_(/*10.6*/form(action=routes.CommunityCtrl.createPostSubmit(), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data")/*10.138*/ {_display_(Seq[Any](format.raw/*10.140*/("""
+        """),format.raw/*11.37*/("""
+        """),_display_(/*12.10*/CSRF/*12.14*/.formField),format.raw/*12.24*/("""
+        """),_display_(/*13.10*/inputText(postForm("title"), '_label -> "Title", 'class -> "form-control")),format.raw/*13.84*/("""
+        """),_display_(/*14.10*/select(
             postForm("product.id"), 
             options(Product.options), '_label -> "Product", '_default -> "-- Choose a department --", 
             '_showConstraints -> false, 'class -> "form-control"
-            )),format.raw/*17.14*/("""
-        """),_display_(/*18.10*/inputText(postForm("content"), '_label -> "Content", 'class -> "form-control")),format.raw/*18.88*/("""
+            )),format.raw/*18.14*/("""
+        """),_display_(/*19.10*/inputText(postForm("content"), '_label -> "Content", 'class -> "form-control")),format.raw/*19.88*/("""
 
-        """),format.raw/*20.9*/("""<div class="actions">
+        """),format.raw/*21.9*/("""<div class="actions">
             <input type="submit" value="Add Product" class="btn btn-primary">
-            <a href=""""),_display_(/*22.23*/routes/*22.29*/.CommunityCtrl.forumPage(0)),format.raw/*22.56*/("""">
+            <a href=""""),_display_(/*23.23*/routes/*23.29*/.CommunityCtrl.forumPage(0)),format.raw/*23.56*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*26.6*/("""
+    """)))}),format.raw/*27.6*/("""
 """)))}))
       }
     }
@@ -72,11 +73,11 @@ Seq[Any](format.raw/*4.41*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 17 16:31:41 IST 2018
-                  SOURCE: /home/wdd/Downloads/SemesterCA-master/app/views/createPost.scala.html
-                  HASH: b071f4c724b6b00236f0d483577f4da1346c79c5
-                  MATRIX: 651->1|692->36|730->68|1078->94|1190->135|1235->133|1262->151|1289->153|1323->179|1362->181|1393->186|1457->225|1598->357|1638->359|1675->396|1712->406|1725->410|1756->420|1793->430|1888->504|1925->514|2172->740|2209->750|2308->828|2345->838|2494->960|2509->966|2557->993|2705->1111
-                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|41->9|41->9|41->9|42->10|43->11|43->11|43->11|44->12|44->12|45->13|49->17|50->18|50->18|52->20|54->22|54->22|54->22|58->26
+                  DATE: Tue Apr 17 21:38:07 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/createPost.scala.html
+                  HASH: 1943eb960638c4ce76045826ad14ce5c7ade7bbf
+                  MATRIX: 651->1|692->37|730->70|1078->97|1190->139|1235->136|1263->156|1291->159|1325->185|1364->187|1396->193|1435->206|1449->212|1510->253|1603->320|1745->452|1786->454|1824->492|1862->503|1875->507|1906->517|1944->528|2039->602|2077->613|2328->843|2366->854|2465->932|2504->944|2655->1068|2670->1074|2718->1101|2870->1223
+                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|40->8|40->8|40->8|42->10|42->10|42->10|43->11|44->12|44->12|44->12|45->13|45->13|46->14|50->18|51->19|51->19|53->21|55->23|55->23|55->23|59->27
                   -- GENERATED --
               */
           

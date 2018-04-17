@@ -37,19 +37,20 @@ object createReply extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.ap
 Seq[Any](format.raw/*4.57*/("""
 """),format.raw/*6.1*/("""
 """),_display_(/*7.2*/main("Create a Reply",user)/*7.29*/ {_display_(Seq[Any](format.raw/*7.31*/("""
-    """),format.raw/*8.5*/("""<p class="lead">Create a Reply</p>
-    """),_display_(/*9.6*/form(action=routes.CommunityCtrl.createReplySubmit(postId), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data")/*9.145*/ {_display_(Seq[Any](format.raw/*9.147*/("""
-        """),format.raw/*10.37*/("""
-        """),_display_(/*11.10*/CSRF/*11.14*/.formField),format.raw/*11.24*/("""
-        """),_display_(/*12.10*/inputText(replyForm("content"), '_label -> "Content", 'class -> "form-control")),format.raw/*12.89*/("""
+    """),format.raw/*8.5*/("""<link href=""""),_display_(/*8.18*/routes/*8.24*/.Assets.versioned("stylesheets/main.css")),format.raw/*8.65*/("""" rel="stylesheet" />
+    <p class="lead">Create a Reply</p>
+    """),_display_(/*10.6*/form(action=routes.CommunityCtrl.createReplySubmit(postId), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data")/*10.145*/ {_display_(Seq[Any](format.raw/*10.147*/("""
+        """),format.raw/*11.37*/("""
+        """),_display_(/*12.10*/CSRF/*12.14*/.formField),format.raw/*12.24*/("""
+        """),_display_(/*13.10*/inputText(replyForm("content"), '_label -> "Content", 'class -> "form-control")),format.raw/*13.89*/("""
 
-        """),format.raw/*14.9*/("""<div class="actions">
+        """),format.raw/*15.9*/("""<div class="actions">
             <input type="submit" value="Add Reply" class="btn btn-primary">
-            <a href=""""),_display_(/*16.23*/routes/*16.29*/.CommunityCtrl.viewPost(postId)),format.raw/*16.60*/("""">
+            <a href=""""),_display_(/*17.23*/routes/*17.29*/.CommunityCtrl.viewPost(postId)),format.raw/*17.60*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*20.6*/("""
+    """)))}),format.raw/*21.6*/("""
 """)))}))
       }
     }
@@ -66,11 +67,11 @@ Seq[Any](format.raw/*4.57*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 17 16:31:41 IST 2018
-                  SOURCE: /home/wdd/Downloads/SemesterCA-master/app/views/createReply.scala.html
-                  HASH: a6ab8f824f4ae84a6afc29112b8e5cbb962c2d49
-                  MATRIX: 651->1|693->37|731->69|1086->95|1214->152|1259->150|1286->168|1313->170|1348->197|1387->199|1418->204|1483->244|1631->383|1671->385|1708->422|1745->432|1758->436|1789->446|1826->456|1926->535|1963->545|2110->665|2125->671|2177->702|2325->820
-                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|41->9|41->9|41->9|42->10|43->11|43->11|43->11|44->12|44->12|46->14|48->16|48->16|48->16|52->20
+                  DATE: Tue Apr 17 21:38:07 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/createReply.scala.html
+                  HASH: 9cb9b6e1674ac1b483b9e41ca9d46e6c76284ad1
+                  MATRIX: 651->1|693->38|731->71|1086->98|1214->156|1259->153|1287->173|1315->176|1350->203|1389->205|1421->211|1460->224|1474->230|1535->271|1629->339|1778->478|1819->480|1857->518|1895->529|1908->533|1939->543|1977->554|2077->633|2116->645|2265->767|2280->773|2332->804|2484->926
+                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|40->8|40->8|40->8|42->10|42->10|42->10|43->11|44->12|44->12|44->12|45->13|45->13|47->15|49->17|49->17|49->17|53->21
                   -- GENERATED --
               */
           

@@ -5,6 +5,7 @@
 @import helper._
 
 @main("Create a Reply",user) {
+    <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
     <p class="lead">Create a Review</p>
     @form(action=routes.CommunityCtrl.createReviewSubmit(prodId), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data") {
         @* CSRF attack prevention *@

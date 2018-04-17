@@ -14,7 +14,7 @@
      
       <div class="list-categories">
           @if(user != null){
-            @if("admin".equals(user.getRole())){
+            @if(user.isInstanceOf[models.users.Administrator]){
               <div class="adminProduct">
                  
                   <p>
@@ -82,7 +82,7 @@
                       @c.getName&nbsp;
                     }
                     @if(user != null){
-                      @if("admin".equals(user.getRole())){
+                      @if(user.isInstanceOf[models.users.Administrator]){
                         @if(p.getStock > 0){
                           <div id="prodStock">Stock: @p.getStock</div>
                         } else {
@@ -91,7 +91,7 @@
                       }
                     }
                     @if(user != null){
-                      @if("admin".equals(user.getRole())){
+                      @if(user.isInstanceOf[models.users.Administrator]){
                         <div id="prodPegi">@p.getPegi</div>
                     }else{
                       <br><div id="prodPegi">@p.getPegi</div>

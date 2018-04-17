@@ -1,7 +1,7 @@
 @(users: List[models.users.User], user: models.users.User)
 
 @main("users",user) {
-
+  <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
 <p class="lead">Users Page</p>
 <br>
 <div class="row">

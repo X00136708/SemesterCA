@@ -36,38 +36,39 @@ object login extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
 Seq[Any](format.raw/*3.38*/("""
 """),format.raw/*5.1*/("""
 """),_display_(/*6.2*/main("Login", user)/*6.21*/ {_display_(Seq[Any](format.raw/*6.23*/("""
-    """),format.raw/*7.5*/("""<p class="lead">Product Catalogue</p>
+    """),format.raw/*7.5*/("""<link href=""""),_display_(/*7.18*/routes/*7.24*/.Assets.versioned("stylesheets/main.css")),format.raw/*7.65*/("""" rel="stylesheet" />
+    <p class="lead">Product Catalogue</p>
     <div class="col-xs-5">
         <h3>Sign in</h3>
-        """),_display_(/*10.10*/if(loginForm.hasGlobalErrors)/*10.39*/ {_display_(Seq[Any](format.raw/*10.41*/("""
-            """),format.raw/*11.13*/("""<p class="alert alert-warning">
-                """),_display_(/*12.18*/loginForm/*12.27*/.globalError.message),format.raw/*12.47*/(""";
+        """),_display_(/*11.10*/if(loginForm.hasGlobalErrors)/*11.39*/ {_display_(Seq[Any](format.raw/*11.41*/("""
+            """),format.raw/*12.13*/("""<p class="alert alert-warning">
+                """),_display_(/*13.18*/loginForm/*13.27*/.globalError.message),format.raw/*13.47*/(""";
             </p>
-        """)))}),format.raw/*14.10*/("""
-        """),_display_(/*15.10*/if(flash.containsKey("error"))/*15.40*/ {_display_(Seq[Any](format.raw/*15.42*/("""
-            """),format.raw/*16.13*/("""<p class="alert alert-warning">
-                """),_display_(/*17.18*/flash/*17.23*/.get("loginRequired")),format.raw/*17.44*/("""
-            """),format.raw/*18.13*/("""</p>
-        """)))}),format.raw/*19.10*/("""
+        """)))}),format.raw/*15.10*/("""
+        """),_display_(/*16.10*/if(flash.containsKey("error"))/*16.40*/ {_display_(Seq[Any](format.raw/*16.42*/("""
+            """),format.raw/*17.13*/("""<p class="alert alert-warning">
+                """),_display_(/*18.18*/flash/*18.23*/.get("loginRequired")),format.raw/*18.44*/("""
+            """),format.raw/*19.13*/("""</p>
+        """)))}),format.raw/*20.10*/("""
 
 
-        """),_display_(/*22.10*/helper/*22.16*/.form(controllers.security.routes.LoginCtrl.loginSubmit())/*22.74*/ {_display_(Seq[Any](format.raw/*22.76*/("""
-            """),_display_(/*23.14*/CSRF/*23.18*/.formField),format.raw/*23.28*/("""
+        """),_display_(/*23.10*/helper/*23.16*/.form(controllers.security.routes.LoginCtrl.loginSubmit())/*23.74*/ {_display_(Seq[Any](format.raw/*23.76*/("""
+            """),_display_(/*24.14*/CSRF/*24.18*/.formField),format.raw/*24.28*/("""
 
-            """),format.raw/*25.13*/("""<div class="form-group">
-                """),_display_(/*26.18*/inputText(loginForm("email"), '_label -> "", 
-                'class -> "form-control input-xs", 'placeholder -> "Email")),format.raw/*27.76*/("""
-            """),format.raw/*28.13*/("""</div>
+            """),format.raw/*26.13*/("""<div class="form-group">
+                """),_display_(/*27.18*/inputText(loginForm("email"), '_label -> "", 
+                'class -> "form-control input-xs", 'placeholder -> "Email")),format.raw/*28.76*/("""
+            """),format.raw/*29.13*/("""</div>
             <div class="form-group">
-                """),_display_(/*30.18*/inputPassword(loginForm("password"), '_label -> "", 
-                'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*31.79*/("""
-            """),format.raw/*32.13*/("""</div>
+                """),_display_(/*31.18*/inputPassword(loginForm("password"), '_label -> "", 
+                'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*32.79*/("""
+            """),format.raw/*33.13*/("""</div>
             <div class="form-group">
-                <label>Don't have an account? <a href=""""),_display_(/*34.57*/routes/*34.63*/.CommunityCtrl.addUser()),format.raw/*34.87*/("""">Sign Up</a></label><br>
+                <label>Don't have an account? <a href=""""),_display_(/*35.57*/routes/*35.63*/.CommunityCtrl.addUser()),format.raw/*35.87*/("""">Sign Up</a></label><br>
                 <input type="submit" value="Sign In" class="btn btn-primary">
             </div>
-        """)))}),format.raw/*37.10*/("""
-    """),format.raw/*38.5*/("""</div>
+        """)))}),format.raw/*38.10*/("""
+    """),format.raw/*39.5*/("""</div>
 """)))}))
       }
     }
@@ -84,11 +85,11 @@ Seq[Any](format.raw/*3.38*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 17 16:31:41 IST 2018
-                  SOURCE: /home/wdd/Downloads/SemesterCA-master/app/views/login.scala.html
-                  HASH: e5cc9a31024cbc819cd4f4dfad0cbba0f7dfd215
-                  MATRIX: 651->1|683->27|1023->54|1132->92|1177->90|1204->108|1231->110|1258->129|1297->131|1328->136|1454->235|1492->264|1532->266|1573->279|1649->328|1667->337|1708->357|1767->385|1804->395|1843->425|1883->427|1924->440|2000->489|2014->494|2056->515|2097->528|2142->542|2181->554|2196->560|2263->618|2303->620|2344->634|2357->638|2388->648|2430->662|2499->704|2641->825|2682->838|2770->899|2922->1030|2963->1043|3090->1143|3105->1149|3150->1173|3313->1305|3345->1310
-                  LINES: 24->1|25->2|30->3|33->4|36->3|37->5|38->6|38->6|38->6|39->7|42->10|42->10|42->10|43->11|44->12|44->12|44->12|46->14|47->15|47->15|47->15|48->16|49->17|49->17|49->17|50->18|51->19|54->22|54->22|54->22|54->22|55->23|55->23|55->23|57->25|58->26|59->27|60->28|62->30|63->31|64->32|66->34|66->34|66->34|69->37|70->38
+                  DATE: Tue Apr 17 21:38:07 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/login.scala.html
+                  HASH: e2f45a03f0cb688f5e39b19b70cf253ce43f6c22
+                  MATRIX: 651->1|683->28|1023->56|1132->95|1177->92|1205->112|1233->115|1260->134|1299->136|1331->142|1370->155|1384->161|1445->202|1601->331|1639->360|1679->362|1721->376|1798->426|1816->435|1857->455|1918->485|1956->496|1995->526|2035->528|2077->542|2154->592|2168->597|2210->618|2252->632|2298->647|2340->662|2355->668|2422->726|2462->728|2504->743|2517->747|2548->757|2592->773|2662->816|2805->938|2847->952|2937->1015|3090->1147|3132->1161|3261->1263|3276->1269|3321->1293|3487->1428|3520->1434
+                  LINES: 24->1|25->2|30->3|33->4|36->3|37->5|38->6|38->6|38->6|39->7|39->7|39->7|39->7|43->11|43->11|43->11|44->12|45->13|45->13|45->13|47->15|48->16|48->16|48->16|49->17|50->18|50->18|50->18|51->19|52->20|55->23|55->23|55->23|55->23|56->24|56->24|56->24|58->26|59->27|60->28|61->29|63->31|64->32|65->33|67->35|67->35|67->35|70->38|71->39
                   -- GENERATED --
               */
           

@@ -37,20 +37,21 @@ object createReview extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.a
 Seq[Any](format.raw/*4.61*/("""
 """),format.raw/*6.1*/("""
 """),_display_(/*7.2*/main("Create a Reply",user)/*7.29*/ {_display_(Seq[Any](format.raw/*7.31*/("""
-    """),format.raw/*8.5*/("""<p class="lead">Create a Review</p>
-    """),_display_(/*9.6*/form(action=routes.CommunityCtrl.createReviewSubmit(prodId), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data")/*9.146*/ {_display_(Seq[Any](format.raw/*9.148*/("""
-        """),format.raw/*10.37*/("""
-        """),_display_(/*11.10*/CSRF/*11.14*/.formField),format.raw/*11.24*/("""
-        """),_display_(/*12.10*/inputText(reviewForm("content"), '_label -> "Content", 'class -> "form-control")),format.raw/*12.90*/("""
+    """),format.raw/*8.5*/("""<link href=""""),_display_(/*8.18*/routes/*8.24*/.Assets.versioned("stylesheets/main.css")),format.raw/*8.65*/("""" rel="stylesheet" />
+    <p class="lead">Create a Review</p>
+    """),_display_(/*10.6*/form(action=routes.CommunityCtrl.createReviewSubmit(prodId), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data")/*10.146*/ {_display_(Seq[Any](format.raw/*10.148*/("""
+        """),format.raw/*11.37*/("""
+        """),_display_(/*12.10*/CSRF/*12.14*/.formField),format.raw/*12.24*/("""
+        """),_display_(/*13.10*/inputText(reviewForm("content"), '_label -> "Content", 'class -> "form-control")),format.raw/*13.90*/("""
         
 
-        """),format.raw/*15.9*/("""<div class="actions">
+        """),format.raw/*16.9*/("""<div class="actions">
             <input type="submit" value="Add Reply" class="btn btn-primary">
-            <a href=""""),_display_(/*17.23*/routes/*17.29*/.CommunityCtrl.viewPost(prodId)),format.raw/*17.60*/("""">
+            <a href=""""),_display_(/*18.23*/routes/*18.29*/.CommunityCtrl.viewPost(prodId)),format.raw/*18.60*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*21.6*/("""
+    """)))}),format.raw/*22.6*/("""
 """)))}))
       }
     }
@@ -67,11 +68,11 @@ Seq[Any](format.raw/*4.61*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 17 16:31:41 IST 2018
-                  SOURCE: /home/wdd/Downloads/SemesterCA-master/app/views/createReview.scala.html
-                  HASH: 2ddcf7c58645651bf96a413bb6f451b592f7127c
-                  MATRIX: 651->1|689->33|734->72|1093->98|1225->159|1270->157|1297->175|1324->177|1359->204|1398->206|1429->211|1495->252|1644->392|1684->394|1721->431|1758->441|1771->445|1802->455|1839->465|1940->545|1986->564|2133->684|2148->690|2200->721|2348->839
-                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|41->9|41->9|41->9|42->10|43->11|43->11|43->11|44->12|44->12|47->15|49->17|49->17|49->17|53->21
+                  DATE: Tue Apr 17 21:38:07 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/createReview.scala.html
+                  HASH: e036d9e04827cfa645c18bae046e48c68a348e6e
+                  MATRIX: 651->1|689->34|734->74|1093->101|1225->163|1270->160|1298->180|1326->183|1361->210|1400->212|1432->218|1471->231|1485->237|1546->278|1641->347|1791->487|1832->489|1870->527|1908->538|1921->542|1952->552|1990->563|2091->643|2140->665|2289->787|2304->793|2356->824|2508->946
+                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|40->8|40->8|40->8|42->10|42->10|42->10|43->11|44->12|44->12|44->12|45->13|45->13|48->16|50->18|50->18|50->18|54->22
                   -- GENERATED --
               */
           

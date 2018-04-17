@@ -24,7 +24,7 @@ public class CheckIfRegisteredUser extends Action.Simple {
         String id = ctx.session().get("email");
         if (id != null) {
             User u = User.getLoggedIn(id);
-            if ("registeredUser".equals(u.getRole())) {
+            if (u instanceof RegisteredUser) {
 
                 // User admin sp continue with the http request
                 return delegate.call(ctx);

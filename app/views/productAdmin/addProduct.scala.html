@@ -5,6 +5,7 @@
 @import helper._
 
 @main("Add Product",user) {
+    
     <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
     <p class="lead">Add a new product</p>
     @form(action=routes.AdminProductCtrl.addProductSubmit(), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data") {

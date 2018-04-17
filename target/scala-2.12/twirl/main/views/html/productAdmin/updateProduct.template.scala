@@ -36,47 +36,48 @@ object updateProduct extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.
 
 Seq[Any](format.raw/*4.58*/("""
 """),_display_(/*6.2*/main("Update product", user)/*6.30*/{_display_(Seq[Any](format.raw/*6.31*/("""
-"""),format.raw/*7.1*/("""<p class="lead"> Update Product</p>
+    """),format.raw/*7.5*/("""<link href=""""),_display_(/*7.18*/routes/*7.24*/.Assets.versioned("stylesheets/main.css")),format.raw/*7.65*/("""" rel="stylesheet" />
+<p class="lead"> Update Product</p>
 
-"""),_display_(/*9.2*/form(action=routes.AdminProductCtrl.updateProductSubmit(id), 'class -> "form-horizontal", 
-'role -> "form",'enctype -> "multipart/form-data")/*10.51*/ {_display_(Seq[Any](format.raw/*10.53*/("""
-    """),format.raw/*11.33*/("""
-    """),_display_(/*12.6*/CSRF/*12.10*/.formField),format.raw/*12.20*/("""
-    """),_display_(/*13.6*/inputText(updateProductForm("name"), '_label -> "Name", 'class -> "form-control")),format.raw/*13.87*/("""
-    """),_display_(/*14.6*/inputText(updateProductForm("description"), '_label -> "Description", 'class -> "form-control")),format.raw/*14.101*/("""
-        """),format.raw/*15.9*/("""<!-- Checkboxes for categories - current categories for this product are checked -->
+"""),_display_(/*10.2*/form(action=routes.AdminProductCtrl.updateProductSubmit(id), 'class -> "form-horizontal", 
+'role -> "form",'enctype -> "multipart/form-data")/*11.51*/ {_display_(Seq[Any](format.raw/*11.53*/("""
+    """),format.raw/*12.33*/("""
+    """),_display_(/*13.6*/CSRF/*13.10*/.formField),format.raw/*13.20*/("""
+    """),_display_(/*14.6*/inputText(updateProductForm("name"), '_label -> "Name", 'class -> "form-control")),format.raw/*14.87*/("""
+    """),_display_(/*15.6*/inputText(updateProductForm("description"), '_label -> "Description", 'class -> "form-control")),format.raw/*15.101*/("""
+        """),format.raw/*16.9*/("""<!-- Checkboxes for categories - current categories for this product are checked -->
         <!-- Category.options provides a hashmap of value, name pairs -->
         <!-- If product (id) is in catagory - mark it as checked -->
         <!-- Checkbox name is catSelect[],  selected values will be stored in -->
         <!-- form object using catSelect defined in Product  -->
-        """),_display_(/*20.10*/for((value, name) <- Category.options) yield /*20.48*/ {_display_(Seq[Any](format.raw/*20.50*/("""
-            """),format.raw/*21.13*/("""<input type="checkbox" name="catSelect[]" value=""""),_display_(/*21.63*/value),format.raw/*21.68*/(""""
-            """),_display_(/*22.14*/if(Category.inCategory(value.toLong, id))/*22.55*/ {_display_(Seq[Any](format.raw/*22.57*/("""
-                """),format.raw/*23.17*/("""checked
-            """)))}),format.raw/*24.14*/("""
-            """),format.raw/*25.13*/("""/>"""),_display_(/*25.16*/name),format.raw/*25.20*/("""<br>        
-        """)))}),format.raw/*26.10*/("""  
+        """),_display_(/*21.10*/for((value, name) <- Category.options) yield /*21.48*/ {_display_(Seq[Any](format.raw/*21.50*/("""
+            """),format.raw/*22.13*/("""<input type="checkbox" name="catSelect[]" value=""""),_display_(/*22.63*/value),format.raw/*22.68*/(""""
+            """),_display_(/*23.14*/if(Category.inCategory(value.toLong, id))/*23.55*/ {_display_(Seq[Any](format.raw/*23.57*/("""
+                """),format.raw/*24.17*/("""checked
+            """)))}),format.raw/*25.14*/("""
+            """),format.raw/*26.13*/("""/>"""),_display_(/*26.16*/name),format.raw/*26.20*/("""<br>        
+        """)))}),format.raw/*27.10*/("""  
 
-    """),_display_(/*28.6*/inputText(updateProductForm("stock"), '_label -> "Stock", 'class -> "form-control")),format.raw/*28.89*/("""
-    """),_display_(/*29.6*/inputText(updateProductForm("price"), '_label -> "Price", 'class -> "form-control")),format.raw/*29.89*/("""
-    """),_display_(/*30.6*/select(
+    """),_display_(/*29.6*/inputText(updateProductForm("stock"), '_label -> "Stock", 'class -> "form-control")),format.raw/*29.89*/("""
+    """),_display_(/*30.6*/inputText(updateProductForm("price"), '_label -> "Price", 'class -> "form-control")),format.raw/*30.89*/("""
+    """),_display_(/*31.6*/select(
             updateProductForm("pegi"), 
             options(Product.PEGIoptions), '_label -> "PEGI Rating", '_default -> "-- Choose a PEGI rating --", 
             '_showConstraints -> false, 'class -> "form-control"
-            )),format.raw/*34.14*/("""
+            )),format.raw/*35.14*/("""
     
-    """),format.raw/*36.5*/("""<label>Image </label>
+    """),format.raw/*37.5*/("""<label>Image </label>
     <input class = "btn-sm btn-default" type="file" name="upload">
     <br><br>
 
     <div class="actions">
         <input type="submit" value="Update Product" class="btn btn-primary">
-        <a href=""""),_display_(/*42.19*/routes/*42.25*/.ProductCtrl.listProducts(0)),format.raw/*42.53*/("""">
+        <a href=""""),_display_(/*43.19*/routes/*43.25*/.ProductCtrl.listProducts(0)),format.raw/*43.53*/("""">
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
     </div>
- """)))}),format.raw/*46.3*/("""
-""")))}),format.raw/*47.2*/("""
+ """)))}),format.raw/*47.3*/("""
+""")))}),format.raw/*48.2*/("""
 """))
       }
     }
@@ -93,11 +94,11 @@ Seq[Any](format.raw/*4.58*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 17 16:31:41 IST 2018
-                  SOURCE: /home/wdd/Downloads/SemesterCA-master/app/views/productAdmin/updateProduct.scala.html
-                  HASH: 180d4e29fb29d7659f4547be69fd1716d38f2bd0
-                  MATRIX: 664->1|702->33|741->66|1095->92|1224->150|1269->148|1296->167|1332->195|1370->196|1397->197|1460->235|1610->376|1650->378|1683->411|1715->417|1728->421|1759->431|1791->437|1893->518|1925->524|2042->619|2078->628|2489->1012|2543->1050|2583->1052|2624->1065|2701->1115|2727->1120|2769->1135|2819->1176|2859->1178|2904->1195|2956->1216|2997->1229|3027->1232|3052->1236|3105->1258|3140->1267|3244->1350|3276->1356|3380->1439|3412->1445|3671->1683|3708->1693|3959->1917|3974->1923|4023->1951|4156->2054|4188->2056
-                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|38->6|38->6|39->7|41->9|42->10|42->10|43->11|44->12|44->12|44->12|45->13|45->13|46->14|46->14|47->15|52->20|52->20|52->20|53->21|53->21|53->21|54->22|54->22|54->22|55->23|56->24|57->25|57->25|57->25|58->26|60->28|60->28|61->29|61->29|62->30|66->34|68->36|74->42|74->42|74->42|78->46|79->47
+                  DATE: Tue Apr 17 21:38:07 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/productAdmin/updateProduct.scala.html
+                  HASH: 3b4c30df19af35bdc1c6483c27eb601ff5d0d85c
+                  MATRIX: 664->1|702->34|741->68|1095->95|1224->154|1269->151|1297->172|1333->200|1371->201|1403->207|1442->220|1456->226|1517->267|1606->330|1757->472|1797->474|1831->508|1864->515|1877->519|1908->529|1941->536|2043->617|2076->624|2193->719|2230->729|2646->1118|2700->1156|2740->1158|2782->1172|2859->1222|2885->1227|2928->1243|2978->1284|3018->1286|3064->1304|3117->1326|3159->1340|3189->1343|3214->1347|3268->1370|3305->1381|3409->1464|3442->1471|3546->1554|3579->1561|3842->1803|3881->1815|4138->2045|4153->2051|4202->2079|4339->2186|4372->2189
+                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|38->6|38->6|39->7|39->7|39->7|39->7|42->10|43->11|43->11|44->12|45->13|45->13|45->13|46->14|46->14|47->15|47->15|48->16|53->21|53->21|53->21|54->22|54->22|54->22|55->23|55->23|55->23|56->24|57->25|58->26|58->26|58->26|59->27|61->29|61->29|62->30|62->30|63->31|67->35|69->37|75->43|75->43|75->43|79->47|80->48
                   -- GENERATED --
               */
           

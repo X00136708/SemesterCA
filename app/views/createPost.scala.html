@@ -5,6 +5,7 @@
 @import helper._
 
 @main("Create a Post",user) {
+    <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
     <p class="lead">Create a Post</p>
     @form(action=routes.CommunityCtrl.createPostSubmit(), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data") {
         @* CSRF attack prevention *@

@@ -4,6 +4,7 @@
 @(id: Long, updateProductForm: Form[Product], user: User)
 @import helper._
 @main("Update product", user){
+    <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
 <p class="lead"> Update Product</p>
 
 @form(action=routes.AdminProductCtrl.updateProductSubmit(id), 'class -> "form-horizontal", 

@@ -1,10 +1,4 @@
-[error] /home/wdd/Downloads/SemesterCA-master/app/models/users/User.java:35:1: cannot find symbol
-[error]   symbol: variable role
-[error]             this.role=role;
-[error] /home/wdd/Downloads/SemesterCA-master/app/models/users/User.java:45:1: cannot find symbol
-[error]   symbol:   variable role
-[error]   location: class models.users.User
-[error]         return role;
-[error] /home/wdd/Downloads/SemesterCA-master/app/models/users/User.java:61:1: cannot find symbol
-[error]   symbol: variable role
-[error]         this.role = role;
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\doran\Documents\2ndYearProject\semesterca\app\views\login.scala.html:13:28: method globalError in class Form is deprecated: see corresponding Javadoc for more information.[0m
+[0m[[0m[33mwarn[0m] [0m[0m                @loginForm.globalError.message;[0m
+[0m[[0m[33mwarn[0m] [0m[0m                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

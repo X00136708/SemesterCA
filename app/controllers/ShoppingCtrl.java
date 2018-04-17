@@ -12,6 +12,8 @@ import play.api.Environment;
 import models.users.*;
 import models.products.*;
 import models.shopping.*;
+import java.sql.Timestamp;
+import play.Logger;
 
 
 import controllers.security.*;
@@ -125,8 +127,8 @@ public class ShoppingCtrl extends Controller {
         RegisteredUser ru = getCurrentUser();
         ru.getBasket().removeAllItems();
         ru.getBasket().update();
-        
         return ok(basket.render(ru));
+        
     }
 
        @Transactional
@@ -141,6 +143,12 @@ public class ShoppingCtrl extends Controller {
         
        
         order.setRegisteredUser(c);
+        if(order.getOrderDate().getTime() !=0){
+        order.getOrderDate().setTime(System.currentTimeMillis());
+         Logger.debug("shit: " + System.currentTimeMillis() + "yea : " + order.getOrderDate() + "");
+        }
+
+
         
         
         

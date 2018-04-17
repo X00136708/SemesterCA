@@ -48,7 +48,7 @@ public class LoginCtrl extends Controller {
             // Check user type
             User u = User.getLoggedIn(loginForm.get().getEmail());
             // If admin - go to admin section
-            if (u != null && "admin".equals(u.getRole())) {
+            if (u != null && u instanceof Administrator) {
                 return redirect(controllers.routes.ProductCtrl.index());
             }
             

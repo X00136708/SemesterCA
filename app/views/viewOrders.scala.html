@@ -6,6 +6,7 @@
 <!-- Pass page title and user on to main -->
 @main("View Orders", registeredUser) {
 	<div class="row"></div>
+	<link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
 	
 			
 			
@@ -57,10 +58,12 @@
                 <p class="text-right"><strong>Order Total: &euro; @("%.2f".format(o.getTotal()))</strong></p>
             </div>  
 		</div>
-		
+		@if(o.isCancellable()){
+
 		<div class="form-group">
 				<a href="@routes.ShoppingCtrl.cancelOrder(o.getId)" class="btn btn-primary" onclick="return confirmDel();">Cancel Order</a>
-        </div>
+		</div>
+	}
     </div>
 </div>
 

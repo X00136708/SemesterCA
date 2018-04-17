@@ -4,7 +4,7 @@
 
 
 @main("Game", user) {
-
+  <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
   <div class="col-sm-2"></div>
   <div class="col-sm-8">
       <table class="table table-bordered table-hover table-condensed">
@@ -35,7 +35,7 @@
               
 
               @if(user != null){
-                @if("admin".equals(user.getRole())){
+                @if(user.isInstanceOf[models.users.Administrator]){
                   <a href="@routes.AdminProductCtrl.updateProduct(p.getId)"  class="btn btn-default btn-xs">Edit  <span class="glyphicon glyphicon-pencil"></span></a>
                   <a href="@routes.AdminProductCtrl.deleteProduct(p.getId)"  class="btn btn-default btn-xs" onclick="return confirmDel();">Delete <span class="glyphicon glyphicon-trash"></span></a>
                 }else{
@@ -70,7 +70,7 @@
         
         <p>@r.getContent</p>
         @if(user != null){
-          @if("admin".equals(user.getRole())){
+          @if(user.isInstanceOf[models.users.Administrator]){
             <a href="@routes.CommunityCtrl.deleteReview(r.getId)"  class="btn btn-default btn-xs" onclick="return confirmDel();" id="postDelete">Delete <span class="glyphicon glyphicon-trash"></span></a>
           }
         }

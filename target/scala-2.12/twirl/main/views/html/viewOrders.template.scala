@@ -38,20 +38,21 @@ Seq[Any](format.raw/*5.72*/("""
 """),format.raw/*6.1*/("""<!-- Pass page title and user on to main -->
 """),_display_(/*7.2*/main("View Orders", registeredUser)/*7.37*/ {_display_(Seq[Any](format.raw/*7.39*/("""
 	"""),format.raw/*8.2*/("""<div class="row"></div>
+	<link href=""""),_display_(/*9.15*/routes/*9.21*/.Assets.versioned("stylesheets/main.css")),format.raw/*9.62*/("""" rel="stylesheet" />
 	
 			
 			
-	"""),_display_(/*12.3*/if(flash.containsKey("success"))/*12.35*/ {_display_(Seq[Any](format.raw/*12.37*/("""
-        """),format.raw/*13.9*/("""<div class="alert alert-success">
-          """),_display_(/*14.12*/flash/*14.17*/.get("success")),format.raw/*14.32*/("""
-		"""),format.raw/*15.3*/("""</div>
-	""")))}),format.raw/*16.3*/("""
+	"""),_display_(/*13.3*/if(flash.containsKey("success"))/*13.35*/ {_display_(Seq[Any](format.raw/*13.37*/("""
+        """),format.raw/*14.9*/("""<div class="alert alert-success">
+          """),_display_(/*15.12*/flash/*15.17*/.get("success")),format.raw/*15.32*/("""
+		"""),format.raw/*16.3*/("""</div>
+	""")))}),format.raw/*17.3*/("""
 
-"""),_display_(/*18.2*/for(o<-orders) yield /*18.16*/{_display_(Seq[Any](format.raw/*18.17*/("""
+"""),_display_(/*19.2*/for(o<-orders) yield /*19.16*/{_display_(Seq[Any](format.raw/*19.17*/("""
 	
-	"""),format.raw/*20.2*/("""<label>Order Number: """),_display_(/*20.24*/o/*20.25*/.getId),format.raw/*20.31*/("""</label>
+	"""),format.raw/*21.2*/("""<label>Order Number: """),_display_(/*21.24*/o/*21.25*/.getId),format.raw/*21.31*/("""</label>
 	<br>
-	<label>Order Date: """),_display_(/*22.22*/o/*22.23*/.getDateString),format.raw/*22.37*/("""</label>
+	<label>Order Date: """),_display_(/*23.22*/o/*23.23*/.getDateString),format.raw/*23.37*/("""</label>
 	
 
 		
@@ -67,43 +68,45 @@ Seq[Any](format.raw/*5.72*/("""
 			</tr>
 			</thead>
 			<tbody>
-                """),_display_(/*38.18*/if(registeredUser.getBasket() != null)/*38.56*/ {_display_(Seq[Any](format.raw/*38.58*/("""
+                """),_display_(/*39.18*/if(registeredUser.getBasket() != null)/*39.56*/ {_display_(Seq[Any](format.raw/*39.58*/("""
 					
-                    """),format.raw/*40.21*/("""<!-- Start of For loop - For each p in products add a row -->
-					"""),_display_(/*41.7*/for(i <- o.getItems()) yield /*41.29*/ {_display_(Seq[Any](format.raw/*41.31*/("""
+                    """),format.raw/*41.21*/("""<!-- Start of For loop - For each p in products add a row -->
+					"""),_display_(/*42.7*/for(i <- o.getItems()) yield /*42.29*/ {_display_(Seq[Any](format.raw/*42.31*/("""
                    
 						
-						"""),format.raw/*44.7*/("""<td>"""),_display_(/*44.12*/i/*44.13*/.getProduct.getName),format.raw/*44.32*/("""</td>
-						<td>&euro; """),_display_(/*45.19*/("%.2f".format(i.getProduct.getPrice))),format.raw/*45.57*/("""</td>
-                        <td>"""),_display_(/*46.30*/i/*46.31*/.getQuantity()),format.raw/*46.45*/("""</td>
-                        <td>&euro; """),_display_(/*47.37*/("%.2f".format(i.getItemTotala))),format.raw/*47.69*/("""</td>                        
+						"""),format.raw/*45.7*/("""<td>"""),_display_(/*45.12*/i/*45.13*/.getProduct.getName),format.raw/*45.32*/("""</td>
+						<td>&euro; """),_display_(/*46.19*/("%.2f".format(i.getProduct.getPrice))),format.raw/*46.57*/("""</td>
+                        <td>"""),_display_(/*47.30*/i/*47.31*/.getQuantity()),format.raw/*47.45*/("""</td>
+                        <td>&euro; """),_display_(/*48.37*/("%.2f".format(i.getItemTotala))),format.raw/*48.69*/("""</td>                        
 					</tr>
 				</tbody>
-					""")))}),format.raw/*50.7*/("""<!-- End of For loop -->
+					""")))}),format.raw/*51.7*/("""<!-- End of For loop -->
 					
-              """)))}),format.raw/*52.16*/("""
+              """)))}),format.raw/*53.16*/("""
 			
-		"""),format.raw/*54.3*/("""</table>
+		"""),format.raw/*55.3*/("""</table>
         <div class="row">
             <div class="col-md-12">
-                <p class="text-right"><strong>Order Total: &euro; """),_display_(/*57.68*/("%.2f".format(o.getTotal()))),format.raw/*57.97*/("""</strong></p>
+                <p class="text-right"><strong>Order Total: &euro; """),_display_(/*58.68*/("%.2f".format(o.getTotal()))),format.raw/*58.97*/("""</strong></p>
             </div>  
 		</div>
-		
-		<div class="form-group">
-				<a href=""""),_display_(/*62.15*/routes/*62.21*/.ShoppingCtrl.cancelOrder(o.getId)),format.raw/*62.55*/("""" class="btn btn-primary" onclick="return confirmDel();">Cancel Order</a>
-        </div>
-    </div>
+		"""),_display_(/*61.4*/if(o.isCancellable())/*61.25*/{_display_(Seq[Any](format.raw/*61.26*/("""
+
+		"""),format.raw/*63.3*/("""<div class="form-group">
+				<a href=""""),_display_(/*64.15*/routes/*64.21*/.ShoppingCtrl.cancelOrder(o.getId)),format.raw/*64.55*/("""" class="btn btn-primary" onclick="return confirmDel();">Cancel Order</a>
+		</div>
+	""")))}),format.raw/*66.3*/("""
+    """),format.raw/*67.5*/("""</div>
 </div>
 
 
 <script>
 	// JavaScript function returns true if user clicks yes, otherwise, false
-	function confirmDel() """),format.raw/*70.24*/("""{"""),format.raw/*70.25*/("""
-		"""),format.raw/*71.3*/("""return confirm('Are you sure?');
-	"""),format.raw/*72.2*/("""}"""),format.raw/*72.3*/("""
-"""),format.raw/*73.1*/("""</script>
-""")))}),format.raw/*74.2*/("""
+	function confirmDel() """),format.raw/*73.24*/("""{"""),format.raw/*73.25*/("""
+		"""),format.raw/*74.3*/("""return confirm('Are you sure?');
+	"""),format.raw/*75.2*/("""}"""),format.raw/*75.3*/("""
+"""),format.raw/*76.1*/("""</script>
+""")))}),format.raw/*77.2*/("""
 
 
 """)))}))
@@ -122,11 +125,11 @@ Seq[Any](format.raw/*5.72*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 17 16:31:41 IST 2018
-                  SOURCE: /home/wdd/Downloads/SemesterCA-master/app/views/viewOrders.scala.html
-                  HASH: b91debbea0bcf8c1b3967ec83341d6cdab05b885
-                  MATRIX: 651->1|687->31|719->57|751->83|1119->106|1284->176|1311->177|1382->223|1425->258|1464->260|1492->262|1554->298|1595->330|1635->332|1671->341|1743->386|1757->391|1793->406|1823->409|1862->418|1891->421|1921->435|1960->436|1991->440|2040->462|2050->463|2077->469|2140->505|2150->506|2185->520|2479->787|2526->825|2566->827|2621->854|2715->922|2753->944|2793->946|2854->980|2886->985|2896->986|2936->1005|2987->1029|3046->1067|3108->1102|3118->1103|3153->1117|3222->1159|3275->1191|3365->1251|3442->1297|3476->1304|3641->1442|3691->1471|3806->1559|3821->1565|3876->1599|4119->1814|4148->1815|4178->1818|4239->1852|4267->1853|4295->1854|4336->1865
-                  LINES: 24->1|25->2|26->3|27->4|32->5|37->5|38->6|39->7|39->7|39->7|40->8|44->12|44->12|44->12|45->13|46->14|46->14|46->14|47->15|48->16|50->18|50->18|50->18|52->20|52->20|52->20|52->20|54->22|54->22|54->22|70->38|70->38|70->38|72->40|73->41|73->41|73->41|76->44|76->44|76->44|76->44|77->45|77->45|78->46|78->46|78->46|79->47|79->47|82->50|84->52|86->54|89->57|89->57|94->62|94->62|94->62|102->70|102->70|103->71|104->72|104->72|105->73|106->74
+                  DATE: Tue Apr 17 21:38:07 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/viewOrders.scala.html
+                  HASH: 3381997569b1a0bea9b4edf7573b97d1542f6a26
+                  MATRIX: 651->1|687->32|719->59|751->86|1119->110|1284->180|1312->182|1384->229|1427->264|1466->266|1495->269|1560->308|1574->314|1635->355|1699->393|1740->425|1780->427|1817->437|1890->483|1904->488|1940->503|1971->507|2011->517|2042->522|2072->536|2111->537|2144->543|2193->565|2203->566|2230->572|2295->610|2305->611|2340->625|2650->908|2697->946|2737->948|2794->977|2889->1046|2927->1068|2967->1070|3031->1107|3063->1112|3073->1113|3113->1132|3165->1157|3224->1195|3287->1231|3297->1232|3332->1246|3402->1289|3455->1321|3548->1384|3627->1432|3663->1441|3831->1582|3881->1611|3957->1661|3987->1682|4026->1683|4059->1689|4126->1729|4141->1735|4196->1769|4313->1856|4346->1862|4502->1990|4531->1991|4562->1995|4624->2030|4652->2031|4681->2033|4723->2045
+                  LINES: 24->1|25->2|26->3|27->4|32->5|37->5|38->6|39->7|39->7|39->7|40->8|41->9|41->9|41->9|45->13|45->13|45->13|46->14|47->15|47->15|47->15|48->16|49->17|51->19|51->19|51->19|53->21|53->21|53->21|53->21|55->23|55->23|55->23|71->39|71->39|71->39|73->41|74->42|74->42|74->42|77->45|77->45|77->45|77->45|78->46|78->46|79->47|79->47|79->47|80->48|80->48|83->51|85->53|87->55|90->58|90->58|93->61|93->61|93->61|95->63|96->64|96->64|96->64|98->66|99->67|105->73|105->73|106->74|107->75|107->75|108->76|109->77
                   -- GENERATED --
               */
           

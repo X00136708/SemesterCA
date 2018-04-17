@@ -72,9 +72,12 @@ b{
     /* padding: 5px; */
     font: 15px/20px sans-serif;
     width: 850px;
-    height: 452px;
+    height: auto;
     overflow: auto;
     }
+.list-group-item:hover{
+    background-color: black;
+}
     .myBtnContainer{
         position: absolute;
     }
@@ -169,15 +172,22 @@ dd{
     background-color:red;
     color:white;
 }
-.list-group-item{
+.products .list-group-item{
     background-color:#2C2F33;
     border:.2em solid #23272A;
+    background-color:rebeccapurple;
+}
+.products .list-group-item:hover{
+    background-color:black;
 }
 .list-group-item h4{
     color:white;
 }
 .list-group-item p{
     color:white;
+}
+.list-group-item{
+    background-color:black;
 }
 #navItem {
     color: white;

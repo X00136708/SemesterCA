@@ -4,7 +4,7 @@
 
 
 @main(p.getTitle, user) {
-
+  <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
   <div class="col-sm-1"></div>
   <div class="col-sm-6">
     <table class="table table-bordered table-hover table-condensed">
@@ -35,7 +35,7 @@
       <p>@p.getContent</p><br>
 
       @if(user != null){
-        @if("admin".equals(user.getRole())){
+        @if(user.isInstanceOf[models.users.Administrator]){
           <a href="@routes.CommunityCtrl.deletePost(p.getId)"  class="btn btn-default btn-xs" onclick="return confirmDel();" id="postDelete">Delete <span class="glyphicon glyphicon-trash"></span></a>
         }
       }
@@ -55,7 +55,7 @@
           
           <p>@r.getContent</p>
           @if(user != null){
-            @if("admin".equals(user.getRole())){
+            @if(user.isInstanceOf[models.users.Administrator]){
               <a href="@routes.CommunityCtrl.deleteReply(r.getId)"  class="btn btn-default btn-xs" onclick="return confirmDel();" id="postDelete">Delete <span class="glyphicon glyphicon-trash"></span></a>
             }
           }
