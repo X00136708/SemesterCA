@@ -12,10 +12,12 @@
   <div class="col-sm-2">
     <h4>Products</h4>
     <div class="list-group" id="productList">
-      <a href="@routes.CommunityCtrl.forumPage(0, filter)" class="list-group-item">All Products</a>
+      <div id="listHead">
+      <a href="@routes.CommunityCtrl.forumPage(0, filter)" class="list-group-item" >All Products</a>
+    </div>
       @for(p <- products) {
         <a href="@routes.CommunityCtrl.forumPage(p.getId, filter)" class="list-group-item">@p.getName
-        </a>
+          <span class="badge badge-pill badge-primary">@p.getPosts().size</span></a>
       }
     </div>
   </div>
@@ -33,7 +35,7 @@
          <input type="submit" id="searchsubmit" value="Filter by name" class="btn-md btn-primary">
         </form>
        </div>
-    <table class="table table-hover table-condensed">   
+    <table class="table table-hover table-condensed" id="forums">   
       <thead>
         <tr>
           <th>Title</th>
@@ -54,7 +56,12 @@
                }else{
                 <td>N/A</td>
                }
-               <td>@fp.getProduct.getName</td>
+               @if(fp.getProduct != null){
+                <td>@fp.getProduct.getName</td>
+               }else{
+                 <td>N/A</td>
+               }
+               
             <td  class="numeric">@fp.getReplies.size</td>
           </tr>
         }

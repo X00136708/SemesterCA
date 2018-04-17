@@ -16,12 +16,15 @@
       <div class="list-group">
           <div class="list-group-item">
               <div id="postProduct">
+                @if(p.getProduct != null){
                   @if(env.resource("public/images/" + p.getId + ".png").isDefined) {
                     <a href="@routes.ProductCtrl.productDetails(p.getId)"><img src="/assets/images/thumbs/@(p.getId + ".png")" id="prodImg"/></a>
                     
                 } else {
                   <a href="@routes.ProductCtrl.productDetails(p.getId)"><img src="/assets/images/thumbs/noImage.png" id="prodImg"/></a>
                 }
+                }
+                  
                 </div>
             <h3 id="postTitle">@p.getTitle</h3>
             @if(p.getAuthor != null){

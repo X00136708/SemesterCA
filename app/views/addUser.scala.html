@@ -4,6 +4,17 @@
 @main("Add User",user) {
     <p class="lead">Add a new User</p>
     <div class="col-xs-5">
+            @if(flash.containsKey("success")) {
+                <div class="alert alert-success">
+                    @flash.get("success")
+                </div>
+          }
+          @if(flash.containsKey("failure")) {
+              <div class="alert alert-success">
+                  @flash.get("failure")
+              </div>
+          } 
+
     @form(action=routes.CommunityCtrl.addUserSubmit(), 
     'class -> "form-horizontal", 
     'role -> "form",

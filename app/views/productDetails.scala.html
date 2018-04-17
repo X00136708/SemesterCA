@@ -57,15 +57,34 @@
         
         
     </div>
-        <label>Reviews:</label><br>
-        <div class="list-group">
+    <label>Reviews:</label><br>
+    <div class="list-group" id="replies">
+    @for(r <- p.getReviews){
+
+      <div class="list-group-item" id="replies">
+        @if(r.getAuthor != null){
+          <label>@r.getAuthor.getName</label><br>
+        }else{
+          <label>N/A</label><br>
+        }
+        
+        <p>@r.getContent</p>
+        @if(user != null){
+          @if("admin".equals(user.getRole())){
+            <a href="@routes.CommunityCtrl.deleteReview(r.getId)"  class="btn btn-default btn-xs" onclick="return confirmDel();" id="postDelete">Delete <span class="glyphicon glyphicon-trash"></span></a>
+          }
+        }
+      </div>
+
+    }
+  </div>
         
       </div>
       <p>
-        <a href="#">
-          <button class="btn btn-primary">Add a Review</button>
-        </a>
-      </p>
+          <a href="@routes.CommunityCtrl.createReview(p.getId())">
+            <button class="btn btn-primary">Add a Review</button>
+          </a>
+        </p>
       
     </div>
   </div>

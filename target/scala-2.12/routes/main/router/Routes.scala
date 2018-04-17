@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/brandon/Documents/SemesterCA/conf/routes
-// @DATE:Mon Apr 16 16:38:14 IST 2018
+// @SOURCE:/home/wdd/SemesterCA/conf/routes
+// @DATE:Tue Apr 17 12:45:50 IST 2018
 
 package router
 
@@ -25,7 +25,7 @@ class Routes(
   ShoppingCtrl_2: controllers.ShoppingCtrl,
   // @LINE:38
   AdminProductCtrl_3: controllers.AdminProductCtrl,
-  // @LINE:58
+  // @LINE:62
   Assets_5: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -42,7 +42,7 @@ class Routes(
     ShoppingCtrl_2: controllers.ShoppingCtrl,
     // @LINE:38
     AdminProductCtrl_3: controllers.AdminProductCtrl,
-    // @LINE:58
+    // @LINE:62
     Assets_5: controllers.Assets
   ) = this(errorHandler, ProductCtrl_1, CommunityCtrl_0, LoginCtrl_4, ShoppingCtrl_2, AdminProductCtrl_3, Assets_5, "/")
 
@@ -90,6 +90,9 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createReplySubmit/""" + "$" + """postId<[^/]+>""", """controllers.CommunityCtrl.createReplySubmit(postId:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deletePost/""" + "$" + """postId<[^/]+>""", """controllers.CommunityCtrl.deletePost(postId:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteReply/""" + "$" + """replyId<[^/]+>""", """controllers.CommunityCtrl.deleteReply(replyId:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createReview/""" + "$" + """prodId<[^/]+>""", """controllers.CommunityCtrl.createReview(prodId:Long)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createReviewSubmit/""" + "$" + """prodId<[^/]+>""", """controllers.CommunityCtrl.createReviewSubmit(prodId:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteReview/""" + "$" + """reviewId<[^/]+>""", """controllers.CommunityCtrl.deleteReview(reviewId:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -710,11 +713,65 @@ class Routes(
     )
   )
 
+  // @LINE:57
+  private[this] lazy val controllers_CommunityCtrl_createReview34_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createReview/"), DynamicPart("prodId", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CommunityCtrl_createReview34_invoker = createInvoker(
+    CommunityCtrl_0.createReview(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CommunityCtrl",
+      "createReview",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """createReview/""" + "$" + """prodId<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
   // @LINE:58
-  private[this] lazy val controllers_Assets_versioned34_route = Route("GET",
+  private[this] lazy val controllers_CommunityCtrl_createReviewSubmit35_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createReviewSubmit/"), DynamicPart("prodId", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CommunityCtrl_createReviewSubmit35_invoker = createInvoker(
+    CommunityCtrl_0.createReviewSubmit(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CommunityCtrl",
+      "createReviewSubmit",
+      Seq(classOf[Long]),
+      "POST",
+      this.prefix + """createReviewSubmit/""" + "$" + """prodId<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:59
+  private[this] lazy val controllers_CommunityCtrl_deleteReview36_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteReview/"), DynamicPart("reviewId", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CommunityCtrl_deleteReview36_invoker = createInvoker(
+    CommunityCtrl_0.deleteReview(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CommunityCtrl",
+      "deleteReview",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """deleteReview/""" + "$" + """reviewId<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:62
+  private[this] lazy val controllers_Assets_versioned37_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned34_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned37_invoker = createInvoker(
     Assets_5.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -935,10 +992,28 @@ class Routes(
         controllers_CommunityCtrl_deleteReply33_invoker.call(CommunityCtrl_0.deleteReply(replyId))
       }
   
+    // @LINE:57
+    case controllers_CommunityCtrl_createReview34_route(params@_) =>
+      call(params.fromPath[Long]("prodId", None)) { (prodId) =>
+        controllers_CommunityCtrl_createReview34_invoker.call(CommunityCtrl_0.createReview(prodId))
+      }
+  
     // @LINE:58
-    case controllers_Assets_versioned34_route(params@_) =>
+    case controllers_CommunityCtrl_createReviewSubmit35_route(params@_) =>
+      call(params.fromPath[Long]("prodId", None)) { (prodId) =>
+        controllers_CommunityCtrl_createReviewSubmit35_invoker.call(CommunityCtrl_0.createReviewSubmit(prodId))
+      }
+  
+    // @LINE:59
+    case controllers_CommunityCtrl_deleteReview36_route(params@_) =>
+      call(params.fromPath[Long]("reviewId", None)) { (reviewId) =>
+        controllers_CommunityCtrl_deleteReview36_invoker.call(CommunityCtrl_0.deleteReview(reviewId))
+      }
+  
+    // @LINE:62
+    case controllers_Assets_versioned37_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned34_invoker.call(Assets_5.versioned(path, file))
+        controllers_Assets_versioned37_invoker.call(Assets_5.versioned(path, file))
       }
   }
 }

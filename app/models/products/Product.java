@@ -1,5 +1,7 @@
 package models.products;
-
+import models.community.*;
+import models.shopping.*;
+import models.users.*;
 import java.util.*;
 import javax.persistence.*;
 
@@ -27,7 +29,10 @@ public class Product extends Model {
         private double price;
         @Constraints.Required
         private String pegi;
-       
+        @OneToMany(cascade = CascadeType.ALL,mappedBy="product")
+        private List<ForumPost> postList;
+        @OneToMany(cascade = CascadeType.ALL,mappedBy="product")
+        private List<ProductReview> reviewList;
 
         public static final Finder<Long, Product> find = new Finder<>(Product.class);
         // List of category ids - this will be bound to checkboxes in the view form
@@ -64,7 +69,7 @@ public class Product extends Model {
         }
     
         // Constructor to initialise object
-        public Product(Long id, String name, String description, int stock, double price, String pegi, List<Category> categories) {
+        public Product(Long id, String name, String description, int stock, double price, String pegi, List<Category> categories, List<ForumPost> postList) {
             this.id = id;
             this.name = name;
             this.description = description;
@@ -72,6 +77,7 @@ public class Product extends Model {
             this.price = price;
             this.pegi=pegi;
             this.categories = categories;
+            this.postList = postList;
         }
     
         // Accessor methods
@@ -146,5 +152,20 @@ public class Product extends Model {
             
             return options;
         }
+
+        public List<ForumPost> getPosts(){
+            return this.postList;
+        }
+        public void setPosts(List<ForumPost> postList){
+            this.postList = postList;
+        }
+
+        public List<ProductReview> getReviews(){
+            return this.reviewList;
+        }
+        public void setReviews(List<ProductReview> postList){
+            this.reviewList = reviewList;
+        }
+
     }
     

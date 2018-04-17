@@ -33,6 +33,8 @@
                       <input type="submit" id="searchsubmit" value="Search" class="searchbtn-sm ">
                   </form>
                     </div>
+                    
+                    <a href="@routes.ProductCtrl.listProducts(0)" class="btn btn-sm">All Platforms</a>
         @for(c <- categories) {
           <a href="@routes.ProductCtrl.listProducts(c.getId)" class="btn btn-sm">@c.getName
             <span class="badge badge-pill badge-primary">@c.getProducts().size</span>

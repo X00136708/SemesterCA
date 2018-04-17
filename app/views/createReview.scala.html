@@ -1,0 +1,22 @@
+@import models.products.Product
+@import models.community.ProductReview
+@import models.users.User
+@(reviewForm: Form[ProductReview], user: User, prodId: Long)
+@import helper._
+
+@main("Create a Reply",user) {
+    <p class="lead">Create a Review</p>
+    @form(action=routes.CommunityCtrl.createReviewSubmit(prodId), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data") {
+        @* CSRF attack prevention *@
+        @CSRF.formField
+        @inputText(reviewForm("content"), '_label -> "Content", 'class -> "form-control")
+        
+
+        <div class="actions">
+            <input type="submit" value="Add Reply" class="btn btn-primary">
+            <a href="@routes.CommunityCtrl.viewPost(prodId)">
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+    }
+}

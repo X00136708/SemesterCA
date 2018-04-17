@@ -59,6 +59,14 @@ create table product (
   constraint pk_product primary key (id)
 );
 
+create table product_review (
+  id                            bigint auto_increment not null,
+  content                       varchar(255),
+  author_email                  varchar(255),
+  product_id                    bigint,
+  constraint pk_product_review primary key (id)
+);
+
 create table shop_order (
   id                            bigint auto_increment not null,
   order_date                    timestamp,
@@ -118,6 +126,12 @@ create index ix_order_item_basket_id on order_item (basket_id);
 alter table order_item add constraint fk_order_item_product_id foreign key (product_id) references product (id) on delete restrict on update restrict;
 create index ix_order_item_product_id on order_item (product_id);
 
+alter table product_review add constraint fk_product_review_author_email foreign key (author_email) references user (email) on delete restrict on update restrict;
+create index ix_product_review_author_email on product_review (author_email);
+
+alter table product_review add constraint fk_product_review_product_id foreign key (product_id) references product (id) on delete restrict on update restrict;
+create index ix_product_review_product_id on product_review (product_id);
+
 alter table shop_order add constraint fk_shop_order_registered_user_email foreign key (registered_user_email) references user (email) on delete restrict on update restrict;
 create index ix_shop_order_registered_user_email on shop_order (registered_user_email);
 
@@ -155,6 +169,12 @@ drop index if exists ix_order_item_basket_id;
 alter table order_item drop constraint if exists fk_order_item_product_id;
 drop index if exists ix_order_item_product_id;
 
+alter table product_review drop constraint if exists fk_product_review_author_email;
+drop index if exists ix_product_review_author_email;
+
+alter table product_review drop constraint if exists fk_product_review_product_id;
+drop index if exists ix_product_review_product_id;
+
 alter table shop_order drop constraint if exists fk_shop_order_registered_user_email;
 drop index if exists ix_shop_order_registered_user_email;
 
@@ -173,6 +193,8 @@ drop table if exists forum_reply;
 drop table if exists order_item;
 
 drop table if exists product;
+
+drop table if exists product_review;
 
 drop table if exists shop_order;
 

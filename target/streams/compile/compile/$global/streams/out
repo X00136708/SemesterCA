@@ -1,4 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m/home/brandon/Documents/SemesterCA/app/views/listProducts.scala.html:38:68: not found: value c[0m
-[0m[[0m[31merror[0m] [0m[0m                      <span class="badge badge-box badge-primary">@c.getProducts().size</span>[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                   ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/wdd/SemesterCA/app/controllers/AdminProductCtrl.java: /home/wdd/SemesterCA/app/controllers/AdminProductCtrl.java uses unchecked or unsafe operations.[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/wdd/SemesterCA/app/controllers/AdminProductCtrl.java: Recompile with -Xlint:unchecked for details.[0m

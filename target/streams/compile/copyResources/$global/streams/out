@@ -1,9 +1,9 @@
 [0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/brandon/Documents/SemesterCA/conf/logback.xml,/home/brandon/Documents/SemesterCA/target/scala-2.12/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/brandon/Documents/SemesterCA/conf/routes,/home/brandon/Documents/SemesterCA/target/scala-2.12/classes/routes)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/brandon/Documents/SemesterCA/conf/evolutions,/home/brandon/Documents/SemesterCA/target/scala-2.12/classes/evolutions)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/brandon/Documents/SemesterCA/conf/application.conf,/home/brandon/Documents/SemesterCA/target/scala-2.12/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/brandon/Documents/SemesterCA/conf/evolutions/default,/home/brandon/Documents/SemesterCA/target/scala-2.12/classes/evolutions/default)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/brandon/Documents/SemesterCA/conf/evolutions/default/2.sql,/home/brandon/Documents/SemesterCA/target/scala-2.12/classes/evolutions/default/2.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/brandon/Documents/SemesterCA/conf/evolutions/default/3.sql,/home/brandon/Documents/SemesterCA/target/scala-2.12/classes/evolutions/default/3.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/brandon/Documents/SemesterCA/conf/evolutions/default/1.sql,/home/brandon/Documents/SemesterCA/target/scala-2.12/classes/evolutions/default/1.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/SemesterCA/conf/evolutions,/home/wdd/SemesterCA/target/scala-2.12/classes/evolutions)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/SemesterCA/conf/application.conf,/home/wdd/SemesterCA/target/scala-2.12/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/SemesterCA/conf/logback.xml,/home/wdd/SemesterCA/target/scala-2.12/classes/logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/SemesterCA/conf/routes,/home/wdd/SemesterCA/target/scala-2.12/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/SemesterCA/conf/evolutions/default,/home/wdd/SemesterCA/target/scala-2.12/classes/evolutions/default)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/SemesterCA/conf/evolutions/default/3.sql,/home/wdd/SemesterCA/target/scala-2.12/classes/evolutions/default/3.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/SemesterCA/conf/evolutions/default/2.sql,/home/wdd/SemesterCA/target/scala-2.12/classes/evolutions/default/2.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/SemesterCA/conf/evolutions/default/1.sql,/home/wdd/SemesterCA/target/scala-2.12/classes/evolutions/default/1.sql)[0m

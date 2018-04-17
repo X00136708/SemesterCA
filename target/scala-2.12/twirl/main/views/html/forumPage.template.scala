@@ -44,28 +44,30 @@ Seq[Any](format.raw/*4.118*/("""
   <div class="col-sm-2">
     <h4>Products</h4>
     <div class="list-group" id="productList">
-      <a href=""""),_display_(/*15.17*/routes/*15.23*/.CommunityCtrl.forumPage(0, filter)),format.raw/*15.58*/("""" class="list-group-item">All Products</a>
-      """),_display_(/*16.8*/for(p <- products) yield /*16.26*/ {_display_(Seq[Any](format.raw/*16.28*/("""
-        """),format.raw/*17.9*/("""<a href=""""),_display_(/*17.19*/routes/*17.25*/.CommunityCtrl.forumPage(p.getId, filter)),format.raw/*17.66*/("""" class="list-group-item">"""),_display_(/*17.93*/p/*17.94*/.getName),format.raw/*17.102*/("""
-        """),format.raw/*18.9*/("""</a>
-      """)))}),format.raw/*19.8*/("""
-    """),format.raw/*20.5*/("""</div>
+      <div id="listHead">
+      <a href=""""),_display_(/*16.17*/routes/*16.23*/.CommunityCtrl.forumPage(0, filter)),format.raw/*16.58*/("""" class="list-group-item" >All Products</a>
+    </div>
+      """),_display_(/*18.8*/for(p <- products) yield /*18.26*/ {_display_(Seq[Any](format.raw/*18.28*/("""
+        """),format.raw/*19.9*/("""<a href=""""),_display_(/*19.19*/routes/*19.25*/.CommunityCtrl.forumPage(p.getId, filter)),format.raw/*19.66*/("""" class="list-group-item">"""),_display_(/*19.93*/p/*19.94*/.getName),format.raw/*19.102*/("""
+          """),format.raw/*20.11*/("""<span class="badge badge-pill badge-primary">"""),_display_(/*20.57*/p/*20.58*/.getPosts().size),format.raw/*20.74*/("""</span></a>
+      """)))}),format.raw/*21.8*/("""
+    """),format.raw/*22.5*/("""</div>
   </div>
   <div class="col-sm-8">
-      """),_display_(/*23.8*/if(flash.containsKey("success"))/*23.40*/ {_display_(Seq[Any](format.raw/*23.42*/("""
-        """),format.raw/*24.9*/("""<div class="alert alert-success">
-          """),_display_(/*25.12*/flash/*25.17*/.get("success")),format.raw/*25.32*/("""
-        """),format.raw/*26.9*/("""</div>
-      """)))}),format.raw/*27.8*/("""
+      """),_display_(/*25.8*/if(flash.containsKey("success"))/*25.40*/ {_display_(Seq[Any](format.raw/*25.42*/("""
+        """),format.raw/*26.9*/("""<div class="alert alert-success">
+          """),_display_(/*27.12*/flash/*27.17*/.get("success")),format.raw/*27.32*/("""
+        """),format.raw/*28.9*/("""</div>
+      """)))}),format.raw/*29.8*/("""
 
-      			"""),format.raw/*29.10*/("""<!-- Search Form -->
+      			"""),format.raw/*31.10*/("""<!-- Search Form -->
 			<div id="actions">
-        <form action=""""),_display_(/*31.24*/routes/*31.30*/.CommunityCtrl.forumPage(prodId)),format.raw/*31.62*/("""" method="GET">
-         <input type="search" id="searchbox" name="filter" value=""""),_display_(/*32.68*/filter),format.raw/*32.74*/("""" placeholder="Filter by post title...">
+        <form action=""""),_display_(/*33.24*/routes/*33.30*/.CommunityCtrl.forumPage(prodId)),format.raw/*33.62*/("""" method="GET">
+         <input type="search" id="searchbox" name="filter" value=""""),_display_(/*34.68*/filter),format.raw/*34.74*/("""" placeholder="Filter by post title...">
          <input type="submit" id="searchsubmit" value="Filter by name" class="btn-md btn-primary">
         </form>
        </div>
-    <table class="table table-hover table-condensed">   
+    <table class="table table-hover table-condensed" id="forums">   
       <thead>
         <tr>
           <th>Title</th>
@@ -76,25 +78,30 @@ Seq[Any](format.raw/*4.118*/("""
       </thead>
 
       <tbody>
-        """),_display_(/*47.10*/for(fp<-posts) yield /*47.24*/ {_display_(Seq[Any](format.raw/*47.26*/("""
-          """),format.raw/*48.11*/("""<tr>
-            <td><a href=""""),_display_(/*49.27*/routes/*49.33*/.CommunityCtrl.viewPost(fp.getId)),format.raw/*49.66*/("""">
-                """),_display_(/*50.18*/fp/*50.20*/.getTitle),format.raw/*50.29*/("""</td>
+        """),_display_(/*49.10*/for(fp<-posts) yield /*49.24*/ {_display_(Seq[Any](format.raw/*49.26*/("""
+          """),format.raw/*50.11*/("""<tr>
+            <td><a href=""""),_display_(/*51.27*/routes/*51.33*/.CommunityCtrl.viewPost(fp.getId)),format.raw/*51.66*/("""">
+                """),_display_(/*52.18*/fp/*52.20*/.getTitle),format.raw/*52.29*/("""</td>
                </a>     
-               """),_display_(/*52.17*/if(fp.getAuthor != null)/*52.41*/{_display_(Seq[Any](format.raw/*52.42*/("""
-                """),format.raw/*53.17*/("""<td>"""),_display_(/*53.22*/fp/*53.24*/.getAuthor.getName),format.raw/*53.42*/("""</td>
-               """)))}/*54.17*/else/*54.21*/{_display_(Seq[Any](format.raw/*54.22*/("""
-                """),format.raw/*55.17*/("""<td>N/A</td>
-               """)))}),format.raw/*56.17*/("""
-               """),format.raw/*57.16*/("""<td>"""),_display_(/*57.21*/fp/*57.23*/.getProduct.getName),format.raw/*57.42*/("""</td>
-            <td  class="numeric">"""),_display_(/*58.35*/fp/*58.37*/.getReplies.size),format.raw/*58.53*/("""</td>
+               """),_display_(/*54.17*/if(fp.getAuthor != null)/*54.41*/{_display_(Seq[Any](format.raw/*54.42*/("""
+                """),format.raw/*55.17*/("""<td>"""),_display_(/*55.22*/fp/*55.24*/.getAuthor.getName),format.raw/*55.42*/("""</td>
+               """)))}/*56.17*/else/*56.21*/{_display_(Seq[Any](format.raw/*56.22*/("""
+                """),format.raw/*57.17*/("""<td>N/A</td>
+               """)))}),format.raw/*58.17*/("""
+               """),_display_(/*59.17*/if(fp.getProduct != null)/*59.42*/{_display_(Seq[Any](format.raw/*59.43*/("""
+                """),format.raw/*60.17*/("""<td>"""),_display_(/*60.22*/fp/*60.24*/.getProduct.getName),format.raw/*60.43*/("""</td>
+               """)))}/*61.17*/else/*61.21*/{_display_(Seq[Any](format.raw/*61.22*/("""
+                 """),format.raw/*62.18*/("""<td>N/A</td>
+               """)))}),format.raw/*63.17*/("""
+               
+            """),format.raw/*65.13*/("""<td  class="numeric">"""),_display_(/*65.35*/fp/*65.37*/.getReplies.size),format.raw/*65.53*/("""</td>
           </tr>
-        """)))}),format.raw/*60.10*/("""
-      """),format.raw/*61.7*/("""</tbody>
+        """)))}),format.raw/*67.10*/("""
+      """),format.raw/*68.7*/("""</tbody>
 
     </table>
     <p>
-        <a href=""""),_display_(/*65.19*/routes/*65.25*/.CommunityCtrl.createPost()),format.raw/*65.52*/("""">
+        <a href=""""),_display_(/*72.19*/routes/*72.25*/.CommunityCtrl.createPost()),format.raw/*72.52*/("""">
           <button class="btn btn-primary">Add a Post</button>
         </a>
       </p>
@@ -116,11 +123,11 @@ Seq[Any](format.raw/*4.118*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Apr 16 18:01:41 IST 2018
-                  SOURCE: /home/brandon/Documents/SemesterCA/app/views/forumPage.scala.html
-                  HASH: f82f7fdc3aaf1abeb5b2c04e97292268ee7a0e65
-                  MATRIX: 651->1|692->36|730->68|1124->94|1336->210|1365->214|1392->233|1431->235|1459->237|1644->395|1659->401|1715->436|1791->486|1825->504|1865->506|1901->515|1938->525|1953->531|2015->572|2069->599|2079->600|2109->608|2145->617|2187->629|2219->634|2293->682|2334->714|2374->716|2410->725|2482->770|2496->775|2532->790|2568->799|2612->813|2651->824|2744->890|2759->896|2812->928|2922->1011|2949->1017|3391->1432|3421->1446|3461->1448|3500->1459|3558->1490|3573->1496|3627->1529|3674->1549|3685->1551|3715->1560|3789->1607|3822->1631|3861->1632|3906->1649|3938->1654|3949->1656|3988->1674|4029->1696|4042->1700|4081->1701|4126->1718|4186->1747|4230->1763|4262->1768|4273->1770|4313->1789|4380->1829|4391->1831|4428->1847|4490->1878|4524->1885|4600->1934|4615->1940|4663->1967
-                  LINES: 24->1|25->2|26->3|31->4|36->4|39->7|39->7|39->7|41->9|47->15|47->15|47->15|48->16|48->16|48->16|49->17|49->17|49->17|49->17|49->17|49->17|49->17|50->18|51->19|52->20|55->23|55->23|55->23|56->24|57->25|57->25|57->25|58->26|59->27|61->29|63->31|63->31|63->31|64->32|64->32|79->47|79->47|79->47|80->48|81->49|81->49|81->49|82->50|82->50|82->50|84->52|84->52|84->52|85->53|85->53|85->53|85->53|86->54|86->54|86->54|87->55|88->56|89->57|89->57|89->57|89->57|90->58|90->58|90->58|92->60|93->61|97->65|97->65|97->65
+                  DATE: Tue Apr 17 11:44:19 IST 2018
+                  SOURCE: /home/wdd/SemesterCA/app/views/forumPage.scala.html
+                  HASH: abbd2656e87c62a3f5c8a38fb58b23734d3d1dac
+                  MATRIX: 651->1|692->36|730->68|1124->94|1336->210|1365->214|1392->233|1431->235|1459->237|1670->421|1685->427|1741->462|1829->524|1863->542|1903->544|1939->553|1976->563|1991->569|2053->610|2107->637|2117->638|2147->646|2186->657|2259->703|2269->704|2306->720|2355->739|2387->744|2461->792|2502->824|2542->826|2578->835|2650->880|2664->885|2700->900|2736->909|2780->923|2819->934|2912->1000|2927->1006|2980->1038|3090->1121|3117->1127|3571->1554|3601->1568|3641->1570|3680->1581|3738->1612|3753->1618|3807->1651|3854->1671|3865->1673|3895->1682|3969->1729|4002->1753|4041->1754|4086->1771|4118->1776|4129->1778|4168->1796|4209->1818|4222->1822|4261->1823|4306->1840|4366->1869|4410->1886|4444->1911|4483->1912|4528->1929|4560->1934|4571->1936|4611->1955|4652->1977|4665->1981|4704->1982|4750->2000|4810->2029|4867->2058|4916->2080|4927->2082|4964->2098|5026->2129|5060->2136|5136->2185|5151->2191|5199->2218
+                  LINES: 24->1|25->2|26->3|31->4|36->4|39->7|39->7|39->7|41->9|48->16|48->16|48->16|50->18|50->18|50->18|51->19|51->19|51->19|51->19|51->19|51->19|51->19|52->20|52->20|52->20|52->20|53->21|54->22|57->25|57->25|57->25|58->26|59->27|59->27|59->27|60->28|61->29|63->31|65->33|65->33|65->33|66->34|66->34|81->49|81->49|81->49|82->50|83->51|83->51|83->51|84->52|84->52|84->52|86->54|86->54|86->54|87->55|87->55|87->55|87->55|88->56|88->56|88->56|89->57|90->58|91->59|91->59|91->59|92->60|92->60|92->60|92->60|93->61|93->61|93->61|94->62|95->63|97->65|97->65|97->65|97->65|99->67|100->68|104->72|104->72|104->72
                   -- GENERATED --
               */
           

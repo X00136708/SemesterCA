@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/brandon/Documents/SemesterCA/conf/routes
-// @DATE:Mon Apr 16 16:38:14 IST 2018
+// @SOURCE:/home/wdd/SemesterCA/conf/routes
+// @DATE:Tue Apr 17 12:45:50 IST 2018
 
 import play.api.mvc.Call
 
@@ -12,14 +12,14 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:58
+  // @LINE:62
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:58
+    // @LINE:62
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
@@ -181,10 +181,22 @@ package controllers {
     }
 
   
+    // @LINE:58
+    def createReviewSubmit(prodId:Long): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "createReviewSubmit/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("prodId", prodId)))
+    }
+  
     // @LINE:14
     def addUser(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addUser")
+    }
+  
+    // @LINE:57
+    def createReview(prodId:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "createReview/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("prodId", prodId)))
     }
   
     // @LINE:53
@@ -197,6 +209,12 @@ package controllers {
     def createReply(postId:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "createReply/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("postId", postId)))
+    }
+  
+    // @LINE:59
+    def deleteReview(reviewId:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "deleteReview/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("reviewId", reviewId)))
     }
   
     // @LINE:15

@@ -1,5 +1,6 @@
 package controllers;
 import controllers.security.*;
+import controllers.ProductCtrl;
 import models.community.*;
 import models.*;
 import play.mvc.*;
@@ -156,6 +157,7 @@ public class CommunityCtrl extends Controller {
 
         return redirect(controllers.routes.CommunityCtrl.viewPost(newReply.getForumPost().getId()));
     }
+
     public Result addUser() {
             Form<User> userForm = formFactory.form(User.class);
            
@@ -166,7 +168,7 @@ public class CommunityCtrl extends Controller {
             Form<User> newUserForm = formFactory.form(User.class).bindFromRequest();
     
             if (newUserForm.hasErrors()){
-                
+                flash("failure", "Error creating account");
                 return badRequest(addUser.render(newUserForm, User.getLoggedIn(session().get("email"))));
             }
             else {
@@ -177,8 +179,57 @@ public class CommunityCtrl extends Controller {
     
             return redirect(controllers.routes.CommunityCtrl.usersPage());
         }
+
          public Result usersPage() {
             List<User> userList = User.findAll();
             return ok(usersPage.render(userList, User.getLoggedIn(session().get("email"))));
         }
+
+        public Result createReview(Long prodId) {
+            Form<ProductReview> createReviewForm = formFactory.form(ProductReview.class);
+            return ok(createReview.render(createReviewForm, getCurrentUser(), prodId));
+        }
+        @Transactional
+        public Result createReviewSubmit(Long prodId) {
+            ProductReview newReview;
+            Form<ProductReview> newReviewForm = formFactory.form(ProductReview.class).bindFromRequest();
+    
+            if (newReviewForm.hasErrors()) {
+                return badRequest(createReview.render(newReviewForm, 
+                getCurrentUser(), prodId));
+            }
+            else {
+                 newReview = newReviewForm.get();
+    
+            
+                    // Save the object to the Products table in the database
+                    newReview.save();
+    
+                    Product p = Product.find.byId(prodId);
+    
+                    newReview.setAuthor(getCurrentUser());
+                    newReview.setProduct(p);
+                    p.getReviews().add(newReview);
+    
+                    p.update();
+                    newReview.update();
+                                    // Get category ids (checked boxes from form)
+                        // Find category objects and set categories list for this product
+    
+            }
+            flash("success", "Forum post has been created");
+    
+            return redirect(controllers.routes.ProductCtrl.productDetails(prodId));
+        }
+    @Security.Authenticated(Secured.class)
+    @With(CheckIfAdmin.class)
+    @Transactional
+    public Result deleteReview(Long id) {
+        Long prodId = ProductReview.find.ref(id).getProduct().getId();
+        ProductReview.find.ref(id).delete();
+
+        flash("success", "Review has been deleted");
+        
+        return redirect(controllers.routes.ProductCtrl.productDetails(prodId));
+    }
 }

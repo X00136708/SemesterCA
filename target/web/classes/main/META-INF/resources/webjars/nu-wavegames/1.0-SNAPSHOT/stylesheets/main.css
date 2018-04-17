@@ -72,7 +72,7 @@ b{
     /* padding: 5px; */
     font: 15px/20px sans-serif;
     width: 850px;
-    height: 450px;
+    height: 452px;
     overflow: auto;
     }
     .myBtnContainer{
@@ -92,6 +92,7 @@ table{
     color:white;
     background-color:#23272A;
     border:.1em solid #2C2F33;
+
 }
 
 .color{
@@ -117,9 +118,12 @@ html{
 .category .btn-sm{
     color: white;
     background-color: #7289DA;
-    border:.1em solid #2C2F33;
+    border:.1em solid #23272A;
     font-size:1em;
     display: inline-block;
+}
+.category a{
+    background-color: #23272A;
 }
 .search {
     
@@ -198,12 +202,22 @@ h6 {
 }
 #productList a{
     color: white;
-    background-color: #7289DA;
-    border:.1em solid #2C2F33;
+    background-color: #2C2F33;
+    border:.2em solid #23272A;
     font-size:1em;
     display: block;
+}
+#listHead a {
+    color: white;
+    background-color: #7289DA;
+    border:.1em solid #2C2F33;
 }
 #postProduct {
     float: right;
     padding: 0;
+}
+thead {
+    color: white;
+    background-color: #7289DA;
+    border:.1em solid #2C2F33;
 }
