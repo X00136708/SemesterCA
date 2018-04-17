@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SemesterCA/conf/routes
-// @DATE:Tue Apr 17 12:45:50 IST 2018
+// @SOURCE:C:/Users/doran/Documents/2ndYearProject/newSemca/semesterca/conf/routes
+// @DATE:Tue Apr 17 16:48:06 BST 2018
 
 package controllers;
 
