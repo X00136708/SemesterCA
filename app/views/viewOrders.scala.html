@@ -46,9 +46,12 @@
 						<td>@i.getProduct.getName</td>
 						<td>&euro; @("%.2f".format(i.getProduct.getPrice))</td>
                         <td>@i.getQuantity()</td>
-                        <td>&euro; @("%.2f".format(i.getItemTotala))</td>                        
+						<td>&euro; @("%.2f".format(i.getItemTotala))</td>                        
+						
 					</tr>
+					
 				</tbody>
+				
 					}<!-- End of For loop -->
 					
               }
@@ -76,6 +79,7 @@
 		return confirm('Are you sure?');
 	}
 </script>
+
 }
 
 

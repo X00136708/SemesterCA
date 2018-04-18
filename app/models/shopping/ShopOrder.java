@@ -14,6 +14,8 @@ import models.products.*;
 import models.users.*;
 import java.sql.Timestamp;
 import play.Logger;
+import java.io.*;
+import io.ebean.*;
 
 // ShopOrder entity managed by Ebean
 @Entity
@@ -25,6 +27,8 @@ public class ShopOrder extends Model {
     
     private Timestamp OrderDate;
     private Timestamp OrderDate1;
+    private OrderItem price;
+
     
     // Order contains may items.
     // mappedBy makes this side of the mapping the owner
@@ -35,10 +39,17 @@ public class ShopOrder extends Model {
     
     @ManyToOne
     private RegisteredUser registeredUser;
+   
 
     // Default constructor
       public  ShopOrder() {
         OrderDate = new Timestamp(System.currentTimeMillis());
+    }
+    public ShopOrder(OrderItem price){
+       
+        this.price=price;
+        Ebean.save(this);
+         
     }
     public double getOrderTotal() {
         
@@ -59,7 +70,9 @@ public class ShopOrder extends Model {
     }
 
     public Long getId() {
+        
         return id;
+        
     }
 
     public void setId(Long id) {
@@ -112,7 +125,7 @@ public class ShopOrder extends Model {
     }
     public boolean isCancellable(){
         
-        if((System.currentTimeMillis() - OrderDate.getTime()) > 60000){//86400000
+        if((System.currentTimeMillis() - OrderDate.getTime()) > 86400000){//Time in a day
             
             return false;
         }
@@ -126,7 +139,11 @@ public class ShopOrder extends Model {
         for(OrderItem o : items){
             totalPrice += o.getTotal();
         }
+
         return totalPrice;
+        
     }
+    
+   
 
 }

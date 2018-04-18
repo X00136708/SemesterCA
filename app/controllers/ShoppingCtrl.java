@@ -145,7 +145,7 @@ public class ShoppingCtrl extends Controller {
         order.setRegisteredUser(c);
         
         order.getOrderDate().setTime(System.currentTimeMillis());
-         Logger.debug("shit: " + System.currentTimeMillis() + "yea : " + order.getOrderDate() + "");
+        
         
 
 
@@ -195,7 +195,7 @@ public class ShoppingCtrl extends Controller {
         
         emptyBasket();
         c.getBasket().update();
-          
+        
         return ok(orderConfirmed.render(c, order));
     }
     

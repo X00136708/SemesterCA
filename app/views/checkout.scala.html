@@ -49,8 +49,10 @@
                         
                         <td>@i.getQuantity()</td>
                         <td>&euro; @("%.2f".format(i.getItemTotal))</td>
+                          
                        
                     </tr>
+
                     }<!-- End of For loop -->
               }
               
@@ -209,7 +211,7 @@
                              
                                 deliveryCharge=2.99;
                             }
-                            console.log(location);
+                            
                             
                             document.getElementById("myLink").innerHTML="€"+deliveryCharge;
                             
@@ -243,6 +245,7 @@
                           async defer></script>
                     </body>
                       <form action="@routes.ShoppingCtrl.placeOrder()" method="POST">
+
                            
                         <script
                           src="https://checkout.stripe.com/checkout.js" class="stripe-button"

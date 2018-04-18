@@ -9,6 +9,7 @@ import play.data.validation.*;
 
 import models.products.*;
 import models.users.*;
+import play.Logger;
 
 // OrderItem entity managed by Ebean
 @Entity
@@ -74,8 +75,10 @@ public class OrderItem extends Model {
     }
 
     public ShopOrder getOrder() {
+        Logger.debug("Order: "+order);
         return order;
     }
+    
 
     public void setOrder(ShopOrder order) {
         this.order = order;
