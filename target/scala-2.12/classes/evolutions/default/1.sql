@@ -70,6 +70,7 @@ create table product_review (
 create table shop_order (
   id                            bigint auto_increment not null,
   order_date                    timestamp,
+  order_date1                   timestamp,
   registered_user_email         varchar(255),
   constraint pk_shop_order primary key (id)
 );

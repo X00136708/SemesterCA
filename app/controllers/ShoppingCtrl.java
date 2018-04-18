@@ -92,7 +92,7 @@ public class ShoppingCtrl extends Controller {
         OrderItem item = OrderItem.find.byId(itemId);
       
 
-        if(item.getProduct().getStock() <= item.getProduct().getStock() - item.getQuantity()){
+        if(item.getProduct().getStock() >= 1){
             item.increaseQty();
             
         } else {
@@ -143,10 +143,10 @@ public class ShoppingCtrl extends Controller {
         
        
         order.setRegisteredUser(c);
-        if(order.getOrderDate().getTime() !=0){
+        
         order.getOrderDate().setTime(System.currentTimeMillis());
          Logger.debug("shit: " + System.currentTimeMillis() + "yea : " + order.getOrderDate() + "");
-        }
+        
 
 
         

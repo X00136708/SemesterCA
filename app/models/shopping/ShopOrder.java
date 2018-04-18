@@ -24,7 +24,7 @@ public class ShopOrder extends Model {
     
     
     private Timestamp OrderDate;
-    
+    private Timestamp OrderDate1;
     
     // Order contains may items.
     // mappedBy makes this side of the mapping the owner
@@ -71,7 +71,14 @@ public class ShopOrder extends Model {
     }
 
     public void setOrderDate(Timestamp orderDate) {
-        OrderDate = orderDate;
+        this.OrderDate = orderDate;
+    }
+    public Timestamp getOrderDate1() {
+        return OrderDate1;
+    }
+
+    public void setOrderDate1(Timestamp orderDate) {
+        this.OrderDate1 = orderDate;
     }
 
     public List<OrderItem> getItems() {
@@ -98,15 +105,15 @@ public class ShopOrder extends Model {
                         .orderBy("name asc")
                         .findList();
     }
-    public String getDateString() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
-        OrderDate = new Timestamp(System.currentTimeMillis());
-        return(dateFormat.format(OrderDate.getTime()));
+    public Timestamp getDateString() {
+        
+        OrderDate1 = getOrderDate();
+        return OrderDate;
     }
     public boolean isCancellable(){
-        Logger.debug("shit: " + System.currentTimeMillis() + "yea : " + getOrderDate() + "");
-        if((System.currentTimeMillis() - OrderDate.getTime()) > 120000){
-            Logger.debug("Current time: "+ System.currentTimeMillis() + "Order Time: "+OrderDate.getTime());
+        
+        if((System.currentTimeMillis() - OrderDate.getTime()) > 60000){//86400000
+            
             return false;
         }
         else{

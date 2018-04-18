@@ -9,6 +9,7 @@
 	<link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
 	
 			
+	
 			
 	@if(flash.containsKey("success")) {
         <div class="alert alert-success">
@@ -17,7 +18,7 @@
 	}
 
 @for(o<-orders){
-	
+	<div class="col-sm-7">
 	<label>Order Number: @o.getId</label>
 	<br>
 	<label>Order Date: @o.getDateString</label>
@@ -64,7 +65,8 @@
 				<a href="@routes.ShoppingCtrl.cancelOrder(o.getId)" class="btn btn-primary" onclick="return confirmDel();">Cancel Order</a>
 		</div>
 	}
-    </div>
+	</div>
+</div>
 </div>
 
 
