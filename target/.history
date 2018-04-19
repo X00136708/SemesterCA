@@ -49,12 +49,6 @@ compile
 clean
 compile
 clean
-compile
-clean
-compile
-clean
-compile
-clean
 exit
 clean
 compile
@@ -495,6 +489,12 @@ run
 clen
 clean
 run
+clean
+run
+exit
+clean
+run
+exit
 clean
 run
 exit

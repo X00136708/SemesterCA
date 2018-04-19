@@ -13,7 +13,7 @@
     <h4>Products</h4>
     <div class="list-group" id="productList">
       <div id="listHead">
-      <a href="@routes.CommunityCtrl.forumPage(0, filter)" class="list-group-item" >All Products</a>
+      <a href="@routes.CommunityCtrl.forumPage(0, filter)" class="list-group-item" id="forumProd">All Products</a>
     </div>
       @for(p <- products) {
         <a href="@routes.CommunityCtrl.forumPage(p.getId, filter)" class="list-group-item">@p.getName
@@ -35,7 +35,7 @@
          <input type="submit" id="searchsubmit" value="Filter by name" class="btn-md btn-primary">
         </form>
        </div>
-    <table class="table table-hover table-condensed" id="forums">   
+    <table class="table table-condensed" id="forums">   
       <thead>
         <tr>
           <th>Title</th>
