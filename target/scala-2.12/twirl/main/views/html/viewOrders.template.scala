@@ -26,15 +26,15 @@ import play.core.j.PlayFormsMagicForJava._
 /*3.2*/import models.products._
 /*4.2*/import models.users._
 
-object viewOrders extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[models.users.RegisteredUser,List[ShopOrder],play.twirl.api.HtmlFormat.Appendable] {
+object viewOrders extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[models.users.RegisteredUser,List[ShopOrder],models.shopping.Log,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*5.2*/(registeredUser: models.users.RegisteredUser, orders: List[ShopOrder]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*5.2*/(registeredUser: models.users.RegisteredUser, orders: List[ShopOrder],log:models.shopping.Log):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*5.72*/("""
+Seq[Any](format.raw/*5.96*/("""
 """),format.raw/*6.1*/("""<!-- Pass page title and user on to main -->
 """),_display_(/*7.2*/main("View Orders", registeredUser)/*7.37*/ {_display_(Seq[Any](format.raw/*7.39*/("""
 	"""),format.raw/*8.2*/("""<div class="row"></div>
@@ -81,38 +81,39 @@ Seq[Any](format.raw/*5.72*/("""
 						<td>&euro; """),_display_(/*49.19*/("%.2f".format(i.getItemTotala))),format.raw/*49.51*/("""</td>                        
 						
 					</tr>
+					"""),_display_(/*52.7*/log/*52.10*/.addOrder(o.getId,o.getDateString,i.getProduct.getName,i.getQuantity,o.getTotal())),format.raw/*52.92*/("""
 					
-				</tbody>
+				"""),format.raw/*54.5*/("""</tbody>
 				
-					""")))}),format.raw/*55.7*/("""<!-- End of For loop -->
+					""")))}),format.raw/*56.7*/("""<!-- End of For loop -->
 					
-              """)))}),format.raw/*57.16*/("""
+              """)))}),format.raw/*58.16*/("""
 			
-		"""),format.raw/*59.3*/("""</table>
+		"""),format.raw/*60.3*/("""</table>
         <div class="row">
             <div class="col-md-12">
-                <p class="text-right"><strong>Order Total: &euro; """),_display_(/*62.68*/("%.2f".format(o.getTotal()))),format.raw/*62.97*/("""</strong></p>
+                <p class="text-right"><strong>Order Total: &euro; """),_display_(/*63.68*/("%.2f".format(o.getTotal()))),format.raw/*63.97*/("""</strong></p>
             </div>  
 		</div>
-		"""),_display_(/*65.4*/if(o.isCancellable())/*65.25*/{_display_(Seq[Any](format.raw/*65.26*/("""
+		"""),_display_(/*66.4*/if(o.isCancellable())/*66.25*/{_display_(Seq[Any](format.raw/*66.26*/("""
 
-		"""),format.raw/*67.3*/("""<div class="form-group">
-				<a href=""""),_display_(/*68.15*/routes/*68.21*/.ShoppingCtrl.cancelOrder(o.getId)),format.raw/*68.55*/("""" class="btn btn-primary" onclick="return confirmDel();">Cancel Order</a>
+		"""),format.raw/*68.3*/("""<div class="form-group">
+				<a href=""""),_display_(/*69.15*/routes/*69.21*/.ShoppingCtrl.cancelOrder(o.getId)),format.raw/*69.55*/("""" class="btn-md btn-default btn" onclick="return confirmDel();">Cancel Order</a>
 		</div>
-	""")))}),format.raw/*70.3*/("""
-	"""),format.raw/*71.2*/("""</div>
+	""")))}),format.raw/*71.3*/("""
+	"""),format.raw/*72.2*/("""</div>
 </div>
 </div>
 
 
 <script>
 	// JavaScript function returns true if user clicks yes, otherwise, false
-	function confirmDel() """),format.raw/*78.24*/("""{"""),format.raw/*78.25*/("""
-		"""),format.raw/*79.3*/("""return confirm('Are you sure?');
-	"""),format.raw/*80.2*/("""}"""),format.raw/*80.3*/("""
-"""),format.raw/*81.1*/("""</script>
+	function confirmDel() """),format.raw/*79.24*/("""{"""),format.raw/*79.25*/("""
+		"""),format.raw/*80.3*/("""return confirm('Are you sure?');
+	"""),format.raw/*81.2*/("""}"""),format.raw/*81.3*/("""
+"""),format.raw/*82.1*/("""</script>
 
-""")))}),format.raw/*83.2*/("""
+""")))}),format.raw/*84.2*/("""
 
 
 """)))}))
@@ -120,9 +121,9 @@ Seq[Any](format.raw/*5.72*/("""
     }
   }
 
-  def render(registeredUser:models.users.RegisteredUser,orders:List[ShopOrder]): play.twirl.api.HtmlFormat.Appendable = apply(registeredUser,orders)
+  def render(registeredUser:models.users.RegisteredUser,orders:List[ShopOrder],log:models.shopping.Log): play.twirl.api.HtmlFormat.Appendable = apply(registeredUser,orders,log)
 
-  def f:((models.users.RegisteredUser,List[ShopOrder]) => play.twirl.api.HtmlFormat.Appendable) = (registeredUser,orders) => apply(registeredUser,orders)
+  def f:((models.users.RegisteredUser,List[ShopOrder],models.shopping.Log) => play.twirl.api.HtmlFormat.Appendable) = (registeredUser,orders,log) => apply(registeredUser,orders,log)
 
   def ref: this.type = this
 
@@ -131,11 +132,11 @@ Seq[Any](format.raw/*5.72*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 19 09:20:24 IST 2018
-                  SOURCE: /home/wdd/SemesterCA/app/views/viewOrders.scala.html
-                  HASH: a317e7a6e3f11e69ef71863365d330de0e3a34f8
-                  MATRIX: 651->1|687->31|719->57|751->83|1119->106|1284->176|1311->177|1382->223|1425->258|1464->260|1492->262|1556->300|1570->306|1631->347|1693->383|1734->415|1774->417|1810->426|1882->471|1896->476|1932->491|1962->494|2001->503|2030->506|2060->520|2099->521|2128->523|2201->569|2211->570|2238->576|2301->612|2311->613|2346->627|2640->894|2687->932|2727->934|2782->961|2876->1029|2914->1051|2954->1053|3015->1087|3047->1092|3057->1093|3097->1112|3148->1136|3207->1174|3269->1209|3279->1210|3314->1224|3365->1248|3418->1280|3526->1358|3603->1404|3637->1411|3802->1549|3852->1578|3925->1625|3955->1646|3994->1647|4025->1651|4091->1690|4106->1696|4161->1730|4276->1815|4305->1817|4462->1946|4491->1947|4521->1950|4582->1984|4610->1985|4638->1986|4680->1998
-                  LINES: 24->1|25->2|26->3|27->4|32->5|37->5|38->6|39->7|39->7|39->7|40->8|41->9|41->9|41->9|46->14|46->14|46->14|47->15|48->16|48->16|48->16|49->17|50->18|52->20|52->20|52->20|53->21|54->22|54->22|54->22|56->24|56->24|56->24|72->40|72->40|72->40|74->42|75->43|75->43|75->43|78->46|78->46|78->46|78->46|79->47|79->47|80->48|80->48|80->48|81->49|81->49|87->55|89->57|91->59|94->62|94->62|97->65|97->65|97->65|99->67|100->68|100->68|100->68|102->70|103->71|110->78|110->78|111->79|112->80|112->80|113->81|115->83
+                  DATE: Thu Apr 19 17:22:01 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/viewOrders.scala.html
+                  HASH: 7f6c8fde4505d3c6e54f52a86f2d0e916863923d
+                  MATRIX: 651->1|687->32|719->59|751->86|1139->110|1328->204|1356->206|1428->253|1471->288|1510->290|1539->293|1604->332|1618->338|1679->379|1746->420|1787->452|1827->454|1864->464|1937->510|1951->515|1987->530|2018->534|2058->544|2089->549|2119->563|2158->564|2188->567|2262->614|2272->615|2299->621|2364->659|2374->660|2409->674|2719->957|2766->995|2806->997|2863->1026|2958->1095|2996->1117|3036->1119|3100->1156|3132->1161|3142->1162|3182->1181|3234->1206|3293->1244|3356->1280|3366->1281|3401->1295|3453->1320|3506->1352|3589->1409|3601->1412|3704->1494|3744->1507|3796->1529|3875->1577|3911->1586|4079->1727|4129->1756|4205->1806|4235->1827|4274->1828|4307->1834|4374->1874|4389->1880|4444->1914|4568->2008|4598->2011|4762->2147|4791->2148|4822->2152|4884->2187|4912->2188|4941->2190|4985->2204
+                  LINES: 24->1|25->2|26->3|27->4|32->5|37->5|38->6|39->7|39->7|39->7|40->8|41->9|41->9|41->9|46->14|46->14|46->14|47->15|48->16|48->16|48->16|49->17|50->18|52->20|52->20|52->20|53->21|54->22|54->22|54->22|56->24|56->24|56->24|72->40|72->40|72->40|74->42|75->43|75->43|75->43|78->46|78->46|78->46|78->46|79->47|79->47|80->48|80->48|80->48|81->49|81->49|84->52|84->52|84->52|86->54|88->56|90->58|92->60|95->63|95->63|98->66|98->66|98->66|100->68|101->69|101->69|101->69|103->71|104->72|111->79|111->79|112->80|113->81|113->81|114->82|116->84
                   -- GENERATED --
               */
           

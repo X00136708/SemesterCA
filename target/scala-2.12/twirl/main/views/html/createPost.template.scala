@@ -45,15 +45,15 @@ Seq[Any](format.raw/*4.41*/("""
         """),_display_(/*13.10*/inputText(postForm("title"), '_label -> "Title", 'class -> "form-control")),format.raw/*13.84*/("""
         """),_display_(/*14.10*/select(
             postForm("product.id"), 
-            options(Product.options), '_label -> "Product", '_default -> "-- Choose a department --", 
+            options(Product.options), '_label -> "Game", '_default -> "-- Choose a department --", 
             '_showConstraints -> false, 'class -> "form-control"
             )),format.raw/*18.14*/("""
         """),_display_(/*19.10*/inputText(postForm("content"), '_label -> "Content", 'class -> "form-control")),format.raw/*19.88*/("""
 
         """),format.raw/*21.9*/("""<div class="actions">
-            <input type="submit" value="Add Product" class="btn btn-primary">
+            <input type="submit" value="Post Thread" class="btn-md btn-default btn">
             <a href=""""),_display_(/*23.23*/routes/*23.29*/.CommunityCtrl.forumPage(0)),format.raw/*23.56*/("""">
-                <button type="button" class="btn btn-warning">Cancel</button>
+                <button type="button" class="btn-md btn-default btn">Cancel</button>
             </a>
         </div>
     """)))}),format.raw/*27.6*/("""
@@ -73,10 +73,10 @@ Seq[Any](format.raw/*4.41*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 19 09:20:24 IST 2018
-                  SOURCE: /home/wdd/SemesterCA/app/views/createPost.scala.html
-                  HASH: 78e37f92b5284f48c270258a1bfcf851fd8f9ed7
-                  MATRIX: 651->1|692->36|730->68|1078->94|1190->135|1235->133|1262->151|1289->153|1323->179|1362->181|1393->186|1432->199|1446->205|1507->246|1598->311|1740->443|1781->445|1818->482|1855->492|1868->496|1899->506|1936->516|2031->590|2068->600|2315->826|2352->836|2451->914|2488->924|2637->1046|2652->1052|2700->1079|2848->1197
+                  DATE: Thu Apr 19 17:24:50 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/createPost.scala.html
+                  HASH: b3240ea0e34ab7a42287381829b5955d99c56336
+                  MATRIX: 651->1|692->37|730->70|1078->97|1190->139|1235->136|1263->156|1291->159|1325->185|1364->187|1396->193|1435->206|1449->212|1510->253|1603->320|1745->452|1786->454|1824->492|1862->503|1875->507|1906->517|1944->528|2039->602|2077->613|2325->840|2363->851|2462->929|2501->941|2659->1072|2674->1078|2722->1105|2881->1234
                   LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|40->8|40->8|40->8|42->10|42->10|42->10|43->11|44->12|44->12|44->12|45->13|45->13|46->14|50->18|51->19|51->19|53->21|55->23|55->23|55->23|59->27
                   -- GENERATED --
               */

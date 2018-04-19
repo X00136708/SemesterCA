@@ -19,15 +19,16 @@ import io.ebean.*;
 
 // ShopOrder entity managed by Ebean
 @Entity
-public class ShopOrder extends Model {
 
+public class ShopOrder extends Model {
+ 
     @Id
     private Long id;
-    
-    
     private Timestamp OrderDate;
     private Timestamp OrderDate1;
-    private OrderItem price;
+    private String name;
+    private int quantity;
+    private double total;
 
     
     // Order contains may items.
@@ -45,11 +46,18 @@ public class ShopOrder extends Model {
       public  ShopOrder() {
         OrderDate = new Timestamp(System.currentTimeMillis());
     }
-    public ShopOrder(OrderItem price){
-       
-        this.price=price;
-        Ebean.save(this);
+    public ShopOrder(Long id, Timestamp OrderDate, String name, int quantity, double total){
+        this.id=id;
+        this.OrderDate=OrderDate;
+        this.name=name;
+        this.quantity=quantity;
+        this.total=total;
+        // Ebean.save(this);
          
+    }
+    @Override
+    public String toString(){
+        return String.format("ID %d\t Order Date: "+OrderDate+"\t Name: %s\t Quantity: %d\t Order Total: %.2f   \t\t\t\t\t\t\t\t\t\t\t\t\t\t  ",id,name,quantity,total);
     }
     public double getOrderTotal() {
         

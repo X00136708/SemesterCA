@@ -15,28 +15,44 @@ import play.Logger;
 public class Log {
     ArrayList<ShopOrder> shop = new ArrayList<>();
     ArrayList<OrderItem> i = new ArrayList<>();
+    ShopOrder s = new ShopOrder();
+    private Long id;
+    Timestamp date;
+    private String name;
+    private double price;
+    private int quantity;
+    private double total;
     private RegisteredUser registeredUser;
     public Log(){
 
     }
     
     
-    public void addOrder(OrderItem price){
-        Logger.debug("Price: "+price);
-        shop.add(new ShopOrder(price));
+    public void addOrder(Long id, Timestamp date, String name, int quantity, double total){
+        this.id=id;
+        this.name=name;
+        this.date=date;
+        this.quantity=quantity;
+        this.total=total;
+        shop.add( new ShopOrder(id,date,name,quantity,total));
         writeToFile();
         
         
     }
     public void writeToFile(){
-        Logger.debug("hi: "+shop.get(0));
+        
         File order1 = new File("public","files");
-        File order = new File(order1, "purchases.txt");
+        File order = new File(order1, "orderLine.txt");
         try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(order)))){
-            out.println("Order Date\tOrder\tUser");
-            for(ShopOrder orders : shop){
-                out.print(orders);
+            
+            for(ShopOrder orders: shop){
+                
+                out.println(shop);
+                
+                out.close();
+                
             }
+            
         } catch(IOException ex){
             System.out.println(ex.getMessage());
         }

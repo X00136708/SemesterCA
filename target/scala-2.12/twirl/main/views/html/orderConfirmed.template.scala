@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object orderConfirmed extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[models.users.RegisteredUser,models.shopping.ShopOrder,play.twirl.api.HtmlFormat.Appendable] {
+object orderConfirmed extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[models.users.RegisteredUser,models.shopping.ShopOrder,models.shopping.Log,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(registeredUser: models.users.RegisteredUser, order: models.shopping.ShopOrder):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(registeredUser: models.users.RegisteredUser, order: models.shopping.ShopOrder, log: models.shopping.Log):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*4.2*/import play.api.Play.current
@@ -33,7 +33,7 @@ object orderConfirmed extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl
 /*6.2*/import models.products._
 
 
-Seq[Any](format.raw/*1.81*/("""
+Seq[Any](format.raw/*1.107*/("""
 
 
 """),format.raw/*7.1*/("""
@@ -70,12 +70,13 @@ Seq[Any](format.raw/*1.81*/("""
                         <td>"""),_display_(/*38.30*/i/*38.31*/.getProduct.getDescription),format.raw/*38.57*/("""</td>
                         <td>&euro; """),_display_(/*39.37*/("%.2f".format(i.getProduct.getPrice))),format.raw/*39.75*/("""</td>
 						<td>"""),_display_(/*40.12*/i/*40.13*/.getQuantity()),format.raw/*40.27*/("""</td>
-						<td>"""),_display_(/*41.12*/i/*41.13*/.getQuantity()),format.raw/*41.27*/("""</td>
+						
                         <td>&euro; """),_display_(/*42.37*/("%.2f".format(i.getItemTotala))),format.raw/*42.69*/("""</td>
-                    </tr>
-                    """)))}),format.raw/*44.22*/("""<!-- End of For loop -->
-              """)))}),format.raw/*45.16*/("""
-			"""),format.raw/*46.4*/("""</tbody>
+					</tr>
+					
+                    """)))}),format.raw/*45.22*/("""<!-- End of For loop -->
+              """)))}),format.raw/*46.16*/("""
+			"""),format.raw/*47.4*/("""</tbody>
 		</table>
         
         </div>
@@ -85,9 +86,9 @@ Seq[Any](format.raw/*1.81*/("""
     }
   }
 
-  def render(registeredUser:models.users.RegisteredUser,order:models.shopping.ShopOrder): play.twirl.api.HtmlFormat.Appendable = apply(registeredUser,order)
+  def render(registeredUser:models.users.RegisteredUser,order:models.shopping.ShopOrder,log:models.shopping.Log): play.twirl.api.HtmlFormat.Appendable = apply(registeredUser,order,log)
 
-  def f:((models.users.RegisteredUser,models.shopping.ShopOrder) => play.twirl.api.HtmlFormat.Appendable) = (registeredUser,order) => apply(registeredUser,order)
+  def f:((models.users.RegisteredUser,models.shopping.ShopOrder,models.shopping.Log) => play.twirl.api.HtmlFormat.Appendable) = (registeredUser,order,log) => apply(registeredUser,order,log)
 
   def ref: this.type = this
 
@@ -96,11 +97,11 @@ Seq[Any](format.raw/*1.81*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 19 09:20:25 IST 2018
-                  SOURCE: /home/wdd/SemesterCA/app/views/orderConfirmed.scala.html
-                  HASH: c77dc6ba324f1617349e5470965f88175d85e9a9
-                  MATRIX: 1004->1|1156->84|1192->114|1224->140|1278->80|1307->165|1334->166|1405->212|1455->254|1494->256|1524->259|1564->272|1579->278|1641->319|1736->388|1777->420|1817->422|1850->428|1921->472|1935->477|1971->492|2004->498|2044->508|2076->513|2382->792|2408->809|2448->811|2497->832|2607->915|2647->939|2687->941|2736->962|2797->996|2807->997|2847->1016|2909->1051|2919->1052|2966->1078|3035->1120|3094->1158|3138->1175|3148->1176|3183->1190|3227->1207|3237->1208|3272->1222|3341->1264|3394->1296|3478->1349|3549->1389|3580->1393
-                  LINES: 28->1|31->4|32->5|33->6|36->1|39->7|40->8|41->9|41->9|41->9|43->11|43->11|43->11|43->11|47->15|47->15|47->15|48->16|49->17|49->17|49->17|50->18|51->19|53->21|65->33|65->33|65->33|66->34|67->35|67->35|67->35|68->36|69->37|69->37|69->37|70->38|70->38|70->38|71->39|71->39|72->40|72->40|72->40|73->41|73->41|73->41|74->42|74->42|76->44|77->45|78->46
+                  DATE: Thu Apr 19 16:08:54 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/orderConfirmed.scala.html
+                  HASH: 0b371bb6f195fcc277cf9bb40f985ff8c893284e
+                  MATRIX: 1024->1|1202->113|1238->144|1270->171|1325->106|1357->197|1385->199|1457->246|1507->288|1546->290|1578->295|1618->308|1633->314|1695->355|1794->428|1835->460|1875->462|1909->469|1981->514|1995->519|2031->534|2065->541|2106->552|2140->559|2458->850|2484->867|2524->869|2574->891|2685->975|2725->999|2765->1001|2815->1023|2877->1058|2887->1059|2927->1078|2990->1114|3000->1115|3047->1141|3117->1184|3176->1222|3221->1240|3231->1241|3266->1255|3344->1306|3397->1338|3475->1385|3547->1426|3579->1431
+                  LINES: 28->1|31->4|32->5|33->6|36->1|39->7|40->8|41->9|41->9|41->9|43->11|43->11|43->11|43->11|47->15|47->15|47->15|48->16|49->17|49->17|49->17|50->18|51->19|53->21|65->33|65->33|65->33|66->34|67->35|67->35|67->35|68->36|69->37|69->37|69->37|70->38|70->38|70->38|71->39|71->39|72->40|72->40|72->40|74->42|74->42|77->45|78->46|79->47
                   -- GENERATED --
               */
           

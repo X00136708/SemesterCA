@@ -1,4 +1,4 @@
-@(registeredUser: models.users.RegisteredUser, order: models.shopping.ShopOrder)
+@(registeredUser: models.users.RegisteredUser, order: models.shopping.ShopOrder, log: models.shopping.Log)
 
 
 @import play.api.Play.current
@@ -38,9 +38,10 @@
                         <td>@i.getProduct.getDescription</td>
                         <td>&euro; @("%.2f".format(i.getProduct.getPrice))</td>
 						<td>@i.getQuantity()</td>
-						<td>@i.getQuantity()</td>
+						
                         <td>&euro; @("%.2f".format(i.getItemTotala))</td>
-                    </tr>
+					</tr>
+					
                     }<!-- End of For loop -->
               }
 			</tbody>

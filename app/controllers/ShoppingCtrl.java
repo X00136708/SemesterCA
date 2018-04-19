@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 import play.Logger;
 
 
+
 import controllers.security.*;
 
 
@@ -130,6 +131,8 @@ public class ShoppingCtrl extends Controller {
         return ok(basket.render(ru));
         
     }
+    
+   
 
        @Transactional
     public Result placeOrder() {
@@ -195,8 +198,9 @@ public class ShoppingCtrl extends Controller {
         
         emptyBasket();
         c.getBasket().update();
+        Log l = new Log();
         
-        return ok(orderConfirmed.render(c, order));
+        return ok(orderConfirmed.render(c, order,l));
     }
     
    
@@ -228,13 +232,15 @@ public class ShoppingCtrl extends Controller {
     @Transactional
     public Result viewOrder(long id) {
         ShopOrder order = ShopOrder.find.byId(id);
-        return ok(orderConfirmed.render(getCurrentUser(), order));
+        Log l = new Log();
+        return ok(orderConfirmed.render(getCurrentUser(), order,l));
     }
 
     @Transactional
     public Result viewOrders(String id) {
+        Log l = new Log();
         List<ShopOrder> orderList = ShopOrder.findOrders(id);
-        return ok(viewOrders.render(getCurrentUser(), orderList));
+        return ok(viewOrders.render(getCurrentUser(), orderList,l));
     }
 
     @Transactional

@@ -62,7 +62,7 @@
         <div class="row">
             <div class="col-md-6">
                 <p class="text-right">
-                    <a href="@routes.ShoppingCtrl.emptyBasket()" class="btn btn-danger btn-sm" onclick="return confirmDel();">
+                    <a href="@routes.ShoppingCtrl.emptyBasket()" class="btn-md btn-default btn" onclick="return confirmDel();">
                     <span class="glyphicon glyphicon-trash"></span> Empty Basket</a>
                     @if(registeredUser.getBasket.getBasketTotal == 0){
                         
@@ -72,7 +72,7 @@
         
             <div class="col-md-6">
                 <p class="text-right">
-                    <a href="@routes.ShoppingCtrl.confirmPurchase()" class="btn btn-success btn-sm">
+                    <a href="@routes.ShoppingCtrl.confirmPurchase()" class=" btn-md btn-default btn">
                     <span class="glyphicon glyphicon-euro"></span> Proceed to checkout</a>
                 </p>
             </div>  

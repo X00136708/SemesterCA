@@ -76,7 +76,7 @@ b{
     /* padding: 5px; */
     font: 15px/20px sans-serif;
     width: 850px;
-    height: 452px;
+    max-height: 452px;
     overflow: auto;
     }
 
@@ -88,7 +88,11 @@ b{
     }
 
 
-
+.btn-md{
+    background-color:grey;
+    color:white;
+    
+}
 body{
    background-image: url("../images/tile.jpg");
    background-color: #2C2F33;
@@ -193,6 +197,12 @@ dd{
 
 .list-group-item h4{
     color:white;
+}
+.list-group-item{
+    overflow:hidden;
+}
+.list-group-item:hover{
+    background-color:#2C2F33;
 }
 .list-group-item p{
     color:white;

@@ -2,7 +2,7 @@
 @import models.shopping._
 @import models.products._
 @import models.users._
-@(registeredUser: models.users.RegisteredUser, orders: List[ShopOrder])
+@(registeredUser: models.users.RegisteredUser, orders: List[ShopOrder],log:models.shopping.Log)
 <!-- Pass page title and user on to main -->
 @main("View Orders", registeredUser) {
 	<div class="row"></div>
@@ -49,6 +49,7 @@
 						<td>&euro; @("%.2f".format(i.getItemTotala))</td>                        
 						
 					</tr>
+					@log.addOrder(o.getId,o.getDateString,i.getProduct.getName,i.getQuantity,o.getTotal())
 					
 				</tbody>
 				
@@ -65,7 +66,7 @@
 		@if(o.isCancellable()){
 
 		<div class="form-group">
-				<a href="@routes.ShoppingCtrl.cancelOrder(o.getId)" class="btn btn-primary" onclick="return confirmDel();">Cancel Order</a>
+				<a href="@routes.ShoppingCtrl.cancelOrder(o.getId)" class="btn-md btn-default btn" onclick="return confirmDel();">Cancel Order</a>
 		</div>
 	}
 	</div>

@@ -13,15 +13,15 @@
         @inputText(postForm("title"), '_label -> "Title", 'class -> "form-control")
         @select(
             postForm("product.id"), 
-            options(Product.options), '_label -> "Product", '_default -> "-- Choose a department --", 
+            options(Product.options), '_label -> "Game", '_default -> "-- Choose a department --", 
             '_showConstraints -> false, 'class -> "form-control"
             )
         @inputText(postForm("content"), '_label -> "Content", 'class -> "form-control")
 
         <div class="actions">
-            <input type="submit" value="Add Product" class="btn btn-primary">
+            <input type="submit" value="Post Thread" class="btn-md btn-default btn">
             <a href="@routes.CommunityCtrl.forumPage(0)">
-                <button type="button" class="btn btn-warning">Cancel</button>
+                <button type="button" class="btn-md btn-default btn">Cancel</button>
             </a>
         </div>
     }

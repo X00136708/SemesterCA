@@ -45,9 +45,9 @@ Seq[Any](format.raw/*4.57*/("""
         """),_display_(/*13.10*/inputText(replyForm("content"), '_label -> "Content", 'class -> "form-control")),format.raw/*13.89*/("""
 
         """),format.raw/*15.9*/("""<div class="actions">
-            <input type="submit" value="Add Reply" class="btn btn-primary">
+            <input type="submit" value="Add Reply" class="btn-md btn-default btn">
             <a href=""""),_display_(/*17.23*/routes/*17.29*/.CommunityCtrl.viewPost(postId)),format.raw/*17.60*/("""">
-                <button type="button" class="btn btn-warning">Cancel</button>
+                <button type="button" class="btn-md btn-default btn">Cancel</button>
             </a>
         </div>
     """)))}),format.raw/*21.6*/("""
@@ -67,10 +67,10 @@ Seq[Any](format.raw/*4.57*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 19 09:20:24 IST 2018
-                  SOURCE: /home/wdd/SemesterCA/app/views/createReply.scala.html
-                  HASH: 19a3933dec464275a2a9fe477d798c4ba2c1a712
-                  MATRIX: 651->1|693->37|731->69|1086->95|1214->152|1259->150|1286->168|1313->170|1348->197|1387->199|1418->204|1457->217|1471->223|1532->264|1624->330|1773->469|1814->471|1851->508|1888->518|1901->522|1932->532|1969->542|2069->621|2106->631|2253->751|2268->757|2320->788|2468->906
+                  DATE: Thu Apr 19 17:22:01 BST 2018
+                  SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/createReply.scala.html
+                  HASH: 6a0d171f2f69680f7263b1e0d1727360fc1a70f7
+                  MATRIX: 651->1|693->38|731->71|1086->98|1214->156|1259->153|1287->173|1315->176|1350->203|1389->205|1421->211|1460->224|1474->230|1535->271|1629->339|1778->478|1819->480|1857->518|1895->529|1908->533|1939->543|1977->554|2077->633|2116->645|2272->774|2287->780|2339->811|2498->940
                   LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|40->8|40->8|40->8|42->10|42->10|42->10|43->11|44->12|44->12|44->12|45->13|45->13|47->15|49->17|49->17|49->17|53->21
                   -- GENERATED --
               */

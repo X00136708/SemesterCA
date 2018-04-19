@@ -9,10 +9,11 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
+
 @Entity
 
 
-public class Product extends Model {
+public class Product  extends Model  {
     
         // Properties
         @Id

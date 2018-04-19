@@ -34,7 +34,7 @@ GET     /checkOut                           controllers.ShoppingCtrl.confirmPurc
 GET     /addToWallet                        controllers.ShoppingCtrl.addToWallet(amount: Float)
 POST    /addToWalletSubmit                  controllers.ShoppingCtrl.addToWalletSubmit(amount: Float)
 
-# Product Administration
+
 
 GET		/Admin/addProduct					controllers.AdminProductCtrl.addProduct()
 POST	/Admin/addProductSubmit				controllers.AdminProductCtrl.addProductSubmit()
