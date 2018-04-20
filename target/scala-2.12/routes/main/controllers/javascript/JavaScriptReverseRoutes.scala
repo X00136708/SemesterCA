@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/doran/Documents/2ndYearProject/semesterca/conf/routes
-// @DATE:Thu Apr 19 16:08:53 BST 2018
+// @SOURCE:/home/wdd/webapps/SemesterCA/conf/routes
+// @DATE:Fri Apr 20 16:49:36 IST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -262,7 +262,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:15
+  // @LINE:12
   class ReverseCommunityCtrl(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -366,6 +366,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "usersPage"})
+        }
+      """
+    )
+  
+    // @LINE:12
+    def vote: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommunityCtrl.vote",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "vote/addOne"})
         }
       """
     )

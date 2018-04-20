@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/doran/Documents/2ndYearProject/semesterca/conf/routes
-// @DATE:Thu Apr 19 16:08:53 BST 2018
+// @SOURCE:/home/wdd/webapps/SemesterCA/conf/routes
+// @DATE:Fri Apr 20 16:49:36 IST 2018
 
 import play.api.mvc.Call
 
@@ -174,7 +174,7 @@ package controllers {
   
   }
 
-  // @LINE:15
+  // @LINE:12
   class ReverseCommunityCtrl(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
@@ -239,6 +239,12 @@ package controllers {
     def usersPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "usersPage")
+    }
+  
+    // @LINE:12
+    def vote(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "vote/addOne")
     }
   
     // @LINE:48

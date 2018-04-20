@@ -1,7 +1,7 @@
 @import models.products.Category
 @import models.products.Product
 @import models.users.User
-@(products: List[Product], categories: List[Category], platformId: Long, filter: String,user: User,env: play.api.Environment)
+@(poll: models.community.Poll, products: List[Product], categories: List[Category], platformId: Long, filter: String,user: User,env: play.api.Environment)
 
 
 @main("Shop",user) {
@@ -12,6 +12,16 @@
   <div class="row">
       
      
+    <form action="@routes.CommunityCtrl.vote" method="POST">
+      @helper.CSRF.formField
+      @for(item <- poll.getItems) {
+         <h3>@item.getItem</h3>
+         <label for="@item.getId">@item.getItem</label>
+        <input name="item" id="@item.getId" type="radio" value="@item.getId">@item.getVotes
+      }
+      <input type="submit" value="Vote">
+      <input type="text" name="pollId" value="@poll.getId" style="display: none;">
+   </form>
       <div class="list-categories">
           @if(user != null){
             @if(user.isInstanceOf[models.users.Administrator]){

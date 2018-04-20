@@ -15,6 +15,7 @@ import javax.inject.Inject;
 
 import models.users.*;
 import models.products.*;
+import models.community.*;
 import views.html.*;
 import java.util.*;
 
@@ -231,5 +232,23 @@ public class CommunityCtrl extends Controller {
         flash("success", "Review has been deleted");
         
         return redirect(controllers.routes.ProductCtrl.productDetails(prodId));
+    }
+
+    @Security.Authenticated(Secured.class)
+    public Result vote() {
+        DynamicForm form = formFactory.form().bindFromRequest();
+        Poll poll = Poll.getPoll(Long.valueOf(form.get("pollId")));
+        if (!poll.getUsers().contains(getCurrentUser())) {
+            String i = form.get("item");
+            PollItem item = PollItem.finder.ref(Long.valueOf(i));
+            poll.getUsers().add(getCurrentUser());
+            item.setVotes(item.getVotes()+1);
+            item.save();
+            poll.save();
+            flash("success", "Thanks for voting for " + item.getItem());
+        } else {
+            flash("success", "Thanks for contributing, but you already voted.");
+        }
+        return redirect(routes.ProductCtrl.listProducts(0, ""));
     }
 }
