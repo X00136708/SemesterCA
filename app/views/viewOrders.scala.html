@@ -49,7 +49,7 @@
 						<td>&euro; @("%.2f".format(i.getItemTotala))</td>                        
 						
 					</tr>
-					@log.addOrder(o.getId,o.getDateString,i.getProduct.getName,i.getQuantity,o.getTotal())
+					@log.addOrder(o.getId,o.getDateString,i.getProduct.getName,i.getQuantity,o.getTotal(),o.isCancellable)
 					
 				</tbody>
 				

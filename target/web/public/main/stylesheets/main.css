@@ -10,7 +10,6 @@ td {
     padding-bottom: .5em;
 }
 
-
 #prodImg {
     float: left;
     padding-right: .5em;
@@ -101,7 +100,7 @@ h1 {
     color:white;
 }
 table{
-    color:white;
+    color:#7289DA;
     background-color:#23272A;
     border:.1em solid #2C2F33;
 

@@ -29,6 +29,7 @@ public class ShopOrder extends Model {
     private String name;
     private int quantity;
     private double total;
+    private boolean isCancellable;
 
     
     // Order contains may items.
@@ -46,18 +47,19 @@ public class ShopOrder extends Model {
       public  ShopOrder() {
         OrderDate = new Timestamp(System.currentTimeMillis());
     }
-    public ShopOrder(Long id, Timestamp OrderDate, String name, int quantity, double total){
+    public ShopOrder(Long id, Timestamp OrderDate, String name, int quantity, double total, boolean isCancellable){
         this.id=id;
         this.OrderDate=OrderDate;
         this.name=name;
         this.quantity=quantity;
         this.total=total;
+        this.isCancellable = isCancellable;
         // Ebean.save(this);
          
     }
     @Override
     public String toString(){
-        return String.format("ID %d\t Order Date: "+OrderDate+"\t Name: %s\t Quantity: %d\t Order Total: %.2f   \t\t\t\t\t\t\t\t\t\t\t\t\t\t  ",id,name,quantity,total);
+        return String.format("ID %d\t Order Date: "+OrderDate+"\t Name: %s\t Quantity: %d\t Order Total: %.2f \tCancellable: %b  \t\t\t\t\t\t\t\t\t\t\t\t\t\t  ",id,name,quantity,total,isCancellable);
     }
     public double getOrderTotal() {
         

@@ -63,63 +63,64 @@ Seq[Any](format.raw/*1.47*/("""
 				<th>Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
-				<th>Total</th>
-                <th>Add</th>
+                <th>Total</th>
                 <th>Remove</th>
+                <th>Add</th>
+                
 			</tr>
 			</thead>
 			<tbody>
-                """),_display_(/*40.18*/if(registeredUser.getBasket() != null)/*40.56*/ {_display_(Seq[Any](format.raw/*40.58*/("""
-                    """),format.raw/*41.21*/("""<!-- Start of For loop - For each p in products add a row -->
-                    """),_display_(/*42.22*/for(i <- registeredUser.getBasket().getBasketItems()) yield /*42.75*/ {_display_(Seq[Any](format.raw/*42.77*/("""
-                    """),format.raw/*43.21*/("""<tr>
-                        <td>"""),_display_(/*44.30*/i/*44.31*/.getProduct.getName),format.raw/*44.50*/("""</td>
-                        <td>&euro; """),_display_(/*45.37*/("%.2f".format(i.getPrice))),format.raw/*45.64*/("""</td>
-                        <td>"""),_display_(/*46.30*/i/*46.31*/.getQuantity()),format.raw/*46.45*/("""</td>
-                        <td>&euro; """),_display_(/*47.37*/("%.2f".format(i.getItemTotal))),format.raw/*47.68*/("""</td>
-                        <td><a href=""""),_display_(/*48.39*/routes/*48.45*/.ShoppingCtrl.removeOne(i.getId)),format.raw/*48.77*/(""""><span class="glyphicon glyphicon-minus-sign"></span></a></td>
-                        <td><a href=""""),_display_(/*49.39*/routes/*49.45*/.ShoppingCtrl.addOne(i.getId)),format.raw/*49.74*/(""""><span class="glyphicon glyphicon-plus-sign"></span></a></td>
+                """),_display_(/*41.18*/if(registeredUser.getBasket() != null)/*41.56*/ {_display_(Seq[Any](format.raw/*41.58*/("""
+                    """),format.raw/*42.21*/("""<!-- Start of For loop - For each p in products add a row -->
+                    """),_display_(/*43.22*/for(i <- registeredUser.getBasket().getBasketItems()) yield /*43.75*/ {_display_(Seq[Any](format.raw/*43.77*/("""
+                    """),format.raw/*44.21*/("""<tr>
+                        <td>"""),_display_(/*45.30*/i/*45.31*/.getProduct.getName),format.raw/*45.50*/("""</td>
+                        <td>&euro; """),_display_(/*46.37*/("%.2f".format(i.getPrice))),format.raw/*46.64*/("""</td>
+                        <td>"""),_display_(/*47.30*/i/*47.31*/.getQuantity()),format.raw/*47.45*/("""</td>
+                        <td>&euro; """),_display_(/*48.37*/("%.2f".format(i.getItemTotal))),format.raw/*48.68*/("""</td>
+                        <td><a href=""""),_display_(/*49.39*/routes/*49.45*/.ShoppingCtrl.removeOne(i.getId)),format.raw/*49.77*/(""""><span class="glyphicon glyphicon-minus-sign"></span></a></td>
+                        <td><a href=""""),_display_(/*50.39*/routes/*50.45*/.ShoppingCtrl.addOne(i.getId)),format.raw/*50.74*/(""""><span class="glyphicon glyphicon-plus-sign"></span></a></td>
                     </tr>
-                    """)))}),format.raw/*51.22*/("""<!-- End of For loop -->
-              """)))}),format.raw/*52.16*/("""
-			"""),format.raw/*53.4*/("""</tbody>
+                    """)))}),format.raw/*52.22*/("""<!-- End of For loop -->
+              """)))}),format.raw/*53.16*/("""
+			"""),format.raw/*54.4*/("""</tbody>
 		</table>
         <div class="row">
             <div class="col-md-12">
-                <p class="text-right"><strong>Basket Total: &euro; """),_display_(/*57.69*/("%.2f".format(registeredUser.getBasket.getBasketTotal))),format.raw/*57.125*/("""</strong></p>
+                <p class="text-right"><strong>Basket Total: &euro; """),_display_(/*58.69*/("%.2f".format(registeredUser.getBasket.getBasketTotal))),format.raw/*58.125*/("""</strong></p>
             </div>  
         </div>
        
-        """),_display_(/*61.10*/if(registeredUser.getBasket() != null)/*61.48*/{_display_(Seq[Any](format.raw/*61.49*/("""
-        """),format.raw/*62.9*/("""<div class="row">
+        """),_display_(/*62.10*/if(registeredUser.getBasket() != null)/*62.48*/{_display_(Seq[Any](format.raw/*62.49*/("""
+        """),format.raw/*63.9*/("""<div class="row">
             <div class="col-md-6">
                 <p class="text-right">
-                    <a href=""""),_display_(/*65.31*/routes/*65.37*/.ShoppingCtrl.emptyBasket()),format.raw/*65.64*/("""" class="btn-md btn-default btn" onclick="return confirmDel();">
+                    <a href=""""),_display_(/*66.31*/routes/*66.37*/.ShoppingCtrl.emptyBasket()),format.raw/*66.64*/("""" class="btn-md btn-default btn" onclick="return confirmDel();">
                     <span class="glyphicon glyphicon-trash"></span> Empty Basket</a>
-                    """),_display_(/*67.22*/if(registeredUser.getBasket.getBasketTotal == 0)/*67.70*/{_display_(Seq[Any](format.raw/*67.71*/("""
+                    """),_display_(/*68.22*/if(registeredUser.getBasket.getBasketTotal == 0)/*68.70*/{_display_(Seq[Any](format.raw/*68.71*/("""
                         
-                    """)))}),format.raw/*69.22*/("""
-                """),format.raw/*70.17*/("""</p>
+                    """)))}),format.raw/*70.22*/("""
+                """),format.raw/*71.17*/("""</p>
             </div>  
         
             <div class="col-md-6">
                 <p class="text-right">
-                    <a href=""""),_display_(/*75.31*/routes/*75.37*/.ShoppingCtrl.confirmPurchase()),format.raw/*75.68*/("""" class=" btn-md btn-default btn">
+                    <a href=""""),_display_(/*76.31*/routes/*76.37*/.ShoppingCtrl.confirmPurchase()),format.raw/*76.68*/("""" class=" btn-md btn-default btn">
                     <span class="glyphicon glyphicon-euro"></span> Proceed to checkout</a>
                 </p>
             </div>  
-        """)))}),format.raw/*79.10*/("""
-        """),format.raw/*80.9*/("""</div>
+        """)))}),format.raw/*80.10*/("""
+        """),format.raw/*81.9*/("""</div>
     </div>
 </div>
-""")))}),format.raw/*83.2*/("""
+""")))}),format.raw/*84.2*/("""
 
-"""),format.raw/*85.1*/("""<script>
+"""),format.raw/*86.1*/("""<script>
 	// JavaScript function returns true if user clicks yes, otherwise, false
-	function confirmDel() """),format.raw/*87.24*/("""{"""),format.raw/*87.25*/("""
-		"""),format.raw/*88.3*/("""return confirm('Are you sure?');
-	"""),format.raw/*89.2*/("""}"""),format.raw/*89.3*/("""
-"""),format.raw/*90.1*/("""</script>
+	function confirmDel() """),format.raw/*88.24*/("""{"""),format.raw/*88.25*/("""
+		"""),format.raw/*89.3*/("""return confirm('Are you sure?');
+	"""),format.raw/*90.2*/("""}"""),format.raw/*90.3*/("""
+"""),format.raw/*91.1*/("""</script>
 """)))}))
       }
     }
@@ -136,11 +137,11 @@ Seq[Any](format.raw/*1.47*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 19 17:14:53 BST 2018
+                  DATE: Fri Apr 20 15:09:57 BST 2018
                   SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/basket.scala.html
-                  HASH: f5458f8eca2a0e63ac0655adf34aedcbb731f2d7
-                  MATRIX: 970->1|1088->55|1124->86|1156->113|1210->46|1244->139|1272->141|1345->188|1393->227|1433->229|1468->237|1508->250|1523->256|1585->297|1684->370|1725->402|1765->404|1799->411|1871->456|1885->461|1921->476|1955->483|2003->500|2041->511|2082->543|2122->545|2164->559|2243->611|2257->616|2293->631|2335->645|2383->662|2414->667|2473->717|2512->718|2543->722|2905->1057|2952->1095|2992->1097|3042->1119|3153->1203|3222->1256|3262->1258|3312->1280|3374->1315|3384->1316|3424->1335|3494->1378|3542->1405|3605->1441|3615->1442|3650->1456|3720->1499|3772->1530|3844->1575|3859->1581|3912->1613|4042->1716|4057->1722|4107->1751|4250->1863|4322->1904|4354->1909|4535->2063|4613->2119|4711->2190|4758->2228|4797->2229|4834->2239|4986->2364|5001->2370|5049->2397|5249->2570|5306->2618|5345->2619|5425->2668|5471->2686|5642->2830|5657->2836|5709->2867|5921->3048|5958->3058|6017->3087|6048->3091|6184->3199|6213->3200|6244->3204|6306->3239|6334->3240|6363->3242
-                  LINES: 28->1|31->5|32->6|33->7|36->1|40->8|41->9|42->10|42->10|42->10|44->12|44->12|44->12|44->12|48->16|48->16|48->16|49->17|50->18|50->18|50->18|51->19|52->20|53->21|53->21|53->21|54->22|55->23|55->23|55->23|56->24|57->25|58->26|58->26|58->26|59->27|72->40|72->40|72->40|73->41|74->42|74->42|74->42|75->43|76->44|76->44|76->44|77->45|77->45|78->46|78->46|78->46|79->47|79->47|80->48|80->48|80->48|81->49|81->49|81->49|83->51|84->52|85->53|89->57|89->57|93->61|93->61|93->61|94->62|97->65|97->65|97->65|99->67|99->67|99->67|101->69|102->70|107->75|107->75|107->75|111->79|112->80|115->83|117->85|119->87|119->87|120->88|121->89|121->89|122->90
+                  HASH: e9da574f89652031ca110e95c82d563cba239531
+                  MATRIX: 970->1|1088->55|1124->86|1156->113|1210->46|1244->139|1272->141|1345->188|1393->227|1433->229|1468->237|1508->250|1523->256|1585->297|1684->370|1725->402|1765->404|1799->411|1871->456|1885->461|1921->476|1955->483|2003->500|2041->511|2082->543|2122->545|2164->559|2243->611|2257->616|2293->631|2335->645|2383->662|2414->667|2473->717|2512->718|2543->722|2935->1087|2982->1125|3022->1127|3072->1149|3183->1233|3252->1286|3292->1288|3342->1310|3404->1345|3414->1346|3454->1365|3524->1408|3572->1435|3635->1471|3645->1472|3680->1486|3750->1529|3802->1560|3874->1605|3889->1611|3942->1643|4072->1746|4087->1752|4137->1781|4280->1893|4352->1934|4384->1939|4565->2093|4643->2149|4741->2220|4788->2258|4827->2259|4864->2269|5016->2394|5031->2400|5079->2427|5279->2600|5336->2648|5375->2649|5455->2698|5501->2716|5672->2860|5687->2866|5739->2897|5951->3078|5988->3088|6047->3117|6078->3121|6214->3229|6243->3230|6274->3234|6336->3269|6364->3270|6393->3272
+                  LINES: 28->1|31->5|32->6|33->7|36->1|40->8|41->9|42->10|42->10|42->10|44->12|44->12|44->12|44->12|48->16|48->16|48->16|49->17|50->18|50->18|50->18|51->19|52->20|53->21|53->21|53->21|54->22|55->23|55->23|55->23|56->24|57->25|58->26|58->26|58->26|59->27|73->41|73->41|73->41|74->42|75->43|75->43|75->43|76->44|77->45|77->45|77->45|78->46|78->46|79->47|79->47|79->47|80->48|80->48|81->49|81->49|81->49|82->50|82->50|82->50|84->52|85->53|86->54|90->58|90->58|94->62|94->62|94->62|95->63|98->66|98->66|98->66|100->68|100->68|100->68|102->70|103->71|108->76|108->76|108->76|112->80|113->81|116->84|118->86|120->88|120->88|121->89|122->90|122->90|123->91
                   -- GENERATED --
               */
           

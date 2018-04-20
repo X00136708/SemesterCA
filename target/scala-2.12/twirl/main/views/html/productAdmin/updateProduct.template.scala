@@ -35,9 +35,9 @@ object updateProduct extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.
 
 
 Seq[Any](format.raw/*4.58*/("""
-"""),_display_(/*6.2*/main("Update product", user)/*6.30*/{_display_(Seq[Any](format.raw/*6.31*/("""
+"""),_display_(/*6.2*/main("Update Game", user)/*6.27*/{_display_(Seq[Any](format.raw/*6.28*/("""
     """),format.raw/*7.5*/("""<link href=""""),_display_(/*7.18*/routes/*7.24*/.Assets.versioned("stylesheets/main.css")),format.raw/*7.65*/("""" rel="stylesheet" />
-<p class="lead"> Update Product</p>
+<p class="lead"> Update Game</p>
 
 """),_display_(/*10.2*/form(action=routes.AdminProductCtrl.updateProductSubmit(id), 'class -> "form-horizontal", 
 'role -> "form",'enctype -> "multipart/form-data")/*11.51*/ {_display_(Seq[Any](format.raw/*11.53*/("""
@@ -51,33 +51,34 @@ Seq[Any](format.raw/*4.58*/("""
         <!-- Checkbox name is catSelect[],  selected values will be stored in -->
         <!-- form object using catSelect defined in Product  -->
         """),_display_(/*21.10*/for((value, name) <- Category.options) yield /*21.48*/ {_display_(Seq[Any](format.raw/*21.50*/("""
-            """),format.raw/*22.13*/("""<input type="checkbox" name="catSelect[]" value=""""),_display_(/*22.63*/value),format.raw/*22.68*/(""""
-            """),_display_(/*23.14*/if(Category.inCategory(value.toLong, id))/*23.55*/ {_display_(Seq[Any](format.raw/*23.57*/("""
-                """),format.raw/*24.17*/("""checked
-            """)))}),format.raw/*25.14*/("""
-            """),format.raw/*26.13*/("""/>"""),_display_(/*26.16*/name),format.raw/*26.20*/("""<br>        
-        """)))}),format.raw/*27.10*/("""  
+            """),format.raw/*22.13*/("""<div class="platformSelect">
+            <input type="checkbox" name="catSelect[]" value=""""),_display_(/*23.63*/value),format.raw/*23.68*/(""""
+            """),_display_(/*24.14*/if(Category.inCategory(value.toLong, id))/*24.55*/ {_display_(Seq[Any](format.raw/*24.57*/("""
+                """),format.raw/*25.17*/("""checked
+            """)))}),format.raw/*26.14*/("""
+            """),format.raw/*27.13*/("""/>"""),_display_(/*27.16*/name),format.raw/*27.20*/("""<br>        
+        """)))}),format.raw/*28.10*/("""  
 
-    """),_display_(/*29.6*/inputText(updateProductForm("stock"), '_label -> "Stock", 'class -> "form-control")),format.raw/*29.89*/("""
-    """),_display_(/*30.6*/inputText(updateProductForm("price"), '_label -> "Price", 'class -> "form-control")),format.raw/*30.89*/("""
-    """),_display_(/*31.6*/select(
+    """),_display_(/*30.6*/inputText(updateProductForm("stock"), '_label -> "Stock", 'class -> "form-control")),format.raw/*30.89*/("""
+    """),_display_(/*31.6*/inputText(updateProductForm("price"), '_label -> "Price", 'class -> "form-control")),format.raw/*31.89*/("""
+    """),_display_(/*32.6*/select(
             updateProductForm("pegi"), 
             options(Product.PEGIoptions), '_label -> "PEGI Rating", '_default -> "-- Choose a PEGI rating --", 
             '_showConstraints -> false, 'class -> "form-control"
-            )),format.raw/*35.14*/("""
+            )),format.raw/*36.14*/("""
     
-    """),format.raw/*37.5*/("""<label>Image </label>
+    """),format.raw/*38.5*/("""<label>Image </label>
     <input class = "btn-sm btn-default" type="file" name="upload">
     <br><br>
 
     <div class="actions">
         <input type="submit" value="Update Product" class="btn-md btn-default btn">
-        <a href=""""),_display_(/*43.19*/routes/*43.25*/.ProductCtrl.listProducts(0)),format.raw/*43.53*/("""">
+        <a href=""""),_display_(/*44.19*/routes/*44.25*/.ProductCtrl.listProducts(0)),format.raw/*44.53*/("""">
             <button type="button" class="btn-md btn-default btn">Cancel</button>
         </a>
     </div>
- """)))}),format.raw/*47.3*/("""
-""")))}),format.raw/*48.2*/("""
+ """)))}),format.raw/*48.3*/("""
+""")))}),format.raw/*49.2*/("""
 """))
       }
     }
@@ -94,11 +95,11 @@ Seq[Any](format.raw/*4.58*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 19 17:18:29 BST 2018
+                  DATE: Fri Apr 20 15:30:33 BST 2018
                   SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/productAdmin/updateProduct.scala.html
-                  HASH: 2fba68eeec1b2039f7d3fe5d412c6a2e76eb3519
-                  MATRIX: 664->1|702->34|741->68|1095->95|1224->154|1269->151|1297->172|1333->200|1371->201|1403->207|1442->220|1456->226|1517->267|1606->330|1757->472|1797->474|1831->508|1864->515|1877->519|1908->529|1941->536|2043->617|2076->624|2193->719|2230->729|2646->1118|2700->1156|2740->1158|2782->1172|2859->1222|2885->1227|2928->1243|2978->1284|3018->1286|3064->1304|3117->1326|3159->1340|3189->1343|3214->1347|3268->1370|3305->1381|3409->1464|3442->1471|3546->1554|3579->1561|3842->1803|3881->1815|4145->2052|4160->2058|4209->2086|4353->2200|4386->2203
-                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|38->6|38->6|39->7|39->7|39->7|39->7|42->10|43->11|43->11|44->12|45->13|45->13|45->13|46->14|46->14|47->15|47->15|48->16|53->21|53->21|53->21|54->22|54->22|54->22|55->23|55->23|55->23|56->24|57->25|58->26|58->26|58->26|59->27|61->29|61->29|62->30|62->30|63->31|67->35|69->37|75->43|75->43|75->43|79->47|80->48
+                  HASH: d9dc94951bdf31e50dde92f6a872b05d23460578
+                  MATRIX: 664->1|702->34|741->68|1095->95|1224->154|1269->151|1297->172|1330->197|1368->198|1400->204|1439->217|1453->223|1514->264|1600->324|1751->466|1791->468|1825->502|1858->509|1871->513|1902->523|1935->530|2037->611|2070->618|2187->713|2224->723|2640->1112|2694->1150|2734->1152|2776->1166|2895->1258|2921->1263|2964->1279|3014->1320|3054->1322|3100->1340|3153->1362|3195->1376|3225->1379|3250->1383|3304->1406|3341->1417|3445->1500|3478->1507|3582->1590|3615->1597|3878->1839|3917->1851|4181->2088|4196->2094|4245->2122|4389->2236|4422->2239
+                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|38->6|38->6|39->7|39->7|39->7|39->7|42->10|43->11|43->11|44->12|45->13|45->13|45->13|46->14|46->14|47->15|47->15|48->16|53->21|53->21|53->21|54->22|55->23|55->23|56->24|56->24|56->24|57->25|58->26|59->27|59->27|59->27|60->28|62->30|62->30|63->31|63->31|64->32|68->36|70->38|76->44|76->44|76->44|80->48|81->49
                   -- GENERATED --
               */
           

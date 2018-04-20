@@ -74,6 +74,7 @@ create table shop_order (
   name                          varchar(255),
   quantity                      integer not null,
   total                         double not null,
+  is_cancellable                boolean default false not null,
   registered_user_email         varchar(255),
   constraint pk_shop_order primary key (id)
 );
@@ -83,6 +84,7 @@ create table user (
   email                         varchar(255) not null,
   name                          varchar(255),
   password                      varchar(255),
+  confirm_password              varchar(255),
   department                    varchar(255),
   street1                       varchar(255),
   street2                       varchar(255),

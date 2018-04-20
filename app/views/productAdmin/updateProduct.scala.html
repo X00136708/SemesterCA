@@ -3,9 +3,9 @@
 @import models.users.User
 @(id: Long, updateProductForm: Form[Product], user: User)
 @import helper._
-@main("Update product", user){
+@main("Update Game", user){
     <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
-<p class="lead"> Update Product</p>
+<p class="lead"> Update Game</p>
 
 @form(action=routes.AdminProductCtrl.updateProductSubmit(id), 'class -> "form-horizontal", 
 'role -> "form",'enctype -> "multipart/form-data") {
@@ -19,6 +19,7 @@
         <!-- Checkbox name is catSelect[],  selected values will be stored in -->
         <!-- form object using catSelect defined in Product  -->
         @for((value, name) <- Category.options) {
+            <div class="platformSelect">
             <input type="checkbox" name="catSelect[]" value="@value"
             @if(Category.inCategory(value.toLong, id)) {
                 checked

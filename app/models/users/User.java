@@ -7,6 +7,7 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
+
 @Entity
 //Specified mapped table name
 @Table(name = "user")
@@ -25,6 +26,7 @@ public class User extends Model {
 
     @Constraints.Required
     private String password;
+    private String confirmPassword;
 
     
     public User() {
@@ -61,6 +63,15 @@ public class User extends Model {
     public void setPassword(String password) {
         this.password = password;
     }
+    public boolean confirmPassword(String password, String confirm){
+        if(password.equals(confirm)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
   
 
     public static Finder<String, User> find = new Finder<String, User>(User.class);

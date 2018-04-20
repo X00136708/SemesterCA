@@ -46,7 +46,7 @@ Seq[Any](format.raw/*4.61*/("""
         
 
         """),format.raw/*16.9*/("""<div class="actions">
-            <input type="submit" value="Add Reply" class="btn-md btn-default btn">
+            <input type="submit" value="Submit" class="btn-md btn-default btn">
             <a href=""""),_display_(/*18.23*/routes/*18.29*/.CommunityCtrl.viewPost(prodId)),format.raw/*18.60*/("""">
                 <button type="button" class="btn-md btn-default btn">Cancel</button>
             </a>
@@ -68,10 +68,10 @@ Seq[Any](format.raw/*4.61*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 19 17:22:01 BST 2018
+                  DATE: Fri Apr 20 15:08:50 BST 2018
                   SOURCE: C:/Users/doran/Documents/2ndYearProject/semesterca/app/views/createReview.scala.html
-                  HASH: ac066eb388fb677a52c28fe5bdedcb0d865a19b2
-                  MATRIX: 651->1|689->34|734->74|1093->101|1225->163|1270->160|1298->180|1326->183|1361->210|1400->212|1432->218|1471->231|1485->237|1546->278|1641->347|1791->487|1832->489|1870->527|1908->538|1921->542|1952->552|1990->563|2091->643|2140->665|2296->794|2311->800|2363->831|2522->960
+                  HASH: b97951334f484a9e335e56a877aef30191f8ba4f
+                  MATRIX: 651->1|689->34|734->74|1093->101|1225->163|1270->160|1298->180|1326->183|1361->210|1400->212|1432->218|1471->231|1485->237|1546->278|1641->347|1791->487|1832->489|1870->527|1908->538|1921->542|1952->552|1990->563|2091->643|2140->665|2293->791|2308->797|2360->828|2519->957
                   LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|40->8|40->8|40->8|42->10|42->10|42->10|43->11|44->12|44->12|44->12|45->13|45->13|48->16|50->18|50->18|50->18|54->22
                   -- GENERATED --
               */

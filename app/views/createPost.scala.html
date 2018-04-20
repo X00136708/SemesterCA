@@ -13,7 +13,7 @@
         @inputText(postForm("title"), '_label -> "Title", 'class -> "form-control")
         @select(
             postForm("product.id"), 
-            options(Product.options), '_label -> "Game", '_default -> "-- Choose a department --", 
+            options(Product.options), '_label -> "Game", '_default -> "-- Choose a Game --", 
             '_showConstraints -> false, 'class -> "form-control"
             )
         @inputText(postForm("content"), '_label -> "Content", 'class -> "form-control")

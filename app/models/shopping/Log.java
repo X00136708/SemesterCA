@@ -22,19 +22,21 @@ public class Log {
     private double price;
     private int quantity;
     private double total;
+    private boolean isCancellable;
     private RegisteredUser registeredUser;
     public Log(){
 
     }
     
     
-    public void addOrder(Long id, Timestamp date, String name, int quantity, double total){
+    public void addOrder(Long id, Timestamp date, String name, int quantity, double total, boolean isCancellable){
         this.id=id;
         this.name=name;
         this.date=date;
         this.quantity=quantity;
         this.total=total;
-        shop.add( new ShopOrder(id,date,name,quantity,total));
+        this.isCancellable=isCancellable;
+        shop.add( new ShopOrder(id,date,name,quantity,total,isCancellable));
         writeToFile();
         
         
