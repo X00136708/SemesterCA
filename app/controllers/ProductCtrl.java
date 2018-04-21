@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import models.users.*;
 import models.products.*;
 import views.html.*;
+import models.community.Poll;
 
 
 
@@ -70,7 +71,7 @@ public class ProductCtrl extends Controller {
         // category id - used for filtering
         // the filter string - this will be displayed in the filter text input
         // current user - if one is logged in
-        return ok(listProducts.render(products,categories, cat, filter, getCurrentUser(),e));
+        return ok(listProducts.render(Poll.getPoll(1l),products,categories, cat, filter, getCurrentUser(),e));
     }
     public Result productDetails(Long id) {
         Product p;

@@ -49,6 +49,32 @@ create table order_item (
   constraint pk_order_item primary key (id)
 );
 
+create table poll (
+  id                            bigint auto_increment not null,
+  admin_email                   varchar(255),
+  constraint uq_poll_admin_email unique (admin_email),
+  constraint pk_poll primary key (id)
+);
+
+create table poll_poll_item (
+  poll_id                       bigint not null,
+  poll_item_id                  bigint not null,
+  constraint pk_poll_poll_item primary key (poll_id,poll_item_id)
+);
+
+create table poll_user (
+  poll_id                       bigint not null,
+  user_email                    varchar(255) not null,
+  constraint pk_poll_user primary key (poll_id,user_email)
+);
+
+create table poll_item (
+  id                            bigint auto_increment not null,
+  item                          varchar(255),
+  votes                         integer,
+  constraint pk_poll_item primary key (id)
+);
+
 create table product (
   id                            bigint auto_increment not null,
   name                          varchar(255),
@@ -132,6 +158,20 @@ create index ix_order_item_basket_id on order_item (basket_id);
 alter table order_item add constraint fk_order_item_product_id foreign key (product_id) references product (id) on delete restrict on update restrict;
 create index ix_order_item_product_id on order_item (product_id);
 
+alter table poll add constraint fk_poll_admin_email foreign key (admin_email) references user (email) on delete restrict on update restrict;
+
+alter table poll_poll_item add constraint fk_poll_poll_item_poll foreign key (poll_id) references poll (id) on delete restrict on update restrict;
+create index ix_poll_poll_item_poll on poll_poll_item (poll_id);
+
+alter table poll_poll_item add constraint fk_poll_poll_item_poll_item foreign key (poll_item_id) references poll_item (id) on delete restrict on update restrict;
+create index ix_poll_poll_item_poll_item on poll_poll_item (poll_item_id);
+
+alter table poll_user add constraint fk_poll_user_poll foreign key (poll_id) references poll (id) on delete restrict on update restrict;
+create index ix_poll_user_poll on poll_user (poll_id);
+
+alter table poll_user add constraint fk_poll_user_user foreign key (user_email) references user (email) on delete restrict on update restrict;
+create index ix_poll_user_user on poll_user (user_email);
+
 alter table product_review add constraint fk_product_review_author_email foreign key (author_email) references user (email) on delete restrict on update restrict;
 create index ix_product_review_author_email on product_review (author_email);
 
@@ -175,6 +215,20 @@ drop index if exists ix_order_item_basket_id;
 alter table order_item drop constraint if exists fk_order_item_product_id;
 drop index if exists ix_order_item_product_id;
 
+alter table poll drop constraint if exists fk_poll_admin_email;
+
+alter table poll_poll_item drop constraint if exists fk_poll_poll_item_poll;
+drop index if exists ix_poll_poll_item_poll;
+
+alter table poll_poll_item drop constraint if exists fk_poll_poll_item_poll_item;
+drop index if exists ix_poll_poll_item_poll_item;
+
+alter table poll_user drop constraint if exists fk_poll_user_poll;
+drop index if exists ix_poll_user_poll;
+
+alter table poll_user drop constraint if exists fk_poll_user_user;
+drop index if exists ix_poll_user_user;
+
 alter table product_review drop constraint if exists fk_product_review_author_email;
 drop index if exists ix_product_review_author_email;
 
@@ -197,6 +251,14 @@ drop table if exists forum_post;
 drop table if exists forum_reply;
 
 drop table if exists order_item;
+
+drop table if exists poll;
+
+drop table if exists poll_poll_item;
+
+drop table if exists poll_user;
+
+drop table if exists poll_item;
 
 drop table if exists product;
 
