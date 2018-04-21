@@ -22,18 +22,17 @@
           <th>Role</th>
           @if(user != null){
             @if(user.isInstanceOf[models.users.Administrator]){
-            <th colspan="2">Edit</th>
             }
           }
         </tr>
       </thead>
 
-      <tbody>
+      <tbody id="manageUser">
         @for(u<-users) {
           <tr>
             <td>@u.getName</td>
             <td>@u.getEmail</td>
-            <td>@u.getClass.getSimpleName</td>
+            <td>@u.getClass.getSimpleName <a href="@routes.CommunityCtrl.deleteUser(u.getEmail)"  class="btn btn-default btn-sm" onclick="return confirmDel();"><span class="glyphicon glyphicon-trash"></span></a></td>
           </tr>
         }
       </tbody>

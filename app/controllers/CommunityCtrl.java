@@ -36,6 +36,9 @@ public class CommunityCtrl extends Controller {
 	public User getCurrentUser() {
 		User u = User.getLoggedIn(session().get("email"));
 		return u;
+    }
+    private RegisteredUser getCurrentRegisteredUser() {
+		return (RegisteredUser)User.getLoggedIn(session().get("email"));
 	}
     @Security.Authenticated(Secured.class)
     @With(CheckIfLoggedIn.class)
@@ -179,7 +182,8 @@ public class CommunityCtrl extends Controller {
     
             return redirect(controllers.routes.CommunityCtrl.usersPage());
         }
-
+        @Security.Authenticated(Secured.class)
+        @With(CheckIfLoggedIn.class)
          public Result usersPage() {
             List<User> userList = User.findAll();
             return ok(usersPage.render(userList, User.getLoggedIn(session().get("email"))));
@@ -249,4 +253,54 @@ public class CommunityCtrl extends Controller {
         }
         return redirect(routes.ProductCtrl.listProducts(0, ""));
     }
+
+    
+    @Transactional
+    public Result updateUser(String id) {
+        RegisteredUser u;
+        Form<RegisteredUser> userForm;
+
+        try {
+            u = RegisteredUser.find.byId(id);
+            userForm = formFactory.form(RegisteredUser.class).fill(u);
+        } 
+        catch (Exception ex) {
+            return badRequest("error");
+        }
+        return ok(updateUser.render(id, userForm, getCurrentUser()));
+    }
+
+    public Result updateUserSubmit(String id) {
+        Form<RegisteredUser> updateUserForm = formFactory.form(RegisteredUser.class).bindFromRequest();
+
+        if (updateUserForm.hasErrors()) {
+            
+            return badRequest(updateUser.render(id,updateUserForm, getCurrentUser()));
+        }   
+        RegisteredUser u = updateUserForm.get();
+            u.setEmail(id);
+            u.update();    
+            flash("success", "User " + u.getName() + " has been  updated ");
+            
+            // Redirect to the index page
+            return redirect(controllers.routes.ProductCtrl.index());
+    }
+
+    @Transactional
+    public Result myAccount() {
+        return ok(myAccount.render(getCurrentRegisteredUser(), e));
+    }
+
+    @Security.Authenticated(Secured.class)
+    @With(CheckIfAdmin.class)
+    @Transactional
+    public Result deleteUser(String id) {
+    User.find.ref(id).delete();
+
+    flash("success", "User has been deleted");
+    
+    return redirect(routes.CommunityCtrl.usersPage());
+}
+
+
 }

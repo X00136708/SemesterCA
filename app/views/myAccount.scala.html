@@ -1,0 +1,65 @@
+@import models.products.Product
+@import models.users.RegisteredUser
+@(u: RegisteredUser,env: play.api.Environment)
+
+
+@main("Game", u) {
+  <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+      <table class="table table-bordered table-hover table-condensed">
+        @if(flash.containsKey("success")) {
+          <div class="alert alert-success">
+            @flash.get("success")
+          </div>
+        }
+        <div class="list-group">
+            <div class="list-group-item" id="myAccount">
+
+                    <h2>@u.getName</h2>
+
+                    @if(u.getStreet1 != null){
+                        <div id="userDetails">
+                            <h5><b>Address: </b><br>
+                               @u.getStreet1<br>
+                               @u.getStreet2</h5>
+              
+                            <h5><b>Town: </b><br>
+                              @u.getTown</h5>
+              
+                            <h5><b>PostCode: </b><br> 
+                              @u.getPostCode</h5><br>
+                              </div>
+                    } else {
+                        <div id="userDetails">
+                            <h5><b>Address: </b><br>
+                               N/A<br>
+                               N/A</h5>
+              
+                            <h5><b>Town: </b><br>
+                                N/A</h5>
+              
+                            <h5><b>PostCode: </b><br> 
+                                N/A<h5><br>
+                              </div>
+                    }
+                
+        
+                    
+        
+                <div id="userOptions">
+                        <br>
+                    <a href="@controllers.routes.ShoppingCtrl.viewOrders(u.getEmail())"  class="btn btn-default btn-xs">Orders <span class="badge badge-pill badge-primary">@u.getOrders().size</span></a><br>
+                        <br>
+                    <a href="@routes.CommunityCtrl.updateUser(u.getEmail())"  class="btn btn-default btn-xs">Update Details</a><br>
+                </div>
+                
+                
+
+            </div>
+            </div> 
+
+    </div>
+</div>
+</div>
+}

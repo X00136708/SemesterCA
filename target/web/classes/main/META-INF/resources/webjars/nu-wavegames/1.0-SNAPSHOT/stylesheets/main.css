@@ -68,7 +68,7 @@ td {
     background: #555; 
 }
 b{
-    color:red;
+    color:#7289DA;
 }
 .products {
     background-color:#23272A;
@@ -256,3 +256,35 @@ thead {
     background-color: #7289DA;
     border:.1em solid #2C2F33;
 }
+
+#userDetails {
+    float: left;
+    padding-left: 5em;
+    }
+    
+    #userOptions {
+    float: right;
+    padding-right: 5em;
+    }
+    
+    #myAccount h2{
+        text-align: center;
+    }
+    
+    #userOptions a{
+        background-color: #7289DA;
+        color: white;
+        border: .1em #7289DA;
+    }
+    
+    #userOptions .badge{
+        background-color:red;
+        color:white;
+    }
+    
+    #manageUser .btn-sm {
+        float: right;
+        color: white;
+        background-color: red;
+        border: none;
+    }

@@ -60,6 +60,20 @@
                             <a href="@controllers.routes.ShoppingCtrl.viewOrders(user.getEmail())"><div id="navItem">View Orders</div></a>
                         </li>
                 }}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                        @if(user.isInstanceOf[models.users.RegisteredUser]){
+                    <li>
+                            <a href="@controllers.routes.CommunityCtrl.myAccount()"><div id="navItem">My Account</div></a>
+                    </li>
+                }
+
+                @if(user.isInstanceOf[models.users.Administrator]){
+                    <li>
+                            <a href="@controllers.routes.CommunityCtrl.usersPage()"><div id="navItem">Manage Users</div></a>
+                    </li>
+                }
+                    
                 <li @if(title=="Login"){class="active"}>
                         @if(user != null) {
                             <a href="@controllers.security.routes.LoginCtrl.logout()"><div id="navItem">Logout @user.getName()</div></a>
@@ -67,6 +81,7 @@
                             <a href="@controllers.security.routes.LoginCtrl.login()"><div id="navItem">Login</div></a>
                         }
                     </li>
+                </ul>
             
 
                 </li>

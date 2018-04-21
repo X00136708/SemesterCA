@@ -1,0 +1,32 @@
+@(id: String, updateUserForm: Form[models.users.RegisteredUser], user: models.users.User)
+@import helper._
+
+@main("Update User",user) {
+    <p class="lead">Update User</p>
+    <div class="col-xs-5">
+    @form(action=routes.CommunityCtrl.updateUserSubmit(id), 
+    'class -> "form-horizontal"){
+        @* CSRF attack prevention *@
+        @CSRF.formField
+
+        @inputText(updateUserForm("name"), '_label -> "Username", 'class -> "form-control")
+        @inputText(updateUserForm("email"), '_label -> "Email", 'class -> "form-control")
+        @inputText(updateUserForm("street1"), '_label -> "Address Line 1", 'class -> "form-control")
+        @inputText(updateUserForm("street2"), '_label -> "Address Line 2", 'class -> "form-control")
+        @inputText(updateUserForm("town"), '_label -> "Town", 'class -> "form-control")
+        @inputText(updateUserForm("postCode"), '_label -> "Post Code", 'class -> "form-control")
+
+        @inputPassword(updateUserForm("password"), '_label -> "Password", 'class -> "form-control")
+
+        <div class="actions">
+                <input type="submit" value="Update details" class="btn btn-primary">
+                <a href="@routes.ProductCtrl.index()">
+                    <button type="button" class="btn btn-warning">Cancel</button>
+                </a>
+            </div>
+            }
+        }
+        
+        
+        
+</div>

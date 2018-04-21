@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/doran/Documents/2ndYearProject/semesterca/conf/routes
-// @DATE:Sat Apr 21 15:17:36 BST 2018
+// @SOURCE:C:/Users/brand/Desktop/new/SemesterCA/conf/routes
+// @DATE:Sat Apr 21 16:05:18 BST 2018
 
 package router
 
@@ -25,7 +25,7 @@ class Routes(
   ShoppingCtrl_2: controllers.ShoppingCtrl,
   // @LINE:40
   AdminProductCtrl_3: controllers.AdminProductCtrl,
-  // @LINE:64
+  // @LINE:71
   Assets_5: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -42,7 +42,7 @@ class Routes(
     ShoppingCtrl_2: controllers.ShoppingCtrl,
     // @LINE:40
     AdminProductCtrl_3: controllers.AdminProductCtrl,
-    // @LINE:64
+    // @LINE:71
     Assets_5: controllers.Assets
   ) = this(errorHandler, ProductCtrl_1, CommunityCtrl_0, LoginCtrl_4, ShoppingCtrl_2, AdminProductCtrl_3, Assets_5, "/")
 
@@ -83,6 +83,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/updateProduct/""" + "$" + """id<[^/]+>""", """controllers.AdminProductCtrl.updateProduct(id:Long)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/updateProductSubmit/""" + "$" + """id<[^/]+>""", """controllers.AdminProductCtrl.updateProductSubmit(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/deleteProduct/""" + "$" + """id<[^/]+>""", """controllers.AdminProductCtrl.deleteProduct(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """myaccount""", """controllers.CommunityCtrl.myAccount()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """forumPage""", """controllers.CommunityCtrl.forumPage(prod:Long ?= 0, filter:String ?= "")"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """viewPost/""" + "$" + """postId<[^/]+>""", """controllers.CommunityCtrl.viewPost(postId:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createPost""", """controllers.CommunityCtrl.createPost()"""),
@@ -94,6 +95,9 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createReview/""" + "$" + """prodId<[^/]+>""", """controllers.CommunityCtrl.createReview(prodId:Long)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createReviewSubmit/""" + "$" + """prodId<[^/]+>""", """controllers.CommunityCtrl.createReviewSubmit(prodId:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteReview/""" + "$" + """reviewId<[^/]+>""", """controllers.CommunityCtrl.deleteReview(reviewId:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateUser/""" + "$" + """id<[^/]+>""", """controllers.CommunityCtrl.updateUser(id:String)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateUserSubmit/""" + "$" + """id<[^/]+>""", """controllers.CommunityCtrl.updateUserSubmit(id:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteUser/""" + "$" + """id<[^/]+>""", """controllers.CommunityCtrl.deleteUser(id:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -589,10 +593,28 @@ class Routes(
   )
 
   // @LINE:49
-  private[this] lazy val controllers_CommunityCtrl_forumPage27_route = Route("GET",
+  private[this] lazy val controllers_CommunityCtrl_myAccount27_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("myaccount")))
+  )
+  private[this] lazy val controllers_CommunityCtrl_myAccount27_invoker = createInvoker(
+    CommunityCtrl_0.myAccount(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CommunityCtrl",
+      "myAccount",
+      Nil,
+      "GET",
+      this.prefix + """myaccount""",
+      """ Community""",
+      Seq()
+    )
+  )
+
+  // @LINE:51
+  private[this] lazy val controllers_CommunityCtrl_forumPage28_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("forumPage")))
   )
-  private[this] lazy val controllers_CommunityCtrl_forumPage27_invoker = createInvoker(
+  private[this] lazy val controllers_CommunityCtrl_forumPage28_invoker = createInvoker(
     CommunityCtrl_0.forumPage(fakeValue[Long], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -601,16 +623,16 @@ class Routes(
       Seq(classOf[Long], classOf[String]),
       "GET",
       this.prefix + """forumPage""",
-      """ Community""",
+      """""",
       Seq()
     )
   )
 
-  // @LINE:50
-  private[this] lazy val controllers_CommunityCtrl_viewPost28_route = Route("GET",
+  // @LINE:52
+  private[this] lazy val controllers_CommunityCtrl_viewPost29_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("viewPost/"), DynamicPart("postId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CommunityCtrl_viewPost28_invoker = createInvoker(
+  private[this] lazy val controllers_CommunityCtrl_viewPost29_invoker = createInvoker(
     CommunityCtrl_0.viewPost(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -624,11 +646,11 @@ class Routes(
     )
   )
 
-  // @LINE:52
-  private[this] lazy val controllers_CommunityCtrl_createPost29_route = Route("GET",
+  // @LINE:54
+  private[this] lazy val controllers_CommunityCtrl_createPost30_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createPost")))
   )
-  private[this] lazy val controllers_CommunityCtrl_createPost29_invoker = createInvoker(
+  private[this] lazy val controllers_CommunityCtrl_createPost30_invoker = createInvoker(
     CommunityCtrl_0.createPost(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -642,11 +664,11 @@ class Routes(
     )
   )
 
-  // @LINE:53
-  private[this] lazy val controllers_CommunityCtrl_createReply30_route = Route("GET",
+  // @LINE:55
+  private[this] lazy val controllers_CommunityCtrl_createReply31_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createReply/"), DynamicPart("postId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CommunityCtrl_createReply30_invoker = createInvoker(
+  private[this] lazy val controllers_CommunityCtrl_createReply31_invoker = createInvoker(
     CommunityCtrl_0.createReply(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -660,11 +682,11 @@ class Routes(
     )
   )
 
-  // @LINE:54
-  private[this] lazy val controllers_CommunityCtrl_createPostSubmit31_route = Route("POST",
+  // @LINE:56
+  private[this] lazy val controllers_CommunityCtrl_createPostSubmit32_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createPostSubmit")))
   )
-  private[this] lazy val controllers_CommunityCtrl_createPostSubmit31_invoker = createInvoker(
+  private[this] lazy val controllers_CommunityCtrl_createPostSubmit32_invoker = createInvoker(
     CommunityCtrl_0.createPostSubmit(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -678,11 +700,11 @@ class Routes(
     )
   )
 
-  // @LINE:55
-  private[this] lazy val controllers_CommunityCtrl_createReplySubmit32_route = Route("POST",
+  // @LINE:57
+  private[this] lazy val controllers_CommunityCtrl_createReplySubmit33_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createReplySubmit/"), DynamicPart("postId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CommunityCtrl_createReplySubmit32_invoker = createInvoker(
+  private[this] lazy val controllers_CommunityCtrl_createReplySubmit33_invoker = createInvoker(
     CommunityCtrl_0.createReplySubmit(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -696,11 +718,11 @@ class Routes(
     )
   )
 
-  // @LINE:56
-  private[this] lazy val controllers_CommunityCtrl_deletePost33_route = Route("GET",
+  // @LINE:58
+  private[this] lazy val controllers_CommunityCtrl_deletePost34_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deletePost/"), DynamicPart("postId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CommunityCtrl_deletePost33_invoker = createInvoker(
+  private[this] lazy val controllers_CommunityCtrl_deletePost34_invoker = createInvoker(
     CommunityCtrl_0.deletePost(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -714,11 +736,11 @@ class Routes(
     )
   )
 
-  // @LINE:57
-  private[this] lazy val controllers_CommunityCtrl_deleteReply34_route = Route("GET",
+  // @LINE:59
+  private[this] lazy val controllers_CommunityCtrl_deleteReply35_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteReply/"), DynamicPart("replyId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CommunityCtrl_deleteReply34_invoker = createInvoker(
+  private[this] lazy val controllers_CommunityCtrl_deleteReply35_invoker = createInvoker(
     CommunityCtrl_0.deleteReply(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -732,11 +754,11 @@ class Routes(
     )
   )
 
-  // @LINE:59
-  private[this] lazy val controllers_CommunityCtrl_createReview35_route = Route("GET",
+  // @LINE:61
+  private[this] lazy val controllers_CommunityCtrl_createReview36_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createReview/"), DynamicPart("prodId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CommunityCtrl_createReview35_invoker = createInvoker(
+  private[this] lazy val controllers_CommunityCtrl_createReview36_invoker = createInvoker(
     CommunityCtrl_0.createReview(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -750,11 +772,11 @@ class Routes(
     )
   )
 
-  // @LINE:60
-  private[this] lazy val controllers_CommunityCtrl_createReviewSubmit36_route = Route("POST",
+  // @LINE:62
+  private[this] lazy val controllers_CommunityCtrl_createReviewSubmit37_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createReviewSubmit/"), DynamicPart("prodId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CommunityCtrl_createReviewSubmit36_invoker = createInvoker(
+  private[this] lazy val controllers_CommunityCtrl_createReviewSubmit37_invoker = createInvoker(
     CommunityCtrl_0.createReviewSubmit(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -768,11 +790,11 @@ class Routes(
     )
   )
 
-  // @LINE:61
-  private[this] lazy val controllers_CommunityCtrl_deleteReview37_route = Route("GET",
+  // @LINE:63
+  private[this] lazy val controllers_CommunityCtrl_deleteReview38_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteReview/"), DynamicPart("reviewId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CommunityCtrl_deleteReview37_invoker = createInvoker(
+  private[this] lazy val controllers_CommunityCtrl_deleteReview38_invoker = createInvoker(
     CommunityCtrl_0.deleteReview(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -786,11 +808,65 @@ class Routes(
     )
   )
 
-  // @LINE:64
-  private[this] lazy val controllers_Assets_versioned38_route = Route("GET",
+  // @LINE:65
+  private[this] lazy val controllers_CommunityCtrl_updateUser39_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("updateUser/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CommunityCtrl_updateUser39_invoker = createInvoker(
+    CommunityCtrl_0.updateUser(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CommunityCtrl",
+      "updateUser",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """updateUser/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:66
+  private[this] lazy val controllers_CommunityCtrl_updateUserSubmit40_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("updateUserSubmit/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CommunityCtrl_updateUserSubmit40_invoker = createInvoker(
+    CommunityCtrl_0.updateUserSubmit(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CommunityCtrl",
+      "updateUserSubmit",
+      Seq(classOf[String]),
+      "POST",
+      this.prefix + """updateUserSubmit/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:67
+  private[this] lazy val controllers_CommunityCtrl_deleteUser41_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteUser/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CommunityCtrl_deleteUser41_invoker = createInvoker(
+    CommunityCtrl_0.deleteUser(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CommunityCtrl",
+      "deleteUser",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """deleteUser/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:71
+  private[this] lazy val controllers_Assets_versioned42_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned38_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned42_invoker = createInvoker(
     Assets_5.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -970,75 +1046,99 @@ class Routes(
       }
   
     // @LINE:49
-    case controllers_CommunityCtrl_forumPage27_route(params@_) =>
-      call(params.fromQuery[Long]("prod", Some(0)), params.fromQuery[String]("filter", Some(""))) { (prod, filter) =>
-        controllers_CommunityCtrl_forumPage27_invoker.call(CommunityCtrl_0.forumPage(prod, filter))
+    case controllers_CommunityCtrl_myAccount27_route(params@_) =>
+      call { 
+        controllers_CommunityCtrl_myAccount27_invoker.call(CommunityCtrl_0.myAccount())
       }
   
-    // @LINE:50
-    case controllers_CommunityCtrl_viewPost28_route(params@_) =>
-      call(params.fromPath[Long]("postId", None)) { (postId) =>
-        controllers_CommunityCtrl_viewPost28_invoker.call(CommunityCtrl_0.viewPost(postId))
+    // @LINE:51
+    case controllers_CommunityCtrl_forumPage28_route(params@_) =>
+      call(params.fromQuery[Long]("prod", Some(0)), params.fromQuery[String]("filter", Some(""))) { (prod, filter) =>
+        controllers_CommunityCtrl_forumPage28_invoker.call(CommunityCtrl_0.forumPage(prod, filter))
       }
   
     // @LINE:52
-    case controllers_CommunityCtrl_createPost29_route(params@_) =>
-      call { 
-        controllers_CommunityCtrl_createPost29_invoker.call(CommunityCtrl_0.createPost())
-      }
-  
-    // @LINE:53
-    case controllers_CommunityCtrl_createReply30_route(params@_) =>
+    case controllers_CommunityCtrl_viewPost29_route(params@_) =>
       call(params.fromPath[Long]("postId", None)) { (postId) =>
-        controllers_CommunityCtrl_createReply30_invoker.call(CommunityCtrl_0.createReply(postId))
+        controllers_CommunityCtrl_viewPost29_invoker.call(CommunityCtrl_0.viewPost(postId))
       }
   
     // @LINE:54
-    case controllers_CommunityCtrl_createPostSubmit31_route(params@_) =>
+    case controllers_CommunityCtrl_createPost30_route(params@_) =>
       call { 
-        controllers_CommunityCtrl_createPostSubmit31_invoker.call(CommunityCtrl_0.createPostSubmit())
+        controllers_CommunityCtrl_createPost30_invoker.call(CommunityCtrl_0.createPost())
       }
   
     // @LINE:55
-    case controllers_CommunityCtrl_createReplySubmit32_route(params@_) =>
+    case controllers_CommunityCtrl_createReply31_route(params@_) =>
       call(params.fromPath[Long]("postId", None)) { (postId) =>
-        controllers_CommunityCtrl_createReplySubmit32_invoker.call(CommunityCtrl_0.createReplySubmit(postId))
+        controllers_CommunityCtrl_createReply31_invoker.call(CommunityCtrl_0.createReply(postId))
       }
   
     // @LINE:56
-    case controllers_CommunityCtrl_deletePost33_route(params@_) =>
-      call(params.fromPath[Long]("postId", None)) { (postId) =>
-        controllers_CommunityCtrl_deletePost33_invoker.call(CommunityCtrl_0.deletePost(postId))
+    case controllers_CommunityCtrl_createPostSubmit32_route(params@_) =>
+      call { 
+        controllers_CommunityCtrl_createPostSubmit32_invoker.call(CommunityCtrl_0.createPostSubmit())
       }
   
     // @LINE:57
-    case controllers_CommunityCtrl_deleteReply34_route(params@_) =>
-      call(params.fromPath[Long]("replyId", None)) { (replyId) =>
-        controllers_CommunityCtrl_deleteReply34_invoker.call(CommunityCtrl_0.deleteReply(replyId))
+    case controllers_CommunityCtrl_createReplySubmit33_route(params@_) =>
+      call(params.fromPath[Long]("postId", None)) { (postId) =>
+        controllers_CommunityCtrl_createReplySubmit33_invoker.call(CommunityCtrl_0.createReplySubmit(postId))
+      }
+  
+    // @LINE:58
+    case controllers_CommunityCtrl_deletePost34_route(params@_) =>
+      call(params.fromPath[Long]("postId", None)) { (postId) =>
+        controllers_CommunityCtrl_deletePost34_invoker.call(CommunityCtrl_0.deletePost(postId))
       }
   
     // @LINE:59
-    case controllers_CommunityCtrl_createReview35_route(params@_) =>
-      call(params.fromPath[Long]("prodId", None)) { (prodId) =>
-        controllers_CommunityCtrl_createReview35_invoker.call(CommunityCtrl_0.createReview(prodId))
-      }
-  
-    // @LINE:60
-    case controllers_CommunityCtrl_createReviewSubmit36_route(params@_) =>
-      call(params.fromPath[Long]("prodId", None)) { (prodId) =>
-        controllers_CommunityCtrl_createReviewSubmit36_invoker.call(CommunityCtrl_0.createReviewSubmit(prodId))
+    case controllers_CommunityCtrl_deleteReply35_route(params@_) =>
+      call(params.fromPath[Long]("replyId", None)) { (replyId) =>
+        controllers_CommunityCtrl_deleteReply35_invoker.call(CommunityCtrl_0.deleteReply(replyId))
       }
   
     // @LINE:61
-    case controllers_CommunityCtrl_deleteReview37_route(params@_) =>
-      call(params.fromPath[Long]("reviewId", None)) { (reviewId) =>
-        controllers_CommunityCtrl_deleteReview37_invoker.call(CommunityCtrl_0.deleteReview(reviewId))
+    case controllers_CommunityCtrl_createReview36_route(params@_) =>
+      call(params.fromPath[Long]("prodId", None)) { (prodId) =>
+        controllers_CommunityCtrl_createReview36_invoker.call(CommunityCtrl_0.createReview(prodId))
       }
   
-    // @LINE:64
-    case controllers_Assets_versioned38_route(params@_) =>
+    // @LINE:62
+    case controllers_CommunityCtrl_createReviewSubmit37_route(params@_) =>
+      call(params.fromPath[Long]("prodId", None)) { (prodId) =>
+        controllers_CommunityCtrl_createReviewSubmit37_invoker.call(CommunityCtrl_0.createReviewSubmit(prodId))
+      }
+  
+    // @LINE:63
+    case controllers_CommunityCtrl_deleteReview38_route(params@_) =>
+      call(params.fromPath[Long]("reviewId", None)) { (reviewId) =>
+        controllers_CommunityCtrl_deleteReview38_invoker.call(CommunityCtrl_0.deleteReview(reviewId))
+      }
+  
+    // @LINE:65
+    case controllers_CommunityCtrl_updateUser39_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_CommunityCtrl_updateUser39_invoker.call(CommunityCtrl_0.updateUser(id))
+      }
+  
+    // @LINE:66
+    case controllers_CommunityCtrl_updateUserSubmit40_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_CommunityCtrl_updateUserSubmit40_invoker.call(CommunityCtrl_0.updateUserSubmit(id))
+      }
+  
+    // @LINE:67
+    case controllers_CommunityCtrl_deleteUser41_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_CommunityCtrl_deleteUser41_invoker.call(CommunityCtrl_0.deleteUser(id))
+      }
+  
+    // @LINE:71
+    case controllers_Assets_versioned42_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned38_invoker.call(Assets_5.versioned(path, file))
+        controllers_Assets_versioned42_invoker.call(Assets_5.versioned(path, file))
       }
   }
 }

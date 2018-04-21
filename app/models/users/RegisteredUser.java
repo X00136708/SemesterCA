@@ -37,11 +37,11 @@ public class RegisteredUser extends User{
     private List<ShopOrder> orders;
 	public RegisteredUser(String email, String name, String password){
         super(email,name,password);
-        this.street1="";
-        this.street2="";
-        this.town="";
-        this.postCode="";
-        this.creditCard="";
+        this.street1="N/A";
+        this.street2="N/A";
+        this.town="N/A";
+        this.postCode="N/A";
+        this.creditCard="N/A";
         this.amount=0f;
     }
 	public RegisteredUser(String email, String name, String password, String street1, String street2, String town, String postCode, String creditCard, Float amount)
@@ -54,6 +54,9 @@ public class RegisteredUser extends User{
         this.creditCard = creditCard;
         this.amount=amount;
 	}
+
+    public static Finder<String, RegisteredUser> find = new Finder<String, RegisteredUser>(RegisteredUser.class);
+
 
     public String getStreet1() {
         return street1;
