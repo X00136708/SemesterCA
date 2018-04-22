@@ -253,6 +253,11 @@ public class CommunityCtrl extends Controller {
         }
         return redirect(routes.ProductCtrl.listProducts(0, ""));
     }
+   
+    public Result donate(){
+        flash("success", "Thanks for donating! Your help is much appreciated");
+        return redirect(routes.ProductCtrl.listProducts(0, ""));
+    }
 
     
     @Transactional

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/brand/Desktop/new/SemesterCA/conf/routes
-// @DATE:Sat Apr 21 16:05:18 BST 2018
+// @SOURCE:C:/Users/doran/Documents/2ndYearProject/semesterca/conf/routes
+// @DATE:Sun Apr 22 11:50:01 BST 2018
 
 import play.api.mvc.Call
 
@@ -9,29 +9,29 @@ import play.api.mvc.Call
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:20
+// @LINE:21
 package controllers.security {
 
-  // @LINE:20
+  // @LINE:21
   class ReverseLoginCtrl(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:21
+    // @LINE:22
     def loginSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "login")
     }
   
-    // @LINE:22
+    // @LINE:23
     def logout(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "logout")
     }
   
-    // @LINE:20
+    // @LINE:21
     def login(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "login")

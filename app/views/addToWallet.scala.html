@@ -10,6 +10,7 @@
 @(amount: Float, registeredUser: models.users.RegisteredUser, wallet: models.shopping.Wallet, user: models.users.User, walletForm: Form[Wallet])
 @import helper._
 
+
 <!-- Pass page title and user on to main -->
 @main("Wallet", registeredUser) {
 
@@ -31,41 +32,36 @@
     @* CSRF attack prevention *@
     @CSRF.formField
         <div class="form-group">
-            @inputText(walletForm("amount"), '_label -> "Add amount", 
-            'class -> "form-control input-xs", 'placeholder -> "Amount to add...")
-            @wallet.addWallet(amount)
+            @inputText(walletForm("amount"), '_label -> "Donate", 
+            'class -> "form-control input-xs", 'placeholder -> "Amount to donate...")
+            @wallet.setWallet(amount)
+        }
         </div>
-          <div class="col-md-12">
-          <table class="table table-bordered table-hover table-condensed">
-                <thead>
-                    @if(registeredUser.getWallet != null) {
-                      
-                <tr><div class="col-md-6"></div>
-                    <th>Wallet amount</th>
-                   
-                </tr>
-                </thead>
-                <tbody>
-                 
-                        
-                        <tr>
-                            
-                            <td>@wallet.getWallet()</td>
-                            <form class="form-control wallet" hidden></form>
-                   
-                        </tr>
-                    
-                        
-                </tbody>
-            </table>
-        </div>
+            
+                @helper.form(action = helper.CSRF(routes.CommunityCtrl.donate())) {
+                <form action="@routes.CommunityCtrl.donate()" method="POST">
 
-        <div class="col-md-6">
-            <p class="text-right">
+                           
+                    <script
+                      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="pk_test_LABia2wLCoS6B9wndhZqcLA4"
+                      data-amount="@wallet.getWallet()"
+                      data-name="Nu-Wave Games"
+                      data-description="Enter your payment details below"
+                      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                      data-locale="auto"
+                      data-label="Donate"
+                      data-currency="eur">
+                      <a href="@routes.CommunityCtrl.donate()" class="btn btn-success btn-sm"></a>
+                    </script>
                     
-                <a href="@routes.ShoppingCtrl.addToWallet(0)" label class="btn-md btn-default btn">
                     
-                <span class="glyphicon glyphicon-euro"></span><label for ="amount"> Add to wallet</a></label>
-            </p>
-        </div>
-    }}}
+                  </form>       
+                
+                    
+                
+                }
+            </div>
+            </div>
+            </div>
+    }

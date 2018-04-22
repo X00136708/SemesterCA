@@ -9,6 +9,7 @@ import play.data.validation.*;
 
 import models.products.*;
 import models.users.*;
+import play.Logger;
 
 @Entity
 public class Wallet extends Model{
@@ -29,7 +30,9 @@ public class Wallet extends Model{
         this.amount=amount;
     }
     public void setWallet(Float amount){
-        this.amount=amount;
+
+        this.amount=(amount*100);
+        Logger.debug("Wallet: "+amount);
     }
     public Float getWallet(){
         return this.amount;
