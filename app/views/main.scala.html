@@ -48,11 +48,7 @@
                     <a href="@routes.ShoppingCtrl.addToWallet(0)"><div id="navItem">Wallet</div></a>
                 </li>
                 
-                <li @if(title=="Shopping Basket") {
-                    class="active"
-                }>
-                    <a href="@routes.ShoppingCtrl.showBasket()"><div id="navItem">Basket</div></a>
-                </li>
+               
                 
                 <li @if(title=="View Orders") {
                     class="active"
@@ -63,14 +59,19 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                         @if(user.isInstanceOf[models.users.RegisteredUser]){
+                            <li @if(title=="Shopping Basket") {
+                                class="active"
+                            }>
+                                <a href="@routes.ShoppingCtrl.showBasket()"><span class="glyphicon glyphicon-shopping-cart"</span></a>
+                            </li>
                     <li>
-                            <a href="@controllers.routes.CommunityCtrl.myAccount()"><div id="navItem">My Account</div></a>
+                            <a href="@controllers.routes.CommunityCtrl.myAccount()"><span class="glyphicon glyphicon-user"></span></a>
                     </li>
                 }
 
                 @if(user.isInstanceOf[models.users.Administrator]){
                     <li>
-                            <a href="@controllers.routes.CommunityCtrl.usersPage()"><div id="navItem">Manage Users</div></a>
+                            <a href="@controllers.routes.CommunityCtrl.usersPage()"><span class="glyphicon glyphicon-user"></span></a>
                     </li>
                 }
                     
