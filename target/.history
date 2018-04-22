@@ -1,8 +1,3 @@
-clean
-compile
-clean
-compile
-clean
 compile
 clean
 compile
@@ -497,4 +492,9 @@ run
 exit
 cean
 run
+exit
+clean
+run
+git add -A
+git commit -"more logs"
 exit

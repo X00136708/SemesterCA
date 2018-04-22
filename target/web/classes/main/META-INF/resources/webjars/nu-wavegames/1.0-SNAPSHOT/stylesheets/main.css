@@ -291,3 +291,8 @@ thead {
     .glyphicon{
         color:white;
     }
+    .vote{
+        background-color:grey;
+        width:20%;
+    }
+  

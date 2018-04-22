@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import models.users.*;
 import models.products.*;
 import models.community.*;
+import models.shopping.*;
 import views.html.*;
 import java.util.*;
 
@@ -247,6 +248,8 @@ public class CommunityCtrl extends Controller {
             item.setVotes(item.getVotes()+1);
             item.save();
             poll.save();
+            Log l = new Log();
+            l.addVote(item.getItem());
             flash("success", "Thanks for voting for " + item.getItem());
         } else {
             flash("success", "Thanks for contributing, but you already voted.");

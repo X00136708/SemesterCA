@@ -11,6 +11,7 @@ import models.users.*;
 import java.io.*;
 import java.sql.Timestamp;
 import play.Logger;
+import models.community.*;
 
 public class Log {
     ArrayList<ShopOrder> shop = new ArrayList<>();
@@ -24,6 +25,10 @@ public class Log {
     private double total;
     private boolean isCancellable;
     private RegisteredUser registeredUser;
+
+    private int psp=0;
+    private int ps4=0;
+    private int ps3=0;
     public Log(){
 
     }
@@ -41,6 +46,19 @@ public class Log {
         
         
     }
+    public void addVote(String item){
+        if(item.equals("PSP")){
+            psp++;
+            
+        }
+        else if(item.equals("PS4")){
+            ps4++;
+        }
+        else if(item.equals("PS3")){
+            ps3++;
+        }
+        writeToFileVote();
+    }
     public void writeToFile(){
         
         File order1 = new File("public","files");
@@ -56,6 +74,18 @@ public class Log {
             }
             
         } catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+    public void writeToFileVote(){
+        File vote1 = new File("public","files");
+        File vote = new File(vote1, "votes.txt");
+        try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(vote)))){
+            out.println("Votes for ps4: "+ps4);
+            out.println("votes for ps3: "+ps3);
+            out.println("Votes for psp: "+psp);
+        }
+        catch(IOException ex){
             System.out.println(ex.getMessage());
         }
     }
