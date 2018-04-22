@@ -10,19 +10,8 @@
   <h1>Games</h1>
   <br>
   <div class="row">
-    <div class="list-group">
-      <form action="@routes.CommunityCtrl.vote" method="POST">
-          @helper.CSRF.formField
-          @for(item <- poll.getItems) {
-             <h3>@item.getItem</h3>
-             <label for="@item.getId">@item.getItem</label>
-            <input name="item" id="@item.getId" type="radio" value="@item.getId">@item.getVotes
-          
-          }
-          <input type="submit" value="Vote">
-          <input type="text" name="pollId" value="@poll.getId" style="display: none;">
-       </form>
-      </div>
+    
+      
       <div class="list-categories">
           @if(user != null){
             @if(user.isInstanceOf[models.users.Administrator]){
@@ -123,7 +112,25 @@
               </div>
             </div>
           </div>
-  
+          <div class="col-sm-2"></div>
+          <div id="vote" class="col-sm-2 list-group">
+              <form action="@routes.CommunityCtrl.vote" method="POST">
+                  <div id="voteHead">
+                      <li class="list-group-item">Vote on your favourite console!</li>
+                    </div>
+                  @helper.CSRF.formField
+                  @for(item <- poll.getItems) {
+                    
+                     <div class="list-group-item" for="@item.getId">@item.getItem&nbsp;
+                    <input name="item" id="@item.getId" type="radio" value="@item.getId">&nbsp;
+                    <span class="badge badge-pill badge-primary">@item.getVotes</span></div>
+                  
+                  }
+                  <div id="voteButton">
+                  <input type="submit" value="Vote">
+                  <input type="text" name="pollId" value="@poll.getId" style="display: none;"></div>
+               </form>
+              </div>
      
    
   </div>

@@ -291,8 +291,22 @@ thead {
     .glyphicon{
         color:white;
     }
-    .vote{
-        background-color:grey;
-        width:20%;
+    
+    #voteHead li{
+        background-color: #7289DA;
+        color: white;
+    }
+
+    #vote .list-group-item{
+        color: white;
+    }
+
+    #voteButton{
+        text-align: center;
+        color: white;
+    }
+
+    #voteButton input {
+        background-color: #99AAB5;
     }
   
